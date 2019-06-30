@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap; /* added line */
+  border: 0;
+}
+
+.ratio-16-9 {
+  position: relative;
+  overflow: hidden;
+  display: block;
+  padding-top: 56.25%;
+  background-color: transparent;
+}
+
+.ratio-16-9 img {
+  position: absolute;
+  border: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: block;
+  margin: auto;
+}
+
+.tile {
+  transition: 400ms transform linear;
+}
+
+.row:hover .tile {
+  transform: translateX(-25%);
+}
+
+.row {
+  padding: 0 3%;
+}
+
+.tile:hover ~ .tile {
+  transform: translateX(25%);
+}
+
+.row .tile:hover {
+  transform: scale(1.5);
+}

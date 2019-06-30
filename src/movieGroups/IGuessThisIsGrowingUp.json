@@ -1,0 +1,104 @@
+{
+  "group": [
+    {
+      "title": "Running on Empty",
+      "duration": "116 minutes",
+      "year": 1988,
+      "director": "Sidney Lumet",
+      "actors": [
+        "River Phoenix, Christine Lahti, Judd Hirsch"
+      ],
+      "img": "../images/squidAndTheWhale.jpg"
+    },
+    {
+      "title": "Ordinary People",
+      "duration": "124 minutes",
+      "year": 1980,
+      "director": "Robert Redford",
+      "actors": [
+        " Donald Sutherland, Mary Tyler Moore, Judd Hirsch"
+      ],
+      "img": "../images/squidAndTheWhale.jpg"
+    },
+    {
+      "title": "Breaking Away",
+      "duration": "101 minutes",
+      "year": 1979,
+      "director": "Peter Yates",
+      "actors": [
+        " Dennis Christopher, Dennis Quaid, Daniel Stern"
+      ],
+      "img": "../images/squidAndTheWhale.jpg"
+    },
+    {
+      "title": "Saturday Night Fever",
+      "duration": "118 minutes",
+      "year": 1977,
+      "director": "John Badham",
+      "actors": [
+        "John Travolta, Karen Lynn Gorney, Barry Miller"
+      ],
+      "img": "../images/squidAndTheWhale.jpg"
+    },
+    {
+      "title": "Risky Business",
+      "duration": "99 minutes",
+      "year": 1983,
+      "director": "Paul Brickman",
+      "actors": [
+        "Tom Cruise, Rebecca De Mornay, Joe Pantoliano"
+      ],
+      "img": "../images/squidAndTheWhale.jpg"
+    },
+    {
+      "title": "Clueless",
+      "duration": "97 minutes",
+      "year": 1995,
+      "director": "Amy Heckerling",
+      "actors": [
+        "Alicia Silverstone, Stacey Dash, Brittany Murphy"
+      ],
+      "img": "../images/squidAndTheWhale.jpg"
+    },
+    {
+      "title": "Murmur of the Heart",
+      "duration": "118 minutes",
+      "year": 1971,
+      "director": "Louis Malle",
+      "actors": [
+        "Lea Massari, Benoît Ferreux, Daniel Gélin"
+      ],
+      "img": "../images/squidAndTheWhale.jpg"
+    },
+    {
+      "title": "Carrie",
+      "duration": "98 minutes",
+      "year": 1976,
+      "director": "Brian De Palma",
+      "actors": [
+        "Sissy Spacek, Piper Laurie, Amy Irving"
+      ],
+      "img": "../images/squidAndTheWhale.jpg"
+    },
+    {
+      "title": "Dazed and Confused",
+      "duration": "102 minutes",
+      "year": 1993,
+      "director": "Richard Linklater",
+      "actors": [
+        "Jason London, Wiley Wiggins, Matthew McConaughey"
+      ],
+      "img": "../images/squidAndTheWhale.jpg"
+    },
+    {
+      "title": "The Squid and the Whale",
+      "duration": "81 minutes",
+      "year": 2005,
+      "director": "Noah Baumbach",
+      "actors": [
+        "Owen Kline, Jeff Daniels, Laura Linney"
+      ],
+      "img": "../images/squidAndTheWhale.jpg"
+    },
+  ]
+}
