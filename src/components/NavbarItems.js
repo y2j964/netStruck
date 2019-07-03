@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import links from './navbarData';
-import SVG from '../SearchIcon';
+import SVG from '../icons/SearchIcon';
 
 export default function NavbarItems() {
   const linksData = links.map((link, index) => {

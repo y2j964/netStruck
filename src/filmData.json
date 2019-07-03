@@ -1,5 +1,5 @@
 {
-  "group": [
+  "IGuessThisIsGrowingUp": [
     {
       "title": "Running on Empty",
       "duration": "116 minutes",
@@ -8,7 +8,7 @@
       "actors": [
         "River Phoenix, Christine Lahti, Judd Hirsch"
       ],
-      "img": "../images/squidAndTheWhale.jpg"
+      "img": "images/runningOnEmpty.jpg"
     },
     {
       "title": "Ordinary People",
@@ -18,7 +18,7 @@
       "actors": [
         " Donald Sutherland, Mary Tyler Moore, Judd Hirsch"
       ],
-      "img": "../images/squidAndTheWhale.jpg"
+      "img": "images/ordinaryPeople.jpg"
     },
     {
       "title": "Breaking Away",
@@ -28,7 +28,7 @@
       "actors": [
         " Dennis Christopher, Dennis Quaid, Daniel Stern"
       ],
-      "img": "../images/squidAndTheWhale.jpg"
+      "img": "images/breakingAway.jpg"
     },
     {
       "title": "Saturday Night Fever",
@@ -38,7 +38,7 @@
       "actors": [
         "John Travolta, Karen Lynn Gorney, Barry Miller"
       ],
-      "img": "../images/squidAndTheWhale.jpg"
+      "img": "images/saturdayNightFever.jpg"
     },
     {
       "title": "Risky Business",
@@ -48,7 +48,7 @@
       "actors": [
         "Tom Cruise, Rebecca De Mornay, Joe Pantoliano"
       ],
-      "img": "../images/squidAndTheWhale.jpg"
+      "img": "images/riskyBusiness.jpg"
     },
     {
       "title": "Clueless",
@@ -58,7 +58,7 @@
       "actors": [
         "Alicia Silverstone, Stacey Dash, Brittany Murphy"
       ],
-      "img": "../images/squidAndTheWhale.jpg"
+      "img": "clueless.jpg"
     },
     {
       "title": "Murmur of the Heart",
@@ -68,7 +68,7 @@
       "actors": [
         "Lea Massari, Benoît Ferreux, Daniel Gélin"
       ],
-      "img": "../images/squidAndTheWhale.jpg"
+      "img": "images/murmurOfTheHeart.jpg"
     },
     {
       "title": "Carrie",
@@ -78,7 +78,7 @@
       "actors": [
         "Sissy Spacek, Piper Laurie, Amy Irving"
       ],
-      "img": "../images/squidAndTheWhale.jpg"
+      "img": "images/carrie.jpg"
     },
     {
       "title": "Dazed and Confused",
@@ -88,7 +88,7 @@
       "actors": [
         "Jason London, Wiley Wiggins, Matthew McConaughey"
       ],
-      "img": "../images/squidAndTheWhale.jpg"
+      "img": "images/dazedAndConfused.jpg"
     },
     {
       "title": "The Squid and the Whale",
@@ -98,7 +98,7 @@
       "actors": [
         "Owen Kline, Jeff Daniels, Laura Linney"
       ],
-      "img": "../images/squidAndTheWhale.jpg"
-    },
+      "img": "images/squidAndTheWhale.jpg"
+    }
   ]
 }

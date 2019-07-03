@@ -1,18 +1,26 @@
-import eightHalf from '../images/8half.jpg';
-import chungkingExpress from '../images/chungkingExpress.jpg';
-import julesEtJim from '../images/julesEtJim.jpg';
-import lastYearAtMarienbad from '../images/lastYearAtMarienbad.jpg';
-import masculinFeminin from '../images/masculinFeminin.jpg';
-import persona from '../images/persona.jpg';
-import ran from '../images/ran.jpg';
-import taxiDriver from '../images/taxiDriver.jpg';
-import thereWillBeBlood from '../images/thereWillBeBlood.jpg';
-import vertigo from '../images/vertigo.jpg';
-import womanInTheDunes from '../images/womanInTheDunes.jpg';
+import eightHalf from '../../images/8half.jpg';
+import chungkingExpress from '../../images/chungkingExpress.jpg';
+import julesEtJim from '../../images/julesEtJim.jpg';
+import masculinFeminin from '../../images/masculinFeminin.jpg';
+import persona from '../../images/persona.jpg';
+import ran from '../../images/ran.jpg';
+import taxiDriver from '../../images/taxiDriver.jpg';
+import thereWillBeBlood from '../../images/thereWillBeBlood.jpg';
+// import marienbad from '../../marienbad.jpg';
+import vertigo from '../../images/vertigo.jpg';
+import womanInTheDunes from '../../images/womanInTheDunes.jpg';
 
 const tileData = [
   {
     title: '8½',
+    duration: '138 minutes',
+    year: 1963,
+    director: 'Federico Fellini',
+    actors: ['Marcello Mastroianni', 'Anouk Aimée', 'Claudia Cardinale'],
+    img: eightHalf,
+  },
+  {
+    title: 'La Dolce Vita',
     duration: '138 minutes',
     year: 1963,
     director: 'Federico Fellini',
@@ -81,7 +89,7 @@ const tileData = [
     year: 1961,
     director: 'Alain Resnais',
     actors: ['Delphine Seyrig, Giorgio Albertazzi, Sacha Pitoëff '],
-    img: lastYearAtMarienbad,
+    img: ran,
   },
   {
     title: 'Ran',

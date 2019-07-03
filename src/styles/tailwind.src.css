@@ -1,17 +1,20 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
 
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap; /* added line */
-  border: 0;
+@custom-media --sm (min-width: 640px);
+@custom-media --md (min-width: 768px);
+@custom-media --lg (min-width: 1024px);
+@custom-media --xl (min-width: 1280px);
+
+.hero {
+  padding-top: 265px;
+}
+
+.hero {
+  @media (--sm) {
+    padding-top: 570px;
+  }
 }
 
 .ratio-16-9 {
@@ -20,17 +23,17 @@
   display: block;
   padding-top: 56.25%;
   background-color: transparent;
-}
 
-.ratio-16-9 img {
-  position: absolute;
-  border: 0;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  display: block;
-  margin: auto;
+  img {
+    position: absolute;
+    border: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: block;
+    margin: auto;
+  }
 }
 
 .tile {
@@ -51,4 +54,24 @@
 
 .row .tile:hover {
   transform: scale(1.5);
+}
+
+.h-sm {
+  height: 55px;
+}
+
+.carousel-primary__switch {
+  @apply flex-1 flex flex-col justify-center items-center pt-4 opacity-50;
+
+  transition: opacity 300ms ease-out;
+
+  &:hover {
+    @apply opacity-100;
+
+    cursor: pointer;
+  }
+
+  &--is-active {
+    @apply opacity-100;
+  }
 }
