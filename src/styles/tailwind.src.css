@@ -1,6 +1,12 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
+@import 'components/tab-switch.css';
+@import 'components/slider.css';
+@import 'components/slide.css';
+@import 'components/carousel.css';
+@import 'components/tile-row.css';
+@import 'components/tile.css';
 
 @custom-media --sm (min-width: 640px);
 @custom-media --md (min-width: 768px);
@@ -9,9 +15,7 @@
 
 .hero {
   padding-top: 265px;
-}
 
-.hero {
   @media (--sm) {
     padding-top: 570px;
   }
@@ -36,42 +40,65 @@
   }
 }
 
-.tile {
-  transition: 400ms transform linear;
+.ratio-2-1 {
+  position: relative;
+  overflow: hidden;
+  display: block;
+  padding-top: 50%;
+  background-color: transparent;
+
+  img {
+    position: absolute;
+    border: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: block;
+    margin: auto;
+  }
 }
 
-.row:hover .tile {
-  transform: translateX(-25%);
+.absolutely-centered {
+  @apply absolute top-0 bottom-0 left-0 right-0 flex justify-center items-center;
 }
 
-.row {
-  padding: 0 3%;
-}
-
-.tile:hover ~ .tile {
-  transform: translateX(25%);
-}
-
-.row .tile:hover {
-  transform: scale(1.5);
+.absolutely-covered {
+  @apply absolute top-0 bottom-0 left-0 right-0 w-full h-full object-cover;
 }
 
 .h-sm {
   height: 55px;
 }
 
-.carousel-primary__switch {
-  @apply flex-1 flex flex-col justify-center items-center pt-4 opacity-50;
+.link-btn {
+  @apply inline-block px-6 py-3 mb-1 bg-gray-100 text-xs;
+}
 
-  transition: opacity 300ms ease-out;
+.bottom-10 {
+  bottom: 10%;
+}
 
-  &:hover {
-    @apply opacity-100;
+.w-56 {
+  width: 56.25%;
+}
 
-    cursor: pointer;
+.w-37 {
+  width: 37.5%;
+}
+
+.sm-w-56 {
+  @media (--sm) {
+    width: 56.25%;
   }
+}
 
-  &--is-active {
-    @apply opacity-100;
+.sm-w-37 {
+  @media (--sm) {
+    width: 37.5%;
   }
+}
+
+.pb-40 {
+  padding-bottom: 40%;
 }

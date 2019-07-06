@@ -3,7 +3,7 @@ import './tailwind.css';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-import Home from './components/Home';
+import Home from './components/Home/Home';
 import NowPlaying from './components/NowPlaying/NowPlaying';
 import AllFilms from './components/AllFilms';
 import MyList from './components/MyList';

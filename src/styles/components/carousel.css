@@ -1,0 +1,21 @@
+.carousel {
+  /* background-color: black; */
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%;
+
+  &:hover .chevron-arrow,
+  &:hover .carousel__radio {
+    transition: opacity 300ms ease;
+    opacity: 0.5;
+  }
+
+  &:hover .chevron-arrow:hover {
+    opacity: 1;
+  }
+
+  @media (--sm) {
+    min-height: 368px;
+    padding-top: 37.5%;
+  }
+}

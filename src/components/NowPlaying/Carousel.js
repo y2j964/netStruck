@@ -7,7 +7,7 @@ import masculinFeminin from '../../images/masculinFeminin.jpg';
 
 export default function Carousel() {
   return (
-    <div className='carousel-secondary mb-4'>
+    <div className='carousel mb-4'>
       <div className='absolute top-0 bottom-0 left-0 right-0 '>
         <div className='absolute pl-6 left-0 bottom-10 z-10'>
           <h2 className='text-white text-3xl font-semibold'>Noir</h2>
@@ -15,7 +15,7 @@ export default function Carousel() {
             a description for noir films
           </p>
           <button className='px-4 py-2 bg-gray-100'>
-            <PlayIcon />
+            <PlayIcon svgClassName='inline mr-2' />
             Watch Now
           </button>
         </div>
@@ -26,19 +26,19 @@ export default function Carousel() {
       <div className='absolute left-0 bottom-0 w-full h-10 z-20'>
         <ul className='flex justify-center'>
           <li className='mr-1'>
-            <button className='carousel-secondary__radio bg-gray-100 h-2 w-2 rounded shadow opacity-0'></button>
+            <button className='carousel__radio bg-gray-100 h-2 w-2 rounded shadow opacity-0'></button>
           </li>
           <li className='mr-1'>
-            <button className='carousel-secondary__radio bg-gray-100 h-2 w-2 rounded shadow opacity-0'></button>
+            <button className='carousel__radio bg-gray-100 h-2 w-2 rounded shadow opacity-0'></button>
           </li>
           <li className='mr-1'>
-            <button className='carousel-secondary__radio bg-gray-100 h-2 w-2 rounded shadow opacity-0'></button>
+            <button className='carousel__radio bg-gray-100 h-2 w-2 rounded shadow opacity-0'></button>
           </li>
           <li className='mr-1'>
-            <button className='carousel-secondary__radio bg-gray-100 h-2 w-2 rounded shadow opacity-0'></button>
+            <button className='carousel__radio bg-gray-100 h-2 w-2 rounded shadow opacity-0'></button>
           </li>
           <li className='mr-1'>
-            <button className='carousel-secondary__radio bg-gray-100 h-2 w-2 rounded shadow opacity-0'></button>
+            <button className='carousel__radio bg-gray-100 h-2 w-2 rounded shadow opacity-0'></button>
           </li>
         </ul>
       </div>

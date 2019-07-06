@@ -9,7 +9,7 @@ export default function playIcon(props) {
       width={playWidth}
       height={playHeight}
       viewBox='0 0 32 32'
-      className='mr-2 inline'
+      className={props.svgClassName}
       aria-labelledby='title'
     >
       <title>play3</title>

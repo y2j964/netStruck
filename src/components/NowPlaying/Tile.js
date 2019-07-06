@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 export default function Tile(props) {
   return (
-    <li className='w-1/5 flex-none mr-1 tile'>
+    <li className='tile'>
       {/* <p>{props.filmData.title}</p> */}
       <div className='ratio-16-9'>
         <img src={props.filmData.img} alt='' />
@@ -17,6 +17,7 @@ export default function Tile(props) {
           </div>
         </div>
       </div>
+      <h3 className='tile__title'>{props.filmData.title}</h3>
     </li>
   );
 }
