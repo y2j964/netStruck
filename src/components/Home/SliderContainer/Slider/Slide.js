@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { memo } from 'react';
 import PropTypes from 'prop-types';
 
-export default function Slide(props) {
+function Slide(props) {
   return (
     <div className='slide'>
+      <h2 className='sr-only'>{props.slide.heading}</h2>
       <img
         src={props.slide.img}
         alt={props.slide.imgAlt}
@@ -24,3 +25,5 @@ export default function Slide(props) {
 Slide.propTypes = {
   slide: PropTypes.object.isRequired,
 };
+
+export default memo(Slide);

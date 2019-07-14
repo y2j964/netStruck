@@ -7509,12 +7509,10 @@ video {
 }
 
 .tab-switch {
-  flex: 1 1 0%;
+  flex-grow: 1;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding-top: 1rem;
   opacity: 0.5;
   transition: opacity 300ms ease-out;
 }
@@ -7534,16 +7532,34 @@ video {
     box-shadow: inset 0 -5px 0 #fff;
   }
 
+.tab-switch__btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding-top: 1rem;
+  }
+
 .tab-switch__text {
     font-size: 0.875rem;
     text-align: center;
     color: #fff;
+    margin-top: 0.75rem;
     margin-bottom: 1rem;
   }
 
+@media (min-width: 640px) {
+
+.tab-switch__text {
+      font-size: 1.125rem
+  }
+    }
+
 .l-slider {
   position: relative;
-  /* overflow: hidden; */
+  overflow: hidden;
   padding-top: 117%;
 }
 
@@ -7560,7 +7576,7 @@ video {
   bottom: 0;
   left: 0;
   right: 0;
-  transition: all 0.2s ease-out;
+  transition: all 300ms ease-out;
   width: 300%;
 }
 
@@ -7746,6 +7762,18 @@ video {
     display: block;
     margin: auto;
   }
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap; /* added line */
+  border: 0;
+}
 
 .absolutely-centered {
   position: absolute;

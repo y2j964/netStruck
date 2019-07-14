@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { memo } from 'react';
 import PropTypes from 'prop-types';
 
-export default function SlideCentered(props) {
+function SlideCentered(props) {
   return (
     <div className='slide slide--centered'>
+      <h2 className='sr-only'>{props.slide.heading}</h2>
       <div className='relative w-full sm-w-56'>
         <div className='ratio-2-1'>
           <img
@@ -26,3 +27,5 @@ export default function SlideCentered(props) {
 SlideCentered.propTypes = {
   slide: PropTypes.object.isRequired,
 };
+
+export default memo(SlideCentered);

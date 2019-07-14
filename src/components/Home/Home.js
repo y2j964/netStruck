@@ -1,14 +1,12 @@
 import React from 'react';
 import Hero from './Hero';
-import TabSwitches from './TabSwitches/TabSwitches';
-import Slider from './Slider/Slider';
+import SliderContainer from './SliderContainer/SliderContainer';
 
 export default function Home() {
   return (
-    <div>
+    <React.Fragment>
       <Hero />
-      <TabSwitches />
-      <Slider />
-    </div>
+      <SliderContainer />
+    </React.Fragment>
   );
 }

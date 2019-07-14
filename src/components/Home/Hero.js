@@ -13,7 +13,7 @@ export default class Hero extends Component {
         <div className='absolute top-0 bottom-0 left-0 right-0 flex justify-center items-center'>
           <div className='max-w-md text-center'>
             <h2 className='text-white text-3xl font-bold'>
-              A Movie Lover's Dream
+              A Film Lover's Fantasy
             </h2>
             <p className='text-white mb-5 leading-tight'>
               Classics and discoveries from around the world, thematically
