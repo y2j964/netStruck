@@ -2,17 +2,23 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import TabSwitch from './TabSwitch';
 
-export default function TabSwitches(props) {
-  const tabSwitchFrags = props.tabSwitches.map(entry => (
-    <TabSwitch key={entry.id} tabSwitch={entry} handleClick={props.activateTab}>
+export default function TabSwitches({ tabSwitches, activateTab }) {
+  const tabSwitchFrags = tabSwitches.map(entry => (
+    <TabSwitch
+      key={entry.id}
+      id={entry.id}
+      isActive={entry.isActive}
+      text={entry.text}
+      handleClick={activateTab}
+    >
       {entry.icon}
     </TabSwitch>
   ));
   return (
     <div className='pt-4 border-b border-gray-700'>
-      <ul className='flex justify-center' aria-hidden='true'>
+      <ol className='flex justify-center' aria-hidden='true'>
         {tabSwitchFrags}
-      </ul>
+      </ol>
     </div>
   );
 }

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Row from './Row';
-import Carousel from './Carousel';
+import Carousel from './Carousel/Carousel';
 // import filmDataJson from '../../filmData.json';
 import filmData from '../../filmData';
 
@@ -28,7 +28,7 @@ export default class NowPlaying extends Component {
   render() {
     console.log(this.state.IGuessThisIsGrowingUp);
     return (
-      <div className='mb-8'>
+      <div className='mb-8 overflow-hidden'>
         <Carousel />
         <Row heading='JCM Favorites' />
         <Row

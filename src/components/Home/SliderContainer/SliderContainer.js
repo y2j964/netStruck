@@ -47,14 +47,11 @@ export default class SliderContainer extends Component {
     };
   }
 
-  activateTab = tabSwitch => {
-    if (tabSwitch.isActive) {
-      return;
-    }
+  activateTab = targetId => {
     this.setState(prevState => {
       const updatedTabSwitchesData = prevState.tabSwitchesData.map(entry => {
         // reset irrelevant tabSwitches
-        if (entry.id !== tabSwitch.id) {
+        if (entry.id !== targetId) {
           entry.isActive = false;
           return entry;
         }

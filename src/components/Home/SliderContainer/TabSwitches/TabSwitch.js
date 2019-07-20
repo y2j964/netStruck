@@ -1,27 +1,27 @@
-import React from 'react';
+import React, { memo } from 'react';
 import PropTypes from 'prop-types';
 
-export default function TabSwitch(props) {
+const TabSwitch = ({ id, isActive, text, handleClick, children }) => {
   return (
-    <li
-      className={`tab-switch ${
-        props.tabSwitch.isActive ? 'tab-switch--is-active' : ''
-      }`}
-    >
+    <li className={`tab-switch ${isActive ? 'tab-switch--is-active' : ''}`}>
       <button
-        onClick={props.handleClick.bind(this, props.tabSwitch)}
+        onClick={handleClick.bind(this, id)}
         className={'tab-switch__btn'}
         tabIndex='-1'
       >
-        {props.children}
-        <span className='tab-switch__text'>{props.tabSwitch.text}</span>
+        {children}
+        <span className='tab-switch__text'>{text}</span>
       </button>
     </li>
   );
-}
+};
 
 TabSwitch.propTypes = {
+  id: PropTypes.string.isRequired,
+  isActive: PropTypes.bool.isRequired,
+  text: PropTypes.string.isRequired,
   handleClick: PropTypes.func.isRequired,
-  tabSwitch: PropTypes.object.isRequired,
   children: PropTypes.element.isRequired,
 };
+
+export default memo(TabSwitch);

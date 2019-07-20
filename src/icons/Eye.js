@@ -2,8 +2,7 @@ import React from 'react';
 
 export default function Eyes() {
   return (
-    <svg width='48' height='55' viewBox='0 0 32 32' aria-labelledby='title'>
-      <title>eye</title>
+    <svg width='48' height='55' viewBox='0 0 32 32' aria-hidden='true'>
       <path
         stroke='#fff'
         fill='#1a202c'

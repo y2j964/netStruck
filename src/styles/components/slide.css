@@ -25,5 +25,7 @@
 
   &__text {
     @apply text-white text-sm mb-5 leading-tight;
+
+    text-shadow: 0 1px 10px #000;
   }
 }

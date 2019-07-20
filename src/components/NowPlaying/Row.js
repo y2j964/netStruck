@@ -14,9 +14,11 @@ export default function Row(props) {
 
   return (
     <div className='tile-row'>
-    <div className="flex justify-between">
-      <h2 className='tile-row__heading text-white mb-2'>{props.heading}</h2>
-      <a href="" className='text-white'>See More</a>
+      <div className='flex justify-between'>
+        <h2 className='tile-row__heading text-white mb-2'>{props.heading}</h2>
+        <a href='' className='text-white'>
+          See More
+        </a>
       </div>
       <ul className='tile-row__list flex mb-3'>{categoryGroup}</ul>
     </div>

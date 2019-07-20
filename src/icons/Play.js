@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 export default function playIcon(props) {
   const playWidth = props.playWidth || '10';
@@ -10,10 +11,16 @@ export default function playIcon(props) {
       height={playHeight}
       viewBox='0 0 32 32'
       className={props.svgClassName}
-      aria-labelledby='title'
+      aria-hidden='true'
     >
-      <title>play3</title>
       <path fill={playFill} d='M6 4l20 12-20 12z'></path>
     </svg>
   );
 }
+
+playIcon.propTypes = {
+  playWidth: PropTypes.string.isRequired,
+  playFill: PropTypes.string.isRequired,
+  playHeight: PropTypes.string.isRequired,
+  svgClassName: PropTypes.string.isRequired,
+};

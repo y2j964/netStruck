@@ -1,0 +1,47 @@
+@keyframes enterFromLeft {
+  0% {
+    transform: translateX(-60px);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes enterFromRight {
+  0% {
+    transform: translateX(60px);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes exitToLeft {
+  100% {
+    transform: translateX(-60px);
+  }
+}
+
+@keyframes exitToRight {
+  100% {
+    transform: translateX(60px);
+  }
+}
+
+.exit-to-left {
+  animation: exitToLeft 800ms ease;
+}
+
+.exit-to-right {
+  animation: exitToRight 800ms ease;
+}
+
+.enter-from-left {
+  animation: enterFromLeft 800ms ease;
+}
+
+.enter-from-right {
+  animation: enterFromRight 800ms ease;
+}

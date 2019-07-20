@@ -1,0 +1,45 @@
+.carousel-item {
+  @apply absolute top-0 bottom-0 left-0 right-0 z-neg opacity-0;
+
+  transition: all 800ms ease;
+
+  /* transform: translateX(-60px); */
+
+  &--is-active {
+    @apply z-10 opacity-100;
+
+    /* transform: translateX(0); */
+  }
+
+  &__text-block {
+    @apply absolute pl-6 left-0 bottom-10 z-10 max-w-md;
+  }
+
+  &__title {
+    @apply text-white text-3xl font-semibold;
+  }
+
+  &__description {
+    @apply hidden text-gray-200 text-shadow leading-snug mb-4 text-sm;
+
+    @media (--sm) {
+      @apply block;
+    }
+  }
+
+  &__img-block {
+    @apply absolute top-0 bottom-0 right-0 max-w-2xl flex scrim;
+
+    @media (--lg) {
+      @apply max-w-3xl;
+    }
+
+    @media (--xl) {
+      @apply max-w-4xl;
+    }
+  }
+
+  &__img {
+    @apply object-cover z-neg;
+  }
+}

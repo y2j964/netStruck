@@ -1,0 +1,7 @@
+.carousel-coin {
+  @apply bg-gray-100 h-2 w-2 rounded shadow opacity-0;
+
+  &--is-active {
+    /* will be applied when carousel is hovered */
+  }
+}
