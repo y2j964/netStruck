@@ -12,7 +12,15 @@ export default function CarouselCoins({ films, jumpToSlide }) {
       jumpToSlide={jumpToSlide}
     />
   ));
-  return <ol className='flex justify-center'>{carouselCoinFrags}</ol>;
+  return (
+    <ol
+      className='carousel-coin-group'
+      role='group'
+      aria-label='Choose slide to display'
+    >
+      {carouselCoinFrags}
+    </ol>
+  );
 }
 
 CarouselCoins.propTypes = {

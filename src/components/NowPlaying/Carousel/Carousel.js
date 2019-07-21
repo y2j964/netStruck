@@ -74,8 +74,6 @@ export default class Carousel extends Component {
   getActiveIndex = () =>
     this.state.filmData.findIndex(obj => obj.isActive === true);
 
-  // activeIndex = this.getActiveIndex();
-
   queueNextSlide = () => {
     const activeIndex = this.getActiveIndex();
     const incrementedActiveIndex =
@@ -153,7 +151,6 @@ export default class Carousel extends Component {
   };
 
   triggerCarouselArrow = e => {
-    // console.log(e.key);
     const key = e.key || e.code;
     if (key !== 'ArrowLeft' && key !== 'ArrowRight') {
       return;
@@ -167,6 +164,7 @@ export default class Carousel extends Component {
 
   render() {
     return (
+      // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
       <section
         className='carousel'
         aria-roledescription='carousel'
@@ -178,8 +176,8 @@ export default class Carousel extends Component {
         <div className='absolute top-0 bottom-0 left-0 flex items-center px-3 z-20'>
           <button
             onClick={this.queuePrevSlide}
-            className='chevron-arrow'
-            aria-label='next-slide'
+            className='chevron-arrow opacity-0'
+            aria-label='previous-slide'
           >
             <ChevronLeft />
           </button>
@@ -187,7 +185,7 @@ export default class Carousel extends Component {
         <div className='absolute top-0 bottom-0 right-0 flex items-center px-3 z-20'>
           <button
             onClick={this.queueNextSlide}
-            className='chevron-arrow'
+            className='chevron-arrow opacity-0'
             aria-label='next-slide'
           >
             <ChevronRight />

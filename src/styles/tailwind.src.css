@@ -1,13 +1,14 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
-@import 'components/tab-switch.css';
-@import 'components/slider.css';
-@import 'components/slide.css';
 @import 'components/carousel.css';
 @import 'components/carousel-item.css';
 @import 'components/carousel-item-animation.css';
 @import 'components/carousel-coin.css';
+@import 'components/carousel-coin-group.css';
+@import 'components/slide.css';
+@import 'components/slider.css';
+@import 'components/tab-switch.css';
 @import 'components/tile-row.css';
 @import 'components/tile.css';
 

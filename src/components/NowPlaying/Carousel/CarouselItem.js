@@ -37,12 +37,14 @@ const CarouselItem = ({
         isActive ? ' carousel-item--is-active' : ''
       } ${getSlidingDirection(enterFrom, exitTo)}`}
       id={`carousel-item-${count}`}
-      aria-label={`slide ${count} of ${length}`}
+      role='group'
+      aria-roledescription='slide'
+      aria-label={`${count} of ${length}`}
     >
       <div className='carousel-item__text-block'>
         <h2 className='carousel-item__title'>{title}</h2>
         <p className='carousel-item__description'>{description}</p>
-        <button className='watch-btn'>
+        <button className='watch-btn' tabIndex={isActive ? 0 : -1}>
           <PlayIcon svgClassName='inline mr-2' />
           WATCH NOW
         </button>

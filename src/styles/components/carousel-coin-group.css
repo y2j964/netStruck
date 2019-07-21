@@ -1,0 +1,11 @@
+.carousel-coin-group {
+  @apply flex justify-center;
+
+  &:focus-within .carousel-coin {
+    opacity: 0.6;
+  }
+
+  &:focus-within .carousel-coin--is-active {
+    opacity: 1;
+  }
+}
