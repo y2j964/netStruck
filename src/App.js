@@ -10,7 +10,7 @@ import MyList from './components/MyList';
 
 function App() {
   return (
-    <div className='bg-gray-900'>
+    <React.Fragment>
       <Router>
         <Navbar />
         <main>
@@ -21,7 +21,7 @@ function App() {
         </main>
         <Footer />
       </Router>
-    </div>
+    </React.Fragment>
   );
 }
 

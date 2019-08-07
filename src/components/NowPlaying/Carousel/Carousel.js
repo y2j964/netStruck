@@ -8,7 +8,7 @@ import ChevronRight from '../../../icons/ChevronRight';
 import thereWillBeBlood from '../../../images/thereWillBeBlood.jpg';
 import brokenEmbraces2 from '../../../images/brokenEmbraces2.jpg';
 import mistressAmerica2 from '../../../images/mistressAmerica2.jpg';
-import lastYearAtMarienbad from '../../../images/lastYearAtMarienbad.jpg';
+import lastYearAtMarienbad2 from '../../../images/lastYearAtMarienbad2.jpg';
 import masculinFeminin from '../../../images/masculinFeminin.jpg';
 
 export default class Carousel extends Component {
@@ -53,7 +53,7 @@ export default class Carousel extends Component {
           enterFrom: '',
           exitTo: '',
           title: 'Last Year at Marienbad',
-          img: lastYearAtMarienbad,
+          img: lastYearAtMarienbad2,
           description:
             'Is it deja vu or is it something else entirely in this truly one of a kind film directed by Alain Resnais?',
         },

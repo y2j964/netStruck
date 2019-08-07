@@ -1,8 +1,5 @@
 .tile {
-  @apply w-1/2 flex-none mr-1;
-
-  /* transform-origin: 0% 50%; */
-  transition: 400ms transform linear;
+  @apply w-1/2;
 
   @media (--sm) {
     @apply w-1/3;
@@ -12,17 +9,17 @@
     @apply w-1/4;
   }
 
-  @media (--lg) {
+  @media (--xl) {
     @apply w-1/5;
+  }
+
+  &:hover ~ .tile {
+    transform: translateX(25%);
   }
 
   &__title {
     @apply text-white text-sm;
 
     padding: 0 2%;
-  }
-
-  &:hover ~ .tile {
-    transform: translateX(25%);
   }
 }

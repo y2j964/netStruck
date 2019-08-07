@@ -37,6 +37,7 @@ const CarouselItem = ({
         isActive ? ' carousel-item--is-active' : ''
       } ${getSlidingDirection(enterFrom, exitTo)}`}
       id={`carousel-item-${count}`}
+      aria-hidden={isActive ? 'false' : 'true'}
       role='group'
       aria-roledescription='slide'
       aria-label={`${count} of ${length}`}

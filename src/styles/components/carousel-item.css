@@ -3,12 +3,8 @@
 
   transition: all 800ms ease;
 
-  /* transform: translateX(-60px); */
-
   &--is-active {
     @apply z-10 opacity-100;
-
-    /* transform: translateX(0); */
   }
 
   &__text-block {

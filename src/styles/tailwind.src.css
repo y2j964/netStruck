@@ -6,16 +6,22 @@
 @import 'components/carousel-item-animation.css';
 @import 'components/carousel-coin.css';
 @import 'components/carousel-coin-group.css';
+@import 'components/content-row.css';
 @import 'components/slide.css';
 @import 'components/slider.css';
+@import 'components/slider-row.css';
 @import 'components/tab-switch.css';
-@import 'components/tile-row.css';
+@import 'components/tile-group.css';
 @import 'components/tile.css';
 
 @custom-media --sm (min-width: 640px);
 @custom-media --md (min-width: 768px);
 @custom-media --lg (min-width: 1024px);
 @custom-media --xl (min-width: 1280px);
+
+#root {
+  background-color: #1a1a1a;
+}
 
 .hero {
   padding-top: 265px;
@@ -156,4 +162,8 @@
 
 .z-neg {
   z-index: -1;
+}
+
+.px-4-percent {
+  padding: 0 4%;
 }

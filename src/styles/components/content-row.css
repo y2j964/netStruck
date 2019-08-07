@@ -1,0 +1,7 @@
+.content-row {
+  @apply mb-12;
+
+  &__title {
+    @apply font-bold;
+  }
+}

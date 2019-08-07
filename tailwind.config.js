@@ -26,8 +26,8 @@ module.exports = {
       '6xl': '72rem',
       full: '100%',
     },
-    extend: {},
   },
+  extend: {},
   variants: {},
   plugins: [],
 };

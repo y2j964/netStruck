@@ -19,8 +19,8 @@ export default function playIcon(props) {
 }
 
 playIcon.propTypes = {
-  playWidth: PropTypes.string.isRequired,
-  playFill: PropTypes.string.isRequired,
-  playHeight: PropTypes.string.isRequired,
-  svgClassName: PropTypes.string.isRequired,
+  playWidth: PropTypes.string,
+  playFill: PropTypes.string,
+  playHeight: PropTypes.string,
+  svgClassName: PropTypes.string,
 };

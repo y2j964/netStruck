@@ -1,0 +1,26 @@
+.slider-row {
+  padding: 0 4%;
+
+  &__content-preview {
+    @apply flex justify-center items-center;
+
+    position: absolute;
+    top: 0;
+    background: rgba(20, 20, 20, 0.5);
+    width: 4%;
+    height: 100%;
+    text-align: center;
+
+    &--left {
+      left: 0;
+    }
+
+    &--right {
+      right: 0;
+    }
+  }
+
+  &:hover .slider-row__btn {
+    opacity: 1;
+  }
+}

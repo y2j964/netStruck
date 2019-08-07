@@ -7575,12 +7575,9 @@ video {
   transition: all 800ms ease;
 }
 
-/* transform: translateX(-60px); */
-
 .carousel-item--is-active {
     z-index: 10;
     opacity: 1;
-    /* transform: translateX(0); */
   }
 
 .carousel-item__text-block {
@@ -7736,6 +7733,14 @@ video {
     opacity: 1;
   }
 
+.content-row {
+  margin-bottom: 3rem;
+}
+
+.content-row__title {
+    font-weight: 700;
+  }
+
 .slide {
   position: absolute;
   top: 0;
@@ -7817,6 +7822,34 @@ video {
     transform: translateX(-66.666666%);
   }
 
+.slider-row {
+  padding: 0 4%;
+}
+
+.slider-row__content-preview {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    background: rgba(20, 20, 20, 0.5);
+    width: 4%;
+    height: 100%;
+    text-align: center;
+  }
+
+.slider-row__content-preview--left {
+      left: 0;
+    }
+
+.slider-row__content-preview--right {
+      right: 0;
+    }
+
+.slider-row:hover .slider-row__btn {
+    opacity: 1;
+  }
+
 .tab-switch {
   flex-grow: 1;
   display: flex;
@@ -7866,24 +7899,40 @@ video {
   }
     }
 
-.tile-row {
-  padding: 0 3%;
+.tile-group {
+  display: flex;
 }
 
-.tile-row__list:hover .tile {
+.tile-group__item {
+    flex: none;
+    padding: 0 2px;
+    /* transform-origin: 0% 50%; */
+    transition: transform 400ms cubic-bezier(0, 0, 0.2, 1);
+    transition-delay: 400ms;
+  }
+
+.tile-group__item:first-child {
+      padding-left: 0;
+    }
+
+.tile-group__item:last-child {
+      padding-right: 0;
+    }
+
+.tile-group__item:hover ~ tile-group__item {
+      transform: translateX(25%);
+    }
+
+.tile-group:hover .tile-group__item {
     transform: translateX(-25%);
   }
 
-.tile-row .tile:hover {
+.tile-group .tile-group__item:hover {
     transform: scale(1.5);
   }
 
 .tile {
   width: 50%;
-  flex: none;
-  margin-right: 0.25rem;
-  /* transform-origin: 0% 50%; */
-  transition: 400ms transform linear;
 }
 
 @media (min-width: 640px) {
@@ -7900,11 +7949,15 @@ video {
 }
   }
 
-@media (min-width: 1024px) {
+@media (min-width: 1280px) {
 
 .tile {
     width: 20%
 }
+  }
+
+.tile:hover ~ .tile {
+    transform: translateX(25%);
   }
 
 .tile__title {
@@ -7913,9 +7966,9 @@ video {
     padding: 0 2%;
   }
 
-.tile:hover ~ .tile {
-    transform: translateX(25%);
-  }
+#root {
+  background-color: #1a1a1a;
+}
 
 .hero {
   padding-top: 265px;
@@ -8087,6 +8140,10 @@ video {
 
 .z-neg {
   z-index: -1;
+}
+
+.px-4-percent {
+  padding: 0 4%;
 }
 
 @media (min-width: 640px) {
