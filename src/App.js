@@ -7,10 +7,11 @@ import Home from './components/Home/Home';
 import NowPlaying from './components/NowPlaying/NowPlaying';
 import AllFilms from './components/AllFilms';
 import MyList from './components/MyList';
+import { FilmDataProvider } from './context';
 
 function App() {
   return (
-    <React.Fragment>
+    <FilmDataProvider>
       <Router>
         <Navbar />
         <main>
@@ -21,7 +22,7 @@ function App() {
         </main>
         <Footer />
       </Router>
-    </React.Fragment>
+    </FilmDataProvider>
   );
 }
 

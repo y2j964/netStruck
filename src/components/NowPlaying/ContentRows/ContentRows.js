@@ -1,60 +1,30 @@
-import React, { Component } from 'react';
+import React from 'react';
 import uuid from 'uuid';
 import ContentRow from './ContentRow';
-import filmData from '../../../filmData';
+import { FilmDataConsumer } from '../../../context';
 
-// const MyContext = React.createContext();
+const getGenres = films => {
+  const genres = [];
+  films.forEach(film => {
+    film.genre.forEach(genre => {
+      if (!genres.includes(genre)) {
+        genres.push(genre);
+      }
+    });
+  });
+  return genres;
+};
 
-// export class FilmDataProvider extends Component {
-//   constructor(props) {
-//     super(props);
-
-//     this.state = {
-//       filmGroups: filmData,
-//     };
-//   }
-
-//   render() {
-//     return (
-//       <MyContext.Provider
-//         value={{
-//           state: this.state,
-//           activateTile: () => this.setState({}),
-//         }}
-//       ></MyContext.Provider>
-//     );
-//   }
-// }
-
-// const genres = [];
-// filmData.forEach(film => {
-//   if (!genres.includes(film.genre) && !Array.isArray(film.genre)) {
-//     genres.push(film.genre);
-//     return;
-//   }
-//   if (Array.isArray(film.genre)) {
-//     film.genre.forEach(genre => {
-//       if (!genres.includes(genre)) {
-//         genres.push(genre);
-//       }
-//     });
-//   }
-// });
-
-export default class ContentRows extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      filmGroups: Object.keys(filmData),
-    };
-  }
-
-  render() {
-    // console.log(this.state.filmGroups['DIRECTED BY NOAH BAUMBACH']);
-    const rowFrags = this.state.filmGroups.map(filmGroup => (
-      <ContentRow category={filmGroup} key={uuid.v4()} />
-    ));
-    return <React.Fragment>{rowFrags}</React.Fragment>;
-  }
+export default function ContentRows() {
+  return (
+    <FilmDataConsumer>
+      {({ filmData }) => {
+        const genres = getGenres(filmData);
+        const rowFrags = genres.map(genre => (
+          <ContentRow category={genre} key={uuid.v4()} />
+        ));
+        return <React.Fragment>{rowFrags}</React.Fragment>;
+      }}
+    </FilmDataConsumer>
+  );
 }

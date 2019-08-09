@@ -1,19 +1,23 @@
 import React from 'react';
-import uuid from 'uuid';
 import PropTypes from 'prop-types';
 import Tile from './Tile';
 
 function TileGroup({
+  filmGroupData,
   xPosition,
   transition,
-  slidesPerPosition,
   wrapAround,
-  filmGroupData,
+  slidesPerPosition,
   visibleSlideIndexes,
 }) {
+  const tileGroupStyle = {
+    transform: `translateX(${xPosition}%)`,
+    transition: transition ? 'transform 400ms ease-in-out' : 'none',
+  };
+
   const tileFrags = filmGroupData.map((entry, index) => (
     <Tile
-      key={uuid.v4()}
+      key={entry.id}
       {...entry}
       visibleSlideIndexes={visibleSlideIndexes}
       index={index}
@@ -30,10 +34,6 @@ function TileGroup({
   tileFrags.unshift(endClones);
   tileFrags.push(frontClones);
 
-  const tileGroupStyle = {
-    transform: `translateX(${xPosition}%)`,
-    transition: transition ? 'transform 400ms ease-in-out' : 'none',
-  };
   console.log('tilegroup rendered');
   return (
     <ul

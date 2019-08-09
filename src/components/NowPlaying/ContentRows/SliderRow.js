@@ -283,14 +283,14 @@ export default class SliderRow extends Component {
   }
 
   render() {
-    const { filmGroupData } = this.props;
+    const { category, filmGroupData } = this.props;
     console.log('render');
     return (
       <div className='slider-row relative w-full h-full'>
-        {/* {render()} */}
         <TileGroup
           filmGroupData={filmGroupData}
           {...this.state}
+          category={category}
           wrapAround={this.wrapAround}
         />
         <div className='slider-row__content-preview slider-row__content-preview--left'>
@@ -320,4 +320,5 @@ SliderRow.propTypes = {
   // render: PropTypes.func.isRequired,
   filmGroupData: PropTypes.array.isRequired,
   activateRelevantSlides: PropTypes.func.isRequired,
+  category: PropTypes.string.isRequired,
 };
