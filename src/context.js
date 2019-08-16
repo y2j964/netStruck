@@ -1,63 +1,107 @@
-import React, { Component } from 'react';
+import React, { useReducer, useEffect, useState, useMemo } from 'react';
 import filmData from './filmData';
 
-const FilmDataContext = React.createContext();
+export const FilmDataContext = React.createContext();
 
-class FilmDataProvider extends Component {
-  state = {
-    filmData: [],
-    myList: [],
-    modalOpen: false,
-  };
+const filmDataReducer = (state, action) => {
+  switch (action.type) {
+    case 'ADD_TO_MYLIST':
+      return state.map(film => {
+        if (film.id === action.id) {
+          return { ...film, addedToMyList: true };
+        }
+        return film;
+      });
 
-  addToMyList = () => console.log('added');
+    case 'UPDATE_SLIDER_VISIBILITY':
+      console.log(action.id);
+      return;
+    // return state.map(film => {
+    //   if (film.id === action.id) {
+    //     return { ...film, isVisibleToSlider: true };
+    //   }
+    //   return film;
+    // });
 
-  componentDidMount() {
-    this.setFilmData();
+    case 'TOGGLE_MODAL':
+      return !state.modalIsOpen;
+
+    case 'CONTENT_LOADED':
+      return !state.isLoading;
+
+    default:
+      return state;
   }
+};
 
-  // getGenres = films => {
-  //   const genres = [];
-  //   films.forEach(film => {
-  //     film.genre.forEach(genre => {
-  //       if (!genres.includes(genre)) {
-  //         genres.push(genre);
-  //       }
-  //     });
-  //   });
-  //   return genres;
-  // };
+const getInitialFilmData = () => {
+  let updatedFilms = [];
+  filmData.forEach(film => {
+    const singleItem = { ...film };
+    updatedFilms = [...updatedFilms, singleItem];
+  });
 
-  // setGenreData = () => {
-  //   const genres = this.getGenres();
-  //   this.setState({ filmGenres: genres });
-  // };
+  return updatedFilms;
+};
 
-  setFilmData = () => {
-    let updatedFilms = [];
-    filmData.forEach(film => {
-      const singleItem = { ...film };
-      updatedFilms = [...updatedFilms, singleItem];
+const getFilmGenres = dataSource => {
+  const genres = [];
+  dataSource.forEach(film => {
+    film.genre.forEach(genre => {
+      if (!genres.includes(genre)) {
+        genres.push(genre);
+      }
     });
+  });
+  return genres;
+};
 
-    // this.setGenreData();
-    this.setState({ filmData: updatedFilms });
+const FilmDataProvider = props => {
+  const [initialState, setInitialState] = useState([]);
+  const [filmGenres, setFilmGenres] = useState([]);
+  const [state, dispatch] = useReducer(filmDataReducer, [
+    {
+      isLoading: true,
+      modalIsOpen: false,
+      myList: [],
+      films: initialState || [],
+    },
+  ]);
+
+  useEffect(() => {
+    const updatedState = getInitialFilmData();
+    setInitialState(updatedState);
+    setFilmGenres(getFilmGenres(updatedState));
+    dispatch({ type: 'CONTENT_LOADED' });
+  }, []);
+
+  // setFilmGenres(getFilmGenres);
+
+  // const [myCart, setMyCart] = useState([]);
+
+  const getFilmsOfSameGenre = category => {
+    const filmsOfSameGenre = initialState.filter(film =>
+      film.genre.includes(category),
+    );
+    return filmsOfSameGenre;
   };
 
-  render() {
-    return (
-      <FilmDataContext.Provider
-        value={{
-          ...this.state,
-          addToMyList: this.addToMyList,
-        }}
-      >
-        {this.props.children}
-      </FilmDataContext.Provider>
-    );
-  }
-}
+  const updateSliderVisibility = films => {
+    dispatch({ type: 'UPDATE_SLIDER_VISIBILITY', id: films });
+  };
 
-const FilmDataConsumer = FilmDataContext.Consumer;
+  return (
+    <FilmDataContext.Provider
+      value={{
+        state,
+        updateSliderVisibility,
+        filmGenres,
+        getFilmsOfSameGenre,
+      }}
+    >
+      {props.children}
+    </FilmDataContext.Provider>
+  );
+};
 
-export { FilmDataProvider, FilmDataConsumer };
+export { FilmDataProvider };

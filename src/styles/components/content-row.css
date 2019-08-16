@@ -1,7 +1,11 @@
 .content-row {
   @apply mb-12;
 
+  &__header {
+    @apply flex justify-between;
+    padding: 0 calc(4% + 2.05px);
+  }
   &__title {
-    @apply font-bold;
+    @apply font-bold text-white mb-2;
   }
 }

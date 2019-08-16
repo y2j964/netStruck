@@ -2,6 +2,7 @@ import React, { memo } from 'react';
 import PropTypes from 'prop-types';
 
 const Tile = ({
+  filmGroupLength,
   title,
   duration,
   year,
@@ -10,21 +11,28 @@ const Tile = ({
   id,
   index,
   img,
-  visibleSlideIndexes,
+  visibleSlideIds,
+  isLeftMostSlide,
+  isRightMostSlide,
 }) => {
   console.log('tile rendered');
   return (
     <li
       className={`tile-group__item${
-        visibleSlideIndexes.includes(index)
-          ? ' tile-group__item--is-active'
+        visibleSlideIds.includes(id) ? ' tile-group__item--is-active' : ''
+      } ${
+        id === visibleSlideIds[0] ? ' tile-group__item--is-leftmost-active' : ''
+      } ${
+        id === visibleSlideIds[visibleSlideIds.length - 1]
+          ? ' tile-group__item--is-rightmost-active'
           : ''
       } tile`}
-      aria-hidden={`${visibleSlideIndexes.includes(index) ? 'false' : 'true'}`}
+      aria-hidden={`${visibleSlideIds.includes(id) ? 'false' : 'true'}`}
+      aria-label={`slide ${index + 1} of ${filmGroupLength}`}
     >
       <a
         href='www.google.com'
-        tabIndex={`${visibleSlideIndexes.includes(index) ? '0' : '-1'}`}
+        tabIndex={`${visibleSlideIds.includes(id) ? '0' : '-1'}`}
       >
         {/* <p>{title}</p> */}
         <div className='ratio-16-9'>
@@ -46,6 +54,7 @@ const Tile = ({
 };
 
 Tile.propTypes = {
+  filmGroupLength: PropTypes.number.isRequired,
   title: PropTypes.string.isRequired,
   duration: PropTypes.string,
   year: PropTypes.number,
@@ -54,7 +63,7 @@ Tile.propTypes = {
   img: PropTypes.string.isRequired,
   id: PropTypes.string,
   index: PropTypes.number.isRequired,
-  visibleSlideIndexes: PropTypes.array.isRequired,
+  visibleSlideIds: PropTypes.array.isRequired,
 };
 
 export default memo(Tile);

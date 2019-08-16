@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import TileGroup from './TileGroup';
 import ChevronLeft from '../../../icons/ChevronLeft';
@@ -13,7 +13,7 @@ const mediaBreakpoints = {
   xl: 1280,
 };
 
-export default class SliderRow extends Component {
+export default class SliderRow extends PureComponent {
   constructor(props) {
     super(props);
 
@@ -21,7 +21,7 @@ export default class SliderRow extends Component {
       transition: true,
       xPosition: -step,
       slidesPerPosition: null,
-      visibleSlideIndexes: [0],
+      visibleSlideIds: [],
     };
   }
 
@@ -34,7 +34,7 @@ export default class SliderRow extends Component {
         Math.floor(-updatedXPosition / slideWidth) -
         this.state.slidesPerPosition +
         i;
-      activeSlides.push(slideIndex);
+      activeSlides.push(this.props.filmGroupData[slideIndex].id);
     }
     return activeSlides;
   };
@@ -57,7 +57,7 @@ export default class SliderRow extends Component {
         return {
           transition: true,
           xPosition: updatedXPosition,
-          visibleSlideIndexes: updatedSlideIndexes,
+          visibleSlideIds: updatedSlideIndexes,
         };
       }
       if (prevState.xPosition === -step) {
@@ -75,7 +75,7 @@ export default class SliderRow extends Component {
       return {
         transition: true,
         xPosition: updatedXPosition,
-        visibleSlideIndexes: updatedSlideIndexes,
+        visibleSlideIds: updatedSlideIndexes,
       };
     });
   };
@@ -101,7 +101,7 @@ export default class SliderRow extends Component {
       this.setState({
         transition: true,
         xPosition: updatedXPosition,
-        visibleSlideIndexes: updatedSlideIndexes,
+        visibleSlideIds: updatedSlideIndexes,
       });
     } else if (this.state.xPosition === endPositionX) {
       this.setState(prevState => {
@@ -121,7 +121,7 @@ export default class SliderRow extends Component {
         return {
           transition: true,
           xPosition: updatedXPosition,
-          visibleSlideIndexes: updatedSlideIndexes,
+          visibleSlideIds: updatedSlideIndexes,
         };
       });
     }
@@ -140,7 +140,7 @@ export default class SliderRow extends Component {
       this.setState({
         transition: false,
         xPosition: endPositionX,
-        visibleSlideIndexes: updatedSlideIndexes,
+        visibleSlideIds: updatedSlideIndexes,
       });
       return;
     }
@@ -150,45 +150,26 @@ export default class SliderRow extends Component {
       this.setState({
         transition: false,
         xPosition: -step,
-        visibleSlideIndexes: updatedSlideIndexes,
+        visibleSlideIds: updatedSlideIndexes,
       });
     }
   };
 
   // resize calibration
 
-  getEndingSlideIndexes = () => {
-    const endingSlideIndexes = [];
-    for (
-      let i = this.props.filmGroupData.length - this.state.slidesPerPosition;
-      i < this.props.filmGroupData.length;
-      i += 1
-    ) {
-      const slideIndex = i;
-      endingSlideIndexes.push(slideIndex);
+  getLeftMostSlideIndex = () => {
+    if (this.state.visibleSlideIds.length > 0) {
+      const leftMostSlideIndex = this.props.filmGroupData.findIndex(
+        obj => obj.id === this.state.visibleSlideIds[0],
+      );
+      return leftMostSlideIndex;
     }
-    return endingSlideIndexes;
-  };
-
-  getLeftAlignedSlideIndexes = (
-    leftMostSlideIndex,
-    updatedSlidePerPosition,
-  ) => {
-    const leftAlignedSlideIndexes = [];
-    for (
-      let i = leftMostSlideIndex;
-      i < leftMostSlideIndex + updatedSlidePerPosition;
-      i += 1
-    ) {
-      const slideIndex = i;
-      leftAlignedSlideIndexes.push(slideIndex);
-    }
-    return leftAlignedSlideIndexes;
+    return 0;
   };
 
   getResizedXPosition = updatedSlidesPerPosition => {
     const slideWidth = step / updatedSlidesPerPosition;
-    const leftMostSlideIndex = this.state.visibleSlideIndexes[0];
+    const leftMostSlideIndex = this.getLeftMostSlideIndex();
     if (
       leftMostSlideIndex >
       this.props.filmGroupData.length - updatedSlidesPerPosition
@@ -200,8 +181,34 @@ export default class SliderRow extends Component {
     return updatedXPosition;
   };
 
-  getResizedSlideIndexes = updatedSlidesPerPosition => {
-    const leftMostSlideIndex = this.state.visibleSlideIndexes[0];
+  getEndingSlideIds = () => {
+    const endingSlideIds = [];
+    for (
+      let i = this.props.filmGroupData.length - this.state.slidesPerPosition;
+      i < this.props.filmGroupData.length;
+      i += 1
+    ) {
+      const slideId = this.props.filmGroupData[i].id;
+      endingSlideIds.push(slideId);
+    }
+    return endingSlideIds;
+  };
+
+  getLeftAlignedSlideIds = (leftMostSlideIndex, updatedSlidePerPosition) => {
+    const leftAlignedSlideIds = [];
+    for (
+      let i = leftMostSlideIndex;
+      i < leftMostSlideIndex + updatedSlidePerPosition;
+      i += 1
+    ) {
+      const slideId = this.props.filmGroupData[i].id;
+      leftAlignedSlideIds.push(slideId);
+    }
+    return leftAlignedSlideIds;
+  };
+
+  getResizedSlideIds = updatedSlidesPerPosition => {
+    const leftMostSlideIndex = this.getLeftMostSlideIndex();
     // on resize, we want to maintain the left-most slide
     // if the left-most slide doesn't support a wider viewport (i.e. you end up wrapping
     // the ending and beginning slides), just use last position
@@ -209,25 +216,25 @@ export default class SliderRow extends Component {
       leftMostSlideIndex >
       this.props.filmGroupData.length - updatedSlidesPerPosition
     ) {
-      const endingSlideIndexes = this.getEndingSlideIndexes(leftMostSlideIndex);
-      return endingSlideIndexes;
+      const endingSlideIds = this.getEndingSlideIds(leftMostSlideIndex);
+      return endingSlideIds;
     }
-    const resizedSlideIndexes = this.getLeftAlignedSlideIndexes(
+    const resizedSlideIds = this.getLeftAlignedSlideIds(
       leftMostSlideIndex,
       updatedSlidesPerPosition,
     );
-    return resizedSlideIndexes;
+    return resizedSlideIds;
   };
 
   recalibrateSlider = updatedSlidesPerPosition => {
-    const updatedVisibleSlideIndexes = this.getResizedSlideIndexes(
+    const updatedVisibleSlideIds = this.getResizedSlideIds(
       updatedSlidesPerPosition,
     );
     const updatedXPosition = this.getResizedXPosition(updatedSlidesPerPosition);
 
     this.setState({
       slidesPerPosition: updatedSlidesPerPosition,
-      visibleSlideIndexes: updatedVisibleSlideIndexes,
+      visibleSlideIds: updatedVisibleSlideIds,
       xPosition: updatedXPosition,
     });
   };
@@ -278,13 +285,21 @@ export default class SliderRow extends Component {
     window.addEventListener('resize', debounce(this.resizeSlider));
   }
 
+  // componentDidUpdate(prevProps, prevState) {
+  //   console.log('did update');
+  //   if (prevState.xPosition !== this.state.xPosition) {
+  //     console.log(this.state.visibleSlideIds);
+  //     this.props.updateSliderVisibility(this.state.visibleSlideIds);
+  //   }
+  // }
+
   componentWillUnmount() {
     window.removeEventListener('resize', this.resizeSlider);
   }
 
   render() {
     const { category, filmGroupData } = this.props;
-    console.log('render');
+    console.log('sliderRow render');
     return (
       <div className='slider-row relative w-full h-full'>
         <TileGroup
@@ -319,6 +334,6 @@ export default class SliderRow extends Component {
 SliderRow.propTypes = {
   // render: PropTypes.func.isRequired,
   filmGroupData: PropTypes.array.isRequired,
-  activateRelevantSlides: PropTypes.func.isRequired,
-  category: PropTypes.string.isRequired,
+  // activateRelevantSlides: PropTypes.func.isRequired,
+  // category: PropTypes.string.isRequired,
 };
