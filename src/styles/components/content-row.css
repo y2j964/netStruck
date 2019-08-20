@@ -3,7 +3,7 @@
 
   &__header {
     @apply flex justify-between;
-    padding: 0 calc(4% + 2.05px);
+    padding: 0 calc(4% + 2.9px);
   }
   &__title {
     @apply font-bold text-white mb-2;

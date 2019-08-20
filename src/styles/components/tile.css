@@ -13,10 +13,6 @@
     @apply w-1/5;
   }
 
-  &:hover ~ .tile {
-    transform: translateX(25%);
-  }
-
   &__title {
     @apply text-white text-sm;
 

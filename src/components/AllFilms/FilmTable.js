@@ -1,26 +1,21 @@
 import React from 'react';
+import FilmRows from './FilmRows';
+import FilmRow from './FilmRow';
 
 export default function FilmTable() {
   return (
-    <table>
-      <thead>
-        <tr className='text-gray-600'>
-          <th className='py-5'>Title</th>
-          <th className='py-5'>Director</th>
-          <th className='py-5'>Duration</th>
-          <th className='py-5'>Year</th>
+    <table className='film-table'>
+      <thead className='film-table__thead'>
+        <tr className='film-table__header-row'>
+          <th className='film-table__thumbnail film-table__header'>TITLE</th>
+          <th className='film-table__title film-table__header'></th>
+          <th className='film-table__director film-table__header'>DIRECTOR</th>
+          <th className='film-table__duration film-table__header'>DURATION</th>
+          <th className='film-table__year film-table__header'>YEAR</th>
         </tr>
       </thead>
       <tbody>
-        <tr className='flex py-3'>
-          <td>
-            <img src='' alt='' />
-          </td>
-          <td className='text-white'>Some Title</td>
-          <td className='text-gray-600'>Some Director</td>
-          <td className='text-gray-600'>Some Length</td>
-          <td className='text-gray-600'>Some Year</td>
-        </tr>
+        <FilmRows />
       </tbody>
     </table>
   );

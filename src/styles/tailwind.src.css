@@ -1,12 +1,14 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
+@import 'components/all-films.css';
 @import 'components/carousel.css';
 @import 'components/carousel-item.css';
 @import 'components/carousel-item-animation.css';
 @import 'components/carousel-coin.css';
 @import 'components/carousel-coin-group.css';
 @import 'components/content-row.css';
+@import 'components/film-table.css';
 @import 'components/slide.css';
 @import 'components/slider.css';
 @import 'components/slider-row.css';
@@ -20,7 +22,7 @@
 @custom-media --xl (min-width: 1280px);
 
 #root {
-  background-color: #1a1a1a;
+  background-color: #151515;
 }
 
 .hero {
@@ -37,6 +39,10 @@
   display: block;
   padding-top: 56.25%;
   background-color: transparent;
+
+  &--split {
+    padding-top: 28.125%;
+  }
 
   img {
     position: absolute;
@@ -166,4 +172,135 @@
 
 .px-4-percent {
   padding: 0 4%;
+}
+
+table, thead, tbody, tfoot, tr, td, th, caption {
+  display: block;
+}
+
+table {
+  @media (--md) {
+  display: table;
+  table-layout: fixed;
+  }
+}
+
+thead {
+  @media (--md) {
+  display: table-header-group;
+  }
+}
+
+tbody {
+  @media (--md) {
+  display: table-row-group;
+  }
+}
+
+tr {
+  @media (--md) {
+  display: table-row;
+  }
+}
+
+th {
+  @media (--md) {
+  display: table-cell;
+  }
+}
+
+td{
+  @media (--md) {
+  display: table-cell;
+  }
+}
+
+.text-light-gray {
+  color: #bebebb;
+}
+
+.tr-overlay {
+  @apply absolute top-0 bottom-0 left-0 right-0;
+  /* don't cover entire row */
+  margin-top: 1%;
+  margin-bottom: 1%;
+  background-color: rgb(74, 71, 71);
+  opacity: 0;
+  transition: opacity .3s ease;
+
+  &:hover,
+  &:focus {
+    opacity: .2;
+  }
+}
+
+.bg-main {
+  background-color: #151515;
+}
+
+.min-w-178 {
+  min-width: 178px;
+}
+
+.icon--positioned-right {
+  position: absolute;
+  right: 6%;
+}
+
+.h-56 {
+  height: 56px;
+}
+
+.w-56 {
+  width: 56px;
+}
+
+.order-2 {
+  order: 2;
+}
+
+.order-3 {
+  order: 3;
+}
+
+.sort-direction-toggle {
+  @apply bg-transparent flex justify-center items-center border-2;
+  width: 44px;
+  height: 44px;
+  border-color: #bebebb;
+
+  @media (--md) {
+    width: 56px;
+    height: 56px;
+  }
+}
+
+.filter-btn {
+  @apply relative flex items-center px-6 text-white border-t-2 border-b-2;
+  height: 56px;
+  width: 50%;
+  border-color: #bebebb;
+
+  @media (--md) {
+    @apply mr-2 border-l-2 border-r-2;
+    width: auto;
+    min-width: 178px;
+  }
+}
+
+
+.l-sort-selector {
+  @apply relative flex items-center w-1/2;
+  height: 56px;
+
+  @media (--md) {
+    width: auto;
+}
+
+.sort-selector {
+  @apply w-full h-full text-white bg-transparent appearance-none cursor-pointer px-6 border-t-2 border-l-2 border-b-2 z-20;
+  border-color: #bebebb;
+    min-width: 178px;
+  }
+
 }

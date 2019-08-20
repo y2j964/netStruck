@@ -1,0 +1,76 @@
+.film-table {
+  @apply w-full;
+
+  &__thead {
+    display: none;
+
+    @media (--md) {
+      @apply border-b-2 border-t-2;
+      display: table-header-group;
+      border-color: #bebebb;
+    }
+  }
+
+  &__header {
+    @apply text-sm text-light-gray text-sm text-left;
+  }
+
+  &__header-row {
+    @apply flex py-3;
+  }
+
+  &__row {
+    @apply relative flex items-start justify-center flex-col border-b-2 text-sm text-light-gray text-left leading-tight;
+    border-color: #bebebb;
+    padding: 40px 4% 40px 45%;
+
+    @media (--md) {
+      @apply items-center flex-row py-3 px-0 text-base leading-normal;
+    }
+  }
+
+  &__thumbnail {
+    position: absolute;
+    left: 5%;
+    width: 35%;
+    max-width: 222px;
+
+    @media (--md) {
+      position: relative;
+      left: auto;
+      width: 22%;
+      max-width: none;
+      margin-right: 5%;
+    }
+  }
+
+  &__title {
+    @apply text-white font-bold;
+
+    @media (--md) {
+      width: 19.5%;
+      margin-right: 5%;
+    }
+  }
+
+  &__director {
+    @media (--md) {
+      width: 16%;
+      margin-right: 5%;
+    }
+  }
+
+  &__duration {
+    @media (--md) {
+      width: 13%;
+      margin-right: 5%;
+    }
+  }
+
+  &__year {
+    @media (--md) {
+      width: 5.5%;
+      margin-right: 5%;
+    }
+  }
+}

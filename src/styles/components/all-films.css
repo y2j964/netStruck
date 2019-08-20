@@ -1,0 +1,37 @@
+.all-films {
+  @apply flex items-center justify-end flex-col;
+
+  @media (--md) {
+    @apply flex-row items-end mb-8;
+  }
+
+  &__intro {
+    @apply flex flex-col;
+
+    @media (--md) {
+      @apply mr-auto;
+    }
+  }
+
+  &__filter-options {
+    @apply flex w-full;
+    order: 3;
+
+    @media (--md) {
+      order: initial;
+      width: auto;
+    }
+  }
+
+  &__sorting-direction {
+    @apply flex justify-between items-center mb-3 w-full;
+    order: 2;
+    padding: 0 5%;
+
+    @media (--md) {
+      @apply mb-0 p-0;
+      order: initial;
+      width: auto;
+    }
+  }
+}

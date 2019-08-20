@@ -27,7 +27,12 @@ const filmDataReducer = (state, action) => {
       return !state.modalIsOpen;
 
     case 'CONTENT_LOADED':
-      return !state.isLoading;
+      return {
+        ...state,
+        films: action.id,
+        filteredFilms: action.id,
+        isLoading: false,
+      };
 
     default:
       return state;
@@ -57,22 +62,19 @@ const getFilmGenres = dataSource => {
 };
 
 const FilmDataProvider = props => {
-  const [initialState, setInitialState] = useState([]);
   const [filmGenres, setFilmGenres] = useState([]);
-  const [state, dispatch] = useReducer(filmDataReducer, [
-    {
-      isLoading: true,
-      modalIsOpen: false,
-      myList: [],
-      films: initialState || [],
-    },
-  ]);
+  const [state, dispatch] = useReducer(filmDataReducer, {
+    films: [],
+    filteredFilms: [],
+    myList: [],
+    isLoading: true,
+    modalIsOpen: false,
+  });
 
   useEffect(() => {
     const updatedState = getInitialFilmData();
-    setInitialState(updatedState);
     setFilmGenres(getFilmGenres(updatedState));
-    dispatch({ type: 'CONTENT_LOADED' });
+    dispatch({ type: 'CONTENT_LOADED', id: updatedState });
   }, []);
 
   // setFilmGenres(getFilmGenres);
@@ -80,7 +82,7 @@ const FilmDataProvider = props => {
   // const [myCart, setMyCart] = useState([]);
 
   const getFilmsOfSameGenre = category => {
-    const filmsOfSameGenre = initialState.filter(film =>
+    const filmsOfSameGenre = state.films.filter(film =>
       film.genre.includes(category),
     );
     return filmsOfSameGenre;
