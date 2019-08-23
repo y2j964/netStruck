@@ -1,4 +1,5 @@
 import React, { useReducer, useEffect, useState, useMemo } from 'react';
+import PropTypes from 'prop-types';
 import filmData from './filmData';
 
 export const FilmDataContext = React.createContext();
@@ -14,8 +15,8 @@ const filmDataReducer = (state, action) => {
       });
 
     case 'UPDATE_SLIDER_VISIBILITY':
-      console.log(action.id);
-      return;
+      // console.log(action.id);
+      return state;
     // return state.map(film => {
     //   if (film.id === action.id) {
     //     return { ...film, isVisibleToSlider: true };
@@ -30,7 +31,6 @@ const filmDataReducer = (state, action) => {
       return {
         ...state,
         films: action.id,
-        filteredFilms: action.id,
         isLoading: false,
       };
 
@@ -65,7 +65,6 @@ const FilmDataProvider = props => {
   const [filmGenres, setFilmGenres] = useState([]);
   const [state, dispatch] = useReducer(filmDataReducer, {
     films: [],
-    filteredFilms: [],
     myList: [],
     isLoading: true,
     modalIsOpen: false,
@@ -92,6 +91,10 @@ const FilmDataProvider = props => {
     dispatch({ type: 'UPDATE_SLIDER_VISIBILITY', id: films });
   };
 
+  const sortFilms = sortCriterion => {
+    dispatch({ type: 'SORT_FILMS', id: sortCriterion });
+  };
+
   return (
     <FilmDataContext.Provider
       value={{
@@ -99,6 +102,7 @@ const FilmDataProvider = props => {
         updateSliderVisibility,
         filmGenres,
         getFilmsOfSameGenre,
+        sortFilms,
       }}
     >
       {props.children}
@@ -107,3 +111,7 @@ const FilmDataProvider = props => {
 };
 
 export { FilmDataProvider };
+
+FilmDataProvider.propTypes = {
+  children: PropTypes.node.isRequired,
+};

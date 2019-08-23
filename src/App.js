@@ -6,7 +6,7 @@ import Footer from './components/Footer';
 import Home from './components/Home/Home';
 import NowPlaying from './components/NowPlaying/NowPlaying';
 import AllFilms from './components/AllFilms/AllFilms';
-import MyList from './components/MyList';
+import MyList from './components/MyList/MyList';
 import { FilmDataProvider } from './context';
 
 function App() {

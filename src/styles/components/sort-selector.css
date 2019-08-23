@@ -1,0 +1,28 @@
+.l-sort-selector {
+  @apply relative flex items-center w-1/2 text-white;
+  height: 56px;
+  transition: all .3s cubic-bezier(0.45, 0.05, 0.55, 0.95);
+
+  /* & option {
+    background-color: #151515;
+    color: white;
+  } */
+
+  &:hover {
+    @apply text-black bg-white;
+
+    .icon--positioned-right {
+      fill: black;
+    }
+  }
+
+  @media (--md) {
+    width: auto;
+  }
+}
+
+.sort-selector {
+  @apply w-full h-full bg-transparent appearance-none cursor-pointer px-6 border-t-2 border-l-2 border-b-2 z-20;
+  border-color: #bebebb;
+    min-width: 178px;
+  }

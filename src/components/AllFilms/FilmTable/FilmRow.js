@@ -11,6 +11,8 @@ export default function FilmRow({ img, title, duration, year, director }) {
       </td>
       <td className='film-table__title'>
         {title}
+
+        {/* eslint-disable-next-line jsx-a11y/anchor-has-content */}
         <a
           className='tr-overlay'
           href='#'

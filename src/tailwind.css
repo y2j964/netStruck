@@ -7817,6 +7817,45 @@ video {
     margin-bottom: 0.5rem;
   }
 
+.filter-btn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  color: #fff;
+  border-top-width: 2px;
+  border-bottom-width: 2px;
+  height: 56px;
+  width: 50%;
+  border-color: #bebebb;
+  transition: all .3s cubic-bezier(0.45, 0.05, 0.55, 0.95);
+}
+
+.filter-btn:hover {
+    color: #000;
+    background-color: #fff;
+  }
+
+.filter-btn:hover .icon--positioned-right {
+      fill: black;
+    }
+
+@media (min-width: 768px) {
+
+.filter-btn {
+    margin-right: 0.5rem;
+
+    border-left-width: 2px;
+
+    border-right-width: 2px;
+
+    width: auto;
+
+    min-width: 178px
+}
+  }
+
 .film-table {
   width: 100%;
 }
@@ -8058,6 +8097,90 @@ video {
 .slider-row:hover .slider-row__btn {
     opacity: 1;
   }
+
+.sort-direction-toggle {
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-width: 2px;
+  width: 44px;
+  height: 44px;
+  border-color: #bebebb;
+  transition: all .3s cubic-bezier(0.45, 0.05, 0.55, 0.95);
+}
+
+.sort-direction-toggle__svg {
+    fill: white;
+    transform: rotate(90deg);
+  }
+
+.sort-direction-toggle:hover {
+    color: #000;
+    background-color: #fff;
+  }
+
+.sort-direction-toggle:hover .sort-direction-toggle__svg {
+      fill: black;
+    }
+
+@media (min-width: 768px) {
+
+.sort-direction-toggle {
+    width: 56px;
+
+    height: 56px
+}
+  }
+
+.l-sort-selector {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 50%;
+  color: #fff;
+  height: 56px;
+  transition: all .3s cubic-bezier(0.45, 0.05, 0.55, 0.95);
+}
+
+/* & option {
+    background-color: #151515;
+    color: white;
+  } */
+
+.l-sort-selector:hover {
+    color: #000;
+    background-color: #fff;
+  }
+
+.l-sort-selector:hover .icon--positioned-right {
+      fill: black;
+    }
+
+@media (min-width: 768px) {
+
+.l-sort-selector {
+    width: auto
+}
+  }
+
+.sort-selector {
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  cursor: pointer;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  border-top-width: 2px;
+  border-left-width: 2px;
+  border-bottom-width: 2px;
+  z-index: 20;
+  border-color: #bebebb;
+  min-width: 178px;
+}
 
 .tab-switch {
   flex-grow: 1;
@@ -8444,6 +8567,7 @@ td{
 .icon--positioned-right {
   position: absolute;
   right: 6%;
+  transition: fill .3s ease-in-out;
 }
 
 .h-56 {
@@ -8461,89 +8585,6 @@ td{
 .order-3 {
   order: 3;
 }
-
-.sort-direction-toggle {
-  background-color: transparent;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-width: 2px;
-  width: 44px;
-  height: 44px;
-  border-color: #bebebb;
-}
-
-@media (min-width: 768px) {
-
-.sort-direction-toggle {
-    width: 56px;
-
-    height: 56px
-}
-  }
-
-.filter-btn {
-  position: relative;
-  display: flex;
-  align-items: center;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
-  color: #fff;
-  border-top-width: 2px;
-  border-bottom-width: 2px;
-  height: 56px;
-  width: 50%;
-  border-color: #bebebb;
-}
-
-@media (min-width: 768px) {
-
-.filter-btn {
-    margin-right: 0.5rem;
-
-    border-left-width: 2px;
-
-    border-right-width: 2px;
-
-    width: auto;
-
-    min-width: 178px
-}
-  }
-
-.l-sort-selector {
-  position: relative;
-  display: flex;
-  align-items: center;
-  width: 50%;
-  height: 56px;
-}
-
-@media (min-width: 768px) {
-
-.l-sort-selector {
-    width: auto
-}
-  }
-
-.l-sort-selector .sort-selector {
-    width: 100%;
-    height: 100%;
-    color: #fff;
-    background-color: transparent;
-    -webkit-appearance: none;
-       -moz-appearance: none;
-            appearance: none;
-    cursor: pointer;
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
-    border-top-width: 2px;
-    border-left-width: 2px;
-    border-bottom-width: 2px;
-    z-index: 20;
-    border-color: #bebebb;
-    min-width: 178px;
-  }
 
 @media (min-width: 640px) {
   .sm\:appearance-none {

@@ -1,8 +1,7 @@
 import React from 'react';
-import FilmRows from './FilmRows';
-import FilmRow from './FilmRow';
+import PropTypes from 'prop-types';
 
-export default function FilmTable() {
+export default function FilmTable({ children }) {
   return (
     <table className='film-table'>
       <thead className='film-table__thead'>
@@ -14,9 +13,11 @@ export default function FilmTable() {
           <th className='film-table__year film-table__header'>YEAR</th>
         </tr>
       </thead>
-      <tbody>
-        <FilmRows />
-      </tbody>
+      <tbody>{children}</tbody>
     </table>
   );
 }
+
+FilmTable.propTypes = {
+  children: PropTypes.node,
+};

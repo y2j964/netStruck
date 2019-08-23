@@ -1,0 +1,25 @@
+.sort-direction-toggle {
+  @apply bg-transparent flex justify-center items-center border-2;
+  width: 44px;
+  height: 44px;
+  border-color: #bebebb;
+  transition: all .3s cubic-bezier(0.45, 0.05, 0.55, 0.95);
+
+  &__svg {
+    fill: white;
+    transform: rotate(90deg);
+  }
+
+  &:hover {
+    @apply text-black bg-white;
+
+    .sort-direction-toggle__svg {
+      fill: black;
+    }
+  }
+
+  @media (--md) {
+    width: 56px;
+    height: 56px;
+  }
+}

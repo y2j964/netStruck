@@ -8,10 +8,13 @@
 @import 'components/carousel-coin.css';
 @import 'components/carousel-coin-group.css';
 @import 'components/content-row.css';
+@import 'components/filter-btn.css';
 @import 'components/film-table.css';
 @import 'components/slide.css';
 @import 'components/slider.css';
 @import 'components/slider-row.css';
+@import 'components/sort-direction-toggle.css';
+@import 'components/sort-selector.css';
 @import 'components/tab-switch.css';
 @import 'components/tile-group.css';
 @import 'components/tile.css';
@@ -245,6 +248,7 @@ td{
 .icon--positioned-right {
   position: absolute;
   right: 6%;
+  transition: fill .3s ease-in-out;
 }
 
 .h-56 {
@@ -261,46 +265,4 @@ td{
 
 .order-3 {
   order: 3;
-}
-
-.sort-direction-toggle {
-  @apply bg-transparent flex justify-center items-center border-2;
-  width: 44px;
-  height: 44px;
-  border-color: #bebebb;
-
-  @media (--md) {
-    width: 56px;
-    height: 56px;
-  }
-}
-
-.filter-btn {
-  @apply relative flex items-center px-6 text-white border-t-2 border-b-2;
-  height: 56px;
-  width: 50%;
-  border-color: #bebebb;
-
-  @media (--md) {
-    @apply mr-2 border-l-2 border-r-2;
-    width: auto;
-    min-width: 178px;
-  }
-}
-
-
-.l-sort-selector {
-  @apply relative flex items-center w-1/2;
-  height: 56px;
-
-  @media (--md) {
-    width: auto;
-}
-
-.sort-selector {
-  @apply w-full h-full text-white bg-transparent appearance-none cursor-pointer px-6 border-t-2 border-l-2 border-b-2 z-20;
-  border-color: #bebebb;
-    min-width: 178px;
-  }
-
 }

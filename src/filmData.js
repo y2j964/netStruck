@@ -223,7 +223,7 @@ const filmData = [
   },
   {
     title: 'Fanny and Alexander',
-    duration: '178 minutes',
+    duration: '188 minutes',
     year: 1982,
     genre: ['ESSENTIAL ART-HOUSE'],
     director: 'Ingmar Bergman',
