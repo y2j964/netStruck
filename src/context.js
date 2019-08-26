@@ -87,6 +87,8 @@ const FilmDataProvider = props => {
     return filmsOfSameGenre;
   };
 
+  const getFilm = slug => state.films.find(film => film.slug === slug);
+
   const updateSliderVisibility = films => {
     dispatch({ type: 'UPDATE_SLIDER_VISIBILITY', id: films });
   };
@@ -102,6 +104,7 @@ const FilmDataProvider = props => {
         updateSliderVisibility,
         filmGenres,
         getFilmsOfSameGenre,
+        getFilm,
         sortFilms,
       }}
     >

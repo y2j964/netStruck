@@ -41,8 +41,8 @@ function TileGroup({
 
   const endClones = [];
   for (
-    let i = filmGroupData.length - slidesPerPosition - 1;
-    i < filmGroupData.length - 1;
+    let i = filmGroupData.length - slidesPerPosition;
+    i < filmGroupData.length;
     i += 1
   ) {
     const tile = (

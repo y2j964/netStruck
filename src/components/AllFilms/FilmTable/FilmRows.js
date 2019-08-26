@@ -11,6 +11,7 @@ export default function FilmRows({ filmData }) {
       director={entry.director}
       duration={entry.duration}
       year={entry.year}
+      slug={entry.slug}
     />
   ));
 

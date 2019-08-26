@@ -67,7 +67,7 @@ export default function AllFilms() {
   const [sortIsAscending, setSortIsAscending] = useState(true);
 
   const context = useContext(FilmDataContext);
-  const filmData = context.state.films;
+  const [...filmData] = context.state.films;
   const { isLoading } = context.state;
 
   const compareFunc = getSortCompareFunc(sortBy, sortIsAscending);

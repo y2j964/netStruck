@@ -8,7 +8,7 @@ export default function NavbarItems() {
     return (
       <li key={index} className='mr-8'>
         <Link
-          to={index === 0 ? '/' : link.toLowerCase().replace(' ', '-')}
+          to={index === 0 ? '/' : `/${link.toLowerCase().replace(' ', '-')}`}
           className='text-white'
         >
           {link}

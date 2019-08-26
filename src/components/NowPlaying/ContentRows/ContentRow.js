@@ -1,4 +1,5 @@
 import React, { memo, useContext } from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import SliderRow from './SliderRow';
 import { FilmDataContext } from '../../../context';
@@ -11,14 +12,21 @@ import { FilmDataContext } from '../../../context';
 function ContentRow({ category }) {
   const context = useContext(FilmDataContext);
   const filmsOfSameGenre = context.getFilmsOfSameGenre(category);
+
+  const genreSlug = category.toLowerCase().replace(/\s/g, '-');
   console.log('row rendered');
+
   return (
     <div className='content-row'>
       <div className='content-row__header'>
         <h2 className='content-row__title'>{category}</h2>
-        <a href='' className='text-white'>
+        <Link to={{
+          pathname: `now-playing/genre/${genreSlug}`,
+          category,
+          filmsOfSameGenre,
+          }} className='text-white'>
           See More
-        </a>
+        </Link>
       </div>
       <SliderRow
         filmGroupData={filmsOfSameGenre}

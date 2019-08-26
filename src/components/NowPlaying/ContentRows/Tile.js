@@ -1,5 +1,11 @@
-import React, { memo } from 'react';
+import React, { memo, useState } from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import Plus from '../../../icons/Plus';
+
+const addToMyList = e => {
+  console.log('added to list');
+};
 
 const Tile = ({
   filmGroupLength,
@@ -9,13 +15,21 @@ const Tile = ({
   director,
   actors,
   id,
+  slug,
   index,
   img,
   visibleSlideIds,
   isLeftMostSlide,
   isRightMostSlide,
 }) => {
+  const [isHovered, setIsHovered] = useState(false);
+
+  const toggleIsHovered = () => {
+    console.log('99');
+    return setIsHovered(!isHovered);
+  };
   console.log('tile rendered');
+  console.log('isHovered ', isHovered);
   return (
     <li
       className={`tile-group__item${
@@ -27,31 +41,47 @@ const Tile = ({
           ? ' tile-group__item--is-rightmost-active'
           : ''
       } tile`}
+      onMouseEnter={toggleIsHovered}
+      onMouseLeave={toggleIsHovered}
       aria-hidden={`${visibleSlideIds.includes(id) ? 'false' : 'true'}`}
       aria-label={`slide ${index + 1} of ${filmGroupLength}`}
     >
-      <a
-        href='www.google.com'
-        tabIndex={`${visibleSlideIds.includes(id) ? '0' : '-1'}`}
-      >
-        {/* <p>{title}</p> */}
-        <div className='ratio-16-9'>
-          <img src={img} alt='' />
-          <div className='absolute left-0 bottom-0'>
-            {/* <div className='w-4/5 p-1'>
-            {/* <span className='block text-xs'>{title}</span>
-            <span className='block text-xs'>{duration}</span>
-            <span className='block text-xs'>{year}</span>
-            <span className='block text-xs'>{director}</span> */}
-            {/* <span className="block">{year}</span> */}
-            {/* </div> */}
-          </div>
+      {/* <p>{title}</p> */}
+      <div className='ratio-16-9'>
+        <img src={img} alt='' />
+        <Link
+          to={`/now-playing/${slug}`}
+          className='absolute top-0 bottom-0 left-0 right-0'
+          tabIndex={`${visibleSlideIds.includes(id) ? '0' : '-1'}`}
+          aria-label={title}
+        ></Link>
+        <div className='tile__btn-group'>
+          {isHovered && (
+            <btn className='myList-btn' onClick={e => addToMyList(e)}>
+              <Plus />
+              <div className='tooltip'>
+                <span className='font-2xs' role='status' aria-live='assertive'>
+                  Add Film To MyList
+                </span>
+              </div>
+            </btn>
+          )}
         </div>
-        <h3 className='tile__title'>{title}</h3>
-      </a>
+      </div>
+      <h3 className='tile__title'>{title}</h3>
     </li>
   );
 };
+
+{
+  /* <div className='w-4/5 p-1'>
+            <span className='block text-xs'>{title}</span>
+            <span className='block text-xs'>{duration}</span>
+            <span className='block text-xs'>{year}</span>
+            <span className='block text-xs'>{director}</span>
+              <span className="block">{year}</span>
+              </div> */
+}
 
 Tile.propTypes = {
   filmGroupLength: PropTypes.number.isRequired,
@@ -62,6 +92,7 @@ Tile.propTypes = {
   actors: PropTypes.array,
   img: PropTypes.string.isRequired,
   id: PropTypes.string,
+  slug: PropTypes.string,
   index: PropTypes.number.isRequired,
   visibleSlideIds: PropTypes.array.isRequired,
 };

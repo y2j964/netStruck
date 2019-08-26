@@ -1,0 +1,63 @@
+.selection {
+  @apply flex flex-col px-10 py-10;
+
+  @media (--sm) {
+    @apply flex-row p-0;
+  }
+
+  &__info {
+    @apply w-full;
+    order: 2;
+
+    @media (--sm) {
+      @apply w-1/2 px-10;
+      padding-top: 3.6rem;
+      order: initial;
+    }
+  }
+
+  &__poster {
+    @apply w-full;
+    order: 1;
+
+    @media (--sm) {
+      @apply w-1/2 pl-2;
+      order: initial;
+    }
+  }
+
+  &__title {
+    @apply text-white font-bold text-2xl mb-3 mt-3;
+
+    @media (--sm) {
+      @apply mt-0;
+    }
+  }
+
+  &__text {
+    @apply text-light-gray leading-tight text-sm;
+  }
+
+  /* &__description {
+    transition: all .2s ease-in-out;
+
+    &--is-expanded {
+      @apply mb-4;
+      max-height: none;
+    }
+
+    &--is-truncated {
+      max-height: 54px;
+      overflow: hidden;
+    }
+  } */
+
+  &__content {
+    @apply w-full;
+
+    @media (--sm) {
+      @apply w-1/3;
+    }
+  }
+
+}

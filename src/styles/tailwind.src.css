@@ -10,6 +10,7 @@
 @import 'components/content-row.css';
 @import 'components/filter-btn.css';
 @import 'components/film-table.css';
+@import 'components/selection.css';
 @import 'components/slide.css';
 @import 'components/slider.css';
 @import 'components/slider-row.css';
@@ -24,7 +25,7 @@
 @custom-media --lg (min-width: 1024px);
 @custom-media --xl (min-width: 1280px);
 
-#root {
+body {
   background-color: #151515;
 }
 
@@ -38,7 +39,7 @@
 
 .ratio-16-9 {
   position: relative;
-  overflow: hidden;
+  /* overflow: hidden; */
   display: block;
   padding-top: 56.25%;
   background-color: transparent;
@@ -107,7 +108,7 @@
 }
 
 .watch-btn {
-  @apply px-4 py-2 text-sm bg-gray-100;
+  @apply px-4 py-2 text-sm bg-gray-100 uppercase;
 }
 
 .bottom-10 {
@@ -265,4 +266,65 @@ td{
 
 .order-3 {
   order: 3;
+}
+
+.w-18 {
+  width: 18px;
+}
+
+.h-18 {
+  height: 18px;
+}
+
+.tooltip {
+  @apply bg-white text-black absolute;
+  padding: 2px;
+  width: 72px;
+  height: 18px;
+  /* display: flex; */
+  display: none;
+    justify-content: center;
+    align-items: center;
+  top: 138%;
+  /* opacity: .99; */
+  /* padding: 4px; */
+  /* margin-left: -2em; */
+  /* margin-top: 4px; */
+
+  &:before {
+    content: "";
+  position: absolute;
+  bottom: 95%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent white transparent;
+  }
+}
+
+.font-2xs {
+  font-size: .5rem;
+}
+
+.myList-btn {
+  @apply relative rounded-full flex justify-center items-center bg-main border border-white w-18 h-18 z-10 cursor-pointer opacity-0;
+  transition: opacity 400ms cubic-bezier(0, 0, 0.2, 1);;
+  transition-delay: 400ms;
+
+  &:hover {
+    .tooltip {
+      display: flex;
+    }
+  }
+}
+
+.chevron-toggler {
+  width: 18px;
+  height: 18px;
+  transition: transform .2s ease-in-out;
+
+  &--is-flipped {
+    transform: rotate(180deg);
+  }
 }

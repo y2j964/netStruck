@@ -1,7 +1,15 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-export default function FilmRow({ img, title, duration, year, director }) {
+export default function FilmRow({
+  img,
+  title,
+  duration,
+  year,
+  director,
+  slug,
+}) {
   return (
     <tr className='film-table__row'>
       <td className='film-table__thumbnail'>
@@ -13,11 +21,11 @@ export default function FilmRow({ img, title, duration, year, director }) {
         {title}
 
         {/* eslint-disable-next-line jsx-a11y/anchor-has-content */}
-        <a
+        <Link
           className='tr-overlay'
-          href='#'
+          to={`/now-playing/${slug}`}
           aria-label={`${title} info page`}
-        ></a>
+        ></Link>
       </td>
       <td className='film-table__director'>{director}</td>
       <td className='film-table__duration'>{duration}</td>
