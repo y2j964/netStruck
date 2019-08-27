@@ -1,5 +1,5 @@
 .selection {
-  @apply flex flex-col px-10 py-10;
+  @apply flex flex-col px-10 py-10 mb-10;
 
   @media (--sm) {
     @apply flex-row p-0;

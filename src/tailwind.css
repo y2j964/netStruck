@@ -7996,6 +7996,7 @@ video {
   padding-right: 2.5rem;
   padding-top: 2.5rem;
   padding-bottom: 2.5rem;
+  margin-bottom: 2.5rem;
 }
 
 @media (min-width: 640px) {
@@ -8336,10 +8337,12 @@ video {
 }
 
 .tile-group__item {
-    flex: none;
-    padding: 0 2px;
+    /* transform: scale(.5); */
     transition: transform 400ms cubic-bezier(0, 0, 0.2, 1);
     transition-delay: 400ms;
+    /* &:hover {
+      transform: scale(1);
+    } */
   }
 
 .tile-group:hover .tile-group__item--is-active {
@@ -8372,7 +8375,14 @@ video {
 
 .tile {
   width: 50%;
+  flex: none;
+  padding: 0 2px;
 }
+
+.tile--is-static {
+    padding-left: 0.25rem;
+    padding-right: 0.25rem;
+  }
 
 .tile:hover .myList-btn {
       opacity: 1;
@@ -8711,19 +8721,16 @@ td{
   color: #000;
   position: absolute;
   padding: 2px;
-  width: 72px;
-  height: 18px;
+  /* width: 72px; */
+  /* height: 18px; */
+  width: 118px;
+  height: 28px;
   /* display: flex; */
   display: none;
   justify-content: center;
   align-items: center;
   top: 138%;
-  /* opacity: .99; */
-  /* padding: 4px; */
-  /* margin-left: -2em; */
 }
-
-/* margin-top: 4px; */
 
 .tooltip:before {
     content: "";
@@ -8749,11 +8756,11 @@ td{
   background-color: #151515;
   border-width: 1px;
   border-color: #fff;
-  width: 18px;
-  height: 18px;
   z-index: 10;
   cursor: pointer;
   opacity: 0;
+  width: 18px;
+  height: 18px;
   transition: opacity 400ms cubic-bezier(0, 0, 0.2, 1);
   transition-delay: 400ms;
 }
@@ -8771,6 +8778,10 @@ td{
 .chevron-toggler--is-flipped {
     transform: rotate(180deg);
   }
+
+.max-w-80 {
+  max-width: 80rem;
+}
 
 @media (min-width: 640px) {
   .sm\:appearance-none {

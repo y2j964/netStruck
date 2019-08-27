@@ -1,11 +1,7 @@
 import React, { memo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import Plus from '../../../icons/Plus';
-
-const addToMyList = e => {
-  console.log('added to list');
-};
+import ToggleToMyListBtn from './ToggleToMyListBtn';
 
 const Tile = ({
   filmGroupLength,
@@ -18,6 +14,7 @@ const Tile = ({
   slug,
   index,
   img,
+  isAddedToMyList,
   visibleSlideIds,
   isLeftMostSlide,
   isRightMostSlide,
@@ -25,10 +22,9 @@ const Tile = ({
   const [isHovered, setIsHovered] = useState(false);
 
   const toggleIsHovered = () => {
-    console.log('99');
     return setIsHovered(!isHovered);
   };
-  console.log('tile rendered');
+  console.log('tile rendered', title);
   console.log('isHovered ', isHovered);
   return (
     <li
@@ -56,16 +52,11 @@ const Tile = ({
           aria-label={title}
         ></Link>
         <div className='tile__btn-group'>
-          {isHovered && (
-            <btn className='myList-btn' onClick={e => addToMyList(e)}>
-              <Plus />
-              <div className='tooltip'>
-                <span className='font-2xs' role='status' aria-live='assertive'>
-                  Add Film To MyList
-                </span>
-              </div>
-            </btn>
-          )}
+          <ToggleToMyListBtn
+            tileIsHovered={isHovered}
+            id={id}
+            isAddedToMyList={isAddedToMyList}
+          />
         </div>
       </div>
       <h3 className='tile__title'>{title}</h3>

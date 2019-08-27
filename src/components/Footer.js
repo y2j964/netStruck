@@ -1,17 +1,29 @@
 import React, { Component } from 'react';
 import FooterItems from './FooterItems';
 
+// 'Criterion Channel',
+//         'Netflix',
+//         'Cookies',
+//         'Sign in',
+
 export default class Footer extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
       footerItemsData: [
-        'THE CRITERION COLLECTION',
-        'Help',
-        'Privacy',
-        'Cookies',
-        'Sign in',
+        {
+          text: 'THE CRITERION COLLECTION',
+          href: 'https://www.criterion.com/',
+        },
+        {
+          text: 'CRITERION CHANNEL',
+          href: 'https://www.criterionchannel.com/',
+        },
+        {
+          text: 'NETFLIX',
+          href: 'https://www.netflix.com/',
+        },
       ],
     };
   }
@@ -19,7 +31,7 @@ export default class Footer extends Component {
   render() {
     return (
       <footer className='px-4 py-2 border-t border-gray-700'>
-        <ul className='flex'>
+        <ul className='flex flex-wrap'>
           <FooterItems linkData={this.state.footerItemsData} />
         </ul>
       </footer>

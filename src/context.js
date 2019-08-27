@@ -1,18 +1,43 @@
 import React, { useReducer, useEffect, useState, useMemo } from 'react';
 import PropTypes from 'prop-types';
-import filmData from './filmData';
+import netStruckData from './netStruckData';
 
 export const FilmDataContext = React.createContext();
 
 const filmDataReducer = (state, action) => {
   switch (action.type) {
-    case 'ADD_TO_MYLIST':
-      return state.map(film => {
+    case 'TOGGLE_FILM_MYLIST_STATE': {
+      const updatedFilms = state.films.map(film => {
         if (film.id === action.id) {
-          return { ...film, addedToMyList: true };
+          film.isAddedToMyList = !film.isAddedToMyList;
+          return film;
         }
         return film;
       });
+      return { ...state, films: updatedFilms };
+    }
+
+    case 'ADD_GROUP_TO_MYLIST': {
+      const updatedFilms = state.films.map(film => {
+        if (action.id.includes(film.id)) {
+          film.isAddedToMyList = true;
+          return film;
+        }
+        return film;
+      });
+      return { ...state, films: updatedFilms };
+    }
+
+    case 'REMOVE_GROUP_FROM_MYLIST': {
+      const updatedFilms = state.films.map(film => {
+        if (action.id.includes(film.id)) {
+          film.isAddedToMyList = false;
+          return film;
+        }
+        return film;
+      });
+      return { ...state, films: updatedFilms };
+    }
 
     case 'UPDATE_SLIDER_VISIBILITY':
       // console.log(action.id);
@@ -24,8 +49,8 @@ const filmDataReducer = (state, action) => {
     //   return film;
     // });
 
-    case 'TOGGLE_MODAL':
-      return !state.modalIsOpen;
+    // case 'TOGGLE_MODAL':
+    //   return {...state, modalIsOpen: !modalIsOpen};
 
     case 'CONTENT_LOADED':
       return {
@@ -39,9 +64,9 @@ const filmDataReducer = (state, action) => {
   }
 };
 
-const getInitialFilmData = () => {
+const getInitialFilmData = dataSource => {
   let updatedFilms = [];
-  filmData.forEach(film => {
+  dataSource.films.forEach(film => {
     const singleItem = { ...film };
     updatedFilms = [...updatedFilms, singleItem];
   });
@@ -49,20 +74,13 @@ const getInitialFilmData = () => {
   return updatedFilms;
 };
 
-const getFilmGenres = dataSource => {
-  const genres = [];
-  dataSource.forEach(film => {
-    film.genre.forEach(genre => {
-      if (!genres.includes(genre)) {
-        genres.push(genre);
-      }
-    });
-  });
-  return genres;
+const getInitialGenreData = dataSource => {
+  const updatedGenres = dataSource.featuredGenres.map(genre => genre);
+  return updatedGenres;
 };
 
 const FilmDataProvider = props => {
-  const [filmGenres, setFilmGenres] = useState([]);
+  const [featuredGenres, setFeaturedGenres] = useState([]);
   const [state, dispatch] = useReducer(filmDataReducer, {
     films: [],
     myList: [],
@@ -71,14 +89,32 @@ const FilmDataProvider = props => {
   });
 
   useEffect(() => {
-    const updatedState = getInitialFilmData();
-    setFilmGenres(getFilmGenres(updatedState));
-    dispatch({ type: 'CONTENT_LOADED', id: updatedState });
+    const updatedFilms = getInitialFilmData(netStruckData);
+    const updatedGenres = getInitialGenreData(netStruckData);
+
+    setFeaturedGenres(updatedGenres);
+    dispatch({ type: 'CONTENT_LOADED', id: updatedFilms });
   }, []);
 
-  // setFilmGenres(getFilmGenres);
+  const updateSliderVisibility = films => {
+    dispatch({ type: 'UPDATE_SLIDER_VISIBILITY', id: films });
+  };
 
-  // const [myCart, setMyCart] = useState([]);
+  const sortFilms = sortCriterion => {
+    dispatch({ type: 'SORT_FILMS', id: sortCriterion });
+  };
+
+  const toggleFilmMyListState = id => {
+    dispatch({ type: 'TOGGLE_FILM_MYLIST_STATE', id });
+  };
+
+  const addGroupToMyList = films => {
+    dispatch({ type: 'ADD_GROUP_TO_MYLIST', id: films });
+  };
+
+  const removeGroupFromMyList = films => {
+    dispatch({ type: 'REMOVE_GROUP_FROM_MYLIST', id: films });
+  };
 
   const getFilmsOfSameGenre = category => {
     const filmsOfSameGenre = state.films.filter(film =>
@@ -89,23 +125,18 @@ const FilmDataProvider = props => {
 
   const getFilm = slug => state.films.find(film => film.slug === slug);
 
-  const updateSliderVisibility = films => {
-    dispatch({ type: 'UPDATE_SLIDER_VISIBILITY', id: films });
-  };
-
-  const sortFilms = sortCriterion => {
-    dispatch({ type: 'SORT_FILMS', id: sortCriterion });
-  };
-
   return (
     <FilmDataContext.Provider
       value={{
         state,
         updateSliderVisibility,
-        filmGenres,
+        featuredGenres,
         getFilmsOfSameGenre,
         getFilm,
         sortFilms,
+        toggleFilmMyListState,
+        addGroupToMyList,
+        removeGroupFromMyList,
       }}
     >
       {props.children}

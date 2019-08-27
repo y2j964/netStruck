@@ -23,9 +23,10 @@ export default class Carousel extends Component {
           enterFrom: '',
           exitTo: '',
           title: 'There Will Be Blood',
+          slug: 'there-will-be-blood',
           img: thereWillBeBlood,
           description:
-            "Paul Thomas Anderson's 2007 saga of an oilman, featuring an Oscar award winning performance by Daniel Day-Lewis",
+            "Paul Thomas Anderson's 2007 saga of an competitive oilman, featuring an Oscar award winning performance by Daniel Day-Lewis",
         },
         {
           id: uuid.v4(),
@@ -33,6 +34,7 @@ export default class Carousel extends Component {
           enterFrom: '',
           exitTo: '',
           title: 'Masculin Féminin',
+          slug: 'masculin-féminin',
           img: masculinFeminin,
           description:
             'The "Pepsi Generation" is subject to subversive Godard wit and playful characterizations by Jean-Pierre Léaud and Chantal Goya in this 1966 French New Wave delight',
@@ -43,6 +45,7 @@ export default class Carousel extends Component {
           enterFrom: '',
           exitTo: '',
           title: 'Broken Embraces',
+          slug: 'broken-embraces',
           img: brokenEmbraces2,
           description:
             'Telanovela meets Alfred Hitchcock in this Pedro Almodóvar masterpiece, starring Penélope Cruz',
@@ -53,6 +56,7 @@ export default class Carousel extends Component {
           enterFrom: '',
           exitTo: '',
           title: 'Last Year at Marienbad',
+          slug: 'last-year-at-marienbad',
           img: lastYearAtMarienbad2,
           description:
             'Is it deja vu or is it something else entirely in this truly one of a kind film directed by Alain Resnais?',
@@ -63,6 +67,7 @@ export default class Carousel extends Component {
           enterFrom: '',
           exitTo: '',
           title: 'Mistress America',
+          slug: 'mistress-america',
           img: mistressAmerica2,
           description:
             'Noah Baumbach serves up a modern screwball comedy classic in what marks his third collaboration with actress Greta Gerwig',

@@ -9,22 +9,25 @@ import { FilmDataContext } from '../../../context';
 //   return filmsOfSameGenre;
 // };
 
-function ContentRow({ category }) {
+function ContentRow({ name, slug, description, poster }) {
   const context = useContext(FilmDataContext);
-  const filmsOfSameGenre = context.getFilmsOfSameGenre(category);
-
-  const genreSlug = category.toLowerCase().replace(/\s/g, '-');
+  const filmsOfSameGenre = context.getFilmsOfSameGenre(name);
   console.log('row rendered');
 
   return (
     <div className='content-row'>
       <div className='content-row__header'>
-        <h2 className='content-row__title'>{category}</h2>
-        <Link to={{
-          pathname: `now-playing/genre/${genreSlug}`,
-          category,
-          filmsOfSameGenre,
-          }} className='text-white'>
+        <h2 className='content-row__title'>{name}</h2>
+        <Link
+          to={{
+            pathname: `now-playing/genre/${slug}`,
+            name,
+            description,
+            poster,
+            filmsOfSameGenre,
+          }}
+          className='text-white'
+        >
           See More
         </Link>
       </div>
@@ -38,7 +41,10 @@ function ContentRow({ category }) {
 
 ContentRow.propTypes = {
   // filmGroupData: PropTypes.array.isRequired,
-  category: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  slug: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  poster: PropTypes.string.isRequired,
   // activateRelevantSlides: PropTypes.func.isRequired,
 };
 

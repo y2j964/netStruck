@@ -10,8 +10,14 @@ export default function FilmPage({ match }) {
   // const [descriptionIsExpanded, setDescriptionIsExpanded] = useState(false);
 
   const context = useContext(FilmDataContext);
-  const { getFilm, isLoading } = context;
+  const { getFilm, isLoading, toggleFilmMyListState } = context;
+
   const filmObj = getFilm(slug);
+
+  const addToMyList = () => {
+    console.log(filmObj);
+    toggleFilmMyListState(filmObj.id);
+  };
 
   useEffect(() => {
     // const filmObj = context.getFilm(slug);
@@ -47,7 +53,9 @@ export default function FilmPage({ match }) {
           <div className='flex flex-wrap'>
             <button className='watch-btn mr-4 mb-4'>SIGN UP</button>
             <button className='watch-btn mr-4 mb-4'>TRAILER</button>
-            <button className='watch-btn mr-4 mb-4'>ADD TO MYLIST</button>
+            <button className='watch-btn mr-4 mb-4' onClick={addToMyList}>
+              {filmObj.isAddedToMyList ? 'REMOVE FROM MYLIST' : 'ADD TO MYLIST'}
+            </button>
           </div>
         </div>
         <div className='selection__poster'>

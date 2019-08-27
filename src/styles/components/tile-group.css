@@ -2,10 +2,12 @@
   display: flex;
 
   &__item {
-    @apply flex-none;
-    padding: 0 2px;
+    /* transform: scale(.5); */
     transition: transform 400ms cubic-bezier(0, 0, 0.2, 1);;
     transition-delay: 400ms;
+    /* &:hover {
+      transform: scale(1);
+    } */
   }
 
   &:hover .tile-group__item--is-active {

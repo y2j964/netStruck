@@ -7,6 +7,7 @@ import Footer from './components/Footer';
 import Home from './components/Home/Home';
 import NowPlaying from './components/NowPlaying/NowPlaying';
 import SelectionPage from './components/SelectionPage';
+import GenreSelection from './components/GenreSelection';
 import AllFilms from './components/AllFilms/AllFilms';
 import MyList from './components/MyList/MyList';
 import { FilmDataProvider } from './context';
@@ -20,7 +21,8 @@ function App() {
           <Switch>
             <Route exact path='/' component={Home} />
             <Route exact path='/now-playing' component={NowPlaying} />
-            <Route path='/now-playing/:slug' component={SelectionPage} />
+            <Route exact path='/now-playing/:slug' component={SelectionPage} />
+            <Route path='/now-playing/genre/:slug' component={GenreSelection} />
             <Route path='/all-films' component={AllFilms} />
             <Route path='/my-list' component={MyList} />
             <Route component={Error404} />

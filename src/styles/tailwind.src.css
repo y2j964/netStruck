@@ -279,17 +279,15 @@ td{
 .tooltip {
   @apply bg-white text-black absolute;
   padding: 2px;
-  width: 72px;
-  height: 18px;
+  /* width: 72px; */
+  /* height: 18px; */
+  width: 118px;
+  height: 28px;
   /* display: flex; */
   display: none;
     justify-content: center;
     align-items: center;
   top: 138%;
-  /* opacity: .99; */
-  /* padding: 4px; */
-  /* margin-left: -2em; */
-  /* margin-top: 4px; */
 
   &:before {
     content: "";
@@ -308,7 +306,9 @@ td{
 }
 
 .myList-btn {
-  @apply relative rounded-full flex justify-center items-center bg-main border border-white w-18 h-18 z-10 cursor-pointer opacity-0;
+  @apply relative rounded-full flex justify-center items-center bg-main border border-white z-10 cursor-pointer opacity-0;
+  width: 18px;
+  height: 18px;
   transition: opacity 400ms cubic-bezier(0, 0, 0.2, 1);;
   transition-delay: 400ms;
 
@@ -327,4 +327,8 @@ td{
   &--is-flipped {
     transform: rotate(180deg);
   }
+}
+
+.max-w-80 {
+  max-width: 80rem;
 }

@@ -1,5 +1,10 @@
 .tile {
-  @apply w-1/2;
+  @apply w-1/2 flex-none;
+  padding: 0 2px;
+
+  &--is-static {
+    @apply px-1;
+  }
 
   &:hover {
     & .myList-btn {

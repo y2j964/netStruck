@@ -1,4 +1,5 @@
 import React, { memo } from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import PlayIcon from '../../../icons/Play';
 
@@ -24,6 +25,7 @@ const getSlidingDirection = (enterFrom, exitTo) => {
 const CarouselItem = ({
   title,
   description,
+  slug,
   isActive,
   enterFrom,
   exitTo,
@@ -45,10 +47,14 @@ const CarouselItem = ({
       <div className='carousel-item__text-block'>
         <h2 className='carousel-item__title'>{title}</h2>
         <p className='carousel-item__description'>{description}</p>
-        <button className='watch-btn' tabIndex={isActive ? 0 : -1}>
+        <Link
+          className='watch-btn'
+          tabIndex={isActive ? 0 : -1}
+          to={`/now-playing/${slug}`}
+        >
           <PlayIcon svgClassName='inline mr-2' />
-          WATCH NOW
-        </button>
+          VIEW FILM
+        </Link>
       </div>
       <div className='carousel-item__img-block'>
         <img src={img} alt='' className='carousel-item__img' />
@@ -61,6 +67,7 @@ CarouselItem.propTypes = {
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   isActive: PropTypes.bool.isRequired,
+  slug: PropTypes.string.isRequired,
   enterFrom: PropTypes.string.isRequired,
   exitTo: PropTypes.string.isRequired,
   img: PropTypes.string.isRequired,
