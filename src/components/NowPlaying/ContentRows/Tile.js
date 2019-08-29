@@ -6,18 +6,14 @@ import ToggleToMyListBtn from './ToggleToMyListBtn';
 const Tile = ({
   filmGroupLength,
   title,
-  duration,
-  year,
-  director,
-  actors,
   id,
   slug,
   index,
   img,
   isAddedToMyList,
   visibleSlideIds,
-  isLeftMostSlide,
-  isRightMostSlide,
+  // isLeftMostSlide,
+  // isRightMostSlide,
 }) => {
   const [isHovered, setIsHovered] = useState(false);
 
@@ -39,7 +35,8 @@ const Tile = ({
       } tile`}
       onMouseEnter={toggleIsHovered}
       onMouseLeave={toggleIsHovered}
-      aria-hidden={`${visibleSlideIds.includes(id) ? 'false' : 'true'}`}
+      // eslint-disable-next-line no-unneeded-ternary
+      aria-hidden={visibleSlideIds.includes(id) ? false : true}
       aria-label={`slide ${index + 1} of ${filmGroupLength}`}
     >
       {/* <p>{title}</p> */}
@@ -64,28 +61,21 @@ const Tile = ({
   );
 };
 
-{
-  /* <div className='w-4/5 p-1'>
-            <span className='block text-xs'>{title}</span>
-            <span className='block text-xs'>{duration}</span>
-            <span className='block text-xs'>{year}</span>
-            <span className='block text-xs'>{director}</span>
-              <span className="block">{year}</span>
-              </div> */
-}
-
 Tile.propTypes = {
   filmGroupLength: PropTypes.number.isRequired,
   title: PropTypes.string.isRequired,
-  duration: PropTypes.string,
-  year: PropTypes.number,
-  director: PropTypes.string,
-  actors: PropTypes.array,
   img: PropTypes.string.isRequired,
   id: PropTypes.string,
   slug: PropTypes.string,
   index: PropTypes.number.isRequired,
+  isAddedToMyList: PropTypes.bool.isRequired,
   visibleSlideIds: PropTypes.array.isRequired,
+  isRightMostSlide: PropTypes.bool.isRequired,
+  isLeftMostSlide: PropTypes.bool.isRequired,
 };
+
+// function areEqual(prevProps, nextProps) {
+//   return prevProps.isAddedToMyList === nextProps.isAddedToMyList;
+// }
 
 export default memo(Tile);

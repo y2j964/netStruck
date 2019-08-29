@@ -1,22 +1,23 @@
-import React, { useState, useEffect, useContext, memo } from 'react';
+import React, { useState, useEffect, memo } from 'react';
 import PropTypes from 'prop-types';
-import { FilmDataContext } from '../../../context';
+import { useFilmGetSet } from '../../../context';
 import Plus from '../../../icons/Plus';
 import Minus from '../../../icons/Minus';
 
 function ToggleToMyListBtn({ tileIsHovered, isAddedToMyList, id }) {
   const [isLoading, setIsLoading] = useState(false);
 
-  const context = useContext(FilmDataContext);
-  const { toggleFilmMyListState } = context;
+  const { dispatch } = useFilmGetSet();
+  const toggleFilmMyListState = () =>
+    dispatch({ type: 'TOGGLE_FILM_MYLIST_STATE', id });
 
   const addToMyList = () => {
     setIsLoading(true);
-    toggleFilmMyListState(id);
+    toggleFilmMyListState();
   };
 
   useEffect(() => {
-    console.log('shock me', isAddedToMyList);
+    console.log('remount btn', id);
     setIsLoading(false);
   }, [isAddedToMyList]);
 

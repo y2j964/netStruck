@@ -4,9 +4,9 @@ import { Link } from 'react-router-dom';
 export default function Error404() {
   return (
     <div className='p-12'>
-      <h2 className='text-white text-2xl text-center mb-12'>
+      <h1 className='text-white text-2xl text-center mb-12'>
         404 Error: Page Not Found
-      </h2>
+      </h1>
       <p className='text-white mb-10'>
         Woah, we couldn't find that url, partner. Here's another handy link back
         home:{' '}

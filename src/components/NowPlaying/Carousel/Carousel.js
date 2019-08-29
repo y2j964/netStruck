@@ -176,7 +176,7 @@ export default class Carousel extends Component {
         tabIndex='-1'
         onKeyDown={this.triggerCarouselArrow}
       >
-        <h2 className='sr-only'>Featured Curated Content</h2>
+        <h2 className='sr-only'>Film Carousel Smorgasbord</h2>
         <CarouselItems carouselItems={this.state.filmData} />
         <div className='absolute top-0 bottom-0 left-0 flex items-center px-3 z-20'>
           <button

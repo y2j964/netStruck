@@ -1,8 +1,8 @@
-import React, { memo, useContext } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import SliderRow from './SliderRow';
-import { FilmDataContext } from '../../../context';
+import { useFilmGetSet } from '../../../context';
 
 // const getFilmsOfSameGenre = (films, category) => {
 //   const filmsOfSameGenre = films.filter(film => film.genre.includes(category));
@@ -10,8 +10,13 @@ import { FilmDataContext } from '../../../context';
 // };
 
 function ContentRow({ name, slug, description, poster }) {
-  const context = useContext(FilmDataContext);
-  const filmsOfSameGenre = context.getFilmsOfSameGenre(name);
+  const { getFilmsOfSameGenre, dispatch } = useFilmGetSet();
+
+  const filmsOfSameGenre = getFilmsOfSameGenre(name);
+  console.log(filmsOfSameGenre);
+  const updateSliderVisibility = films =>
+    dispatch({ type: 'UPDATE_SLIDER_VISIBILITY', id: films });
+
   console.log('row rendered');
 
   return (
@@ -33,7 +38,7 @@ function ContentRow({ name, slug, description, poster }) {
       </div>
       <SliderRow
         filmGroupData={filmsOfSameGenre}
-        updateSliderVisibility={context.updateSliderVisibility}
+        updateSliderVisibility={updateSliderVisibility}
       />
     </div>
   );
@@ -48,8 +53,8 @@ ContentRow.propTypes = {
   // activateRelevantSlides: PropTypes.func.isRequired,
 };
 
-function areEqual(prevProps, nextProps) {
-  return prevProps !== nextProps;
-}
+// function areEqual(prevProps, nextProps) {
+//   return prevProps === nextProps;
+// }
 
-export default memo(ContentRow, areEqual);
+export default ContentRow;

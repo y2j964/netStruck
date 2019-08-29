@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Tile from './Tile';
 import uuid from 'uuid';
+import Tile from './Tile';
 
 function TileGroup({
   filmGroupData,
@@ -59,7 +59,7 @@ function TileGroup({
   tileFrags.unshift(endClones);
   tileFrags.push(frontClones);
 
-  console.log('tilegroup rendered');
+  console.log('tile group rendered');
   return (
     <ul
       className='tile-group'

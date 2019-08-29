@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import StaticTile from './StaticTile';
 
 export default function StaticTileGroup({ filmsOfSameGenre }) {
@@ -16,3 +17,7 @@ export default function StaticTileGroup({ filmsOfSameGenre }) {
     <ul className='p-10 mb-10 max-w-80 flex mx-auto flex-wrap'>{tileFrags}</ul>
   );
 }
+
+StaticTileGroup.propTypes = {
+  filmsOfSameGenre: PropTypes.array.isRequired,
+};

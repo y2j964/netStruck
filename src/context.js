@@ -1,8 +1,10 @@
-import React, { useReducer, useEffect, useState, useMemo } from 'react';
+/* eslint-disable no-param-reassign */
+import React, { useReducer, useEffect, useState, useContext } from 'react';
 import PropTypes from 'prop-types';
 import netStruckData from './netStruckData';
 
-export const FilmDataContext = React.createContext();
+const FilmValuesContext = React.createContext();
+const FilmGetSetContext = React.createContext();
 
 const filmDataReducer = (state, action) => {
   switch (action.type) {
@@ -96,25 +98,25 @@ const FilmDataProvider = props => {
     dispatch({ type: 'CONTENT_LOADED', id: updatedFilms });
   }, []);
 
-  const updateSliderVisibility = films => {
-    dispatch({ type: 'UPDATE_SLIDER_VISIBILITY', id: films });
-  };
+  // const updateSliderVisibility = films => {
+  //   dispatch({ type: 'UPDATE_SLIDER_VISIBILITY', id: films });
+  // };
 
-  const sortFilms = sortCriterion => {
-    dispatch({ type: 'SORT_FILMS', id: sortCriterion });
-  };
+  // const sortFilms = sortCriterion => {
+  //   dispatch({ type: 'SORT_FILMS', id: sortCriterion });
+  // };
 
-  const toggleFilmMyListState = id => {
-    dispatch({ type: 'TOGGLE_FILM_MYLIST_STATE', id });
-  };
+  // const toggleFilmMyListState = id => {
+  //   dispatch({ type: 'TOGGLE_FILM_MYLIST_STATE', id });
+  // };
 
-  const addGroupToMyList = films => {
-    dispatch({ type: 'ADD_GROUP_TO_MYLIST', id: films });
-  };
+  // const addGroupToMyList = films => {
+  //   dispatch({ type: 'ADD_GROUP_TO_MYLIST', id: films });
+  // };
 
-  const removeGroupFromMyList = films => {
-    dispatch({ type: 'REMOVE_GROUP_FROM_MYLIST', id: films });
-  };
+  // const removeGroupFromMyList = films => {
+  //   dispatch({ type: 'REMOVE_GROUP_FROM_MYLIST', id: films });
+  // };
 
   const getFilmsOfSameGenre = category => {
     const filmsOfSameGenre = state.films.filter(film =>
@@ -126,25 +128,32 @@ const FilmDataProvider = props => {
   const getFilm = slug => state.films.find(film => film.slug === slug);
 
   return (
-    <FilmDataContext.Provider
-      value={{
-        state,
-        updateSliderVisibility,
-        featuredGenres,
-        getFilmsOfSameGenre,
-        getFilm,
-        sortFilms,
-        toggleFilmMyListState,
-        addGroupToMyList,
-        removeGroupFromMyList,
-      }}
-    >
-      {props.children}
-    </FilmDataContext.Provider>
+    <FilmValuesContext.Provider value={{ state, featuredGenres }}>
+      <FilmGetSetContext.Provider
+        value={{ dispatch, getFilmsOfSameGenre, getFilm }}
+      >
+        {props.children}
+      </FilmGetSetContext.Provider>
+    </FilmValuesContext.Provider>
   );
 };
 
-export { FilmDataProvider };
+function useFilmValues() {
+  const context = useContext(FilmValuesContext);
+  if (context === undefined) {
+    throw new Error('useCountState must be used within a CountProvider');
+  }
+  return context;
+}
+function useFilmGetSet() {
+  const context = useContext(FilmGetSetContext);
+  if (context === undefined) {
+    throw new Error('useCountDispatch must be used within a CountProvider');
+  }
+  return context;
+}
+
+export { FilmDataProvider, useFilmValues, useFilmGetSet };
 
 FilmDataProvider.propTypes = {
   children: PropTypes.node.isRequired,

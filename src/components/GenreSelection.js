@@ -1,22 +1,22 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import StaticTileGroup from './NowPlaying/ContentRows/StaticTileGroup';
-import { FilmDataContext } from '../context';
+import { useFilmGetSet } from '../context';
 
 // const toggleDescriptionIsExpanded = () =>
 //   setDescriptionIsExpanded(!descriptionIsExpanded);
 
-export default function FilmPage({ location }) {
+export default function GenreSelection({ location }) {
   // const [slug, setSlug] = useState(match.params.slug);
   // const [descriptionIsExpanded, setDescriptionIsExpanded] = useState(false);
 
-  const context = useContext(FilmDataContext);
-  const { addGroupToMyList, isLoading } = context;
+  const { dispatch } = useFilmGetSet();
 
   const { name, description, poster, filmsOfSameGenre } = location;
 
   const addAllToMyList = () => {
     const targetedFilmIds = filmsOfSameGenre.map(film => film.id);
-    addGroupToMyList(targetedFilmIds);
+    dispatch({ type: 'ADD_GROUP_TO_MYLIST', id: targetedFilmIds });
     // console.log(filmsOfSameGenre);
     // dispatchAllToMyList(filmsOfSameGenre);
   };
@@ -25,11 +25,6 @@ export default function FilmPage({ location }) {
   //   // const filmObj = context.getFilm(slug);
   // }, [slug]);
 
-  console.log(isLoading);
-
-  if (isLoading) {
-    return <p>Is loading . . . </p>;
-  }
   return (
     <div>
       <div className='selection'>
@@ -57,3 +52,11 @@ export default function FilmPage({ location }) {
     </div>
   );
 }
+
+GenreSelection.propTypes = {
+  location: PropTypes.object.isRequired,
+  // name: PropTypes.object.isRequired,
+  // location: PropTypes.object.isRequired,
+  // location: PropTypes.object.isRequired,
+  // location: PropTypes.object.isRequired,
+};

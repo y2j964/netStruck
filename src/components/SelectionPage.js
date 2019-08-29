@@ -1,42 +1,35 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 // import ChevronDown from '../icons/ChevronDown';
-import { FilmDataContext } from '../context';
+import { useFilmGetSet } from '../context';
 
-// const toggleDescriptionIsExpanded = () =>
-//   setDescriptionIsExpanded(!descriptionIsExpanded);
-
-export default function FilmPage({ match }) {
-  const [slug, setSlug] = useState(match.params.slug);
+export default function SelectionPage({ match }) {
   // const [descriptionIsExpanded, setDescriptionIsExpanded] = useState(false);
 
-  const context = useContext(FilmDataContext);
-  const { getFilm, isLoading, toggleFilmMyListState } = context;
+  const { slug } = match.params;
+  const { getFilm, dispatch } = useFilmGetSet();
 
-  const filmObj = getFilm(slug);
+  console.log(getFilm);
+  const selectedFilm = getFilm(slug);
 
   const addToMyList = () => {
-    console.log(filmObj);
-    toggleFilmMyListState(filmObj.id);
+    console.log(selectedFilm);
+    dispatch({ type: 'TOGGLE_FILM_MYLIST_STATE', id: selectedFilm.id });
   };
 
-  useEffect(() => {
-    // const filmObj = context.getFilm(slug);
-  }, [slug]);
+  // useEffect(() => {
+  //   const selectedFilm = context.getFilm(slug);
+  // }, [slug]);
 
-  console.log(isLoading);
-
-  if (isLoading) {
-    return <p>Is loading . . . </p>;
-  }
   return (
     <div>
       <div className='selection'>
         <div className='selection__info'>
-          <h2 className='selection__title'>{filmObj.title}</h2>
-          <p className='selection__text'>{`Directed by ${filmObj.director} • ${filmObj.year} • ${filmObj.duration}`}</p>
-          <p className='selection__text mb-3'>{`Starring ${filmObj.actors}`}</p>
+          <h2 className='selection__title'>{selectedFilm.title}</h2>
+          <p className='selection__text'>{`Directed by ${selectedFilm.director} • ${selectedFilm.year} • ${selectedFilm.duration}`}</p>
+          <p className='selection__text mb-3'>{`Starring ${selectedFilm.actors}`}</p>
           <p className='selection__text mb-8' id='selectionDescription'>
-            {filmObj.description}
+            {selectedFilm.description}
           </p>
           {/* <button
             className='text-white text-sm mb-8 font-bold pr-5 relative'
@@ -54,23 +47,29 @@ export default function FilmPage({ match }) {
             <button className='watch-btn mr-4 mb-4'>SIGN UP</button>
             <button className='watch-btn mr-4 mb-4'>TRAILER</button>
             <button className='watch-btn mr-4 mb-4' onClick={addToMyList}>
-              {filmObj.isAddedToMyList ? 'REMOVE FROM MYLIST' : 'ADD TO MYLIST'}
+              {selectedFilm.isAddedToMyList
+                ? 'REMOVE FROM MYLIST'
+                : 'ADD TO MYLIST'}
             </button>
           </div>
         </div>
         <div className='selection__poster'>
           <div className='ratio-16-9'>
-            <img src={filmObj.img} alt='' />
+            <img src={selectedFilm.img} alt='' />
           </div>
         </div>
       </div>
       <div className='p-10'>
         <div className='selection__content'>
           <div className='ratio-16-9'>
-            <img src={filmObj.img} alt='' />
+            <img src={selectedFilm.img} alt='' />
           </div>
         </div>
       </div>
     </div>
   );
 }
+
+SelectionPage.propTypes = {
+  match: PropTypes.object.isRequired,
+};

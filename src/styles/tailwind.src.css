@@ -332,3 +332,17 @@ td{
 .max-w-80 {
   max-width: 80rem;
 }
+
+/* .expandable-hover {
+  @apply absolute top-0 bottom-0 left-0 right-0;
+  width: 150%;
+  height: 150%;
+  transform:scale(.666666);
+  transform-origin: top left;
+  transition: transform 400ms cubic-bezier(0, 0, 0.2, 1);
+
+  &:hover {
+    transform: scale(1);
+    transform-origin: center;
+  }
+} */

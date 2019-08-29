@@ -1,8 +1,8 @@
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
 import FilmTable from './FilmTable/FilmTable';
 import FilmRows from './FilmTable/FilmRows';
 import TableViewOptions from './TableViewOptions';
-import { FilmDataContext } from '../../context';
+import { useFilmValues } from '../../context';
 
 // regex func from Thorsten Frommen
 const stripLeadingArticle = string => string.replace(/^(an?|the)\s/i, '');
@@ -66,9 +66,9 @@ export default function AllFilms() {
   const [sortBy, setSortBy] = useState('title');
   const [sortIsAscending, setSortIsAscending] = useState(true);
 
-  const context = useContext(FilmDataContext);
-  const [...filmData] = context.state.films;
-  const { isLoading } = context.state;
+  const { state } = useFilmValues();
+  const [...filmData] = state.films;
+  const { isLoading } = state;
 
   const compareFunc = getSortCompareFunc(sortBy, sortIsAscending);
   filmData.sort(compareFunc);
@@ -76,6 +76,7 @@ export default function AllFilms() {
 
   return (
     <div className='md:px-12 mt-16'>
+      <h1 className='sr-only'>NetStruck All Films</h1>
       <TableViewOptions
         sortBy={sortBy}
         handleInputChange={e => handleInputChange(e, setSortBy)}
