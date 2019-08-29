@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 export default function Error404() {
+  useEffect(() => {
+    document.title = '404 Error - NetStruck';
+  }, []);
   return (
     <div className='p-12'>
       <h1 className='text-white text-2xl text-center mb-12'>

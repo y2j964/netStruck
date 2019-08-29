@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import StaticTileGroup from './NowPlaying/ContentRows/StaticTileGroup';
 import { useFilmGetSet } from '../context';
@@ -13,6 +13,10 @@ export default function GenreSelection({ location }) {
   const { dispatch } = useFilmGetSet();
 
   const { name, description, poster, filmsOfSameGenre } = location;
+
+  useEffect(() => {
+    document.title = `${name} - NetStruck`;
+  }, [name]);
 
   const addAllToMyList = () => {
     const targetedFilmIds = filmsOfSameGenre.map(film => film.id);

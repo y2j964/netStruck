@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 // import ChevronDown from '../icons/ChevronDown';
 import { useFilmGetSet } from '../context';
@@ -11,6 +11,10 @@ export default function SelectionPage({ match }) {
 
   console.log(getFilm);
   const selectedFilm = getFilm(slug);
+
+  useEffect(() => {
+    document.title = `${selectedFilm.title} - NetStruck`;
+  }, [slug]);
 
   const addToMyList = () => {
     console.log(selectedFilm);

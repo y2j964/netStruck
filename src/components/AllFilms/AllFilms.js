@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import FilmTable from './FilmTable/FilmTable';
 import FilmRows from './FilmTable/FilmRows';
 import TableViewOptions from './TableViewOptions';
@@ -65,6 +65,10 @@ const handleInputChange = (event, callback) => {
 export default function AllFilms() {
   const [sortBy, setSortBy] = useState('title');
   const [sortIsAscending, setSortIsAscending] = useState(true);
+
+  useEffect(() => {
+    document.title = 'All Films - NetStruck';
+  }, []);
 
   const { state } = useFilmValues();
   const [...filmData] = state.films;

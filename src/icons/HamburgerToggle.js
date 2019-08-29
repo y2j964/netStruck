@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function HamburgerMenu() {
+export default function HamburgerToggle({ additionalClasses }) {
   return (
     <svg
       viewBox='0 0 20 20'
