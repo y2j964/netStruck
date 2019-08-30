@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import Spinner from '../../icons/Spinner';
 
 export default function MyList() {
   useEffect(() => {
@@ -7,6 +8,7 @@ export default function MyList() {
   return (
     <div>
       <h1 className='sr-only'>NetStruck MyList</h1>
+      <Spinner />
     </div>
   );
 }

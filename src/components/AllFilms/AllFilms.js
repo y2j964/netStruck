@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
+import { useFilmValues } from '../../context';
 import FilmTable from './FilmTable/FilmTable';
 import FilmRows from './FilmTable/FilmRows';
 import TableViewOptions from './TableViewOptions';
-import { useFilmValues } from '../../context';
+import Spinner from '../../icons/Spinner';
 
 // regex func from Thorsten Frommen
 const stripLeadingArticle = string => string.replace(/^(an?|the)\s/i, '');
@@ -88,10 +89,12 @@ export default function AllFilms() {
         toggleSortDirection={() => setSortIsAscending(!sortIsAscending)}
       />
       {isLoading ? (
-        <p className='text-white'>Waiting on content . . .</p>
+        <div className='flex justify-center items-center'>
+          <Spinner />
+        </div>
       ) : (
         <FilmTable>
-          <FilmRows isLoading={isLoading} filmData={filmData} />
+          <FilmRows filmData={filmData} />
         </FilmTable>
       )}
     </div>
