@@ -2,7 +2,7 @@
   @apply mb-12;
 
   &__header {
-    @apply flex justify-between;
+    @apply flex justify-between uppercase;
     padding: 0 calc(4% + 2.9px);
   }
   &__title {

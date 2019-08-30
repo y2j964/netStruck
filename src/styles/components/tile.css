@@ -3,7 +3,7 @@
   padding: 0 2px;
 
   &--is-static {
-    @apply px-1;
+    @apply px-1 mb-8;
   }
 
   &:hover {

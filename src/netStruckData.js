@@ -82,12 +82,13 @@ const netStruckData = {
     title: 'Running on Empty',
     duration: '116 minutes',
     year: 1988,
-    genre: ['I GUESS THIS IS GROWING UP'],
+    genre: ['I Guess This is Growing UP'],
     director: 'Sidney Lumet',
     actors: ['River Phoenix, Christine Lahti, Judd Hirsch'],
     description:
       "The Popes are a family who haven't been able to use their real identity for years. In the late sixties, the parents set a weapons lab afire in an effort to hinder the government's Vietnam war campaign. Ever since then, the Popes have been on the run with the authorities never far behind.",
     img: runningOnEmpty,
+    alt: "River Phoenix playing piano in the film Running on Empty",
     id: uuid.v4(),
     slug: 'running-on-empty',
     isAddedToMyList: false,
@@ -99,12 +100,13 @@ const netStruckData = {
     title: 'Ordinary People',
     duration: '124 minutes',
     year: 1980,
-    genre: ['I GUESS THIS IS GROWING UP'],
+    genre: ['I Guess This is Growing UP'],
     director: 'Robert Redford',
     actors: [' Donald Sutherland, Mary Tyler Moore, Judd Hirsch'],
     description:
       'Beth, Calvin, and their son Conrad are living in the aftermath of the death of the other son. Conrad is overcome by grief and misplaced guilt to the extent of a suicide attempt. He is in therapy. Beth had always preferred his brother and is having difficulty being supportive to Conrad. Calvin is trapped between the two trying to hold the family together.',
     img: ordinaryPeople,
+    alt: "Family portrait from the film Ordinary People",
     id: uuid.v4(),
     slug: 'ordinary-people',
     isAddedToMyList: false,
@@ -116,13 +118,14 @@ const netStruckData = {
     title: 'Breaking Away',
     duration: '101 minutes',
     year: 1979,
-    genre: ['I GUESS THIS IS GROWING UP'],
+    genre: ['I Guess This is Growing UP'],
     director: 'Peter Yates',
     actors: [' Dennis Christopher, Dennis Quaid, Daniel Stern'],
     description:
       'Dave, nineteen, has just graduated high school, with his 3 friends, The comical Cyril, the warm hearted but short-tempered Moocher, and the athletic, spiteful but good-hearted Mike. Now, Dave enjoys racing bikes and hopes to race the Italians one day, and even takes up the Italian culture, much to his friends and parents annoyance.',
     img: breakingAway,
     id: uuid.v4(),
+    alt: "David Christopher racing with his bicycle in the film Breaking Away",
     slug: 'breaking-away',
     isAddedToMyList: false,
     isVisibleToSlider: false,
@@ -133,12 +136,13 @@ const netStruckData = {
     title: 'Saturday Night Fever',
     duration: '118 minutes',
     year: 1977,
-    genre: ['I GUESS THIS IS GROWING UP'],
+    genre: ['I Guess This is Growing UP'],
     director: 'John Badham',
     actors: ['John Travolta, Karen Lynn Gorney, Barry Miller'],
     description:
       "Tony Manero is a Brooklyn paint-store clerk who'd give anything to break out of his dead-end existence. In life, Tony is a peasant; on the disco dance floor, he's a king. As the soundtrack plays one Bee Gees hit after another, white-suited Tony struts his stuff amidst flashing lights and sweaty, undulating bodies. Tony's class aspirations are mirrored in his relationship with his dance partner, a secretary eager to move into the glamorous world of Manhattan.",
     img: saturdayNightFever,
+    alt: "John Travolta dancing in the film Saturday Night Fever",
     id: uuid.v4(),
     slug: 'saturday-night-fever',
     isAddedToMyList: false,
@@ -150,12 +154,13 @@ const netStruckData = {
     title: 'Risky Business',
     duration: '99 minutes',
     year: 1983,
-    genre: ['I GUESS THIS IS GROWING UP'],
+    genre: ['I Guess This is Growing UP'],
     director: 'Paul Brickman',
     actors: ['Tom Cruise, Rebecca De Mornay, Joe Pantoliano'],
     description:
       'Meet Joel Goodson, an industrious, college-bound 17-year-old and a responsible, trustworthy son. However, when his parents go away and leave him home alone in the wealthy Chicago suburbs with the Porsche at his disposal he quickly decides he has been good for too long and it is time to enjoy himself. After an unfortunate incident with the Porsche Joel must raise some cash, in a risky way.',
     img: riskyBusiness,
+    alt: "Tom Cruising grinning like fool in the film Risky Business",
     id: uuid.v4(),
     slug: 'risky-business',
     isAddedToMyList: false,
@@ -167,13 +172,14 @@ const netStruckData = {
     title: 'Clueless',
     duration: '97 minutes',
     year: 1995,
-    genre: ['I GUESS THIS IS GROWING UP'],
+    genre: ['I Guess This is Growing UP'],
     director: 'Amy Heckerling',
     actors: ['Alicia Silverstone, Stacey Dash, Brittany Murphy'],
     description:
       "Shallow, rich and socially successful Cher is at the top of her Beverly Hills high school's pecking scale. Seeing herself as a matchmaker, Cher first coaxes two teachers into dating each other. Emboldened by her success, she decides to give hopelessly klutzy new student Tai a makeover. When Tai becomes more popular than she is, Cher realizes that her disapproving ex-stepbrother was right about how misguided she was -- and falls for him.",
     img: clueless,
     id: uuid.v4(),
+    alt: "Alicia Silverstone and Stacey Dash walking around high school in the film Clueless",
     slug: 'clueless',
     isAddedToMyList: false,
     isVisibleToSlider: false,
@@ -184,12 +190,13 @@ const netStruckData = {
     title: 'Murmur of the Heart',
     duration: '118 minutes',
     year: 1971,
-    genre: ['I GUESS THIS IS GROWING UP'],
+    genre: ['I Guess This is Growing UP'],
     director: 'Louis Malle',
     actors: ['Lea Massari, Benoît Ferreux, Daniel Gélin'],
     description:
       'This loosely plotted coming-of-age tale follows the life of 15-year-old Laurent Chevalier as he stumbles his way over the burgeoning swell of adolescence in 1950s France. After having his first sexual experience with a prostitute and dodging the lips of a priest, Chevalier contracts a case of scarlet fever. When the fever leaves him with a heart murmur, Chevalier is placed in a sanatorium, along with his over-attentive and adulterous mother.',
     img: murmurOfTheHeart,
+    alt: "Lea Massari ",
     id: uuid.v4(),
     slug: 'murmur-of-the-heart',
     isAddedToMyList: false,
@@ -201,7 +208,7 @@ const netStruckData = {
     title: 'Carrie',
     duration: '98 minutes',
     year: 1976,
-    genre: ['I GUESS THIS IS GROWING UP'],
+    genre: ['I Guess This is Growing UP'],
     director: 'Brian De Palma',
     actors: ['Sissy Spacek, Piper Laurie, Amy Irving'],
     description:
@@ -218,7 +225,7 @@ const netStruckData = {
     title: 'Dazed and Confused',
     duration: '102 minutes',
     year: 1993,
-    genre: ['I GUESS THIS IS GROWING UP'],
+    genre: ['I Guess This is Growing UP'],
     director: 'Richard Linklater',
     actors: ['Jason London, Wiley Wiggins, Matthew McConaughey'],
     description:
@@ -235,7 +242,7 @@ const netStruckData = {
     title: 'The Squid and the Whale',
     duration: '81 minutes',
     year: 2005,
-    genre: ['I GUESS THIS IS GROWING UP', 'DIRECTED BY NOAH BAUMBACH'],
+    genre: ['I Guess This is Growing UP', 'Directed By Noah Baumbach'],
     description:
       "Based on the true childhood experiences of Noah Baumbach and his brother, The Squid and the Whale tells the touching story of two young boys dealing with their parents divorce in Brooklyn in the 1980's.",
     director: 'Noah Baumbach',
@@ -252,7 +259,7 @@ const netStruckData = {
     title: '8½',
     duration: '138 minutes',
     year: 1963,
-    genre: ['ESSENTIAL ART-HOUSE'],
+    genre: ['Essential Art-House'],
     director: 'Federico Fellini',
     actors: ['Marcello Mastroianni', 'Anouk Aimée', 'Claudia Cardinale'],
     description:
@@ -269,7 +276,7 @@ const netStruckData = {
     title: 'Fanny and Alexander',
     duration: '188 minutes',
     year: 1982,
-    genre: ['ESSENTIAL ART-HOUSE'],
+    genre: ['Essential Art-House'],
     director: 'Ingmar Bergman',
     actors: ['Bertil Guve, Pernilla Allwin, Kristina Adolphson'],
     description:
@@ -286,7 +293,7 @@ const netStruckData = {
     title: 'Woman in the Dunes',
     duration: '123 minutes',
     year: 1964,
-    genre: ['ESSENTIAL ART-HOUSE'],
+    genre: ['Essential Art-House'],
     director: 'Hiroshi Teshigahara',
     actors: ['Eiji Okada, Kyôko Kishida, Hiroko Itô'],
     description:
@@ -303,7 +310,7 @@ const netStruckData = {
     title: 'The Red Shoes',
     duration: '134 minutes',
     year: 1948,
-    genre: ['ESSENTIAL ART-HOUSE'],
+    genre: ['Essential Art-House'],
     director: 'Michael Powell and Emeric Pressburger',
     actors: ['Anton Walbrook, Marius Goring, Moira Shearer'],
     description:
@@ -320,7 +327,7 @@ const netStruckData = {
     title: 'Ran',
     duration: ' minutes',
     year: 1985,
-    genre: ['ESSENTIAL ART-HOUSE'],
+    genre: ['Essential Art-House'],
     director: 'Akira Kurosawa',
     actors: ['Tatsuya Nakadai, Akira Terao, Jinpachi Nezu '],
     description:
@@ -337,7 +344,7 @@ const netStruckData = {
     title: 'Vertigo',
     duration: '128 minutes',
     year: 1958,
-    genre: ['ESSENTIAL ART-HOUSE'],
+    genre: ['Essential Art-House'],
     director: 'Alfred Hitchcock',
     actors: ['James Stewart, Kim Novak, Barbara Bel Geddes'],
     description:
@@ -354,7 +361,7 @@ const netStruckData = {
     title: 'Jules et Jim',
     duration: '105 minutes',
     year: 1962,
-    genre: ['ESSENTIAL ART-HOUSE'],
+    genre: ['Essential Art-House'],
     director: 'Francois Truffaut',
     actors: ['Jeanne Moreau, Oskar Werner, Henri Serre'],
     description:
@@ -370,7 +377,7 @@ const netStruckData = {
   {
     title: 'Masculin Féminin',
     duration: '103 minutes',
-    genre: ['ESSENTIAL ART-HOUSE'],
+    genre: ['Essential Art-House'],
     year: 1966,
     director: 'Jean-Luc Godard',
     actors: ['Jean-Pierre Léaud, Chantal Goya, Marlène Jobert'],
@@ -388,7 +395,7 @@ const netStruckData = {
     title: 'Seven Samurai',
     duration: '307 minutes',
     year: 1954,
-    genre: ['ESSENTIAL ART-HOUSE'],
+    genre: ['Essential Art-House'],
     director: 'Akira Kurosawa',
     actors: ['Toshirô Mifune, Takashi Shimura, Keiko Tsushima'],
     description:
@@ -405,7 +412,7 @@ const netStruckData = {
     title: 'Persona',
     duration: '83 minutes',
     year: 1966,
-    genre: ['SOMETHING WEIRD IS GOING ON'],
+    genre: ['Something Weird is Going On'],
     director: 'Ingmar Bergman',
     actors: ['Bibi Andersson, Liv Ullmann, Margaretha Krook'],
     description:
@@ -422,7 +429,7 @@ const netStruckData = {
     title: 'Chungking Express',
     duration: '102 minutes',
     year: 1996,
-    genre: ['SOMETHING WEIRD IS GOING ON'],
+    genre: ['Something Weird is Going On'],
     director: 'Kar-Wai Wong',
     actors: ['Brigitte Lin, Takeshi Kaneshiro, Tony Chiu-Wai Leung'],
     img: chungkingExpress,
@@ -437,7 +444,7 @@ const netStruckData = {
     title: 'Last Year at Marienbad',
     duration: '94 minutes',
     year: 1961,
-    genre: ['SOMETHING WEIRD IS GOING ON'],
+    genre: ['Something Weird is Going On'],
     director: 'Alain Resnais',
     actors: ['Delphine Seyrig, Giorgio Albertazzi, Sacha Pitoëff '],
     description:
@@ -454,7 +461,7 @@ const netStruckData = {
     title: 'Twin Peaks: Fire Walk with Me',
     duration: '134 minutes',
     year: 1992,
-    genre: ['SOMETHING WEIRD IS GOING ON'],
+    genre: ['Something Weird is Going On'],
     director: 'David Lynch',
     actors: ['Sheryl Lee, Ray Wise, Mädchen Amick'],
     description:
@@ -471,7 +478,7 @@ const netStruckData = {
     title: 'Dogtooth',
     duration: '97 minutes',
     year: 2009,
-    genre: ['SOMETHING WEIRD IS GOING ON'],
+    genre: ['Something Weird is Going On'],
     director: 'Yorgos Lanthimos',
     actors: ['Christos Stergioglou, Michele Valley, Angeliki Papoulia'],
     description:
@@ -488,7 +495,7 @@ const netStruckData = {
     title: 'Mulholland Drive',
     duration: '147 minutes',
     year: 2001,
-    genre: ['SOMETHING WEIRD IS GOING ON'],
+    genre: ['Something Weird is Going On'],
     director: 'David Lynch',
     actors: ['Naomi Watts, Laura Harring, Justin Theroux'],
     description:
@@ -505,7 +512,7 @@ const netStruckData = {
     title: '3 Women',
     duration: '127 minutes',
     year: 1977,
-    genre: ['SOMETHING WEIRD IS GOING ON'],
+    genre: ['Something Weird is Going On'],
     director: 'Robert Altman',
     actors: ['Shelley Duvall, Sissy Spacek, Janice Rule'],
     description:
@@ -522,7 +529,7 @@ const netStruckData = {
     title: 'Planet of the Apes',
     duration: '112 minutes',
     year: 1969,
-    genre: ['SOMETHING WEIRD IS GOING ON'],
+    genre: ['Something Weird is Going On'],
     director: 'Franklin J. Schaffner',
     actors: ['Charlton Heston, Roddy McDowall, Kim Hunter'],
     description:
@@ -539,7 +546,7 @@ const netStruckData = {
     title: 'Vanilla Sky',
     duration: '136 minutes',
     year: 2001,
-    genre: ['SOMETHING WEIRD IS GOING ON'],
+    genre: ['Something Weird is Going On'],
     director: 'Cameron Crowe',
     actors: ['Tom Cruise, Penélope Cruz, Cameron Diaz'],
     description:
@@ -556,7 +563,7 @@ const netStruckData = {
     title: 'Rebecca',
     duration: '130 minutes',
     year: 1940,
-    genre: ['OSCAR WINNERS THAT ARE ACTUALLY GOOD'],
+    genre: ['Oscar Winners That are Actually Good'],
     director: 'Alfred Hitchcock',
     actors: ['Laurence Olivier, Joan Fontaine, George Sanders'],
     description:
@@ -573,7 +580,7 @@ const netStruckData = {
     title: 'Casablanca',
     duration: '102 minutes',
     year: 1942,
-    genre: ['OSCAR WINNERS THAT ARE ACTUALLY GOOD'],
+    genre: ['Oscar Winners That are Actually Good'],
     director: 'Michael Curtiz',
     actors: ['Humphrey Bogart, Ingrid Bergman, Paul Henreid'],
     description:
@@ -590,7 +597,7 @@ const netStruckData = {
     title: 'Moonlight',
     duration: '111 minutes',
     year: 2016,
-    genre: ['OSCAR WINNERS THAT ARE ACTUALLY GOOD'],
+    genre: ['Oscar Winners That are Actually Good'],
     director: 'Barry Jenkins',
     actors: ['Mahershala Ali, Naomie Harris, Trevante Rhodes'],
     description:
@@ -607,7 +614,7 @@ const netStruckData = {
     title: 'Rocky',
     duration: '120 minutes',
     year: 1976,
-    genre: ['OSCAR WINNERS THAT ARE ACTUALLY GOOD'],
+    genre: ['Oscar Winners That are Actually Good'],
     director: 'John G. Avildsen',
     actors: ['Sylvester Stallone, Talia Shire, Burt Young'],
     description:
@@ -624,7 +631,7 @@ const netStruckData = {
     title: 'The Apartment',
     duration: '125 minutes',
     year: 1960,
-    genre: ['OSCAR WINNERS THAT ARE ACTUALLY GOOD'],
+    genre: ['Oscar Winners That are Actually Good'],
     director: 'Billy Wilder',
     actors: ['Jack Lemmon, Shirley MacLaine, Fred MacMurray'],
     description:
@@ -641,7 +648,7 @@ const netStruckData = {
     title: 'Amadeus',
     duration: '160 minutes',
     year: 1984,
-    genre: ['OSCAR WINNERS THAT ARE ACTUALLY GOOD'],
+    genre: ['Oscar Winners That are Actually Good'],
     director: 'Milos Forman',
     actors: ['F. Murray Abraham, Tom Hulce, Elizabeth Berridge'],
     description:
@@ -658,7 +665,7 @@ const netStruckData = {
     title: 'From Here To Eternity',
     duration: '118 minutes',
     year: 1953,
-    genre: ['OSCAR WINNERS THAT ARE ACTUALLY GOOD'],
+    genre: ['Oscar Winners That are Actually Good'],
     director: 'Fred Zinnemann',
     actors: ['Burt Lancaster, Montgomery Clift, Deborah Kerr'],
     description:
@@ -676,7 +683,7 @@ const netStruckData = {
     duration: '93 minutes',
     year: 1977,
     director: 'Woody Allen',
-    genre: ['OSCAR WINNERS THAT ARE ACTUALLY GOOD'],
+    genre: ['Oscar Winners That are Actually Good'],
     actors: ['Woody Allen, Diane Keaton, Tony Roberts'],
     description:
       'New York comedian Alvy Singer falls in love with the ditsy Annie Hall.',
@@ -692,7 +699,7 @@ const netStruckData = {
     title: 'Frances Ha',
     duration: '86 minutes',
     year: 2012,
-    genre: ['DIRECTED BY NOAH BAUMBACH'],
+    genre: ['Directed By Noah Baumbach'],
     director: 'Noah Baumbach',
     actors: ['Greta Gerwig, Mickey Sumner, Adam Driver'],
     description:
@@ -709,7 +716,7 @@ const netStruckData = {
     title: 'Mistress America',
     duration: '84 minutes',
     year: 2015,
-    genre: ['DIRECTED BY NOAH BAUMBACH'],
+    genre: ['Directed By Noah Baumbach'],
     director: 'Noah Baumbach',
     actors: ['Greta Gerwig, Lola Kirke, Shana Dowdeswell'],
     description:
@@ -726,7 +733,7 @@ const netStruckData = {
     title: 'Kicking and Screaming',
     duration: '96 minutes',
     year: 1995,
-    genre: ['DIRECTED BY NOAH BAUMBACH'],
+    genre: ['Directed By Noah Baumbach'],
     director: 'Noah Baumbach',
     actors: ['Josh Hamilton, Eric Stoltz, Samuel Gould'],
     description:
@@ -743,7 +750,7 @@ const netStruckData = {
     title: 'Greenberg',
     duration: '107 minutes',
     year: 2010,
-    genre: ['DIRECTED BY NOAH BAUMBACH'],
+    genre: ['Directed By Noah Baumbach'],
     director: 'Noah Baumbach',
     actors: ['Ben Stiller, Greta Gerwig, Jennifer Jason Leigh'],
     description:
@@ -760,7 +767,7 @@ const netStruckData = {
     title: 'Margot at the Wedding',
     duration: '91 minutes',
     year: 2007,
-    genre: ['DIRECTED BY NOAH BAUMBACH'],
+    genre: ['Directed By Noah Baumbach'],
     director: 'Noah Baumbach',
     actors: ['Nicole Kidman, Jennifer Jason Leigh, Flora Cross'],
     description:
@@ -777,7 +784,7 @@ const netStruckData = {
     title: 'The Meyerowitz Stories (New and Selected)',
     duration: '112 minutes',
     year: 2017,
-    genre: ['DIRECTED BY NOAH BAUMBACH'],
+    genre: ['Directed By Noah Baumbach'],
     director: 'Noah Baumbach',
     actors: ['Adam Sandler, Grace Van Patten, Dustin Hoffman'],
     description:
@@ -794,7 +801,7 @@ const netStruckData = {
     title: 'While We Were Young',
     duration: '97 minutes',
     year: 2014,
-    genre: ['DIRECTED BY NOAH BAUMBACH'],
+    genre: ['Directed By Noah Baumbach'],
     director: 'Noah Baumbach',
     actors: ['Ben Stiller, Naomi Watts, Adam Driver'],
     description:
@@ -811,7 +818,7 @@ const netStruckData = {
     title: 'Apocalypse Now',
     duration: '147 minutes',
     year: 1979,
-    genre: ["FAVORITE PALME D'OR WINNERS"],
+    genre: ["Favorite Palme d'Or Winners"],
     director: 'Francis Ford Coppola',
     actors: ['Martin Sheen, Marlon Brando, Robert Duvall'],
     description:
@@ -828,7 +835,7 @@ const netStruckData = {
     title: 'All That Jazz',
     duration: '123 minutes',
     year: 1979,
-    genre: ["FAVORITE PALME D'OR WINNERS"],
+    genre: ["Favorite Palme d'Or Winners"],
     director: 'Bob Fosse',
     actors: ['Roy Scheider, Jessica Lange, Leland Palmer'],
     description:
@@ -845,7 +852,7 @@ const netStruckData = {
     title: 'Pulp Fiction',
     duration: '154 minutes',
     year: 1994,
-    genre: ["FAVORITE PALME D'OR WINNERS"],
+    genre: ["Favorite Palme d'Or Winners"],
     director: 'Quentin Tarantino',
     actors: [' John Travolta, Uma Thurman, Samuel L. Jackson'],
     description:
@@ -862,7 +869,7 @@ const netStruckData = {
     title: 'Miss Julie',
     duration: '90 minutes',
     year: 1951,
-    genre: ["FAVORITE PALME D'OR WINNERS"],
+    genre: ["Favorite Palme d'Or Winners"],
     director: 'Alf Sjöberg',
     actors: ['Anita Björk, Ulf Palme, Märta Dorff'],
     description:
@@ -879,7 +886,7 @@ const netStruckData = {
     title: 'The Conversation',
     duration: '113 minutes',
     year: 1974,
-    genre: ["FAVORITE PALME D'OR WINNERS"],
+    genre: ["Favorite Palme d'Or Winners"],
     director: 'Francis Ford Coppola',
     actors: ['Gene Hackman, John Cazale, Allen Garfield'],
     description:
@@ -896,7 +903,7 @@ const netStruckData = {
     title: 'Wages of Fear',
     duration: '131 minutes',
     year: 1953,
-    genre: ["FAVORITE PALME D'OR WINNERS"],
+    genre: ["Favorite Palme d'Or Winners"],
     director: 'Henri-Georges Clouzot',
     actors: ['Yves Montand, Charles Vanel, Peter van Eyck'],
     description:
@@ -913,7 +920,7 @@ const netStruckData = {
     title: 'If....',
     duration: '111 minutes',
     year: 1968,
-    genre: ["FAVORITE PALME D'OR WINNERS"],
+    genre: ["Favorite Palme d'Or Winners"],
     director: 'Lindsay Anderson',
     actors: [' Malcolm McDowell, David Wood, Richard Warwick '],
     description:
@@ -930,7 +937,7 @@ const netStruckData = {
     title: 'Kagemusha',
     duration: '97 minutes',
     year: 2014,
-    genre: ["FAVORITE PALME D'OR WINNERS"],
+    genre: ["Favorite Palme d'Or Winners"],
     director: 'Akira Kurosawa ',
     actors: ["Tatsuya Nakadai, Tsutomu Yamazaki, Ken'ichi Hagiwara"],
     description:
@@ -947,7 +954,7 @@ const netStruckData = {
     title: 'Paris, Texas',
     duration: '145 minutes',
     year: 1984,
-    genre: ["FAVORITE PALME D'OR WINNERS"],
+    genre: ["Favorite Palme d'Or Winners"],
     director: 'Wim Wenders',
     actors: ['Harry Dean Stanton, Nastassja Kinski, Dean Stockwell'],
     description:
@@ -964,7 +971,7 @@ const netStruckData = {
     title: 'Dancer in the Dark',
     duration: '140 minutes',
     year: 2000,
-    genre: ["FAVORITE PALME D'OR WINNERS"],
+    genre: ["Favorite Palme d'Or Winners"],
     director: 'Lars von Trier',
     actors: ['Björk, Catherine Deneuve, David Morse'],
     description:
@@ -981,7 +988,7 @@ const netStruckData = {
     title: 'Taxi Driver',
     duration: '114 minutes',
     year: 1976,
-    genre: ['SCORSESE AND DE NIRO', "FAVORITE PALME D'OR WINNERS"],
+    genre: ['Scorsese and De Niro', "Favorite Palme d'Or Winners"],
     director: 'Martin Scorsese',
     actors: ['Robert De Niro, Jodie Foster, Cybill Shepherd'],
     description:
@@ -998,7 +1005,7 @@ const netStruckData = {
     title: 'Casino',
     duration: '178 minutes',
     year: 1995,
-    genre: ['SCORSESE AND DE NIRO'],
+    genre: ['Scorsese and De Niro'],
     director: 'Martin Scorsese',
     actors: ['Robert De Niro, Sharon Stone, Joe Pesci'],
     description:
@@ -1015,7 +1022,7 @@ const netStruckData = {
     title: 'Mean Streets',
     duration: '112 minutes',
     year: 1973,
-    genre: ['SCORSESE AND DE NIRO'],
+    genre: ['Scorsese and De Niro'],
     director: 'Martin Scorsese',
     actors: ['Robert De Niro, Harvey Keitel, David Proval'],
     description:
@@ -1032,7 +1039,7 @@ const netStruckData = {
     title: 'King of Comedy',
     duration: '109 minutes',
     year: 1982,
-    genre: ['SCORSESE AND DE NIRO'],
+    genre: ['Scorsese and De Niro'],
     director: 'Martin Scorsese',
     actors: ['Robert De Niro, Jerry Lewis, Diahnne Abbott'],
     description:
@@ -1049,7 +1056,7 @@ const netStruckData = {
     title: 'New York, New York',
     duration: '155 minutes',
     year: 1977,
-    genre: ['SCORSESE AND DE NIRO'],
+    genre: ['Scorsese and De Niro'],
     director: 'Martin Scorsese',
     actors: ['Liza Minnelli, Robert De Niro, Lionel Stander'],
     description:
@@ -1066,7 +1073,7 @@ const netStruckData = {
     title: 'Goodfellas',
     duration: '97 minutes',
     year: 1990,
-    genre: ['SCORSESE AND DE NIRO'],
+    genre: ['Scorsese and De Niro'],
     director: 'Martin Scorsese',
     actors: ['Robert De Niro, Ray Liotta, Joe Pesci'],
     description:
@@ -1083,7 +1090,7 @@ const netStruckData = {
     title: 'Magnolia',
     duration: '188 minutes',
     year: 1999,
-    genre: ['FILMS OF THE WEEK'],
+    genre: ['Films of the Week'],
     director: 'Paul Thomas Anderson',
     actors: [' Tom Cruise, Jason Robards, Julianne Moore'],
     description:
@@ -1100,7 +1107,7 @@ const netStruckData = {
     title: 'Fish Tank',
     duration: '123 minutes',
     year: 2009,
-    genre: ['FILMS OF THE WEEK'],
+    genre: ['Films of the Week'],
     director: 'Andrea Arnold',
     actors: ['Katie Jarvis, Michael Fassbender, Kierston Wareing'],
     description:
@@ -1117,7 +1124,7 @@ const netStruckData = {
     title: 'Bottle Rocket',
     duration: '91 minutes',
     year: 1996,
-    genre: ['FILMS OF THE WEEK'],
+    genre: ['Films of the Week'],
     director: 'Wes Anderson',
     actors: ['Luke Wilson, Owen Wilson, Ned Dowd'],
     description:
@@ -1134,7 +1141,7 @@ const netStruckData = {
     title: 'Jackie Brown',
     duration: '154 minutes',
     year: 1997,
-    genre: ['FILMS OF THE WEEK'],
+    genre: ['Films of the Week'],
     director: 'Quentin Tarantino',
     actors: ['Pam Grier, Samuel L. Jackson, Robert Forster'],
     description:
@@ -1151,7 +1158,7 @@ const netStruckData = {
     title: 'Once Upon a Time in America',
     duration: '229 minutes',
     year: 1984,
-    genre: ['FILMS OF THE WEEK'],
+    genre: ['Films of the Week'],
     director: 'Sergio Leone',
     actors: ['Robert De Niro, James Woods, Elizabeth McGovern'],
     description:
@@ -1168,7 +1175,7 @@ const netStruckData = {
     title: 'Broken Embraces',
     duration: '127 minutes',
     year: 2009,
-    genre: ['FILMS OF THE WEEK'],
+    genre: ['Films of the Week'],
     director: 'Pedro Almodóvar',
     actors: ['Penélope Cruz, Lluís Homar, Blanca Portillo'],
     description:
@@ -1185,7 +1192,7 @@ const netStruckData = {
     title: 'There Will Be Blood',
     duration: '158 minutes',
     year: 2007,
-    genre: ['FILMS OF THE WEEK'],
+    genre: ['Films of the Week'],
     director: 'Paul Thomas Anderson',
     actors: ['Daniel Day-Lewis, Paul Dano, Ciarán Hinds'],
     description:
@@ -1201,16 +1208,16 @@ const netStruckData = {
 ],
 featuredGenres: [
   {
-    name: 'I GUESS THIS IS GROWING UP',
+    name: 'I Guess This is Growing UP',
     slug: 'i-guess-this-is-growing-up',
     id: uuid.v4(),
     description:
-      'Some call it coming of age, we—with a respectful nod to Blink 182—call it, I Guess This is Growing Up. In this collection, we present films that represent the weirdness and existential doubt that accompany budding adolescence.',
+      'Some call it coming of age, we—with a respectful nod to Blink 182—call it, I Guess This is Growing UP. In this collection, we present films that represent the weirdness and existential doubt that accompany budding adolescence.',
     poster: iGuessThisIsGrowingUp,
     alt:'teenage boy and girl sitting on bench and smoking'
   },
   {
-    name: 'DIRECTED BY NOAH BAUMBACH',
+    name: 'Directed By Noah Baumbach',
     slug: 'directed-by-noah-baumbach',
     id: uuid.v4(),
     description:
@@ -1218,7 +1225,7 @@ featuredGenres: [
     poster: NoahBaumbach,
   },
   {
-    name: 'ESSENTIAL ART-HOUSE',
+    name: 'Essential Art-House',
     slug: 'essential-art-house',
     id: uuid.v4(),
     description:
@@ -1226,14 +1233,14 @@ featuredGenres: [
     poster: essentialArtHouse,
   },
   {
-    name: 'SOMETHING WEIRD IS GOING ON',
+    name: 'Something Weird is Going On',
     slug: 'something-weird-is-going-on',
     id: uuid.v4(),
     description: 'No description is necessary here. Nothing would suffice.',
     poster: somethingWeirdIsGoingOn,
   },
   {
-    name: 'OSCAR WINNERS THAT ARE ACTUALLY GOOD',
+    name: 'Oscar Winners That are Actually Good',
     slug: 'oscar-winners-that-are-actually-good',
     id: uuid.v4(),
     description:
@@ -1241,7 +1248,7 @@ featuredGenres: [
     poster: oscarWinnersThatAreActuallyGood,
   },
   {
-    name: "FAVORITE PALME D'OR WINNERS",
+    name: "Favorite Palme d'Or Winners",
     slug: 'favorite-palme-dor-winner',
     id: uuid.v4(),
     description:
@@ -1249,7 +1256,7 @@ featuredGenres: [
     poster: favoritePalmeDorWinners,
   },
   {
-    name: 'SCORSESE AND DE NIRO',
+    name: 'Scorsese and De Niro',
     slug: 'scorsese-and-de-niro',
     id: uuid.v4(),
     description:
@@ -1257,7 +1264,7 @@ featuredGenres: [
     poster: scorseseDeNiro,
   },
   {
-    name: 'FILMS OF THE WEEK',
+    name: 'Films of the Week',
     slug: 'films-of-the-week',
     id: uuid.v4(),
     description:

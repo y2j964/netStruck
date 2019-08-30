@@ -7788,6 +7788,36 @@ video {
     /* will be applied when carousel is hovered */
   }
 
+.collapsible-group {
+  display: flex;
+  height: 0;
+  flex-direction: column;
+  width: 100%;
+  transition: all .3s ease-in-out;
+}
+
+.collapsible-group--is-expanded {
+    display: flex;
+    /* height is hard coded here, so if you want to add or subtract any nav links,
+    you will have to adjust this value to whatever the new collapsible-group height is */
+    height: 144px;
+  }
+
+@media (min-width: 768px) {
+
+.collapsible-group {
+    display: flex;
+
+    flex-direction: row;
+
+    height: auto
+}
+  }
+
+.collapsible-group__item {
+    display: block;
+  }
+
 .carousel-coin-group {
   display: flex;
   justify-content: center;
@@ -7808,6 +7838,7 @@ video {
 .content-row__header {
     display: flex;
     justify-content: space-between;
+    text-transform: uppercase;
     padding: 0 calc(4% + 2.9px);
   }
 
@@ -7993,37 +8024,35 @@ video {
   padding: 1rem;
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   overflow: hidden;
 }
 
 @media (min-width: 768px) {
 
 .navbar {
-    flex-wrap: nowrap
+    flex-wrap: nowrap;
+
+    padding: 1.25rem
 }
   }
 
-.navbar__collapsible-group {
-    display: flex;
-    height: 0;
-    flex-direction: column;
-    width: 100%;
-    transition: all .3s ease-in-out;
+.navbar__link {
+    color: #fff;
+    margin-top: 0.75rem;
+    margin-bottom: 0.75rem;
+    font-weight: 600;
+    display: block;
   }
-
-.navbar__collapsible-group--is-expanded {
-      display: flex;
-      height: 144px;
-    }
 
 @media (min-width: 768px) {
 
-.navbar__collapsible-group {
-      display: flex;
+.navbar__link {
+      margin-top: 0;
 
-      flex-direction: row;
+      margin-bottom: 0;
 
-      height: auto
+      margin-right: 2rem
   }
     }
 
@@ -8425,6 +8454,7 @@ video {
 .tile--is-static {
     padding-left: 0.25rem;
     padding-right: 0.25rem;
+    margin-bottom: 2rem;
   }
 
 .tile:hover .myList-btn {

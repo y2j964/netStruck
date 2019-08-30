@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export default function Plus({ svgClassName }) {
+export default function Plus({ svgClassName, width, height }) {
   return (
     <svg
       viewBox='0 0 24 24'
-      width='20'
-      height='20'
+      width={width || '12'}
+      height={height || '12'}
       fill='white'
       aria-hidden='true'
       className={svgClassName}
@@ -18,4 +18,6 @@ export default function Plus({ svgClassName }) {
 
 Plus.propTypes = {
   svgClassName: PropTypes.string,
+  width: PropTypes.string,
+  height: PropTypes.string,
 };

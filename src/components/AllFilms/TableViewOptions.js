@@ -4,7 +4,12 @@ import Plus from '../../icons/Plus';
 import ChevronDown from '../../icons/ChevronDown';
 import SortingDirectionArrows from '../../icons/SortingDirectionArrows';
 
-export default function TableViewOptions({ filmDataLength, sortBy, handleInputChange, toggleSortDirection }) {
+export default function TableViewOptions({
+  filmDataLength,
+  sortBy,
+  handleInputChange,
+  toggleSortDirection,
+}) {
   return (
     <div className='all-films'>
       <div className='all-films__intro'>
@@ -18,7 +23,7 @@ export default function TableViewOptions({ filmDataLength, sortBy, handleInputCh
       <div className='all-films__filter-options'>
         <button className='filter-btn'>
           FILTER
-          <Plus svgClassName='icon--positioned-right' />
+          <Plus svgClassName='icon--positioned-right' width='20' height='20' />
         </button>
         <div className='l-sort-selector'>
           <label htmlFor='allFilmsSorter' className='sr-only'>
@@ -69,4 +74,4 @@ TableViewOptions.propTypes = {
   sortBy: PropTypes.string.isRequired,
   toggleSortDirection: PropTypes.func.isRequired,
   handleInputChange: PropTypes.func.isRequired,
-}
+};

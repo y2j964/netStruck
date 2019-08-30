@@ -16,10 +16,10 @@ export default function NavbarItems() {
 
   const linksData = links.map((link, index) => {
     return (
-      <li key={index} className='mr-8'>
+      <li key={index}>
         <Link
           to={`/${link.toLowerCase().replace(' ', '-')}`}
-          className='text-white w-full font-semibold block py-3 md:py-0'
+          className='navbar__link collapsible-group__item'
         >
           {link}
         </Link>
@@ -29,10 +29,7 @@ export default function NavbarItems() {
 
   return (
     <React.Fragment>
-      <Link
-        to={'/'}
-        className='text-white md:mr-8 py-3 md:py-0 font-semibold block'
-      >
+      <Link to={'/'} className='navbar__link'>
         {homeLink}
       </Link>
       <button
@@ -45,10 +42,8 @@ export default function NavbarItems() {
         <HamburgerToggle />
       </button>
       <ul
-        className={`navbar__collapsible-group${
-          collapsibleNavIsExpanded
-            ? ' navbar__collapsible-group--is-expanded'
-            : ''
+        className={`collapsible-group${
+          collapsibleNavIsExpanded ? ' collapsible-group--is-expanded' : ''
         }`}
         id='navbarCollapsibleGroup'
       >

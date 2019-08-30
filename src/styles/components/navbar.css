@@ -1,21 +1,15 @@
 .navbar {
-  @apply p-4 flex flex-wrap overflow-hidden;
+  @apply p-4 flex flex-wrap items-center overflow-hidden;
 
   @media (--md) {
-    @apply flex-no-wrap;
+    @apply flex-no-wrap p-5;
   }
 
-  &__collapsible-group {
-    @apply flex h-0 flex-col w-full;
-    transition: all .3s ease-in-out;
-
-    &--is-expanded {
-      @apply flex;
-      height: 144px;
-    }
+  &__link {
+    @apply text-white my-3 font-semibold block;
 
     @media (--md) {
-      @apply flex flex-row h-auto;
+      @apply my-0 mr-8;
     }
   }
 }
