@@ -6,19 +6,11 @@ import ToggleToMyListBtn from './ToggleToMyListBtn';
 export default function StaticTile({ title, img, slug, id, isAddedToMyList }) {
   const [isHovered, setIsHovered] = useState(false);
 
-  const toggleIsHovered = () => {
-    console.log('tile hovered');
-    return setIsHovered(!isHovered);
-  };
-
-  console.log('tile rendered');
-  console.log('isHovered ', isHovered);
-
   return (
     <li
       className='tile tile--is-static'
-      onMouseEnter={toggleIsHovered}
-      onMouseLeave={toggleIsHovered}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
     >
       {/* <p>{title}</p> */}
       <div className='ratio-16-9'>

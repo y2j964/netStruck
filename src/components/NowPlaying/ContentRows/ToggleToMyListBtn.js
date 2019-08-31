@@ -17,11 +17,9 @@ function ToggleToMyListBtn({ tileIsHovered, isAddedToMyList, id }) {
   };
 
   useEffect(() => {
-    console.log('remount btn', id);
     setIsLoading(false);
   }, [isAddedToMyList]);
 
-  console.log('render toggle btn');
   if (tileIsHovered && isAddedToMyList) {
     return (
       <button
@@ -32,7 +30,7 @@ function ToggleToMyListBtn({ tileIsHovered, isAddedToMyList, id }) {
         <Minus />
         <div className='tooltip'>
           <span className='text-xs'>
-            {isLoading ? 'Removing . . .' : 'Remove from MyList'}
+            {isLoading ? 'Adding . . .' : 'Remove from MyList'}
           </span>
         </div>
       </button>
@@ -49,7 +47,7 @@ function ToggleToMyListBtn({ tileIsHovered, isAddedToMyList, id }) {
         <Plus />
         <div className='tooltip'>
           <span className='text-xs'>
-            {isLoading ? 'Adding . . .' : 'Add to MyList'}
+            {isLoading ? 'Removing . . .' : 'Add to MyList'}
           </span>
         </div>
       </button>

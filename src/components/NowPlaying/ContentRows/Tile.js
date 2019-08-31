@@ -17,11 +17,6 @@ const Tile = ({
 }) => {
   const [isHovered, setIsHovered] = useState(false);
 
-  const toggleIsHovered = () => {
-    return setIsHovered(!isHovered);
-  };
-  console.log('tile rendered', title);
-  console.log('isHovered ', isHovered);
   return (
     <li
       className={`tile-group__item${
@@ -33,8 +28,8 @@ const Tile = ({
           ? ' tile-group__item--is-rightmost-active'
           : ''
       } tile`}
-      onMouseEnter={toggleIsHovered}
-      onMouseLeave={toggleIsHovered}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
       // eslint-disable-next-line no-unneeded-ternary
       aria-hidden={visibleSlideIds.includes(id) ? false : true}
       aria-label={`slide ${index + 1} of ${filmGroupLength}`}

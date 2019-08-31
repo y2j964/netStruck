@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import StaticTileGroup from './NowPlaying/ContentRows/StaticTileGroup';
 import { useFilmGetSet } from '../context';
@@ -8,26 +8,27 @@ import { useFilmGetSet } from '../context';
 
 export default function GenreSelection({ location }) {
   // const [slug, setSlug] = useState(match.params.slug);
+  const [genreIsAddedToMyList, setGenreIsAddedToMyList] = useState(false);
   // const [descriptionIsExpanded, setDescriptionIsExpanded] = useState(false);
 
   const { dispatch } = useFilmGetSet();
 
   const { name, description, poster, filmsOfSameGenre } = location;
 
+  // const updatedIsAddedState = filmsOfSameGenre.every(
+  //   ({ isAdddedToMyList }) => isAdddedToMyList === true,
+  // );
+  // setGenreIsAddedToMyList(updatedIsAddedState);
+
   useEffect(() => {
     document.title = `${name} - NetStruck`;
   }, [name]);
 
   const addAllToMyList = () => {
-    const targetedFilmIds = filmsOfSameGenre.map(film => film.id);
-    dispatch({ type: 'ADD_GROUP_TO_MYLIST', id: targetedFilmIds });
-    // console.log(filmsOfSameGenre);
-    // dispatchAllToMyList(filmsOfSameGenre);
+    // const targetedFilmIds = filmsOfSameGenre.map(film => film.id);
+    // setGenreIsAddedToMyList(true);
+    dispatch({ type: 'ADD_GROUP_TO_MYLIST', id: filmsOfSameGenre });
   };
-
-  // useEffect(() => {
-  //   // const filmObj = context.getFilm(slug);
-  // }, [slug]);
 
   return (
     <div>
@@ -41,9 +42,9 @@ export default function GenreSelection({ location }) {
           </p>
           <div className='flex flex-wrap'>
             <button className='watch-btn mr-4 mb-4'>SIGN UP</button>
-            <button className='watch-btn mr-4 mb-4' onClick={addAllToMyList}>
+            {/* <button className='watch-btn mr-4 mb-4' onClick={addAllToMyList}>
               ADD ALL TO MYLIST
-            </button>
+            </button> */}
           </div>
         </div>
         <div className='selection__poster'>
@@ -52,7 +53,7 @@ export default function GenreSelection({ location }) {
           </div>
         </div>
       </div>
-      <StaticTileGroup filmsOfSameGenre={filmsOfSameGenre} />
+      <StaticTileGroup filmList={filmsOfSameGenre} />
     </div>
   );
 }

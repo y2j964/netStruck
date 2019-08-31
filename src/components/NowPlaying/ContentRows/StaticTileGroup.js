@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import StaticTile from './StaticTile';
 
-export default function StaticTileGroup({ filmsOfSameGenre }) {
-  const tileFrags = filmsOfSameGenre.map(film => (
+export default function StaticTileGroup({ filmList }) {
+  const tileFrags = filmList.map(film => (
     <StaticTile
       title={film.title}
       img={film.img}
@@ -19,5 +19,5 @@ export default function StaticTileGroup({ filmsOfSameGenre }) {
 }
 
 StaticTileGroup.propTypes = {
-  filmsOfSameGenre: PropTypes.array.isRequired,
+  filmList: PropTypes.array.isRequired,
 };

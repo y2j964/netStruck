@@ -14,7 +14,7 @@ export default function SelectionPage({ match }) {
 
   useEffect(() => {
     document.title = `${selectedFilm.title} - NetStruck`;
-  }, [slug]);
+  }, [selectedFilm.title]);
 
   const addToMyList = () => {
     console.log(selectedFilm);
