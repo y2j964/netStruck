@@ -6,8 +6,11 @@ import Error404 from './components/Error404';
 import Footer from './components/Footer';
 import Home from './components/Home/Home';
 import NowPlaying from './components/NowPlaying/NowPlaying';
+import SearchForm from './components/SearchForm';
+import SearchResults from './components/SearchResults';
 import SelectionPage from './components/SelectionPage';
 import GenreSelection from './components/GenreSelection';
+import Modal from './components/Modal';
 import AllFilms from './components/AllFilms/AllFilms';
 import MyList from './components/MyList/MyList';
 import { FilmDataProvider } from './context';
@@ -15,8 +18,8 @@ import { FilmDataProvider } from './context';
 function App() {
   return (
     <Router>
-      <Navbar />
       <FilmDataProvider>
+        <Navbar />
         <main>
           <Switch>
             <Route exact path='/' component={Home} />
@@ -28,6 +31,10 @@ function App() {
             <Route component={Error404} />
           </Switch>
         </main>
+        <Modal>
+          <SearchForm />
+          <SearchResults />
+        </Modal>
       </FilmDataProvider>
       <Footer />
     </Router>

@@ -1,92 +1,11 @@
 /* eslint-disable no-param-reassign */
 import React, { useReducer, useEffect, useState, useContext } from 'react';
 import PropTypes from 'prop-types';
+import filmDataReducer from './filmDataReducer';
 import netStruckData from './netStruckData';
 
 const FilmValuesContext = React.createContext();
 const FilmGetSetContext = React.createContext();
-
-const getUpdatedMyList = (dataSource, film) => {
-  if (film.isAddedToMyList) {
-    const updatedMyList = dataSource.concat(film);
-    return updatedMyList;
-  }
-  const updatedMyList = dataSource.filter(item => item.id !== film.id);
-  return updatedMyList;
-};
-
-const filmDataReducer = (state, action) => {
-  switch (action.type) {
-    case 'TOGGLE_FILM_MYLIST_STATE': {
-      const updatedFilms = [...state.films];
-      const targetedFilm = updatedFilms.find(film => film.id === action.id);
-
-      // updated isAddedToMyList bool
-      // will mutate updatedFilms (which we want--note that we aren't mutating state directly)
-      // b/c objects are nested in array
-      targetedFilm.isAddedToMyList = !targetedFilm.isAddedToMyList;
-
-      // update MyList array
-      const updatedMyList = getUpdatedMyList(state.myList, targetedFilm);
-
-      return { ...state, films: updatedFilms, myList: updatedMyList };
-    }
-
-    case 'ADD_GROUP_TO_MYLIST': {
-      const prevMyListIds = state.myList.map(film => film.id);
-      // return films that aren't already in myList
-      const newlyAddedFilms = action.id.filter(
-        film => !prevMyListIds.includes(film.id),
-      );
-      const updatedMyList = state.myList.concat(newlyAddedFilms);
-
-      const targetedFilmIds = action.id.map(film => film.id);
-
-      const updatedFilms = state.films.map(film => {
-        if (targetedFilmIds.includes(film.id)) {
-          film.isAddedToMyList = true;
-          return film;
-        }
-        return film;
-      });
-      return { ...state, films: updatedFilms, myList: updatedMyList };
-    }
-
-    case 'REMOVE_GROUP_FROM_MYLIST': {
-      const updatedFilms = state.films.map(film => {
-        if (action.id.includes(film.id)) {
-          film.isAddedToMyList = false;
-          return film;
-        }
-        return film;
-      });
-      return { ...state, films: updatedFilms };
-    }
-
-    case 'UPDATE_SLIDER_VISIBILITY':
-      // console.log(action.id);
-      return state;
-    // return state.map(film => {
-    //   if (film.id === action.id) {
-    //     return { ...film, isVisibleToSlider: true };
-    //   }
-    //   return film;
-    // });
-
-    // case 'TOGGLE_MODAL':
-    //   return {...state, modalIsOpen: !modalIsOpen};
-
-    case 'CONTENT_LOADED':
-      return {
-        ...state,
-        films: action.id,
-        isLoading: false,
-      };
-
-    default:
-      return state;
-  }
-};
 
 const getInitialFilmData = dataSource => {
   let updatedFilms = [];
@@ -109,7 +28,7 @@ const FilmDataProvider = props => {
     films: [],
     myList: [],
     isLoading: true,
-    modalIsOpen: false,
+    modalIsOpen: true,
   });
 
   useEffect(() => {
@@ -163,14 +82,14 @@ const FilmDataProvider = props => {
 function useFilmValues() {
   const context = useContext(FilmValuesContext);
   if (context === undefined) {
-    throw new Error('useCountState must be used within a CountProvider');
+    throw new Error('useFilmValues must be used within a FilmDataProvider');
   }
   return context;
 }
 function useFilmGetSet() {
   const context = useContext(FilmGetSetContext);
   if (context === undefined) {
-    throw new Error('useCountDispatch must be used within a CountProvider');
+    throw new Error('useFilmGetSet must be used within a FilmDataProvider');
   }
   return context;
 }

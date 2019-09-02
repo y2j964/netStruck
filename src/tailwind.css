@@ -8020,6 +8020,16 @@ video {
   }
     }
 
+.modal {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(20, 20, 20, 0.95);
+  /* transition: opacity 0.3s ease-out 0s; */
+}
+
 .navbar {
   padding: 1rem;
   display: flex;
@@ -8886,6 +8896,44 @@ td{
 .hamburger-toggler:hover {
     opacity: 1;
   }
+
+.modal-grey {
+  color:  #bebebb ;
+}
+
+.border-modal-grey {
+  border-color: #383838;
+}
+
+.width-85 {
+  width:85%;
+}
+
+.input--no-ring {
+  -webkit-appearance: none;
+  border: none;
+  outline: none;
+}
+
+input .input--no-ring::placeholder {
+    color: #bebebb;
+  }
+
+.placeholder-color::-webkit-input-placeholder {
+  color: #9b9b9b;
+}
+
+.placeholder-color::-moz-placeholder {
+  color: #9b9b9b;
+}
+
+.placeholder-color::-ms-input-placeholder {
+  color: #9b9b9b;
+}
+
+.placeholder-color:-moz-placeholder {
+  color: #9b9b9b;
+}
 
 @media (min-width: 640px) {
   .sm\:appearance-none {

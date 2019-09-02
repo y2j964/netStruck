@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useFilmGetSet } from '../context';
 import SearchIcon from '../icons/SearchIcon';
 import HamburgerToggle from '../icons/HamburgerToggle';
 
@@ -11,8 +12,13 @@ export default function NavbarItems() {
     false,
   );
 
+  const { dispatch } = useFilmGetSet();
+
   const toggleCollapsibleNav = () =>
     setCollapsibleNavIsExpanded(!collapsibleNavIsExpanded);
+
+  const toggleSearchModal = () => dispatch({ type: 'TOGGLE_MODAL' });
+  // document.querySelector('html').classList.toggle('scroll-lock');
 
   const linksData = links.map((link, index) => {
     return (
@@ -49,7 +55,11 @@ export default function NavbarItems() {
       >
         {linksData}
       </ul>
-      <button className='hidden md:block ml-auto' aria-label='search for film'>
+      <button
+        className='hidden md:block ml-auto'
+        aria-label='search for film'
+        onClick={toggleSearchModal}
+      >
         <SearchIcon fill='#fff' />
       </button>
     </React.Fragment>

@@ -11,6 +11,7 @@
 @import 'components/content-row.css';
 @import 'components/filter-btn.css';
 @import 'components/film-table.css';
+@import 'components/modal.css';
 @import 'components/navbar.css';
 @import 'components/selection.css';
 @import 'components/slide.css';
@@ -362,4 +363,47 @@ td{
     opacity: 1;
   }
 
+}
+
+.modal-grey {
+  color:  #bebebb ;
+
+}
+
+.border-modal-grey {
+  border-color: #383838;
+
+}
+
+.width-85 {
+  width:85%;
+}
+
+.input--no-ring {
+  -webkit-appearance: none;
+  border: none;
+  outline: none;
+
+}
+
+input .input--no-ring {
+  &::placeholder {
+    color: #bebebb;
+  }
+}
+
+.placeholder-color::-webkit-input-placeholder {
+	color: #9b9b9b;
+}
+
+.placeholder-color::-moz-placeholder {
+	color: #9b9b9b;
+}
+
+.placeholder-color::-ms-input-placeholder {
+	color: #9b9b9b;
+}
+
+.placeholder-color:-moz-placeholder {
+	color: #9b9b9b;
 }
