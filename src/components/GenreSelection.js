@@ -7,12 +7,7 @@ import { useFilmGetSet } from '../context';
 //   setDescriptionIsExpanded(!descriptionIsExpanded);
 
 export default function GenreSelection({ location }) {
-  // const [slug, setSlug] = useState(match.params.slug);
-  const [genreIsAddedToMyList, setGenreIsAddedToMyList] = useState(false);
-  // const [descriptionIsExpanded, setDescriptionIsExpanded] = useState(false);
-
   const { dispatch } = useFilmGetSet();
-
   const { name, description, poster, filmsOfSameGenre } = location;
 
   // const updatedIsAddedState = filmsOfSameGenre.every(
@@ -53,7 +48,9 @@ export default function GenreSelection({ location }) {
           </div>
         </div>
       </div>
-      <StaticTileGroup filmList={filmsOfSameGenre} />
+      <div className='p-10 mb-10 max-w-80 mx-auto'>
+        <StaticTileGroup filmList={filmsOfSameGenre} />
+      </div>
     </div>
   );
 }

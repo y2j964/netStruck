@@ -23,7 +23,9 @@ export default function MyList() {
       {myListLength === 0 ? (
         <EmptyList />
       ) : (
-        <StaticTileGroup filmList={myList} />
+        <div className='p-10 mb-10 max-w-80 mx-auto'>
+          <StaticTileGroup filmList={myList} />
+        </div>
       )}
     </div>
   );

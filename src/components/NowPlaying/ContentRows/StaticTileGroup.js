@@ -13,9 +13,7 @@ export default function StaticTileGroup({ filmList }) {
       key={film.id}
     />
   ));
-  return (
-    <ul className='p-10 mb-10 max-w-80 flex mx-auto flex-wrap'>{tileFrags}</ul>
-  );
+  return <ul className='flex flex-wrap'>{tileFrags}</ul>;
 }
 
 StaticTileGroup.propTypes = {

@@ -6,8 +6,7 @@ import Error404 from './components/Error404';
 import Footer from './components/Footer';
 import Home from './components/Home/Home';
 import NowPlaying from './components/NowPlaying/NowPlaying';
-import SearchForm from './components/SearchForm';
-import SearchResults from './components/SearchResults';
+import SearchFilter from './components/SearchFilter';
 import SelectionPage from './components/SelectionPage';
 import GenreSelection from './components/GenreSelection';
 import Modal from './components/Modal';
@@ -32,8 +31,7 @@ function App() {
           </Switch>
         </main>
         <Modal>
-          <SearchForm />
-          <SearchResults />
+          <SearchFilter />
         </Modal>
       </FilmDataProvider>
       <Footer />

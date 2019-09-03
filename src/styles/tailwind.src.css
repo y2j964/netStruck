@@ -386,7 +386,7 @@ td{
 
 }
 
-input .input--no-ring {
+.input--no-ring {
   &::placeholder {
     color: #bebebb;
   }
