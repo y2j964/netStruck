@@ -1,0 +1,12 @@
+.search-filter {
+  @apply flex mt-8 width-85 mx-auto;
+
+  &__input {
+    @apply light-gray text-2xl flex-1 pb-2;
+  }
+
+  &__results {
+    @apply mt-16 mx-auto;
+    width: 85%;
+  }
+}

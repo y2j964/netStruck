@@ -13,6 +13,7 @@
 @import 'components/film-table.css';
 @import 'components/modal.css';
 @import 'components/navbar.css';
+@import 'components/search-filter.css';
 @import 'components/selection.css';
 @import 'components/slide.css';
 @import 'components/slider.css';
@@ -365,24 +366,23 @@ td{
 
 }
 
-.modal-grey {
+.light-gray {
   color:  #bebebb ;
-
 }
 
-.border-modal-grey {
+.border-gray {
   border-color: #383838;
-
 }
 
 .width-85 {
   width:85%;
 }
 
-.input--no-ring {
+.input-stripped {
   -webkit-appearance: none;
   border: none;
   outline: none;
+  background: transparent;
 
 }
 

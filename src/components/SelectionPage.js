@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 // import ChevronDown from '../icons/ChevronDown';
 import { useFilmGetSet } from '../context';
@@ -48,7 +49,7 @@ export default function SelectionPage({ match }) {
           {/* /> */}
           {/* </button> */}
           <div className='flex flex-wrap'>
-            <button className='watch-btn mr-4 mb-4'>SIGN UP</button>
+            <Link className='watch-btn mr-4 mb-4'>SIGN UP</Link>
             <button className='watch-btn mr-4 mb-4'>TRAILER</button>
             <button className='watch-btn mr-4 mb-4' onClick={addToMyList}>
               {selectedFilm.isAddedToMyList

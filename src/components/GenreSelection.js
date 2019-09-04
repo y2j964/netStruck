@@ -19,12 +19,6 @@ export default function GenreSelection({ location }) {
     document.title = `${name} - NetStruck`;
   }, [name]);
 
-  const addAllToMyList = () => {
-    // const targetedFilmIds = filmsOfSameGenre.map(film => film.id);
-    // setGenreIsAddedToMyList(true);
-    dispatch({ type: 'ADD_GROUP_TO_MYLIST', id: filmsOfSameGenre });
-  };
-
   return (
     <div>
       <div className='selection'>

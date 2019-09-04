@@ -44,12 +44,8 @@ export default function SearchFilter() {
 
   return (
     <React.Fragment>
-      <form
-        role='search'
-        className='flex mt-8 width-85 mx-auto'
-        onSubmit={handleSubmit}
-      >
-        <span className='pr-4 pb-2 mr-5 border-r border-modal-grey'>
+      <form role='search' className='search-filter' onSubmit={handleSubmit}>
+        <span className='pr-4 pb-2 mr-5 border-r border-gray'>
           <SearchIcon
             searchIconWidth='35'
             searchIconHeight='35'
@@ -57,13 +53,13 @@ export default function SearchFilter() {
           />
         </span>
         <label htmlFor='searchInput' className='sr-only'>
-          enter search terms
+          Enter search terms
         </label>
         <input
           type='search'
           role='searchbox'
           placeholder='Search NetStruck'
-          className='modal-grey text-2xl flex-1 bg-transparent pb-2 input--no-ring placeholder-color'
+          className='search-filter__input input-stripped placeholder-color'
           id='searchInput'
           onChange={handleInputChange}
         />

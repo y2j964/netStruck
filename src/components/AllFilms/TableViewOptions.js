@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useFilmGetSet } from '../../context';
 import Plus from '../../icons/Plus';
 import ChevronDown from '../../icons/ChevronDown';
 import SortingDirectionArrows from '../../icons/SortingDirectionArrows';
@@ -10,6 +11,11 @@ export default function TableViewOptions({
   handleInputChange,
   toggleSortDirection,
 }) {
+  const { dispatch } = useFilmGetSet();
+
+  const toggleSearchModal = () => dispatch({ type: 'TOGGLE_MODAL' });
+  // document.querySelector('html').classList.toggle('scroll-lock');
+
   return (
     <div className='all-films'>
       <div className='all-films__intro'>
@@ -21,7 +27,7 @@ export default function TableViewOptions({
         </span>
       </div>
       <div className='all-films__filter-options'>
-        <button className='filter-btn'>
+        <button className='filter-btn' onClick={toggleSearchModal}>
           FILTER
           <Plus svgClassName='icon--positioned-right' width='20' height='20' />
         </button>

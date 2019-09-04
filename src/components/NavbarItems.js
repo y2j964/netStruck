@@ -18,7 +18,6 @@ export default function NavbarItems() {
     setCollapsibleNavIsExpanded(!collapsibleNavIsExpanded);
 
   const toggleSearchModal = () => dispatch({ type: 'TOGGLE_MODAL' });
-  // document.querySelector('html').classList.toggle('scroll-lock');
 
   const linksData = links.map((link, index) => {
     return (
