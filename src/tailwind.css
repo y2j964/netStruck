@@ -8027,18 +8027,21 @@ video {
   left: 0;
   right: 0;
   z-index: 20;
-  opacity: 0;
   background: rgba(20, 20, 20, 0.95);
-  transition: opacity 0.3s ease-out 0s;
 }
-
-.modal--is-open {
-    opacity: 1;
-  }
 
 .modal__header {
     display: flex;
     padding: 1.25rem;
+  }
+
+.l-modal-enter {
+    opacity: 0;
+  }
+
+.l-modal-enter-active {
+    opacity: 0;
+    transition: opacity 0.3s ease-out 0s;
   }
 
 .navbar {

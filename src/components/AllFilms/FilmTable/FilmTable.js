@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 export default function FilmTable({ children }) {
   return (
-    <table className='film-table'>
+    <table className='film-table' id='filmTable'>
       <thead className='film-table__thead'>
         <tr className='film-table__header-row'>
           <th className='film-table__thumbnail film-table__header'>TITLE</th>

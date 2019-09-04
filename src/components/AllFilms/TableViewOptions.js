@@ -8,6 +8,7 @@ import SortingDirectionArrows from '../../icons/SortingDirectionArrows';
 export default function TableViewOptions({
   filmDataLength,
   sortBy,
+  sortIsAscending,
   handleInputChange,
   toggleSortDirection,
 }) {
@@ -38,23 +39,40 @@ export default function TableViewOptions({
           <select
             name='allFilmsSorter'
             id='allFilmsSorter'
+            aria-controls='filmTable'
             value={sortBy}
             className='sort-selector'
             onChange={e => handleInputChange(e)}
           >
-            <option value='sort' className='text-black'>
-              SORT
+            <option
+              value='sort'
+              className='text-black'
+              aria-selected={sortBy === 'sort' && 'true'}
+            >
+              SORT BY:
             </option>
-            <option value='title' className='text-black'>
+            <option value='title' aria-selected={sortBy === 'title' && 'true'}>
               TITLE
             </option>
-            <option value='director' className='text-black'>
+            <option
+              value='director'
+              className='text-black'
+              aria-selected={sortBy === 'director' && 'true'}
+            >
               DIRECTOR
             </option>
-            <option value='duration' className='text-black'>
+            <option
+              value='duration'
+              className='text-black'
+              aria-selected={sortBy === 'duration' && 'true'}
+            >
               DURATION
             </option>
-            <option value='year' className='text-black'>
+            <option
+              value='year'
+              className='text-black'
+              aria-selected={sortBy === 'year' && 'true'}
+            >
               YEAR
             </option>
           </select>
@@ -66,8 +84,17 @@ export default function TableViewOptions({
         <button
           className='sort-direction-toggle'
           aria-label='toggle sort direction'
+          aria-describedby='sortDirDesc'
+          aria-controls='filmTable'
           onClick={toggleSortDirection}
         >
+          <span
+            className='sr-only'
+            id='sortDirDesc'
+            aria-live='polite'
+          >{`Sort direction is currently ${
+            sortIsAscending ? 'ascending' : 'descending'
+          }`}</span>
           <SortingDirectionArrows svgClassName='sort-direction-toggle__svg' />
         </button>
       </div>
@@ -78,6 +105,7 @@ export default function TableViewOptions({
 TableViewOptions.propTypes = {
   filmDataLength: PropTypes.number.isRequired,
   sortBy: PropTypes.string.isRequired,
+  sortIsAscending: PropTypes.bool.isRequired,
   toggleSortDirection: PropTypes.func.isRequired,
   handleInputChange: PropTypes.func.isRequired,
 };

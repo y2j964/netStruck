@@ -84,6 +84,7 @@ export default function AllFilms() {
       <h1 className='sr-only'>NetStruck All Films</h1>
       <TableViewOptions
         sortBy={sortBy}
+        sortIsAscending={sortIsAscending}
         handleInputChange={e => handleInputChange(e, setSortBy)}
         filmDataLength={filmDataLength}
         toggleSortDirection={() => setSortIsAscending(!sortIsAscending)}

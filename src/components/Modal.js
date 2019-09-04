@@ -2,8 +2,23 @@
 import React, { useEffect, useRef } from 'react';
 import ReactDOM from 'react-dom';
 import FocusTrap from 'focus-trap-react';
+import {CSSTransition} from 'react-transition-group';
 import { useFilmValues, useFilmGetSet } from '../context';
 import Close from '../icons/Close';
+
+const duration = 300;
+
+const defaultStyle = {
+  transition: `opacity ${duration}ms ease-in-out`,
+  opacity: 0,
+}
+
+const transitionStyles = {
+  entering: { opacity: 1 },
+  entered:  { opacity: 1 },
+  exiting:  { opacity: 0 },
+  exited:  { opacity: 0 },
+};
 
 export default function Modal({ children }) {
   const { state } = useFilmValues();
@@ -34,9 +49,10 @@ export default function Modal({ children }) {
   }
 
   return ReactDOM.createPortal(
+      <CSSTransition in={modalIsOpen} timeout={300} classNames='l-modal'>
     <FocusTrap>
       <div
-        className={`modal${modalIsOpen && ' modal--is-open'}`}
+        className='modal'
         role='dialog'
         aria-modal='true'
         aria-labelledby='modalHeading'
@@ -57,7 +73,8 @@ export default function Modal({ children }) {
         </div>
         {children}
       </div>
-    </FocusTrap>,
+    </FocusTrap>
+    </CSSTransition>,
     document.getElementById('modal-root'),
   );
 }
