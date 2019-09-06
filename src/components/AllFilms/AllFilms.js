@@ -60,6 +60,8 @@ const handleInputChange = (event, callback) => {
   const value = target.type === 'checkbox' ? target.checked : target.value;
   // eslint-disable-next-line no-unused-vars
   const { name } = target;
+  console.log(name);
+  console.log(value);
   callback(value);
 };
 

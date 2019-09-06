@@ -113,6 +113,10 @@ body {
 
 .watch-btn {
   @apply px-4 py-2 text-sm bg-gray-100 uppercase;
+
+  &--sm {
+    @apply normal-case py-2
+  }
 }
 
 .bottom-10 {

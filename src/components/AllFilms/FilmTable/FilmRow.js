@@ -19,7 +19,6 @@ export default function FilmRow({
       </td>
       <td className='film-table__title'>
         {title}
-
         {/* eslint-disable-next-line jsx-a11y/anchor-has-content */}
         <Link
           className='tr-overlay'
@@ -41,4 +40,5 @@ FilmRow.propTypes = {
   duration: PropTypes.string,
   year: PropTypes.number,
   director: PropTypes.string,
+  slug: PropTypes.string,
 };

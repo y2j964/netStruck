@@ -6,14 +6,14 @@ import { useFilmGetSet } from '../context';
 // const toggleDescriptionIsExpanded = () =>
 //   setDescriptionIsExpanded(!descriptionIsExpanded);
 
-export default function GenreSelection({ location }) {
-  const { dispatch } = useFilmGetSet();
-  const { name, description, poster, filmsOfSameGenre } = location;
+export default function GenreSelection({ match }) {
+  const { slug } = match.params;
+  const { getFeaturedGenreData, getFilmsOfSameGenre } = useFilmGetSet();
 
-  // const updatedIsAddedState = filmsOfSameGenre.every(
-  //   ({ isAdddedToMyList }) => isAdddedToMyList === true,
-  // );
-  // setGenreIsAddedToMyList(updatedIsAddedState);
+  const genreData = getFeaturedGenreData(slug);
+  const { name, description, poster } = genreData;
+
+  const filmsOfSameGenre = getFilmsOfSameGenre(name);
 
   useEffect(() => {
     document.title = `${name} - NetStruck`;
@@ -24,8 +24,6 @@ export default function GenreSelection({ location }) {
       <div className='selection'>
         <div className='selection__info'>
           <h2 className='selection__title'>{name}</h2>
-          {/* <p className='selection__text'>{`Directed by ${filmObj.director} • ${filmObj.year} • ${filmObj.duration}`}</p>
-          <p className='selection__text mb-3'>{`Starring ${filmObj.actors}`}</p> */}
           <p className='selection__text mb-8' id='selectionDescription'>
             {description}
           </p>

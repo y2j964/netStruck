@@ -28,7 +28,7 @@ const FilmDataProvider = props => {
     films: [],
     myList: [],
     isLoading: true,
-    modalIsOpen: true,
+    modalIsOpen: false,
   });
 
   useEffect(() => {
@@ -59,6 +59,12 @@ const FilmDataProvider = props => {
   //   dispatch({ type: 'REMOVE_GROUP_FROM_MYLIST', id: films });
   // };
 
+  const getFeaturedGenreData = slug =>
+    featuredGenres.find(featuredGenre => featuredGenre.slug === slug);
+
+  const getFeaturedGenreSlug = name =>
+    featuredGenres.find(featuredGenre => featuredGenre.name === name).slug;
+
   const getFilmsOfSameGenre = category => {
     const filmsOfSameGenre = state.films.filter(film =>
       film.genre.includes(category),
@@ -71,7 +77,13 @@ const FilmDataProvider = props => {
   return (
     <FilmValuesContext.Provider value={{ state, featuredGenres }}>
       <FilmGetSetContext.Provider
-        value={{ dispatch, getFilmsOfSameGenre, getFilm }}
+        value={{
+          dispatch,
+          getFilmsOfSameGenre,
+          getFilm,
+          getFeaturedGenreData,
+          getFeaturedGenreSlug,
+        }}
       >
         {props.children}
       </FilmGetSetContext.Provider>

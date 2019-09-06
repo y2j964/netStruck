@@ -17,7 +17,15 @@
   }
 
   &-enter-active {
+    opacity: 1;
+    transition: opacity 300ms ease-out 0s;
+  }
+  &-exit {
+    opacity: 1;
+  }
+
+  &-exit-active {
     opacity: 0;
-    transition: opacity 0.3s ease-out 0s;
+    transition: opacity 300ms ease-out 0s;
   }
 }

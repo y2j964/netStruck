@@ -23,16 +23,7 @@ function ContentRow({ name, slug, description, poster }) {
     <div className='content-row'>
       <div className='content-row__header'>
         <h2 className='content-row__title'>{name}</h2>
-        <Link
-          to={{
-            pathname: `now-playing/genre/${slug}`,
-            name,
-            description,
-            poster,
-            filmsOfSameGenre,
-          }}
-          className='text-white'
-        >
+        <Link to={`now-playing/genre/${slug}`} className='text-white'>
           See More
         </Link>
       </div>

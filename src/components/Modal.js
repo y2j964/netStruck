@@ -2,7 +2,7 @@
 import React, { useEffect, useRef } from 'react';
 import ReactDOM from 'react-dom';
 import FocusTrap from 'focus-trap-react';
-import {CSSTransition} from 'react-transition-group';
+import { CSSTransition } from 'react-transition-group';
 import { useFilmValues, useFilmGetSet } from '../context';
 import Close from '../icons/Close';
 
@@ -11,13 +11,13 @@ const duration = 300;
 const defaultStyle = {
   transition: `opacity ${duration}ms ease-in-out`,
   opacity: 0,
-}
+};
 
 const transitionStyles = {
   entering: { opacity: 1 },
-  entered:  { opacity: 1 },
-  exiting:  { opacity: 0 },
-  exited:  { opacity: 0 },
+  entered: { opacity: 1 },
+  exiting: { opacity: 0 },
+  exited: { opacity: 0 },
 };
 
 export default function Modal({ children }) {
@@ -44,36 +44,41 @@ export default function Modal({ children }) {
     toggleSearchModal();
   };
 
-  if (!modalIsOpen) {
-    return null;
-  }
+  // if (!modalIsOpen) {
+  //   return null;
+  // }
 
   return ReactDOM.createPortal(
-      <CSSTransition in={modalIsOpen} timeout={300} classNames='l-modal'>
-    <FocusTrap>
-      <div
-        className='modal'
-        role='dialog'
-        aria-modal='true'
-        aria-labelledby='modalHeading'
-        onKeyDown={handleKeyDown}
-      >
-        <div className='modal__header'>
-          <h2 className='sr-only' id='modalHeading'>
-            Search NetStruck Films
-          </h2>
-          <button
-            className='ml-auto'
-            aria-label='close modal'
-            ref={closeRef}
-            onClick={toggleSearchModal}
-          >
-            <Close />
-          </button>
+    <CSSTransition
+      in={modalIsOpen}
+      timeout={300}
+      unmountOnExit
+      classNames='l-modal'
+    >
+      <FocusTrap>
+        <div
+          className='modal'
+          role='dialog'
+          aria-modal='true'
+          aria-labelledby='modalHeading'
+          onKeyDown={handleKeyDown}
+        >
+          <div className='modal__header'>
+            <h2 className='sr-only' id='modalHeading'>
+              Search NetStruck Films
+            </h2>
+            <button
+              className='ml-auto'
+              aria-label='close modal'
+              ref={closeRef}
+              onClick={toggleSearchModal}
+            >
+              <Close />
+            </button>
+          </div>
+          {children}
         </div>
-        {children}
-      </div>
-    </FocusTrap>
+      </FocusTrap>
     </CSSTransition>,
     document.getElementById('modal-root'),
   );

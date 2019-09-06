@@ -8,33 +8,55 @@ export default function SelectionPage({ match }) {
   // const [descriptionIsExpanded, setDescriptionIsExpanded] = useState(false);
 
   const { slug } = match.params;
-  const { getFilm, dispatch } = useFilmGetSet();
+  const { getFilm, dispatch, getFeaturedGenreSlug } = useFilmGetSet();
 
-  console.log(getFilm);
   const selectedFilm = getFilm(slug);
+  const {
+    title,
+    director,
+    duration,
+    year,
+    actors,
+    img,
+    description,
+    genre,
+    id,
+    isAddedToMyList,
+  } = selectedFilm;
 
   useEffect(() => {
-    document.title = `${selectedFilm.title} - NetStruck`;
-  }, [selectedFilm.title]);
+    document.title = `${title} - NetStruck`;
+  }, [title]);
+
+  const genreLinks = genre.map((name, index) => (
+    <React.Fragment key={name.id}>
+      {index > 0 && ', '}
+      <Link
+        className='underline'
+        to={`/now-playing/genre/${getFeaturedGenreSlug(name)}`}
+      >
+        {name}
+      </Link>
+    </React.Fragment>
+  ));
 
   const addToMyList = () => {
     console.log(selectedFilm);
-    dispatch({ type: 'TOGGLE_FILM_MYLIST_STATE', id: selectedFilm.id });
+    dispatch({ type: 'TOGGLE_FILM_MYLIST_STATE', id });
   };
-
-  // useEffect(() => {
-  //   const selectedFilm = context.getFilm(slug);
-  // }, [slug]);
 
   return (
     <div>
       <div className='selection'>
         <div className='selection__info'>
-          <h2 className='selection__title'>{selectedFilm.title}</h2>
-          <p className='selection__text'>{`Directed by ${selectedFilm.director} • ${selectedFilm.year} • ${selectedFilm.duration}`}</p>
-          <p className='selection__text mb-3'>{`Starring ${selectedFilm.actors}`}</p>
+          <h2 className='selection__title'>{title}</h2>
+          <p className='selection__text mb-1'>{`Directed by ${director} • ${year} • ${duration}`}</p>
+          <p className='selection__text mb-1'>{`Starring ${actors}`}</p>
+          <p className='selection__text mb-3'>
+            Genres: <React.Fragment>{genreLinks}</React.Fragment>
+          </p>
           <p className='selection__text mb-8' id='selectionDescription'>
-            {selectedFilm.description}
+            {description}
           </p>
           {/* <button
             className='text-white text-sm mb-8 font-bold pr-5 relative'
@@ -49,25 +71,21 @@ export default function SelectionPage({ match }) {
           {/* /> */}
           {/* </button> */}
           <div className='flex flex-wrap'>
-            <Link className='watch-btn mr-4 mb-4'>SIGN UP</Link>
-            <button className='watch-btn mr-4 mb-4'>TRAILER</button>
             <button className='watch-btn mr-4 mb-4' onClick={addToMyList}>
-              {selectedFilm.isAddedToMyList
-                ? 'REMOVE FROM MYLIST'
-                : 'ADD TO MYLIST'}
+              {isAddedToMyList ? 'REMOVE FROM MYLIST' : 'ADD TO MYLIST'}
             </button>
           </div>
         </div>
         <div className='selection__poster'>
           <div className='ratio-16-9'>
-            <img src={selectedFilm.img} alt='' />
+            <img src={img} alt='' />
           </div>
         </div>
       </div>
       <div className='p-10'>
         <div className='selection__content'>
           <div className='ratio-16-9'>
-            <img src={selectedFilm.img} alt='' />
+            <img src={img} alt='' />
           </div>
         </div>
       </div>
