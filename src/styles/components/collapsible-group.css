@@ -10,7 +10,7 @@
   }
 
   @media (--md) {
-    @apply flex flex-row h-auto;
+    @apply flex flex-row w-auto h-auto;
   }
 
   &__item {

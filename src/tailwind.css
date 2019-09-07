@@ -7810,6 +7810,8 @@ video {
 
     flex-direction: row;
 
+    width: auto;
+
     height: auto
 }
   }
@@ -8603,9 +8605,9 @@ video {
   }
 
 .user-info__form-group {
-    height: 50px;
     position: relative;
     margin-bottom: 0.5rem;
+    height: 50px;
   }
 
 .user-info__input {
@@ -9079,10 +9081,6 @@ td{
 
 .max-w-7xl {
   max-width: 82.5em;
-}
-
-.h-50 {
-  height: 50px;
 }
 
 .animated-label {

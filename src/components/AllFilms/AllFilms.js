@@ -82,7 +82,7 @@ export default function AllFilms() {
   const filmDataLength = filmData.length;
 
   return (
-    <div className='md:px-12 mt-16'>
+    <div className='md:px-12 my-16'>
       <h1 className='sr-only'>NetStruck All Films</h1>
       <TableViewOptions
         sortBy={sortBy}

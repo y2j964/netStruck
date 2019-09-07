@@ -1,6 +1,7 @@
 .user-info {
   &__form-group {
-    @apply h-50 relative mb-2;
+    @apply relative mb-2;
+    height: 50px;
   }
 
   &__input {

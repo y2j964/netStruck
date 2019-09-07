@@ -425,10 +425,6 @@ td{
   max-width: 82.5em;
 }
 
-.h-50 {
-  height: 50px;
-}
-
 .animated-label {
   @apply absolute top-0 bottom-0 flex items-center;
   color: #8699a6;

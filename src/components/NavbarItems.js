@@ -54,13 +54,18 @@ export default function NavbarItems() {
       >
         {linksData}
       </ul>
-      <button
-        className='hidden md:block ml-auto'
-        aria-label='search for film'
-        onClick={toggleSearchModal}
-      >
-        <SearchIcon fill='#fff' />
-      </button>
+      <div className='ml-auto hidden md:flex'>
+        <Link to={'/signup'} className='text-white mr-5 font-semibold block'>
+          SIGN UP
+        </Link>
+        <button
+          className=''
+          aria-label='search for film'
+          onClick={toggleSearchModal}
+        >
+          <SearchIcon fill='#fff' />
+        </button>
+      </div>
     </React.Fragment>
   );
 }

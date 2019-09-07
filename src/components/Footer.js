@@ -30,7 +30,7 @@ export default class Footer extends Component {
 
   render() {
     return (
-      <footer className='px-4 py-2 border-t border-gray-700'>
+      <footer className='p-4'>
         <ul className='flex flex-wrap'>
           <FooterItems linkData={this.state.footerItemsData} />
         </ul>
