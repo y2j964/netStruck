@@ -11,6 +11,7 @@
 @import 'components/content-row.css';
 @import 'components/filter-btn.css';
 @import 'components/film-table.css';
+@import 'components/hidden-input.css';
 @import 'components/modal.css';
 @import 'components/navbar.css';
 @import 'components/search-filter.css';
@@ -20,9 +21,12 @@
 @import 'components/slider-row.css';
 @import 'components/sort-direction-toggle.css';
 @import 'components/sort-selector.css';
+@import 'components/subscription-description.css';
+@import 'components/subscription-type.css';
 @import 'components/tab-switch.css';
 @import 'components/tile-group.css';
 @import 'components/tile.css';
+@import 'components/user-info.css';
 
 @custom-media --sm (min-width: 640px);
 @custom-media --md (min-width: 768px);
@@ -31,6 +35,11 @@
 
 body {
   background-color: #151515;
+  transition: background-color 200ms linear;
+}
+
+.bg-form {
+  background-color: #68696f;
 }
 
 .hero {
@@ -411,3 +420,63 @@ td{
 .placeholder-color:-moz-placeholder {
 	color: #9b9b9b;
 }
+
+.max-w-7xl {
+  max-width: 82.5em;
+}
+
+.h-50 {
+  height: 50px;
+}
+
+.animated-label {
+  @apply absolute top-0 bottom-0 flex items-center;
+  color: #8699a6;
+  transform: translateY(0px) translateX(1rem) scale(1);
+  transform-origin: left center;
+  transition: all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s;
+
+  &--is-shrunk {
+    transform: translateY(-.925rem) translateX(1rem) scale(0.65);
+  }
+}
+
+.custom-radio {
+  @apply flex justify-center items-center;
+  position: relative;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  background-color: rgb(255, 255, 255);
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(102, 102, 102);
+
+  &--is-active {
+    border-color: #babdc8;
+    &::after {
+    content: "";
+    background-color: rgb(185, 188, 199);
+    display: inline-block;
+    height: 10px;
+    width: 10px;
+    position: absolute;
+    left: 4px;
+    top: 4px;
+    border-radius: 50%;
+    }
+  }
+
+  &:hover::after {
+    content: "";
+    background-color: rgb(185, 188, 199);
+    display: inline-block;
+    height: 10px;
+    width: 10px;
+    position: absolute;
+    left: 4px;
+    top: 4px;
+    border-radius: 50%;
+  }
+}
+

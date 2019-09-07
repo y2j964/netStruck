@@ -6,20 +6,6 @@ import { CSSTransition } from 'react-transition-group';
 import { useFilmValues, useFilmGetSet } from '../context';
 import Close from '../icons/Close';
 
-const duration = 300;
-
-const defaultStyle = {
-  transition: `opacity ${duration}ms ease-in-out`,
-  opacity: 0,
-};
-
-const transitionStyles = {
-  entering: { opacity: 1 },
-  entered: { opacity: 1 },
-  exiting: { opacity: 0 },
-  exited: { opacity: 0 },
-};
-
 export default function Modal({ children }) {
   const { state } = useFilmValues();
   const { modalIsOpen } = state;
@@ -43,10 +29,6 @@ export default function Modal({ children }) {
     }
     toggleSearchModal();
   };
-
-  // if (!modalIsOpen) {
-  //   return null;
-  // }
 
   return ReactDOM.createPortal(
     <CSSTransition

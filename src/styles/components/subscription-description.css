@@ -1,0 +1,7 @@
+.subscription-details {
+  @apply border-white border-t pt-6;
+
+  &__text {
+    @apply mb-4 text-white;
+  }
+}

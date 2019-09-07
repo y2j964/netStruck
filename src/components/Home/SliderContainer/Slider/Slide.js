@@ -1,4 +1,5 @@
 import React, { memo } from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 function Slide({ slide }) {
@@ -9,9 +10,9 @@ function Slide({ slide }) {
       <div className='absolutely-centered'>
         <div className='slide__text-block'>
           <p className='slide__text'>{slide.text} </p>
-          <a href='' className='link-btn'>
+          <Link to={'/signup'} className='link-btn'>
             SIGN UP
-          </a>
+          </Link>
         </div>
       </div>
     </div>

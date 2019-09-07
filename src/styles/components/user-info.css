@@ -1,0 +1,27 @@
+.user-info {
+  &__form-group {
+    @apply h-50 relative mb-2;
+  }
+
+  &__input {
+    width: 100%;
+    height: 100%;
+    padding: 0.3125rem 0.9375rem 0px;
+    border-color: rgb(179, 191, 200);
+    border-width: 1px;
+    border-style: solid;
+  }
+
+  &__submission {
+    @apply mb-5 block w-full rounded flex items-center justify-center;
+
+    height: 3.4375rem;
+    background-color: rgb(185, 188, 199);
+    color: rgb(26, 46, 59);
+    display: flex;
+    align-items: center;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(157, 160, 169);
+  }
+}

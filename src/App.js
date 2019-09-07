@@ -11,6 +11,7 @@ import SelectionPage from './components/SelectionPage';
 import GenreSelection from './components/GenreSelection';
 import Modal from './components/Modal';
 import AllFilms from './components/AllFilms/AllFilms';
+import SignUp from './components/SignUp/SignUp';
 import MyList from './components/MyList/MyList';
 import { FilmDataProvider } from './context';
 
@@ -27,6 +28,7 @@ function App() {
             <Route path='/now-playing/genre/:slug' component={GenreSelection} />
             <Route path='/all-films' component={AllFilms} />
             <Route path='/my-list' component={MyList} />
+            <Route path='/signup' component={SignUp} />
             <Route component={Error404} />
           </Switch>
         </main>

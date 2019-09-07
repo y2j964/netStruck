@@ -1,4 +1,5 @@
 import React, { memo } from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 function SlideCentered({ slide }) {
@@ -12,9 +13,9 @@ function SlideCentered({ slide }) {
       </div>
       <div className='relative w-full sm-w-37 sm:ml-auto text-center sm:text-left'>
         <p className='mb-5 text-white text-sm'>{slide.text}</p>
-        <a href='' className='link-btn'>
+        <Link to={'/signup'} className='link-btn'>
           SIGN UP
-        </a>
+        </Link>
       </div>
     </div>
   );

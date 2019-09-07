@@ -1,0 +1,14 @@
+.hidden-input {
+  @apply absolute top-0 left-0 w-full h-full z-10 opacity-0;
+
+  &__focus-mask {
+    @apply absolute top-0 left-0 w-full h-full;
+  }
+
+  &:focus + .hidden-input__focus-mask {
+    outline: -webkit-focus-ring-color auto 1px;
+    outline-color: -webkit-focus-ring-color;
+    outline-style: auto;
+    outline-width: 1px;
+  }
+}
