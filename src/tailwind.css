@@ -8054,6 +8054,7 @@ video {
   left: 0;
   right: 0;
   z-index: 20;
+  overflow-y: auto;
   background: rgba(20, 20, 20, 0.95);
 }
 
@@ -8062,20 +8063,21 @@ video {
     padding: 1.25rem;
   }
 
-.l-modal-enter {
+.modal-enter {
     opacity: 0;
   }
 
-.l-modal-enter-active {
+.modal-enter-active {
     opacity: 1;
     transition: opacity 300ms ease-out 0s;
   }
 
-.l-modal-exit {
+.modal-exit {
     opacity: 1;
+    overflow-y: hidden;
   }
 
-.l-modal-exit-active {
+.modal-exit-active {
     opacity: 0;
     transition: opacity 300ms ease-out 0s;
   }
@@ -8646,6 +8648,19 @@ body {
   background-color: #68696f;
 }
 
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* main and root styles to ensure that footer doesn't creep up the page
+in the event that there isn't much content within main */
+
+main {
+  flex: 1 0 auto;
+}
+
 .hero {
   padding-top: 265px;
 }
@@ -8659,7 +8674,7 @@ body {
 
 .ratio-16-9 {
   position: relative;
-  /* overflow: hidden; */
+  overflow: hidden;
   display: block;
   padding-top: 56.25%;
   background-color: transparent;

@@ -42,6 +42,16 @@ body {
   background-color: #68696f;
 }
 
+#root {
+  @apply flex flex-col min-h-screen;
+}
+
+/* main and root styles to ensure that footer doesn't creep up the page
+in the event that there isn't much content within main */
+main {
+  flex: 1 0 auto;
+}
+
 .hero {
   padding-top: 265px;
 
@@ -52,7 +62,7 @@ body {
 
 .ratio-16-9 {
   position: relative;
-  /* overflow: hidden; */
+  overflow: hidden;
   display: block;
   padding-top: 56.25%;
   background-color: transparent;

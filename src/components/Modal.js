@@ -35,7 +35,7 @@ export default function Modal({ children }) {
       in={modalIsOpen}
       timeout={300}
       unmountOnExit
-      classNames='l-modal'
+      classNames='modal'
     >
       <FocusTrap>
         <div
