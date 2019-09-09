@@ -1,5 +1,5 @@
 .navbar {
-  @apply p-4 flex flex-wrap items-center overflow-hidden;
+  @apply py-3 px-4 flex flex-wrap items-center overflow-hidden;
 
   @media (--md) {
     @apply flex-no-wrap p-5;

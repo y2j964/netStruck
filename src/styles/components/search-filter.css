@@ -1,5 +1,6 @@
 .search-filter {
-  @apply flex mt-8 width-85 mx-auto;
+  @apply flex mt-8 mx-auto;
+  width: 85%;
 
   &__input {
     @apply light-gray text-2xl flex-1 pb-2;

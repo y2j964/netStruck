@@ -1,12 +1,12 @@
 import React from 'react';
 import './tailwind.css';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import Navbar from './components/Navbar';
+import Navbar from './components/Navbar/Navbar';
 import Error404 from './components/Error404';
-import Footer from './components/Footer';
+import Footer from './components/Footer/Footer';
 import Home from './components/Home/Home';
 import NowPlaying from './components/NowPlaying/NowPlaying';
-import SearchFilter from './components/SearchFilter';
+import SearchFilter from './components/Search/SearchFilter';
 import SelectionPage from './components/SelectionPage';
 import GenreSelection from './components/GenreSelection';
 import Modal from './components/Modal';

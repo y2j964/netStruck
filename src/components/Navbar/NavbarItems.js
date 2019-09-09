@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useFilmGetSet } from '../context';
-import SearchIcon from '../icons/SearchIcon';
-import HamburgerToggle from '../icons/HamburgerToggle';
+import { useFilmGetSet } from '../../context';
+import SearchIcon from '../../icons/SearchIcon';
+import HamburgerToggle from '../../icons/HamburgerToggle';
 
 const homeLink = 'NETSTRUCK';
 const links = ['NOW PLAYING', 'ALL FILMS', 'MY LIST'];
@@ -17,6 +17,9 @@ export default function NavbarItems() {
   const toggleCollapsibleNav = () =>
     setCollapsibleNavIsExpanded(!collapsibleNavIsExpanded);
 
+  // when collapsible nav is open and a link is clicked, close the nav for new Route
+  const ensureCollapsibleNavIsClosed = () => setCollapsibleNavIsExpanded(false);
+
   const toggleSearchModal = () => dispatch({ type: 'TOGGLE_MODAL' });
 
   const linksData = links.map((link, index) => {
@@ -25,6 +28,7 @@ export default function NavbarItems() {
         <Link
           to={`/${link.toLowerCase().replace(' ', '-')}`}
           className='navbar__link collapsible-group__item'
+          onClick={ensureCollapsibleNavIsClosed}
         >
           {link}
         </Link>
@@ -34,7 +38,11 @@ export default function NavbarItems() {
 
   return (
     <React.Fragment>
-      <Link to={'/'} className='navbar__link'>
+      <Link
+        to={'/'}
+        className='navbar__link'
+        onClick={ensureCollapsibleNavIsClosed}
+      >
         {homeLink}
       </Link>
       <button
@@ -55,7 +63,11 @@ export default function NavbarItems() {
         {linksData}
       </ul>
       <div className='ml-auto hidden md:flex'>
-        <Link to={'/signup'} className='text-white mr-5 font-semibold block'>
+        <Link
+          to={'/signup'}
+          className='text-white mr-5 font-semibold block'
+          onClick={ensureCollapsibleNavIsClosed}
+        >
           SIGN UP
         </Link>
         <button

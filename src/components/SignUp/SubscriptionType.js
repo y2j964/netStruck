@@ -23,6 +23,7 @@ export default function SubscriptionType() {
             tabIndex='0'
             id='annualSub'
             checked={subscription === 'annual'}
+            aria-checked={subscription === 'annual'}
             onChange={e => setSubscription(e.target.value)}
           />
           <span className='hidden-input__focus-mask'></span>
@@ -46,6 +47,7 @@ export default function SubscriptionType() {
             tabIndex='0'
             id='monthlySub'
             checked={subscription === 'monthly'}
+            aria-checked={subscription === 'monthly'}
             onChange={e => setSubscription(e.target.value)}
           />
           <span className='hidden-input__focus-mask'></span>

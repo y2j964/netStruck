@@ -20,8 +20,12 @@
     @apply w-1/4;
   }
 
-  @media (--xl) {
+  @media (--lg) {
     @apply w-1/5;
+  }
+
+  @media (--xl) {
+    @apply w-1/6;
   }
 
   &__title {

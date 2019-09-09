@@ -26,12 +26,24 @@
   &__img-block {
     @apply absolute top-0 bottom-0 right-0 max-w-2xl flex scrim;
 
+    @media (--sm) {
+      @apply max-w-lg;
+    }
+
+    @media (--md) {
+      @apply max-w-2xl;
+    }
+
     @media (--lg) {
       @apply max-w-3xl;
     }
 
     @media (--xl) {
-      @apply max-w-4xl;
+      max-width: 58rem;
+    }
+
+    @media (--xxl) {
+      @apply max-w-6xl;
     }
   }
 

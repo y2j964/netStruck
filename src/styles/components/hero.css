@@ -1,0 +1,7 @@
+.hero {
+  padding-top: 265px;
+
+  @media (--sm) {
+    padding-top: 570px;
+  }
+}

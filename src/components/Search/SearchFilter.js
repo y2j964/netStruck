@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { useFilmValues } from '../context';
-import debounce from '../utilityFunctions/debounce';
+import { useFilmValues } from '../../context';
+import debounce from '../../utilityFunctions/debounce';
 import SearchResults from './SearchResults';
-import SearchIcon from '../icons/SearchIcon';
+import SearchIcon from '../../icons/SearchIcon';
 
 // only filter input based on these properties
 const relevantKeys = ['title', 'genre', 'actors', 'director', 'description'];

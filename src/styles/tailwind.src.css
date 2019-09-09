@@ -2,17 +2,24 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 @import 'components/all-films.css';
+@import 'components/animated-label.css';
 @import 'components/carousel.css';
 @import 'components/carousel-item.css';
 @import 'components/carousel-item-animation.css';
 @import 'components/carousel-coin.css';
-@import 'components/collapsible-group.css';
 @import 'components/carousel-coin-group.css';
+@import 'components/chevron-toggler.css';
+@import 'components/collapsible-group.css';
 @import 'components/content-row.css';
+@import 'components/custom-radio.css';
 @import 'components/filter-btn.css';
 @import 'components/film-table.css';
+@import 'components/hero.css';
+@import 'components/hamburger-toggler.css';
 @import 'components/hidden-input.css';
+@import 'components/link-btn.css';
 @import 'components/modal.css';
+@import 'components/myList-btn.css';
 @import 'components/navbar.css';
 @import 'components/search-filter.css';
 @import 'components/selection.css';
@@ -26,20 +33,19 @@
 @import 'components/tab-switch.css';
 @import 'components/tile-group.css';
 @import 'components/tile.css';
+@import 'components/tooltip.css';
 @import 'components/user-info.css';
+@import 'components/watch-btn.css';
 
-@custom-media --sm (min-width: 640px);
-@custom-media --md (min-width: 768px);
-@custom-media --lg (min-width: 1024px);
-@custom-media --xl (min-width: 1280px);
+@custom-media --sm (min-width: 500px);
+@custom-media --md (min-width: 800px);
+@custom-media --lg (min-width: 1100px);
+@custom-media --xl (min-width: 1400px);
+@custom-media --xxl (min-width: 1600px);
 
 body {
   background-color: #151515;
   transition: background-color 200ms linear;
-}
-
-.bg-form {
-  background-color: #68696f;
 }
 
 #root {
@@ -52,12 +58,20 @@ main {
   flex: 1 0 auto;
 }
 
-.hero {
-  padding-top: 265px;
+.bg-main {
+  background-color: #151515;
+}
 
-  @media (--sm) {
-    padding-top: 570px;
-  }
+.bg-form {
+  background-color: #68696f;
+}
+
+.light-gray {
+  color:  #bebebb ;
+}
+
+.border-gray {
+  border-color: #383838;
 }
 
 .ratio-16-9 {
@@ -80,6 +94,9 @@ main {
     bottom: 0;
     display: block;
     margin: auto;
+  }
+  &--overflowed {
+    overflow: visible;
   }
 }
 
@@ -126,53 +143,18 @@ main {
   height: 55px;
 }
 
-.link-btn {
-  @apply inline-block px-6 py-3 mb-1 bg-gray-100 text-xs;
-}
-
-.watch-btn {
-  @apply px-4 py-2 text-sm bg-gray-100 uppercase;
-
-  &--sm {
-    @apply normal-case py-2
-  }
-}
-
 .bottom-10 {
   bottom: 10%;
 }
 
-.w-56 {
-  width: 56.25%;
+.max-w-80 {
+  max-width: 80rem;
 }
 
-.w-37 {
-  width: 37.5%;
+.max-w-7xl {
+  max-width: 82.5em;
 }
 
-.sm-w-56 {
-  @media (--sm) {
-    width: 56.25%;
-  }
-}
-
-.sm-w-37 {
-  @media (--sm) {
-    width: 37.5%;
-  }
-}
-
-.pb-40 {
-  padding-bottom: 40%;
-}
-
-.pt-16-9 {
-  padding-top: 40%;
-}
-
-.h-368 {
-  height: 368px;
-}
 
 .text-shadow {
   text-shadow: 0 1px 10px #000;
@@ -199,10 +181,6 @@ main {
 
 .z-neg {
   z-index: -1;
-}
-
-.px-4-percent {
-  padding: 0 4%;
 }
 
 table, thead, tbody, tfoot, tr, td, th, caption {
@@ -265,26 +243,10 @@ td{
   }
 }
 
-.bg-main {
-  background-color: #151515;
-}
-
-.min-w-178 {
-  min-width: 178px;
-}
-
 .icon--positioned-right {
   position: absolute;
   right: 6%;
   transition: fill .3s ease-in-out;
-}
-
-.h-56 {
-  height: 56px;
-}
-
-.w-56 {
-  width: 56px;
 }
 
 .order-2 {
@@ -293,112 +255,6 @@ td{
 
 .order-3 {
   order: 3;
-}
-
-.w-18 {
-  width: 18px;
-}
-
-.h-18 {
-  height: 18px;
-}
-
-.tooltip {
-  @apply bg-white text-black absolute;
-  padding: 2px;
-  /* width: 72px; */
-  /* height: 18px; */
-  width: 114px;
-  height: 28px;
-  /* display: flex; */
-  display: none;
-    justify-content: center;
-    align-items: center;
-  top: 138%;
-
-  &:before {
-    content: "";
-  position: absolute;
-  bottom: 95%;
-  left: 50%;
-  transform: translateX(-50%);
-  border-width: 5px;
-  border-style: solid;
-  border-color: transparent transparent white transparent;
-  }
-}
-
-.font-2xs {
-  font-size: .5rem;
-}
-
-.myList-btn {
-  @apply relative rounded-full flex justify-center items-center bg-main border border-white z-10 cursor-pointer opacity-0;
-  width: 18px;
-  height: 18px;
-  transition: opacity 400ms cubic-bezier(0, 0, 0.2, 1);;
-  transition-delay: 400ms;
-
-  &:hover {
-    .tooltip {
-      display: flex;
-    }
-  }
-}
-
-.chevron-toggler {
-  width: 18px;
-  height: 18px;
-  transition: transform .2s ease-in-out;
-
-  &--is-flipped {
-    transform: rotate(180deg);
-  }
-}
-
-.max-w-80 {
-  max-width: 80rem;
-}
-
-/* .expandable-hover {
-  @apply absolute top-0 bottom-0 left-0 right-0;
-  width: 150%;
-  height: 150%;
-  transform:scale(.666666);
-  transform-origin: top left;
-  transition: transform 400ms cubic-bezier(0, 0, 0.2, 1);
-
-  &:hover {
-    transform: scale(1);
-    transform-origin: center;
-  }
-} */
-
-.hamburger-toggler {
-  @apply ml-auto;
-  opacity: .5;
-  transition: opacity .2s ease-in-out;
-
-  @media (--md) {
-    display: none;
-  }
-
-  &:hover {
-    opacity: 1;
-  }
-
-}
-
-.light-gray {
-  color:  #bebebb ;
-}
-
-.border-gray {
-  border-color: #383838;
-}
-
-.width-85 {
-  width:85%;
 }
 
 .input-stripped {
@@ -431,58 +287,4 @@ td{
 	color: #9b9b9b;
 }
 
-.max-w-7xl {
-  max-width: 82.5em;
-}
-
-.animated-label {
-  @apply absolute top-0 bottom-0 flex items-center;
-  color: #8699a6;
-  transform: translateY(0px) translateX(1rem) scale(1);
-  transform-origin: left center;
-  transition: all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s;
-
-  &--is-shrunk {
-    transform: translateY(-.925rem) translateX(1rem) scale(0.65);
-  }
-}
-
-.custom-radio {
-  @apply flex justify-center items-center;
-  position: relative;
-  height: 20px;
-  width: 20px;
-  border-radius: 50%;
-  background-color: rgb(255, 255, 255);
-    border-width: 1px;
-    border-style: solid;
-    border-color: rgb(102, 102, 102);
-
-  &--is-active {
-    border-color: #babdc8;
-    &::after {
-    content: "";
-    background-color: rgb(185, 188, 199);
-    display: inline-block;
-    height: 10px;
-    width: 10px;
-    position: absolute;
-    left: 4px;
-    top: 4px;
-    border-radius: 50%;
-    }
-  }
-
-  &:hover::after {
-    content: "";
-    background-color: rgb(185, 188, 199);
-    display: inline-block;
-    height: 10px;
-    width: 10px;
-    position: absolute;
-    left: 4px;
-    top: 4px;
-    border-radius: 50%;
-  }
-}
 

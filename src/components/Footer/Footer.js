@@ -31,7 +31,7 @@ export default class Footer extends Component {
   render() {
     return (
       <footer className='p-4'>
-        <ul className='flex flex-wrap'>
+        <ul className='flex justify-center sm:justify-start flex-wrap'>
           <FooterItems linkData={this.state.footerItemsData} />
         </ul>
       </footer>

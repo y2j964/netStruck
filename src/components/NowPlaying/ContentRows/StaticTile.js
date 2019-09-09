@@ -13,7 +13,7 @@ export default function StaticTile({ title, img, slug, id, isAddedToMyList }) {
       onMouseLeave={() => setIsHovered(false)}
     >
       {/* <p>{title}</p> */}
-      <div className='ratio-16-9'>
+      <div className='ratio-16-9 ratio-16-9--overflowed'>
         <img src={img} alt='' />
         <Link
           to={`/now-playing/${slug}`}

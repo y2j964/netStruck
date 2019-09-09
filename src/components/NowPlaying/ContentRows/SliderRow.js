@@ -7,10 +7,10 @@ import debounce from '../../../utilityFunctions/debounce';
 
 const step = 100;
 const mediaBreakpoints = {
-  sm: 640,
-  md: 768,
-  lg: 1024,
-  xl: 1280,
+  sm: 500,
+  md: 800,
+  lg: 1100,
+  xl: 1400,
 };
 
 export default class SliderRow extends PureComponent {
@@ -265,14 +265,14 @@ export default class SliderRow extends PureComponent {
       }
       case viewportWidth > mediaBreakpoints.lg &&
         viewportWidth < mediaBreakpoints.xl &&
-        this.state.slidesPerPosition !== 4: {
-        const updatedSlidesPerPosition = 4;
+        this.state.slidesPerPosition !== 5: {
+        const updatedSlidesPerPosition = 5;
         this.recalibrateSlider(updatedSlidesPerPosition);
         break;
       }
       case viewportWidth > mediaBreakpoints.xl &&
-        this.state.slidesPerPosition !== 5: {
-        const updatedSlidesPerPosition = 5;
+        this.state.slidesPerPosition !== 6: {
+        const updatedSlidesPerPosition = 6;
         this.recalibrateSlider(updatedSlidesPerPosition);
         break;
       }

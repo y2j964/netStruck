@@ -14,8 +14,26 @@
   &--centered {
     @apply flex justify-center items-center px-2 flex-col;
 
-    @media (--sm) {
+    @media (--md) {
       @apply flex-row;
+    }
+
+    &__img-group {
+      @apply relative w-full  mb-3;
+
+      @media (--md) {
+        @apply mb-0;
+        width: 56.25%;
+      }
+    }
+
+    &__text-group {
+      @apply relative w-full text-center;
+
+      @media (--md) {
+        @apply text-left ml-auto;
+        width: 37.5%;
+      }
     }
   }
 

@@ -28,7 +28,7 @@ export default function GenreSelection({ match }) {
             {description}
           </p>
           <div className='flex flex-wrap'>
-            <button className='watch-btn mr-4 mb-4'>SIGN UP</button>
+            {/* <button className='watch-btn mr-4 mb-4'>SIGN UP</button> */}
             {/* <button className='watch-btn mr-4 mb-4' onClick={addAllToMyList}>
               ADD ALL TO MYLIST
             </button> */}

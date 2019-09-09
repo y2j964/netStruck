@@ -35,7 +35,7 @@ const Tile = ({
       aria-label={`slide ${index + 1} of ${filmGroupLength}`}
     >
       {/* <p>{title}</p> */}
-      <div className='ratio-16-9'>
+      <div className='ratio-16-9 ratio-16-9--overflowed'>
         <img src={img} alt='' />
         <Link
           to={`/now-playing/${slug}`}
