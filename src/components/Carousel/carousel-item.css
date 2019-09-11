@@ -1,0 +1,59 @@
+.carousel-item {
+  @apply absolute top-0 bottom-0 left-0 right-0 z-neg opacity-0;
+
+  transition: all 800ms ease;
+
+  &--is-active {
+    @apply z-10 opacity-100;
+  }
+
+  &__text-block {
+    @apply absolute left-0 bottom-10 z-10 max-w-md;
+    padding-left: 40px;
+
+    @media (--md) {
+      padding-left: 57px;
+    }
+
+  }
+
+  &__title {
+    @apply text-white text-3xl font-semibold;
+  }
+
+  &__description {
+    @apply hidden text-gray-200 text-shadow leading-snug mb-4 text-sm;
+
+    @media (--sm) {
+      @apply block;
+    }
+  }
+
+  &__img-block {
+    @apply absolute top-0 bottom-0 right-0 flex scrim;
+
+    @media (--sm) {
+      @apply max-w-lg;
+    }
+
+    @media (--md) {
+      @apply max-w-xl;
+    }
+
+    @media (--lg) {
+      @apply max-w-3xl;
+    }
+
+    @media (--xl) {
+      max-width: 58rem;
+    }
+
+    @media (--xxl) {
+      @apply max-w-6xl;
+    }
+  }
+
+  &__img {
+    @apply object-cover z-neg;
+  }
+}

@@ -1,0 +1,18 @@
+.navbar {
+  @apply py-3 px-4 flex flex-wrap items-center overflow-hidden;
+
+  @media (--md) {
+    @apply flex-no-wrap px-5 py-6;
+  }
+
+  &__link {
+    @apply text-white my-3 font-semibold block;
+
+    @media (--md) {
+      @apply my-0 mr-8;
+    }
+  }
+}
+
+/* flex-no-wrap */
+/* md:flex md:flex-col */

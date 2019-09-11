@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import StaticTileGroup from '../NowPlaying/ContentRows/StaticTileGroup';
+import StaticTileGroup from '../Tiles/StaticTileGroup';
 
 export default function SearchResults({ filteredFilms, inputValue }) {
   if (!inputValue || filteredFilms.length === 0) {
