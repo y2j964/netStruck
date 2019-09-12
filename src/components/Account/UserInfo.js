@@ -1,5 +1,33 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import {AnimatedTextInput, AnimatedEmailInput, AnimatedPasswordInput} from '../InputAnimated';
+import CheckBox from '../CheckBox';
+
+const inputFactory = ({ labelText, name, id, isRequired = true }) => ({
+  labelText,
+  name,
+  labelFor: id,
+  id,
+  isRequired,
+});
+
+const nameInput = inputFactory({
+  labelText: 'Name',
+  name: 'accountName',
+  id: 'accountName',
+});
+
+const emailInput = inputFactory({
+  labelText: 'Email',
+  name: 'accountEmail',
+  id: 'accountEmail',
+});
+
+const passwordInput = inputFactory({
+  labelText: 'Password',
+  name: 'accountPassword',
+  id: 'accountPassword',
+});
 
 export default function UserInfo({ subscription }) {
   const [nameFocus, setNameFocus] = useState(false);
@@ -28,87 +56,39 @@ export default function UserInfo({ subscription }) {
         Start your 14-day free trial
       </h2>
       <form action='' onSubmit={submitForm}>
-        <div className='user-info__form-group'>
-          <label
-            htmlFor='accountName'
-            className={`animated-label${
-              nameFocus || nameValue ? ' animated-label--is-shrunk' : ''
-            }`}
-          >
-            Name
-          </label>
-          <input
-            type='text'
-            name='accountName'
-            className='user-info__input'
-            id='accountName'
-            aria-required='true'
-            required
-            value={nameValue}
-            onChange={e => setNameValue(e.target.value)}
-            onFocus={() => setNameFocus(true)}
-            onBlur={() => setNameFocus(false)}
-          />
-        </div>
-        <div className='user-info__form-group'>
-          <label
-            htmlFor='accountEmail'
-            className={`animated-label${
-              emailFocus || emailValue ? ' animated-label--is-shrunk' : ''
-            }`}
-          >
-            Email
-          </label>
-          <input
-            type='email'
-            name='accountEmail'
-            className='user-info__input'
-            id='accountEmail'
-            aria-required='true'
-            required
-            value={emailValue}
-            onChange={e => setEmailValue(e.target.value)}
-            onFocus={() => setEmailFocus(true)}
-            onBlur={() => setEmailFocus(false)}
-          />
-        </div>
-        <div className='user-info__form-group'>
-          <label
-            htmlFor='accountPassword'
-            className={`animated-label${
-              passwordFocus || passwordValue ? ' animated-label--is-shrunk' : ''
-            }`}
-          >
-            Password
-          </label>
-          <input
-            type='password'
-            name='accountPassword'
-            className='user-info__input'
-            id='accountPassword'
-            aria-required='true'
-            required
-            minLength='8'
-            value={passwordValue}
-            onChange={e => setPasswordValue(e.target.value)}
-            onFocus={() => setPasswordFocus(true)}
-            onBlur={() => setPasswordFocus(false)}
-          />
-        </div>
-        <div className='mb-6'>
-          <input
-            type='checkbox'
-            name='updatePermission'
-            className='mr-2'
-            id='updatePermission'
-            checked={permissionCheck}
-            onChange={() => setPermissionCheck(!permissionCheck)}
-            aria-checked='true'
-          />
-          <label htmlFor='updatePermission'>
-            I agree to receive newletters and product upadates from NetStruck
-          </label>
-        </div>
+        <AnimatedTextInput
+          {...nameInput}
+          value={nameValue}
+          handleValueChange={e => setNameValue(e.target.value)}
+          isFocused={nameFocus}
+          handleFocus={() => setNameFocus(true)}
+          handleBlur={() => setNameFocus(false)}
+        />
+        <AnimatedEmailInput
+          {...emailInput}
+          value={emailValue}
+          handleValueChange={e => setEmailValue(e.target.value)}
+          isFocused={emailFocus}
+          handleFocus={() => setEmailFocus(true)}
+          handleBlur={() => setEmailFocus(false)}
+        />
+        <AnimatedPasswordInput
+          {...passwordInput}
+          minLength='8'
+          value={passwordValue}
+          handleValueChange={e => setPasswordValue(e.target.value)}
+          isFocused={passwordFocus}
+          handleFocus={() => setPasswordFocus(true)}
+          handleBlur={() => setPasswordFocus(false)}
+        />
+        <CheckBox
+        name='updatePermission'
+        id='updatePermission'
+        isChecked={permissionCheck}
+        handleCheckChange={() => setPermissionCheck(!permissionCheck)}
+        >
+          I agree to receive newletters and product upadates from NetStruck
+        </CheckBox>
         <button className='user-info__submission'>Continue</button>
         <p className='text-center text-xs'>
           By registering you agree to our
