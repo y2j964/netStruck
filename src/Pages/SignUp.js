@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import SubscriptionType from '../components/Account/SubscriptionType';
-import SubscriptionDetails from '../components/Account/SubscriptionDetails';
-import UserInfo from '../components/Account/UserInfo';
+import SubscriptionType from '../components/SubscriptionType/SubscriptionType';
+import SubscriptionDetails from '../components/SubscriptionDetails/SubscriptionDetails';
+import UserInfo from '../components/UserInfo/UserInfo';
 import RadioInputCustom from '../components/RadioInputCustom/RadioInputCustom';
 
 export default function SignUp() {

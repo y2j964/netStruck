@@ -13,8 +13,6 @@ export default function MyList() {
   const { myList } = state;
   const myListLength = myList.length;
 
-  console.log('myList rendered');
-
   return (
     <main>
       <header className='text-center pb-8 pt-2 md:pt-8'>

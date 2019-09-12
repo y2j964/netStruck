@@ -1,9 +1,6 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
-@import 'components/Account/subscription-description.css';
-@import 'components/Account/subscription-type.css';
-@import 'components/Account/user-info.css';
 @import 'components/Carousel/carousel.css';
 @import 'components/Carousel/carousel-item.css';
 @import 'components/Carousel/carousel-item-animation.css';
@@ -14,11 +11,11 @@
 @import 'components/FilmTable/filter-btn.css';
 @import 'components/FilmTable/sort-direction-toggle.css';
 @import 'components/FilmTable/sort-selector.css';
+@import 'components/HamburgerToggler/hamburger-toggler.css';
 @import 'components/Hero/hero.css';
 @import 'components/InputAnimated/animated-label.css';
 @import 'components/Modal/modal.css';
 @import 'components/Navbar/collapsible-group.css';
-@import 'components/Navbar/hamburger-toggler.css';
 @import 'components/Navbar/navbar.css';
 @import 'components/RadioInputCustom/custom-radio.css';
 @import 'components/RadioInputCustom/hidden-input.css';
@@ -26,11 +23,14 @@
 @import 'components/SliderContainer/Slider/slide.css';
 @import 'components/SliderContainer/Slider/slider.css';
 @import 'components/SliderRow/slider-row.css';
+@import 'components/SubscriptionDetails/subscription-description.css';
+@import 'components/SubscriptionType/subscription-type.css';
 @import 'components/TabSwitches/tab-switch.css';
 @import 'components/Tiles/tile.css';
 @import 'components/Tiles/tile-group.css';
 @import 'components/ToggleToMyListBtn/toggle-to-MyList-btn.css';
 @import 'components/ToggleToMyListBtn/tooltip.css';
+@import 'components/UserInfo/user-info.css';
 @import 'Pages/AllFilms/all-films.css';
 @import 'Pages/Selection/selection.css';
 @import 'Pages/Selection/btn-primary.css';

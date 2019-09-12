@@ -6,7 +6,7 @@
   }
 
   &__link {
-    @apply text-white my-3 font-semibold block;
+    @apply text-white my-3 font-semibold block uppercase;
 
     @media (--md) {
       @apply my-0 mr-8;

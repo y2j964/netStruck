@@ -4,7 +4,6 @@ import React, { Component } from 'react';
 import uuid from 'uuid';
 import TabSwitches from '../TabSwitches/TabSwitches';
 import Slider from './Slider/Slider';
-import Slides from './Slider/Slides';
 import Play from '../../icons/Play';
 import Eye from '../../icons/Eye';
 import Mobile from '../../icons/Mobile';
@@ -69,10 +68,7 @@ export default class SliderContainer extends Component {
           tabSwitches={this.state.tabSwitchesData}
           activateTab={this.activateTab}
         />
-        <Slider
-          tabSwitches={this.state.tabSwitchesData}
-          render={() => <Slides />}
-        />
+        <Slider tabSwitches={this.state.tabSwitchesData} />
       </React.Fragment>
     );
   }

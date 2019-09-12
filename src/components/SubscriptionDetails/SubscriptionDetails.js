@@ -10,8 +10,8 @@ export default function SubscriptionDetails() {
         to sell, and I have no reason or mechanism for collecting user data
         about you. There is no sign up. There is no subscription. There are no
         transactions here. We will, however, go on with the charade of
-        pretending that this is a real sign up form, but it's all smoke and
-        mirrors.
+        pretending that this is a real sign up form (we'll even print the
+        submitted data to the console), but it's all smoke and mirrors.
       </p>
       <p className='subscription-details__text'>
         If you are interested in purchasing a subscription to a similar service,

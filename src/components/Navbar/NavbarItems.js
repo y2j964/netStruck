@@ -1,11 +1,13 @@
+import uuid from 'uuid';
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import { useFilmGetSet } from '../../context';
-import SearchIcon from '../../icons/SearchIcon';
-import HamburgerToggle from '../../icons/HamburgerToggle';
+import NavbarItem from './NavbarItem';
+import ModalTrigger from '../ModalTrigger';
+import SignUpTrigger from '../SignUpTrigger';
+import HamburgerToggler from '../HamburgerToggler/HamburgerToggler';
 
 const homeLink = 'NETSTRUCK';
-const links = ['NOW PLAYING', 'ALL FILMS', 'MY LIST'];
+const collapsibleGroupLinks = ['NOW PLAYING', 'ALL FILMS', 'MY LIST'];
 
 export default function NavbarItems() {
   const [collapsibleNavIsExpanded, setCollapsibleNavIsExpanded] = useState(
@@ -22,61 +24,39 @@ export default function NavbarItems() {
 
   const toggleSearchModal = () => dispatch({ type: 'TOGGLE_MODAL' });
 
-  const linksData = links.map((link, index) => {
+  const collapsibleGroupLinksFrags = collapsibleGroupLinks.map(link => {
     return (
-      <li key={index}>
-        <Link
-          to={`/${link.toLowerCase().replace(' ', '-')}`}
-          className='navbar__link collapsible-group__item'
-          onClick={ensureCollapsibleNavIsClosed}
-        >
-          {link}
-        </Link>
-      </li>
+      <NavbarItem
+        key={uuid.v4()}
+        linkTitle={link}
+        handleClick={ensureCollapsibleNavIsClosed}
+      />
     );
   });
 
   return (
     <React.Fragment>
-      <Link
-        to={'/'}
-        className='navbar__link'
-        onClick={ensureCollapsibleNavIsClosed}
-      >
-        {homeLink}
-      </Link>
-      <button
-        className='hamburger-toggler'
-        onClick={toggleCollapsibleNav}
-        aria-label='toggle collapsible navigation menu'
-        aria-controls='navbarCollapsibleGroup'
-        aria-expanded={collapsibleNavIsExpanded}
-      >
-        <HamburgerToggle />
-      </button>
+      <NavbarItem
+        isHome={true}
+        linkTitle={homeLink}
+        handleClick={ensureCollapsibleNavIsClosed}
+      />
+      <HamburgerToggler
+        controls='navbarCollapsibleGroup'
+        collapsibleNavIsExpanded={collapsibleNavIsExpanded}
+        handleClick={toggleCollapsibleNav}
+      />
       <ul
         className={`collapsible-group${
           collapsibleNavIsExpanded ? ' collapsible-group--is-expanded' : ''
         }`}
         id='navbarCollapsibleGroup'
       >
-        {linksData}
+        {collapsibleGroupLinksFrags}
       </ul>
       <div className='ml-auto hidden md:flex'>
-        <Link
-          to={'/signup'}
-          className='text-white mr-5 font-semibold block'
-          onClick={ensureCollapsibleNavIsClosed}
-        >
-          SIGN UP
-        </Link>
-        <button
-          className=''
-          aria-label='search for film'
-          onClick={toggleSearchModal}
-        >
-          <SearchIcon fill='#fff' />
-        </button>
+        <SignUpTrigger handleClick={ensureCollapsibleNavIsClosed} />
+        <ModalTrigger handleClick={toggleSearchModal} />
       </div>
     </React.Fragment>
   );
