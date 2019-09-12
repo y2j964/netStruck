@@ -1,9 +1,6 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
-@import 'components/Account/animated-label.css';
-@import 'components/Account/custom-radio.css';
-@import 'components/Account/hidden-input.css';
 @import 'components/Account/subscription-description.css';
 @import 'components/Account/subscription-type.css';
 @import 'components/Account/user-info.css';
@@ -18,10 +15,13 @@
 @import 'components/FilmTable/sort-direction-toggle.css';
 @import 'components/FilmTable/sort-selector.css';
 @import 'components/Hero/hero.css';
+@import 'components/InputAnimated/animated-label.css';
 @import 'components/Modal/modal.css';
 @import 'components/Navbar/collapsible-group.css';
 @import 'components/Navbar/hamburger-toggler.css';
 @import 'components/Navbar/navbar.css';
+@import 'components/RadioInputCustom/custom-radio.css';
+@import 'components/RadioInputCustom/hidden-input.css';
 @import 'components/Search/search-filter.css';
 @import 'components/SliderContainer/Slider/slide.css';
 @import 'components/SliderContainer/Slider/slider.css';

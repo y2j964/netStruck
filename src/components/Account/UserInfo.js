@@ -1,33 +1,11 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import {AnimatedTextInput, AnimatedEmailInput, AnimatedPasswordInput} from '../InputAnimated';
+import {
+  AnimatedTextInput,
+  AnimatedEmailInput,
+  AnimatedPasswordInput,
+} from '../InputAnimated/InputAnimated';
 import CheckBox from '../CheckBox';
-
-const inputFactory = ({ labelText, name, id, isRequired = true }) => ({
-  labelText,
-  name,
-  labelFor: id,
-  id,
-  isRequired,
-});
-
-const nameInput = inputFactory({
-  labelText: 'Name',
-  name: 'accountName',
-  id: 'accountName',
-});
-
-const emailInput = inputFactory({
-  labelText: 'Email',
-  name: 'accountEmail',
-  id: 'accountEmail',
-});
-
-const passwordInput = inputFactory({
-  labelText: 'Password',
-  name: 'accountPassword',
-  id: 'accountPassword',
-});
 
 export default function UserInfo({ subscription }) {
   const [nameFocus, setNameFocus] = useState(false);
@@ -57,7 +35,10 @@ export default function UserInfo({ subscription }) {
       </h2>
       <form action='' onSubmit={submitForm}>
         <AnimatedTextInput
-          {...nameInput}
+          labelText={'Name'}
+          name={'accountName'}
+          id={'accountName'}
+          isRequired={true}
           value={nameValue}
           handleValueChange={e => setNameValue(e.target.value)}
           isFocused={nameFocus}
@@ -65,7 +46,10 @@ export default function UserInfo({ subscription }) {
           handleBlur={() => setNameFocus(false)}
         />
         <AnimatedEmailInput
-          {...emailInput}
+          labelText={'Email'}
+          name={'accountEmail'}
+          id={'accountEmail'}
+          isRequired={true}
           value={emailValue}
           handleValueChange={e => setEmailValue(e.target.value)}
           isFocused={emailFocus}
@@ -73,7 +57,10 @@ export default function UserInfo({ subscription }) {
           handleBlur={() => setEmailFocus(false)}
         />
         <AnimatedPasswordInput
-          {...passwordInput}
+          labelText={'Password'}
+          name={'accountPassword'}
+          id={'accountPassword'}
+          isRequired={true}
           minLength='8'
           value={passwordValue}
           handleValueChange={e => setPasswordValue(e.target.value)}
@@ -82,12 +69,12 @@ export default function UserInfo({ subscription }) {
           handleBlur={() => setPasswordFocus(false)}
         />
         <CheckBox
-        name='updatePermission'
-        id='updatePermission'
-        isChecked={permissionCheck}
-        handleCheckChange={() => setPermissionCheck(!permissionCheck)}
+          name='updatePermission'
+          id='updatePermission'
+          isChecked={permissionCheck}
+          handleCheckChange={() => setPermissionCheck(!permissionCheck)}
         >
-          I agree to receive newletters and product upadates from NetStruck
+          I agree to receive newletters and product updates from NetStruck
         </CheckBox>
         <button className='user-info__submission'>Continue</button>
         <p className='text-center text-xs'>

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export function InputAnimated({
+function InputAnimated({
   labelText,
   type,
   name,

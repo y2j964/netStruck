@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import SubscriptionType from '../components/Account/SubscriptionType';
 import SubscriptionDetails from '../components/Account/SubscriptionDetails';
 import UserInfo from '../components/Account/UserInfo';
+import RadioInputCustom from '../components/RadioInputCustom/RadioInputCustom';
 
 export default function SignUp() {
   const [subscription, setSubscription] = useState('annual');
@@ -18,8 +19,26 @@ export default function SignUp() {
           <h1 className='text-white text-5xl font-bold'>NetStruck Sign Up</h1>
         </header>
         <SubscriptionType
-          subscription={subscription}
-          setSubscription={setSubscription}
+          radioOne={
+            <RadioInputCustom
+              name='subscriptionFrequency'
+              id='annualSub'
+              value='annual'
+              isChecked={subscription === 'annual'}
+              handleCheckChange={e => setSubscription(e.target.value)}
+              subscription={subscription}
+            />
+          }
+          radioTwo={
+            <RadioInputCustom
+              name='subscriptionFrequency'
+              id='monthlySub'
+              value='monthly'
+              isChecked={subscription === 'monthly'}
+              handleCheckChange={e => setSubscription(e.target.value)}
+              subscription={subscription}
+            />
+          }
         />
         <SubscriptionDetails />
       </div>
