@@ -1,22 +1,24 @@
 import React, { memo } from 'react';
 import PropTypes from 'prop-types';
 
-const TabSwitch = ({ id, isActive, text, handleClick, children }) => {
+const SliderSwitch = ({ id, isActive, text, handleClick, children }) => {
   return (
-    <li className={`tab-switch ${isActive ? 'tab-switch--is-active' : ''}`}>
+    <li
+      className={`slider-switch ${isActive ? 'slider-switch--is-active' : ''}`}
+    >
       <button
         onClick={handleClick.bind(this, id)}
-        className={'tab-switch__btn'}
+        className={'slider-switch__btn'}
         tabIndex='-1'
       >
         {children}
-        <span className='tab-switch__text'>{text}</span>
+        <span className='slider-switch__text'>{text}</span>
       </button>
     </li>
   );
 };
 
-TabSwitch.propTypes = {
+SliderSwitch.propTypes = {
   id: PropTypes.string.isRequired,
   isActive: PropTypes.bool.isRequired,
   text: PropTypes.string.isRequired,
@@ -24,4 +26,4 @@ TabSwitch.propTypes = {
   children: PropTypes.element.isRequired,
 };
 
-export default memo(TabSwitch);
+export default memo(SliderSwitch);

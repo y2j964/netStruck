@@ -3,8 +3,8 @@ import React, { Component } from 'react';
 import uuid from 'uuid';
 import CarouselItems from './CarouselItems';
 import CarouselCoins from './CarouselCoins';
-import ChevronLeft from '../../icons/ChevronLeft';
-import ChevronRight from '../../icons/ChevronRight';
+import PreviousSlideTrigger from '../PreviousSlideTrigger';
+import NextSlideTrigger from '../NextSlideTrigger';
 import thereWillBeBlood from '../../images/thereWillBeBlood.jpg';
 import brokenEmbraces2 from '../../images/brokenEmbraces2.jpg';
 import mistressAmerica2 from '../../images/mistressAmerica2.jpg';
@@ -138,14 +138,7 @@ export default class Carousel extends Component {
       const updatedFilmData = prevState.filmData.map(entry => {
         if (entry.id !== targetId) {
           entry.isActive = false;
-
           return entry;
-          // if (index > activeIndex) {
-          //   entry.enterFrom = 'right';
-          //   return entry;
-          // }
-          // entry.enterFrom = 'left';
-          // return entry;
         }
         entry.isActive = true;
         return entry;
@@ -179,22 +172,10 @@ export default class Carousel extends Component {
         <h2 className='sr-only'>Film Carousel Smorgasbord</h2>
         <CarouselItems carouselItems={this.state.filmData} />
         <div className='absolute top-0 bottom-0 left-0 flex items-center px-3 z-20'>
-          <button
-            onClick={this.queuePrevSlide}
-            className='chevron-arrow opacity-0'
-            aria-label='previous-slide'
-          >
-            <ChevronLeft />
-          </button>
+          <PreviousSlideTrigger handleClick={this.queuePrevSlide} />
         </div>
         <div className='absolute top-0 bottom-0 right-0 flex items-center px-3 z-20'>
-          <button
-            onClick={this.queueNextSlide}
-            className='chevron-arrow opacity-0'
-            aria-label='next-slide'
-          >
-            <ChevronRight />
-          </button>
+          <NextSlideTrigger handleClick={this.queueNextSlide} />
         </div>
         <div className='absolute left-0 bottom-0 w-full h-10 z-20'>
           <CarouselCoins

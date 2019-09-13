@@ -2,7 +2,7 @@
 
 import React, { Component } from 'react';
 import uuid from 'uuid';
-import TabSwitches from '../TabSwitches/TabSwitches';
+import SliderSwitches from './SliderSwitches/SliderSwitches';
 import Slider from './Slider/Slider';
 import Play from '../../icons/Play';
 import Eye from '../../icons/Eye';
@@ -13,7 +13,7 @@ export default class SliderContainer extends Component {
     super(props);
 
     this.state = {
-      tabSwitchesData: [
+      sliderSwitchesData: [
         {
           id: uuid.v4(),
           isActive: true,
@@ -47,28 +47,30 @@ export default class SliderContainer extends Component {
 
   activateTab = targetId => {
     this.setState(prevState => {
-      const updatedTabSwitchesData = prevState.tabSwitchesData.map(entry => {
-        // reset irrelevant tabSwitches
-        if (entry.id !== targetId) {
-          entry.isActive = false;
+      const updatedSliderSwitchesData = prevState.sliderSwitchesData.map(
+        entry => {
+          // reset irrelevant SliderSwitches
+          if (entry.id !== targetId) {
+            entry.isActive = false;
+            return entry;
+          }
+          // activate relevant tabSwitch
+          entry.isActive = true;
           return entry;
-        }
-        // activate relevant tabSwitch
-        entry.isActive = true;
-        return entry;
-      });
-      return { tabSwitchesData: updatedTabSwitchesData };
+        },
+      );
+      return { sliderSwitchesData: updatedSliderSwitchesData };
     });
   };
 
   render() {
     return (
       <React.Fragment>
-        <TabSwitches
-          tabSwitches={this.state.tabSwitchesData}
+        <SliderSwitches
+          sliderSwitches={this.state.sliderSwitchesData}
           activateTab={this.activateTab}
         />
-        <Slider tabSwitches={this.state.tabSwitchesData} />
+        <Slider sliderSwitches={this.state.sliderSwitchesData} />
       </React.Fragment>
     );
   }

@@ -2,29 +2,30 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-export default function NavbarItem({ isHome, linkTitle, handleClick }) {
+export default function NavbarItem({ isHome, text, slug, handleClick }) {
   if (!isHome) {
     return (
       <li>
         <Link
-          to={`/${linkTitle.toLowerCase().replace(' ', '-')}`}
+          to={`/${slug}`}
           className={'navbar__link collapsible-group__item'}
           onClick={handleClick}
         >
-          {linkTitle}
+          {text}
         </Link>
       </li>
     );
   }
   return (
     <Link to={'/'} className={'navbar__link'} onClick={handleClick}>
-      {linkTitle}
+      {text}
     </Link>
   );
 }
 
 NavbarItem.propTypes = {
   isHome: PropTypes.bool,
-  linkTitle: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired,
+  slug: PropTypes.string,
   handleClick: PropTypes.func.isRequired,
 };

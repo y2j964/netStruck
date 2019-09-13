@@ -1,13 +1,30 @@
-import uuid from 'uuid';
 import React, { useState } from 'react';
+import uuid from 'uuid';
 import { useFilmGetSet } from '../../context';
 import NavbarItem from './NavbarItem';
 import ModalTrigger from '../ModalTrigger';
 import SignUpTrigger from '../SignUpTrigger';
-import HamburgerToggler from '../HamburgerToggler/HamburgerToggler';
+import HamburgerToggle from '../HamburgerToggle/HamburgerToggle';
 
 const homeLink = 'NETSTRUCK';
-const collapsibleGroupLinks = ['NOW PLAYING', 'ALL FILMS', 'MY LIST'];
+
+const collapsibleGroupLinks = [
+  {
+    text: 'NOW PLAYING',
+    slug: 'now-playing',
+    id: uuid.v4(),
+  },
+  {
+    text: 'ALL FILMS',
+    slug: 'all-films',
+    id: uuid.v4(),
+  },
+  {
+    text: 'MY LIST',
+    slug: 'my-list',
+    id: uuid.v4(),
+  },
+];
 
 export default function NavbarItems() {
   const [collapsibleNavIsExpanded, setCollapsibleNavIsExpanded] = useState(
@@ -28,7 +45,7 @@ export default function NavbarItems() {
     return (
       <NavbarItem
         key={uuid.v4()}
-        linkTitle={link}
+        {...link}
         handleClick={ensureCollapsibleNavIsClosed}
       />
     );
@@ -38,10 +55,10 @@ export default function NavbarItems() {
     <React.Fragment>
       <NavbarItem
         isHome={true}
-        linkTitle={homeLink}
+        text={homeLink}
         handleClick={ensureCollapsibleNavIsClosed}
       />
-      <HamburgerToggler
+      <HamburgerToggle
         controls='navbarCollapsibleGroup'
         collapsibleNavIsExpanded={collapsibleNavIsExpanded}
         handleClick={toggleCollapsibleNav}

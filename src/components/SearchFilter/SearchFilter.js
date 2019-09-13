@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { useFilmValues } from '../../context';
 import debounce from '../../utilityFunctions/debounce';
-import SearchResults from './SearchResults';
+import SearchResults from '../SearchResults';
+import SearchFilterInput from '../SearchFilterInput';
 import SearchIcon from '../../icons/SearchIcon';
 
 // only filter input based on these properties
-const relevantKeys = ['title', 'genre', 'actors', 'director', 'description'];
+const relevantKeys = ['title', 'genres', 'actors', 'director', 'description'];
 
 const getRelevantValues = (targetedObj, targetedKeys) => {
   const relevantValues = [];
@@ -23,20 +24,8 @@ export default function SearchFilter() {
 
   const filteredFilms = films.filter(film => {
     const relevantValues = getRelevantValues(film, relevantKeys);
-    // console.log(film.title, relevantValues);
-    // console.log(regexp.test(relevantValues));
     return new RegExp(`\\b${inputValue}\\S*`, 'i').test(relevantValues);
   });
-
-  console.log(filteredFilms);
-
-  const handleInputChange = event => {
-    const target = event.target;
-    const value = target.type === 'checkbox' ? target.checked : target.value;
-    const name = target.name;
-
-    setInputValue(value);
-  };
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -55,14 +44,7 @@ export default function SearchFilter() {
         <label htmlFor='searchInput' className='sr-only'>
           Enter search terms
         </label>
-        <input
-          type='search'
-          role='searchbox'
-          placeholder='Search NetStruck'
-          className='search-filter__input input-stripped placeholder-color'
-          id='searchInput'
-          onChange={handleInputChange}
-        />
+        <SearchFilterInput handleChange={e => setInputValue(e.target.value)} />
       </form>
       <SearchResults filteredFilms={filteredFilms} inputValue={inputValue} />
     </React.Fragment>

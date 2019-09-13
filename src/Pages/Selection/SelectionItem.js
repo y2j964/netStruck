@@ -1,12 +1,11 @@
 import React, { useEffect } from 'react';
+import uuid from 'uuid';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-// import ChevronDown from '../icons/ChevronDown';
+import BtnPrimary from '../../components/BtnPrimary/BtnPrimary';
 import { useFilmGetSet } from '../../context';
 
 export default function SelectionItem({ match }) {
-  // const [descriptionIsExpanded, setDescriptionIsExpanded] = useState(false);
-
   const { slug } = match.params;
   const { getFilm, dispatch, getFeaturedGenreSlug } = useFilmGetSet();
 
@@ -19,7 +18,7 @@ export default function SelectionItem({ match }) {
     actors,
     img,
     description,
-    genre,
+    genres,
     id,
     isAddedToMyList,
   } = selectedFilm;
@@ -28,8 +27,8 @@ export default function SelectionItem({ match }) {
     document.title = `${title} - NetStruck`;
   }, [title]);
 
-  const genreLinks = genre.map((name, index) => (
-    <React.Fragment key={name.id}>
+  const genreLinks = genres.map((name, index) => (
+    <React.Fragment key={uuid.v4()}>
       {index > 0 && ', '}
       <Link
         className='underline'
@@ -41,7 +40,6 @@ export default function SelectionItem({ match }) {
   ));
 
   const addToMyList = () => {
-    console.log(selectedFilm);
     dispatch({ type: 'TOGGLE_FILM_MYLIST_STATE', id });
   };
 
@@ -58,22 +56,13 @@ export default function SelectionItem({ match }) {
           <p className='selection__text mb-8' id='selectionDescription'>
             {description}
           </p>
-          {/* <button
-            className='text-white text-sm mb-8 font-bold pr-5 relative'
-            aria-controls='selectionDescription'
-            onClick={toggleDescriptionIsExpanded}
-          > */}
-          {/* {`Show ${descriptionIsExpanded ? 'less' : 'more'}`} */}
-          {/* <ChevronDown
-              svgClassName={`mirror${
-                descriptionIsExpanded ? ' mirror--is-flipped' : ' '
-              } absolute right-0 bottom-0`} */}
-          {/* /> */}
-          {/* </button> */}
           <div className='flex flex-wrap'>
-            <button className='btn-primary mr-4 mb-4' onClick={addToMyList}>
+            <BtnPrimary
+              additionalClasses={'mr-4 mb-4'}
+              handleClick={addToMyList}
+            >
               {isAddedToMyList ? 'REMOVE FROM MYLIST' : 'ADD TO MYLIST'}
-            </button>
+            </BtnPrimary>
           </div>
         </div>
         <div className='selection__poster'>

@@ -1,7 +1,7 @@
-.l-sort-selector {
+.l-select-custom {
   @apply relative flex items-center w-1/2 text-white;
   height: 56px;
-  transition: all .3s cubic-bezier(0.45, 0.05, 0.55, 0.95);
+  transition: background-color .3s cubic-bezier(0.45, 0.05, 0.55, 0.95), color .3s cubic-bezier(0.45, 0.05, 0.55, 0.95);
 
   /* & option {
     background-color: #151515;
@@ -21,8 +21,8 @@
   }
 }
 
-.sort-selector {
-  @apply w-full h-full bg-transparent appearance-none cursor-pointer px-6 border-t-2 border-l-2 border-b-2 z-20;
+.select-custom {
+  @apply w-full h-full bg-transparent appearance-none cursor-pointer px-6 border-t-2 border-l-2 border-b-2 z-20 uppercase;
   border-color: #bebebb;
     min-width: 178px;
   }

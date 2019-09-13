@@ -67,7 +67,7 @@ const FilmDataProvider = props => {
 
   const getFilmsOfSameGenre = category => {
     const filmsOfSameGenre = state.films.filter(film =>
-      film.genre.includes(category),
+      film.genres.includes(category),
     );
     return filmsOfSameGenre;
   };

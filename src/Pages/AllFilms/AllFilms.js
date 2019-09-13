@@ -3,6 +3,8 @@ import { useFilmValues } from '../../context';
 import FilmTable from '../../components/FilmTable/FilmTable';
 import FilmRows from '../../components/FilmTable/FilmRows';
 import FilmTableViewOptions from '../../components/FilmTable/FilmTableViewOptions';
+import SelectCustom from '../../components/SelectCustom/SelectCustom';
+import options from './options';
 import Spinner from '../../icons/Spinner';
 
 // regex func from Thorsten Frommen
@@ -55,16 +57,6 @@ const getSortCompareFunc = (sortCriterion, sortIsAscending) => {
   }
 };
 
-const handleInputChange = (event, callback) => {
-  const { target } = event;
-  const value = target.type === 'checkbox' ? target.checked : target.value;
-  // eslint-disable-next-line no-unused-vars
-  const { name } = target;
-  console.log(name);
-  console.log(value);
-  callback(value);
-};
-
 export default function AllFilms() {
   const [sortBy, setSortBy] = useState('title');
   const [sortIsAscending, setSortIsAscending] = useState(true);
@@ -85,11 +77,19 @@ export default function AllFilms() {
     <main className='md:px-12 my-16'>
       <h1 className='sr-only'>NetStruck All Films</h1>
       <FilmTableViewOptions
-        sortBy={sortBy}
         sortIsAscending={sortIsAscending}
-        setSortBy={setSortBy}
         filmDataLength={filmDataLength}
         toggleSortDirection={() => setSortIsAscending(!sortIsAscending)}
+        selectCustom={
+          <SelectCustom
+            options={options}
+            name='allFilmsSorter'
+            id='allFilmsSorter'
+            controls='filmTable'
+            sortBy={sortBy}
+            handleChange={e => setSortBy(e.target.value)}
+          />
+        }
       />
       {isLoading ? (
         <div className='flex justify-center items-center'>

@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 export default function playIcon(props) {
-  const playWidth = props.playWidth || '10';
-  const playHeight = props.playHeight || '10';
+  const playWidth = props.playWidth || '12';
+  const playHeight = props.playHeight || '12';
   const playFill = props.playFill || 'black';
   return (
     <svg

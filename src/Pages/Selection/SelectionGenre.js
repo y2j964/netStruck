@@ -3,9 +3,6 @@ import PropTypes from 'prop-types';
 import StaticTileGroup from '../../components/Tiles/StaticTileGroup';
 import { useFilmGetSet } from '../../context';
 
-// const toggleDescriptionIsExpanded = () =>
-//   setDescriptionIsExpanded(!descriptionIsExpanded);
-
 export default function SelectionGenre({ match }) {
   const { slug } = match.params;
   const { getFeaturedGenreData, getFilmsOfSameGenre } = useFilmGetSet();
@@ -48,9 +45,5 @@ export default function SelectionGenre({ match }) {
 }
 
 SelectionGenre.propTypes = {
-  location: PropTypes.object.isRequired,
-  // name: PropTypes.object.isRequired,
-  // location: PropTypes.object.isRequired,
-  // location: PropTypes.object.isRequired,
-  // location: PropTypes.object.isRequired,
+  match: PropTypes.object.isRequired,
 };

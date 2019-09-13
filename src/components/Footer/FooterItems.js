@@ -1,17 +1,28 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import uuid from 'uuid';
+import FooterItem from './FooterItem';
 
-export default function FooterItems({ linkData }) {
-  const footerItemFrags = linkData.map((link, index) => (
-    <li key={index} className='mr-5'>
-      <a href={link.href} className='text-light-gray text-xs'>
-        {link.text}
-      </a>
-    </li>
+const footerItemsData = [
+  {
+    text: 'THE CRITERION COLLECTION',
+    href: 'https://www.criterion.com/',
+    id: uuid.v4(),
+  },
+  {
+    text: 'CRITERION CHANNEL',
+    href: 'https://www.criterionchannel.com/',
+    id: uuid.v4(),
+  },
+  {
+    text: 'NETFLIX',
+    href: 'https://www.netflix.com/',
+    id: uuid.v4(),
+  },
+];
+
+export default function FooterItems() {
+  const footerItemFrags = footerItemsData.map(link => (
+    <FooterItem key={link.id} {...link} />
   ));
   return <React.Fragment>{footerItemFrags}</React.Fragment>;
 }
-
-FooterItems.propTypes = {
-  linkData: PropTypes.array.isRequired,
-};

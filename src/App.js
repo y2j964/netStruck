@@ -11,7 +11,7 @@ import AllFilms from './Pages/AllFilms/AllFilms';
 import SignUp from './Pages/SignUp';
 import MyList from './Pages/MyList/MyList';
 import Error404 from './Pages/Error404';
-import SearchFilter from './components/Search/SearchFilter';
+import SearchFilter from './components/SearchFilter/SearchFilter';
 import Modal from './components/Modal/Modal';
 import { FilmDataProvider } from './context';
 
