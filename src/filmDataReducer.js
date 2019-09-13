@@ -38,6 +38,10 @@ const filmDataReducer = (state, action) => {
       document.querySelector('html').classList.toggle('overflow-hidden');
       return { ...state, modalIsOpen: !state.modalIsOpen };
 
+    case 'CLOSE_MODAL':
+      document.querySelector('html').classList.remove('overflow-hidden');
+      return { ...state, modalIsOpen: false };
+
     case 'CONTENT_LOADED':
       return {
         ...state,

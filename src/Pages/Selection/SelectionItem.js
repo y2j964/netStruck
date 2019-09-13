@@ -27,6 +27,8 @@ export default function SelectionItem({ match }) {
     document.title = `${title} - NetStruck`;
   }, [title]);
 
+  useEffect(() => dispatch({ type: 'CLOSE_MODAL' }), [dispatch]);
+
   const genreLinks = genres.map((name, index) => (
     <React.Fragment key={uuid.v4()}>
       {index > 0 && ', '}
