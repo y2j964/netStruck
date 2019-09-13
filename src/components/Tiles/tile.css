@@ -7,7 +7,7 @@
   }
 
   &:hover {
-    & .myList-btn {
+    & .toggle-to-MyList-btn {
       opacity: 1;
     }
   }

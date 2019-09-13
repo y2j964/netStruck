@@ -8538,7 +8538,7 @@ video {
     margin-bottom: 2rem;
   }
 
-.tile:hover .myList-btn {
+.tile:hover .toggle-to-MyList-btn {
       opacity: 1;
     }
 

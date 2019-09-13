@@ -26,7 +26,7 @@ const FilmDataProvider = props => {
   const [featuredGenres, setFeaturedGenres] = useState([]);
   const [state, dispatch] = useReducer(filmDataReducer, {
     films: [],
-    myList: [],
+    myList: JSON.parse(localStorage.getItem('myList')) || [],
     isLoading: true,
     modalIsOpen: false,
   });
@@ -38,6 +38,11 @@ const FilmDataProvider = props => {
     setFeaturedGenres(updatedGenres);
     dispatch({ type: 'CONTENT_LOADED', id: updatedFilms });
   }, []);
+
+  useEffect(
+    () => localStorage.setItem('myList', JSON.stringify(state.myList)),
+    [state.myList],
+  );
 
   // const updateSliderVisibility = films => {
   //   dispatch({ type: 'UPDATE_SLIDER_VISIBILITY', id: films });
