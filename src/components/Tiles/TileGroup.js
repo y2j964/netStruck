@@ -9,7 +9,7 @@ function TileGroup({
   transition,
   wrapAround,
   slidesPerPosition,
-  visibleSlideIds,
+  visibleSlideIndexes,
 }) {
   const tileGroupStyle = {
     transform: `translateX(${xPosition}%)`,
@@ -18,11 +18,13 @@ function TileGroup({
 
   const tileFrags = filmGroupData.map((entry, index) => (
     <Tile
-      key={entry.id}
       {...entry}
-      index={index}
-      filmGroupLength={filmGroupData.length}
-      visibleSlideIds={visibleSlideIds}
+      key={entry.id}
+      index={index + slidesPerPosition}
+      // true index indicates it's index accounting for the cloned slides
+      // trueIndex={index}
+      ariaLabel={`slide ${index + 1} of ${filmGroupData.length}`}
+      visibleSlideIndexes={visibleSlideIndexes}
     />
   ));
 
@@ -32,8 +34,9 @@ function TileGroup({
       <Tile
         {...filmGroupData[i]}
         key={uuid.v4()}
+        index={i + filmGroupData.length + slidesPerPosition}
         id={uuid.v4()}
-        visibleSlideIds={visibleSlideIds}
+        visibleSlideIndexes={visibleSlideIndexes}
       />
     );
     frontClones.push(tile);
@@ -49,8 +52,9 @@ function TileGroup({
       <Tile
         {...filmGroupData[i]}
         key={uuid.v4()}
+        index={i - filmGroupData.length + slidesPerPosition}
         id={uuid.v4()}
-        visibleSlideIds={visibleSlideIds}
+        visibleSlideIndexes={visibleSlideIndexes}
       />
     );
     endClones.push(tile);
@@ -59,7 +63,7 @@ function TileGroup({
   tileFrags.unshift(endClones);
   tileFrags.push(frontClones);
 
-  console.log('tile group rendered');
+  // console.log('tile group rendered');
   return (
     <ul
       className='tile-group'
@@ -75,7 +79,7 @@ TileGroup.propTypes = {
   filmGroupData: PropTypes.array,
   wrapAround: PropTypes.func.isRequired,
   slidesPerPosition: PropTypes.number.isRequired,
-  visibleSlideIds: PropTypes.array.isRequired,
+  visibleSlideIndexes: PropTypes.array.isRequired,
   xPosition: PropTypes.number.isRequired,
   transition: PropTypes.bool.isRequired,
 };

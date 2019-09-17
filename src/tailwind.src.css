@@ -293,4 +293,27 @@ td{
 	color: #9b9b9b;
 }
 
+.bg-overlay {
+  @apply flex flex-col items-center justify-around w-full h-full opacity-0;
+  background-color: rgba(0, 0, 0, 0.55);
+  transition: all 400ms ease-in-out;
+  transition-delay: 400ms;
+  /* &:hover {
+    transform: scale(1.5) translateZ(0px);
+    } */
+}
 
+.ml-35 {
+  padding-left: .35rem;
+}
+
+.a-pseudo-wrap {
+  &::after {
+    @apply absolute top-0 bottom-0 right-0 left-0;
+    content: '';
+  }
+}
+
+.rotate-transition {
+  transition: transform 300ms ease-in-out;
+}

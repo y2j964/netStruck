@@ -19,15 +19,20 @@
     transform: translateX(25%) translateZ(0px);
   }
 
-  & .tile-group__item--is-active:hover {
-    transform: scale(1.5) translateZ(0px);
-    }
-
   & .tile-group__item--is-leftmost-active {
+    -webkit-backface-visibility: hidden;
     transform-origin: left;
 
+    &:hover {
+      transform: translateX(0) translateZ(0px);
+
+      .tile-group__item--is-leftmost-preview {
+
+      }
+    }
+
     &:hover ~ .tile-group__item--is-active {
-        transform: translateX(50%) translateZ(0px);
+        transform: translateX(50%);
       }
   }
 
@@ -37,5 +42,13 @@
     &:hover + .tile-group__item {
       transform: translateX(0) translateZ(0px);
     }
+  }
+
+  & .tile-group__item--is-active:hover {
+    transform: scale(1.5);
+    /* .bg-overlay {
+      width: 150%;
+      height: 150%;
+    } */
   }
 }

@@ -7,7 +7,9 @@
   }
 
   &:hover {
+    & .bg-overlay {@apply opacity-100;}
     & .toggle-to-MyList-btn {
+      /* transform: scale(0.85); */
       opacity: 1;
     }
   }
@@ -29,9 +31,9 @@
   }
 
   &__title {
-    @apply text-white text-sm;
-
-    padding: 0 2%;
+    @apply text-white text-sm text-center;
+    /* transform: scale(0.85); */
+    /* padding: 0 2%; */
   }
 
   &__btn-group {

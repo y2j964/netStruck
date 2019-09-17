@@ -4,14 +4,15 @@ import PropTypes from 'prop-types';
 import ToggleToMyListBtn from '../ToggleToMyListBtn/ToggleToMyListBtn';
 
 const Tile = ({
-  filmGroupLength,
   title,
+  year,
   id,
+  ariaLabel,
   slug,
   index,
   img,
   isAddedToMyList,
-  visibleSlideIds,
+  visibleSlideIndexes,
   // isLeftMostSlide,
   // isRightMostSlide,
 }) => {
@@ -20,30 +21,45 @@ const Tile = ({
   return (
     <li
       className={`tile-group__item${
-        visibleSlideIds.includes(id) ? ' tile-group__item--is-active' : ''
+        visibleSlideIndexes.includes(index)
+          ? ' tile-group__item--is-active'
+          : ''
       } ${
-        id === visibleSlideIds[0] ? ' tile-group__item--is-leftmost-active' : ''
+        index === visibleSlideIndexes[0]
+          ? ' tile-group__item--is-leftmost-active'
+          : ''
       } ${
-        id === visibleSlideIds[visibleSlideIds.length - 1]
+        index === visibleSlideIndexes[visibleSlideIndexes.length - 1]
           ? ' tile-group__item--is-rightmost-active'
           : ''
-      } tile`}
+      } ${
+        index === visibleSlideIndexes[0] - 1
+          ? ' tile-group__item--is-left-preview'
+          : ''
+      } ${
+        index === visibleSlideIndexes[visibleSlideIndexes.length - 1] + 1
+          ? ' tile-group__item--is-right-preview'
+          : ''
+      }
+      tile`}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       // eslint-disable-next-line no-unneeded-ternary
-      aria-hidden={visibleSlideIds.includes(id) ? false : true}
-      aria-label={`slide ${index + 1} of ${filmGroupLength}`}
+      aria-hidden={visibleSlideIndexes.includes(index) ? false : true}
+      aria-label={ariaLabel}
     >
       {/* <p>{title}</p> */}
       <div className='ratio-16-9 ratio-16-9--overflowed'>
         <img src={img} alt='' />
         <Link
           to={`/now-playing/${slug}`}
-          className='absolute top-0 bottom-0 left-0 right-0'
-          tabIndex={`${visibleSlideIds.includes(id) ? '0' : '-1'}`}
+          className='absolute top-0 bottom-0 left-0 right-0 z-10'
+          tabIndex={`${visibleSlideIndexes.includes(index) ? '0' : '-1'}`}
           aria-label={title}
-        ></Link>
-        <div className='tile__btn-group'>
+        />
+        <div className='absolute top-0 bottom-0 left-0 right-0 bg-overlay'>
+          <h3 className='tile__title'>{title}</h3>
+          <span className='tile__title'>{year}</span>
           <ToggleToMyListBtn
             tileIsHovered={isHovered}
             id={id}
@@ -51,20 +67,20 @@ const Tile = ({
           />
         </div>
       </div>
-      <h3 className='tile__title'>{title}</h3>
     </li>
   );
 };
 
 Tile.propTypes = {
-  filmGroupLength: PropTypes.number.isRequired,
   title: PropTypes.string.isRequired,
+  year: PropTypes.string.isRequired,
   img: PropTypes.string.isRequired,
   id: PropTypes.string,
+  ariaLabel: PropTypes.string,
   slug: PropTypes.string,
   index: PropTypes.number.isRequired,
   isAddedToMyList: PropTypes.bool.isRequired,
-  visibleSlideIds: PropTypes.array.isRequired,
+  visibleSlideIndexes: PropTypes.array.isRequired,
   isRightMostSlide: PropTypes.bool.isRequired,
   isLeftMostSlide: PropTypes.bool.isRequired,
 };

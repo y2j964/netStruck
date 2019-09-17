@@ -13,11 +13,11 @@ function ContentRow({ name, slug, description, poster }) {
   const { getFilmsOfSameGenre, dispatch } = useFilmGetSet();
 
   const filmsOfSameGenre = getFilmsOfSameGenre(name);
-  console.log(filmsOfSameGenre);
+  // console.log(filmsOfSameGenre);
   const updateSliderVisibility = films =>
     dispatch({ type: 'UPDATE_SLIDER_VISIBILITY', id: films });
 
-  console.log('row rendered');
+  // console.log('row rendered');
 
   return (
     <div className='content-row'>
