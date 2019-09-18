@@ -8608,31 +8608,38 @@ video {
     transform: translateX(-25%) translateZ(0px);
   }
 
-.tile-group__item:hover ~ .tile-group__item {
+.tile-group:hover .tile-group__item--is-stationary {
+    transform: translateX(0) translateZ(0px);
+  }
+
+.tile-group:hover .tile-group__item--is-hard-left {
+    transform: translateX(-50%) translateZ(0px);
+  }
+
+.tile-group__item:hover ~ .tile-group__item--is-active {
     transform: translateX(25%) translateZ(0px);
   }
 
-.tile-group .tile-group__item--is-leftmost-active {
+.tile-group .tile-group__item--is-left-edge {
     -webkit-backface-visibility: hidden;
     transform-origin: left;
   }
 
-.tile-group .tile-group__item--is-leftmost-active:hover {
+.tile-group .tile-group__item--is-left-edge:hover {
       transform: translateX(0) translateZ(0px);
     }
 
-.tile-group .tile-group__item--is-leftmost-active:hover .tile-group__item--is-leftmost-preview {
-      }
-
-.tile-group .tile-group__item--is-leftmost-active:hover ~ .tile-group__item--is-active {
+.tile-group .tile-group__item--is-left-edge:hover ~ .tile-group__item--is-active {
       transform: translateX(50%);
     }
 
-.tile-group .tile-group__item--is-rightmost-active {
+.tile-group .tile-group__item--is-right-edge {
     transform-origin: right;
   }
 
-.tile-group .tile-group__item--is-rightmost-active:hover + .tile-group__item {
+/* keep right preview stationary when right edge is hovered */
+
+.tile-group .tile-group__item--is-right-edge:hover + .tile-group__item {
       transform: translateX(0) translateZ(0px);
     }
 

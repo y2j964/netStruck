@@ -44,24 +44,12 @@ const FilmDataProvider = props => {
     [state.myList],
   );
 
-  // const updateSliderVisibility = films => {
-  //   dispatch({ type: 'UPDATE_SLIDER_VISIBILITY', id: films });
-  // };
-
   // const sortFilms = sortCriterion => {
   //   dispatch({ type: 'SORT_FILMS', id: sortCriterion });
   // };
 
   // const toggleFilmMyListState = id => {
   //   dispatch({ type: 'TOGGLE_FILM_MYLIST_STATE', id });
-  // };
-
-  // const addGroupToMyList = films => {
-  //   dispatch({ type: 'ADD_GROUP_TO_MYLIST', id: films });
-  // };
-
-  // const removeGroupFromMyList = films => {
-  //   dispatch({ type: 'REMOVE_GROUP_FROM_MYLIST', id: films });
   // };
 
   const getFeaturedGenreData = slug =>

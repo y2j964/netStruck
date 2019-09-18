@@ -24,16 +24,6 @@ const filmDataReducer = (state, action) => {
       return { ...state, films: updatedFilms, myList: updatedMyList };
     }
 
-    case 'UPDATE_SLIDER_VISIBILITY':
-      // console.log(action.id);
-      return state;
-    // return state.map(film => {
-    //   if (film.id === action.id) {
-    //     return { ...film, isVisibleToSlider: true };
-    //   }
-    //   return film;
-    // });
-
     case 'TOGGLE_MODAL':
       document.querySelector('html').classList.toggle('overflow-hidden');
       return { ...state, modalIsOpen: !state.modalIsOpen };

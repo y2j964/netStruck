@@ -6,7 +6,6 @@ import ChevronLeft from '../../icons/ChevronLeft';
 import ChevronRight from '../../icons/ChevronRight';
 import debounce from '../../utilityFunctions/debounce';
 
-const step = 100;
 const mediaBreakpoints = {
   sm: 500,
   md: 800,
@@ -62,11 +61,10 @@ export default function SliderRow({ category, filmGroupData }) {
     slidesPerPosition: 0,
     xPosition: 0,
     visibleSlideIndexes: [],
-    previewSlideIndexes: [],
   });
 
   // console.log('resize');
-  console.log('sliderRow render', state, filmGroupData);
+  // console.log('sliderRow render', state, filmGroupData);
 
   const moveSliderBackward = () =>
     dispatch({

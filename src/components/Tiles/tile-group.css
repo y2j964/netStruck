@@ -15,20 +15,24 @@
     transform: translateX(-25%) translateZ(0px);
   }
 
-  &__item:hover ~ .tile-group__item {
+  &:hover .tile-group__item--is-stationary {
+    transform: translateX(0) translateZ(0px);
+  }
+
+   &:hover .tile-group__item--is-hard-left {
+    transform: translateX(-50%) translateZ(0px);
+  }
+
+  &__item:hover ~ .tile-group__item--is-active {
     transform: translateX(25%) translateZ(0px);
   }
 
-  & .tile-group__item--is-leftmost-active {
+  & .tile-group__item--is-left-edge {
     -webkit-backface-visibility: hidden;
     transform-origin: left;
 
     &:hover {
       transform: translateX(0) translateZ(0px);
-
-      .tile-group__item--is-leftmost-preview {
-
-      }
     }
 
     &:hover ~ .tile-group__item--is-active {
@@ -36,9 +40,10 @@
       }
   }
 
-  & .tile-group__item--is-rightmost-active {
+  & .tile-group__item--is-right-edge {
     transform-origin: right;
 
+    /* keep right preview stationary when right edge is hovered */
     &:hover + .tile-group__item {
       transform: translateX(0) translateZ(0px);
     }
