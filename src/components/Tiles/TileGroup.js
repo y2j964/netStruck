@@ -3,6 +3,14 @@ import PropTypes from 'prop-types';
 import uuid from 'uuid';
 import Tile from './Tile';
 
+const getTilePlaceholders = slidesPerPosition => {
+  const tileList = [];
+  for (let i = 0; i < slidesPerPosition; i += 1) {
+    tileList.push(<Tile key={uuid.v4()} />);
+  }
+  return tileList;
+};
+
 const getPlacementInViewPort = (visibleSlideIndexes, index) => {
   if (index === visibleSlideIndexes[0] - 1) {
     return 'leftPreview';
@@ -121,14 +129,19 @@ function TileGroup({
     />
   ));
 
-  console.log('tgroup rendered');
   return (
     <ul
       className='tile-group'
       style={tileGroupStyle}
       onTransitionEnd={wrapAround}
     >
-      {clonedEndTileFrags}
+      {clonedEndTileFrags.length === slidesPerPosition ? (
+        clonedEndTileFrags
+      ) : (
+        <React.Fragment>
+          {getTilePlaceholders(slidesPerPosition)}
+        </React.Fragment>
+      )}
       {naturalTileFrags}
       {clonedFrontTileFrags}
     </ul>
