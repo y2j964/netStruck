@@ -97,7 +97,13 @@ const Tile = ({
         <Link
           to={`/now-playing/${slug}`}
           className='absolute top-0 bottom-0 left-0 right-0 z-10'
-          tabIndex={`${placementInViewport !== 'offscreen' ? '0' : '-1'}`}
+          tabIndex={`${
+            ['offscreen', 'leftPreview', 'rightPreview'].includes(
+              placementInViewport,
+            )
+              ? '-1'
+              : '0'
+          }`}
           aria-label={title}
         />
         <div className='absolute top-0 bottom-0 left-0 right-0 bg-overlay'>

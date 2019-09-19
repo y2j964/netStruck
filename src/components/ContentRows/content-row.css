@@ -8,4 +8,8 @@
   &__title {
     @apply font-bold text-white mb-2;
   }
+
+  &__see-more {
+    @apply text-white h-6;
+  }
 }

@@ -170,12 +170,20 @@ export default class Carousel extends Component {
         onKeyDown={this.triggerCarouselArrow}
       >
         <h2 className='sr-only'>Film Carousel Smorgasbord</h2>
-        <CarouselItems carouselItems={this.state.filmData} />
         <div className='absolute top-0 bottom-0 left-0 flex items-center px-3 z-20'>
-          <PreviousSlideTrigger handleClick={this.queuePrevSlide} />
+          <PreviousSlideTrigger
+            handleClick={this.queuePrevSlide}
+            classes='opacity-0 carousel__chevron'
+            ariaLabel='display previous slide'
+          />
         </div>
+        <CarouselItems carouselItems={this.state.filmData} />
         <div className='absolute top-0 bottom-0 right-0 flex items-center px-3 z-20'>
-          <NextSlideTrigger handleClick={this.queueNextSlide} />
+          <NextSlideTrigger
+            handleClick={this.queueNextSlide}
+            classes='opacity-0 carousel__chevron'
+            ariaLabel='display next slide'
+          />
         </div>
         <div className='absolute left-0 bottom-0 w-full h-10 z-20'>
           <CarouselCoins

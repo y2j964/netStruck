@@ -2,13 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ChevronLeft from '../icons/ChevronLeft';
 
-export default function PreviousSlideTrigger({ handleClick }) {
+export default function PreviousSlideTrigger({
+  handleClick,
+  classes,
+  ariaLabel,
+}) {
   return (
-    <button
-      onClick={handleClick}
-      className='chevron-arrow opacity-0'
-      aria-label='previous-slide'
-    >
+    <button onClick={handleClick} className={classes} aria-label={ariaLabel}>
       <ChevronLeft />
     </button>
   );
@@ -16,4 +16,6 @@ export default function PreviousSlideTrigger({ handleClick }) {
 
 PreviousSlideTrigger.propTypes = {
   handleClick: PropTypes.func.isRequired,
+  classes: PropTypes.string,
+  ariaLabel: PropTypes.string.isRequired,
 };

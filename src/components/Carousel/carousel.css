@@ -3,7 +3,7 @@
 
   padding-top: 56.25%;
 
-  &:hover .chevron-arrow,
+  &:hover .carousel__chevron,
   &:hover .carousel-coin {
     transition: opacity 300ms ease;
     opacity: 0.6;
@@ -13,8 +13,8 @@
     opacity: 1;
   }
 
-  .chevron-arrow:hover,
-  .chevron-arrow:focus {
+  .carousel__chevron:hover,
+  .carousel__chevron:focus {
     opacity: 1;
   }
 

@@ -2,8 +2,8 @@ import React, { useEffect, useState, useReducer } from 'react';
 import PropTypes from 'prop-types';
 import sliderRowReducer from './sliderRowReducer';
 import TileGroup from '../Tiles/TileGroup';
-import ChevronLeft from '../../icons/ChevronLeft';
-import ChevronRight from '../../icons/ChevronRight';
+import NextSlideTrigger from '../NextSlideTrigger';
+import PreviousSlideTrigger from '../PreviousSlideTrigger';
 import debounce from '../../utilityFunctions/debounce';
 
 const mediaBreakpoints = {
@@ -107,29 +107,25 @@ export default function SliderRow({ category, filmGroupData }) {
 
   return (
     <div className='slider-row relative w-full h-full'>
+      <div className='slider-row__content-preview slider-row__content-preview--left'>
+        <PreviousSlideTrigger
+          handleClick={moveSliderBackward}
+          classes='slider-row__btn'
+          ariaLabel='slide previous films into view'
+        />
+      </div>
       <TileGroup
         filmGroupData={filmGroupData}
         {...state}
         category={category}
         wrapAround={wrapAround}
       />
-      <div className='slider-row__content-preview slider-row__content-preview--left'>
-        <button
-          onClick={moveSliderBackward}
-          className='slider-row__btn'
-          aria-label='display previous films'
-        >
-          <ChevronLeft />
-        </button>
-      </div>
       <div className='slider-row__content-preview slider-row__content-preview--right'>
-        <button
-          onClick={moveSliderForward}
-          className='slider-row__btn'
-          aria-label='display more films'
-        >
-          <ChevronRight />
-        </button>
+        <NextSlideTrigger
+          handleClick={moveSliderForward}
+          classes='slider-row__btn'
+          ariaLabel='slide next films into view'
+        />
       </div>
     </div>
   );

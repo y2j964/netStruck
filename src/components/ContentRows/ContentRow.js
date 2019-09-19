@@ -23,7 +23,10 @@ function ContentRow({ name, slug, description, poster }) {
     <div className='content-row'>
       <div className='content-row__header'>
         <h2 className='content-row__title'>{name}</h2>
-        <Link to={`now-playing/genre/${slug}`} className='text-white'>
+        <Link
+          to={`now-playing/genre/${slug}`}
+          className='content-row__see-more'
+        >
           See More
         </Link>
       </div>

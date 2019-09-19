@@ -7556,7 +7556,7 @@ video {
   padding-top: 56.25%;
 }
 
-.carousel:hover .chevron-arrow,
+.carousel:hover .carousel__chevron,
   .carousel:hover .carousel-coin {
     transition: opacity 300ms ease;
     opacity: 0.6;
@@ -7566,8 +7566,8 @@ video {
     opacity: 1;
   }
 
-.carousel .chevron-arrow:hover,
-  .carousel .chevron-arrow:focus {
+.carousel .carousel__chevron:hover,
+  .carousel .carousel__chevron:focus {
     opacity: 1;
   }
 
@@ -7800,6 +7800,11 @@ video {
     font-weight: 700;
     color: #fff;
     margin-bottom: 0.5rem;
+  }
+
+.content-row__see-more {
+    color: #fff;
+    height: 1.5rem;
   }
 
 .film-table {
@@ -8454,6 +8459,7 @@ video {
 
 .slider-row__content-preview--left {
       left: 0;
+      z-index: 10;
     }
 
 .slider-row__content-preview--right {

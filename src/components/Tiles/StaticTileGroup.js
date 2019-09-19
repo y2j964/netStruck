@@ -6,6 +6,7 @@ export default function StaticTileGroup({ filmList }) {
   const tileFrags = filmList.map(film => (
     <StaticTile
       title={film.title}
+      year={film.year}
       img={film.img}
       isAddedToMyList={film.isAddedToMyList}
       slug={film.slug}
