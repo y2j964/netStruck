@@ -116,18 +116,18 @@ const Tile = ({
 
 Tile.propTypes = {
   title: PropTypes.string.isRequired,
-  year: PropTypes.string.isRequired,
+  year: PropTypes.number.isRequired,
   img: PropTypes.string.isRequired,
   id: PropTypes.string,
-  placementInViewport: PropTypes.object.isRequired,
+  placementInViewport: PropTypes.string.isRequired,
   slug: PropTypes.string,
   ariaLabel: PropTypes.string,
   index: PropTypes.number.isRequired,
-  isAddedToMyList: PropTypes.bool.isRequired,
+  isAddedToMyList: PropTypes.bool,
   rightEdgeIsHovered: PropTypes.bool.isRequired,
-  handleRightEdgeIsHovered: PropTypes.func.isRequired,
+  handleRightEdgeIsHovered: PropTypes.func,
   leftEdgeIsHovered: PropTypes.bool.isRequired,
-  handleLeftEdgeIsHovered: PropTypes.func.isRequired,
+  handleLeftEdgeIsHovered: PropTypes.func,
   // visibleSlideIndexes: PropTypes.array.isRequired,
 };
 

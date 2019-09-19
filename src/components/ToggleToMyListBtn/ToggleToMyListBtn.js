@@ -27,10 +27,10 @@ function ToggleToMyListBtn({ tileIsHovered, isAddedToMyList, id }) {
         onClick={addToMyList}
         aria-label='Remove from MyList'
       >
-          <React.Fragment>
-            <Minus width='10' height='10' />
-            <span className='text-xs text-white ml-35'>My List</span>
-          </React.Fragment>
+        <React.Fragment>
+          <Minus width='10' height='10' />
+          <span className='text-xs text-white ml-35'>My List</span>
+        </React.Fragment>
       </button>
     );
   }
@@ -42,10 +42,10 @@ function ToggleToMyListBtn({ tileIsHovered, isAddedToMyList, id }) {
         onClick={addToMyList}
         aria-label='Add To MyList'
       >
-          <React.Fragment>
-            <Plus width='10' height='10' svgClassName='rotate-transition' />
-            <span className='text-xs text-white ml-35'>My List</span>
-          </React.Fragment>
+        <React.Fragment>
+          <Plus width='10' height='10' svgClassName='rotate-transition' />
+          <span className='text-xs text-white ml-35'>My List</span>
+        </React.Fragment>
       </button>
     );
   }
@@ -57,7 +57,7 @@ export default memo(ToggleToMyListBtn);
 
 ToggleToMyListBtn.propTypes = {
   tileIsHovered: PropTypes.bool.isRequired,
-  isAddedToMyList: PropTypes.bool.isRequired,
+  isAddedToMyList: PropTypes.bool,
   id: PropTypes.string.isRequired,
 };
 

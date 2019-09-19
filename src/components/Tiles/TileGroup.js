@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import uuid from 'uuid';
 import Tile from './Tile';
@@ -22,61 +22,25 @@ const getPlacementInViewPort = (visibleSlideIndexes, index) => {
   return 'middle';
 };
 
-const createFrontClones = (
-  slidesPerPosition,
-  filmGroupData,
-  visibleSlideIndexes,
-  leftEdgeIsHovered,
-  rightEdgeIsHovered,
-) => {
+const createFrontClones = (slidesPerPosition, filmGroupData) => {
   const frontClones = [];
   for (let i = 0; i < slidesPerPosition; i += 1) {
-    const tile = (
-      <Tile
-        {...filmGroupData[i]}
-        key={uuid.v4()}
-        id={uuid.v4()}
-        index={i + filmGroupData.length + slidesPerPosition}
-        placementInViewport={getPlacementInViewPort(
-          visibleSlideIndexes,
-          i + filmGroupData.length + slidesPerPosition,
-        )}
-        leftEdgeIsHovered={leftEdgeIsHovered}
-        rightEdgeIsHovered={rightEdgeIsHovered}
-      />
-    );
+    const tile = filmGroupData[i];
+    tile.id = uuid.v4();
     frontClones.push(tile);
   }
   return frontClones;
 };
 
-const createEndClones = (
-  slidesPerPosition,
-  filmGroupData,
-  visibleSlideIndexes,
-  leftEdgeIsHovered,
-  rightEdgeIsHovered,
-) => {
+const createEndClones = (slidesPerPosition, filmGroupData) => {
   const endClones = [];
   for (
     let i = filmGroupData.length - slidesPerPosition;
     i < filmGroupData.length;
     i += 1
   ) {
-    const tile = (
-      <Tile
-        {...filmGroupData[i]}
-        key={uuid.v4()}
-        id={uuid.v4()}
-        index={i - filmGroupData.length + slidesPerPosition}
-        placementInViewport={getPlacementInViewPort(
-          visibleSlideIndexes,
-          i - filmGroupData.length + slidesPerPosition,
-        )}
-        leftEdgeIsHovered={leftEdgeIsHovered}
-        rightEdgeIsHovered={rightEdgeIsHovered}
-      />
-    );
+    const tile = filmGroupData[i];
+    tile.id = uuid.v4();
     endClones.push(tile);
   }
   return endClones;
@@ -90,12 +54,53 @@ function TileGroup({
   slidesPerPosition,
   visibleSlideIndexes,
 }) {
+  const [endClones, setEndClones] = useState([]);
+  const [frontClones, setFrontClones] = useState([]);
   const [leftEdgeIsHovered, setLeftEdgeIsHovered] = useState(false);
   const [rightEdgeIsHovered, setRightEdgeIsHovered] = useState(false);
+
+  useEffect(() => {
+    const endClonesFrags = createEndClones(slidesPerPosition, filmGroupData);
+
+    const frontClonesFrags = createFrontClones(
+      slidesPerPosition,
+      filmGroupData,
+    );
+
+    setEndClones(endClonesFrags);
+    setFrontClones(frontClonesFrags);
+  }, [slidesPerPosition, filmGroupData, visibleSlideIndexes]);
+
   const tileGroupStyle = {
     transform: `translateX(${xPosition}%)`,
     transition: transition ? 'transform 400ms ease-in-out' : 'none',
   };
+
+  const clonedFrontTileFrags = frontClones.map((film, index) => (
+    <Tile
+      {...film}
+      key={film.id}
+      index={index + filmGroupData.length + slidesPerPosition}
+      placementInViewport={getPlacementInViewPort(
+        visibleSlideIndexes,
+        index + filmGroupData.length + slidesPerPosition,
+      )}
+      leftEdgeIsHovered={leftEdgeIsHovered}
+      rightEdgeIsHovered={rightEdgeIsHovered}
+    />
+  ));
+  const clonedEndTileFrags = endClones.map((film, index) => {
+    return (
+      <Tile
+        {...film}
+        key={film.id}
+        index={index}
+        placementInViewport={getPlacementInViewPort(visibleSlideIndexes, index)}
+        leftEdgeIsHovered={leftEdgeIsHovered}
+        rightEdgeIsHovered={rightEdgeIsHovered}
+      />
+    );
+  });
 
   const naturalTileFrags = filmGroupData.map((entry, index) => (
     <Tile
@@ -116,28 +121,16 @@ function TileGroup({
     />
   ));
 
-  const endClones = createEndClones(
-    slidesPerPosition,
-    filmGroupData,
-    visibleSlideIndexes,
-  );
-  const frontClones = createFrontClones(
-    slidesPerPosition,
-    filmGroupData,
-    visibleSlideIndexes,
-  );
-
+  console.log('tgroup rendered');
   return (
     <ul
       className='tile-group'
       style={tileGroupStyle}
       onTransitionEnd={wrapAround}
-      leftEdgeIsHovered={leftEdgeIsHovered}
-      rightEdgeIsHovered={rightEdgeIsHovered}
     >
-      {endClones}
+      {clonedEndTileFrags}
       {naturalTileFrags}
-      {frontClones}
+      {clonedFrontTileFrags}
     </ul>
   );
 }
