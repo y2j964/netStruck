@@ -4,20 +4,17 @@ import { useFilmGetSet } from '../../context';
 import Plus from '../../icons/Plus';
 import Minus from '../../icons/Minus';
 
-function ToggleToMyListBtn({ isAddedToMyList, isHovered, id }) {
+function ToggleToMyListBtn({ isAddedToMyList, isHovered, slug }) {
   const { dispatch } = useFilmGetSet();
-  const toggleFilmMyListState = () =>
-    dispatch({ type: 'TOGGLE_FILM_MYLIST_STATE', id });
-
-  const addToMyList = () => {
-    toggleFilmMyListState();
-  };
+  const toggleFilmMyListState = () => {
+    dispatch({ type: 'TOGGLE_FILM_MYLIST_STATE', id: slug });
+  }
 
   if (isAddedToMyList) {
     return (
       <button
         className='toggle-to-MyList-btn'
-        onClick={addToMyList}
+        onClick={toggleFilmMyListState}
         aria-hidden={!isHovered}
         tabIndex={!isHovered ? -1 : 0}
         aria-label='Remove from MyList'
@@ -34,7 +31,7 @@ function ToggleToMyListBtn({ isAddedToMyList, isHovered, id }) {
     return (
       <button
         className='toggle-to-MyList-btn'
-        onClick={addToMyList}
+        onClick={toggleFilmMyListState}
         aria-hidden={!isHovered}
         tabIndex={!isHovered ? -1 : 0}
         aria-label='Add To MyList'
@@ -55,7 +52,7 @@ export default memo(ToggleToMyListBtn);
 ToggleToMyListBtn.propTypes = {
   isAddedToMyList: PropTypes.bool,
   isHovered: PropTypes.bool,
-  id: PropTypes.string.isRequired,
+  slug: PropTypes.string.isRequired,
 };
 
 // import React, { useState, useEffect, memo } from 'react';

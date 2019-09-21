@@ -1,8 +1,7 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useFilmValues } from '../../context';
 import EmptyList from './EmptyList';
 import TileGroups from '../../components/Tiles/TileGroups';
-// import Spinner from '../../icons/Spinner';
 
 export default function MyList() {
   useEffect(() => {
@@ -12,6 +11,11 @@ export default function MyList() {
   const { state } = useFilmValues();
   const { myList } = state;
   const myListLength = myList.length;
+
+  // const [filmRemoved, setFilmRemoved] = useState(false);
+  // useEffect(() => {
+
+  // }, [myList])
 
   return (
     <main>

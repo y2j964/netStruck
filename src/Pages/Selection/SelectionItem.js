@@ -41,7 +41,7 @@ export default function SelectionItem({ match }) {
   ));
 
   const addToMyList = () => {
-    dispatch({ type: 'TOGGLE_FILM_MYLIST_STATE', id });
+    dispatch({ type: 'TOGGLE_FILM_MYLIST_STATE', id: slug });
   };
 
   return (

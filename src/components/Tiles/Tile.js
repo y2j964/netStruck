@@ -141,7 +141,7 @@ const Tile = ({
           <h3 className='tile__title'>{title}</h3>
           <span className='tile__title'>{year}</span>
           <ToggleToMyListBtn
-            id={id}
+            slug={slug}
             isAddedToMyList={isAddedToMyList}
             isHovered={isHovered}
           />

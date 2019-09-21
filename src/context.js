@@ -7,13 +7,17 @@ import netStruckData from './netStruckData';
 const FilmValuesContext = React.createContext();
 const FilmGetSetContext = React.createContext();
 
-const getInitialFilmData = dataSource => {
+const getInitialFilmData = (dataSource, myListSlugs) => {
   let updatedFilms = [];
   dataSource.films.forEach(film => {
-    const singleItem = { ...film };
-    updatedFilms = [...updatedFilms, singleItem];
+    const filmObj = { ...film };
+    // if that film was saved to MyList in localStorage, reflect accurate isAddedToMyList value
+    if (myListSlugs.includes(filmObj.slug)) {
+      filmObj.isAddedToMyList = true;
+    }
+    updatedFilms = [...updatedFilms, filmObj];
   });
-
+  console.log(updatedFilms)
   return updatedFilms;
 };
 
@@ -32,7 +36,8 @@ const FilmDataProvider = props => {
   });
 
   useEffect(() => {
-    const updatedFilms = getInitialFilmData(netStruckData);
+    const myListSlugs = state.myList.map(film => film.slug);
+    const updatedFilms = getInitialFilmData(netStruckData, myListSlugs);
     const updatedGenres = getInitialGenreData(netStruckData);
 
     setFeaturedGenres(updatedGenres);
