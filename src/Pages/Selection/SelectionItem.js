@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import uuid from 'uuid';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import BtnPrimary from '../../components/BtnPrimary/BtnPrimary';
@@ -30,7 +29,7 @@ export default function SelectionItem({ match }) {
   useEffect(() => dispatch({ type: 'CLOSE_MODAL' }), [dispatch]);
 
   const genreLinks = genres.map((name, index) => (
-    <React.Fragment key={uuid.v4()}>
+    <React.Fragment key={index}>
       {index > 0 && ', '}
       <Link
         className='underline'

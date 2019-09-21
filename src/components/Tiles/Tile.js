@@ -4,17 +4,14 @@ import PropTypes from 'prop-types';
 import ToggleToMyListBtn from '../ToggleToMyListBtn/ToggleToMyListBtn';
 
 const placementInViewportClassValues = {
-  leftPreview: 'tile-group__item tile-group__item--is-active',
+  leftPreview: 'tile-group__item',
   // leftEdgeIsHovered: tile-group__item--is-stationary
   //  rightEdgeIsHovered: 'tile-group__item tile-group__item--is-hard-left',
-  rightPreview:
-    'tile-group__item tile-group__item--is-active tile-group__item--is-right-preview-active',
-  leftEdge:
-    'tile-group__item tile-group__item--is-active tile-group__item--is-left-edge',
+  rightPreview: 'tile-group__item',
+  leftEdge: 'tile-group__item tile-group__item--is-left-edge',
   //   rightEdgeIsHovered: 'tile-group__item tile-group__item--is-hard-left tile-group__item--is-left-edge',
-  rightEdge:
-    'tile-group__item tile-group__item--is-active tile-group__item--is-right-edge',
-  middle: 'tile-group__item tile-group__item--is-active',
+  rightEdge: 'tile-group__item tile-group__item--is-right-edge',
+  middle: 'tile-group__item ',
   // rightEdgeIsHovered: 'tile-group__item tile-group__item--is-hard-left',
   offscreen: 'tile-group__item',
 };
@@ -22,8 +19,38 @@ const placementInViewportClassValues = {
 const getTileClasses = (
   rightEdgeIsHovered,
   leftEdgeIsHovered,
+  middleHoveredIndex,
+  index,
   placementInViewport,
 ) => {
+  if (
+    leftEdgeIsHovered &&
+    ['middle', 'rightEdge', 'rightPreview'].includes(placementInViewport)
+  ) {
+    return 'tile-group__item tile-group__item--is-hard-right';
+  }
+
+  if (
+    middleHoveredIndex &&
+    ['leftEdge', 'leftPreview'].includes(placementInViewport)
+  ) {
+    return 'tile-group__item tile-group__item--is-soft-left';
+  }
+
+  if (
+    middleHoveredIndex &&
+    ['rightEdge', 'rightPreview'].includes(placementInViewport)
+  ) {
+    return 'tile-group__item tile-group__item--is-soft-right';
+  }
+
+  if (middleHoveredIndex && placementInViewport === 'middle') {
+    if (index > middleHoveredIndex) {
+      return 'tile-group__item tile-group__item--is-soft-right';
+    }
+    return 'tile-group__item tile-group__item--is-soft-left';
+  }
+
   if (
     rightEdgeIsHovered &&
     ['middle', 'leftEdge', 'leftPreview'].includes(placementInViewport)
@@ -31,9 +58,6 @@ const getTileClasses = (
     return 'tile-group__item tile-group__item--is-hard-left';
   }
 
-  if (leftEdgeIsHovered && placementInViewport === 'leftPreview') {
-    return 'tile-group__item tile-group__item--is-stationary';
-  }
   return placementInViewportClassValues[placementInViewport];
 };
 
@@ -45,14 +69,16 @@ const Tile = ({
   ariaLabel,
   slug,
   img,
+  index,
   rightEdgeIsHovered,
   handleRightEdgeIsHovered,
   leftEdgeIsHovered,
   handleLeftEdgeIsHovered,
+  middleHoveredIndex,
+  handleMiddleHoveredIndex,
   isAddedToMyList,
 }) => {
   const [isHovered, setIsHovered] = useState(false);
-
   const handleMouseEnter = () => {
     setIsHovered(true);
     if (placementInViewport === 'leftEdge') {
@@ -60,6 +86,9 @@ const Tile = ({
     }
     if (placementInViewport === 'rightEdge') {
       handleRightEdgeIsHovered(true);
+    }
+    if (placementInViewport === 'middle') {
+      handleMiddleHoveredIndex(index);
     }
   };
 
@@ -71,6 +100,10 @@ const Tile = ({
     if (placementInViewport === 'rightEdge') {
       handleRightEdgeIsHovered(false);
     }
+    if (placementInViewport === 'middle') {
+      // empty state, producing falsy value
+      handleMiddleHoveredIndex();
+    }
   };
 
   return (
@@ -79,6 +112,8 @@ const Tile = ({
         ${getTileClasses(
           rightEdgeIsHovered,
           leftEdgeIsHovered,
+          middleHoveredIndex,
+          index,
           placementInViewport,
         )} tile`}
       onMouseEnter={handleMouseEnter}
@@ -110,9 +145,9 @@ const Tile = ({
           <h3 className='tile__title'>{title}</h3>
           <span className='tile__title'>{year}</span>
           <ToggleToMyListBtn
-            tileIsHovered={isHovered}
             id={id}
             isAddedToMyList={isAddedToMyList}
+            isHovered={isHovered}
           />
         </div>
       </div>
@@ -134,10 +169,8 @@ Tile.propTypes = {
   handleRightEdgeIsHovered: PropTypes.func,
   leftEdgeIsHovered: PropTypes.bool,
   handleLeftEdgeIsHovered: PropTypes.func,
+  middleHoveredIndex: PropTypes.number,
+  handleMiddleHoveredIndex: PropTypes.func,
 };
-
-// function areEqual(prevProps, nextProps) {
-//   return prevProps.isAddedToMyList === nextProps.isAddedToMyList;
-// }
 
 export default memo(Tile);

@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useFilmValues } from '../../context';
 import EmptyList from './EmptyList';
-import StaticTileGroup from '../../components/Tiles/StaticTileGroup';
+import TileGroups from '../../components/Tiles/TileGroups';
 // import Spinner from '../../icons/Spinner';
 
 export default function MyList() {
@@ -15,14 +15,14 @@ export default function MyList() {
 
   return (
     <main>
-      <header className='text-center pb-8 pt-2 md:pt-8'>
+      <header className='text-center pb-8 mt-2 md:mt-8'>
         <h1 className='text-white text-3xl'>MyList</h1>
       </header>
       {myListLength === 0 ? (
         <EmptyList />
       ) : (
-        <div className='p-10 mb-10 max-w-80 mx-auto'>
-          <StaticTileGroup filmList={myList} />
+        <div className='p-10 mb-10 overflow-x-hidden'>
+          <TileGroups filmList={myList} />
         </div>
       )}
     </main>

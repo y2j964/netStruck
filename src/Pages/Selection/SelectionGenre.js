@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
-import StaticTileGroup from '../../components/Tiles/StaticTileGroup';
+import TileGroups from '../../components/Tiles/TileGroups';
 import { useFilmGetSet } from '../../context';
 
 export default function SelectionGenre({ match }) {
@@ -38,7 +38,7 @@ export default function SelectionGenre({ match }) {
         </div>
       </div>
       <div className='p-10 mb-10 max-w-80 mx-auto'>
-        <StaticTileGroup filmList={filmsOfSameGenre} />
+        <TileGroups filmList={filmsOfSameGenre} />
       </div>
     </main>
   );

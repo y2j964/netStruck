@@ -1,30 +1,25 @@
-import React, { useState, useEffect, memo } from 'react';
+import React, { memo } from 'react';
 import PropTypes from 'prop-types';
 import { useFilmGetSet } from '../../context';
 import Plus from '../../icons/Plus';
 import Minus from '../../icons/Minus';
 
-function ToggleToMyListBtn({ tileIsHovered, isAddedToMyList, id }) {
-  const [isLoading, setIsLoading] = useState(false);
-
+function ToggleToMyListBtn({ isAddedToMyList, isHovered, id }) {
   const { dispatch } = useFilmGetSet();
   const toggleFilmMyListState = () =>
     dispatch({ type: 'TOGGLE_FILM_MYLIST_STATE', id });
 
   const addToMyList = () => {
-    setIsLoading(true);
     toggleFilmMyListState();
   };
 
-  useEffect(() => {
-    setIsLoading(false);
-  }, [isAddedToMyList]);
-
-  if (tileIsHovered && isAddedToMyList) {
+  if (isAddedToMyList) {
     return (
       <button
         className='toggle-to-MyList-btn'
         onClick={addToMyList}
+        aria-hidden={!isHovered}
+        tabIndex={!isHovered ? -1 : 0}
         aria-label='Remove from MyList'
       >
         <React.Fragment>
@@ -35,11 +30,13 @@ function ToggleToMyListBtn({ tileIsHovered, isAddedToMyList, id }) {
     );
   }
 
-  if (tileIsHovered && !isAddedToMyList) {
+  if (!isAddedToMyList) {
     return (
       <button
         className='toggle-to-MyList-btn'
         onClick={addToMyList}
+        aria-hidden={!isHovered}
+        tabIndex={!isHovered ? -1 : 0}
         aria-label='Add To MyList'
       >
         <React.Fragment>
@@ -56,8 +53,8 @@ function ToggleToMyListBtn({ tileIsHovered, isAddedToMyList, id }) {
 export default memo(ToggleToMyListBtn);
 
 ToggleToMyListBtn.propTypes = {
-  tileIsHovered: PropTypes.bool.isRequired,
   isAddedToMyList: PropTypes.bool,
+  isHovered: PropTypes.bool,
   id: PropTypes.string.isRequired,
 };
 

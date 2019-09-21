@@ -90,6 +90,7 @@ const netStruckData = {
       alt: '',
       id: uuid.v4(),
       slug: 'running-on-empty',
+      isAddedToMyList: false,
     },
     {
       title: 'Ordinary People',
@@ -104,6 +105,7 @@ const netStruckData = {
       alt: '',
       id: uuid.v4(),
       slug: 'ordinary-people',
+      isAddedToMyList: false,
     },
     {
       title: 'Breaking Away',
@@ -118,6 +120,7 @@ const netStruckData = {
       id: uuid.v4(),
       alt: '',
       slug: 'breaking-away',
+      isAddedToMyList: false,
     },
     {
       title: 'Saturday Night Fever',
@@ -132,6 +135,7 @@ const netStruckData = {
       alt: '',
       id: uuid.v4(),
       slug: 'saturday-night-fever',
+      isAddedToMyList: false,
     },
     {
       title: 'Risky Business',
@@ -146,6 +150,7 @@ const netStruckData = {
       alt: '',
       id: uuid.v4(),
       slug: 'risky-business',
+      isAddedToMyList: false,
     },
     {
       title: 'Clueless',
@@ -160,6 +165,7 @@ const netStruckData = {
       id: uuid.v4(),
       alt: '',
       slug: 'clueless',
+      isAddedToMyList: false,
     },
     {
       title: 'Murmur of the Heart',
@@ -174,6 +180,7 @@ const netStruckData = {
       alt: '',
       id: uuid.v4(),
       slug: 'murmur-of-the-heart',
+      isAddedToMyList: false,
     },
     {
       title: 'Carrie',
@@ -188,6 +195,7 @@ const netStruckData = {
       id: uuid.v4(),
       alt: '',
       slug: 'carrie',
+      isAddedToMyList: false,
     },
     {
       title: 'Dazed and Confused',
@@ -202,6 +210,7 @@ const netStruckData = {
       id: uuid.v4(),
       alt: '',
       slug: 'dazed-and-confused',
+      isAddedToMyList: false,
     },
     {
       title: 'The Squid and the Whale',
@@ -216,6 +225,7 @@ const netStruckData = {
       id: uuid.v4(),
       alt: '',
       slug: 'the-squid-and-the-whale',
+      isAddedToMyList: false,
     },
     {
       title: '8½',
@@ -229,6 +239,7 @@ const netStruckData = {
       img: eightHalf,
       id: uuid.v4(),
       slug: '8½',
+      isAddedToMyList: false,
     },
     {
       title: 'Fanny and Alexander',
@@ -242,6 +253,7 @@ const netStruckData = {
       img: fannyAndAlexander,
       id: uuid.v4(),
       slug: 'fanny-and-alexander',
+      isAddedToMyList: false,
     },
     {
       title: 'Woman in the Dunes',
@@ -255,6 +267,7 @@ const netStruckData = {
       img: womanInTheDunes,
       id: uuid.v4(),
       slug: 'woman-in-the-dunes',
+      isAddedToMyList: false,
     },
     {
       title: 'The Red Shoes',
@@ -268,6 +281,7 @@ const netStruckData = {
       img: redShoes,
       id: uuid.v4(),
       slug: 'the-red-shoes',
+      isAddedToMyList: false,
     },
     {
       title: 'Ran',
@@ -281,6 +295,7 @@ const netStruckData = {
       img: ran,
       id: uuid.v4(),
       slug: 'ran',
+      isAddedToMyList: false,
     },
     {
       title: 'Vertigo',
@@ -294,6 +309,7 @@ const netStruckData = {
       img: vertigo,
       id: uuid.v4(),
       slug: 'vertigo',
+      isAddedToMyList: false,
     },
     {
       title: 'Jules et Jim',
@@ -307,6 +323,7 @@ const netStruckData = {
       img: julesEtJim,
       id: uuid.v4(),
       slug: 'jules-et-jim',
+      isAddedToMyList: false,
     },
     {
       title: 'Masculin Féminin',
@@ -320,6 +337,7 @@ const netStruckData = {
       img: masculinFeminin,
       id: uuid.v4(),
       slug: 'masculin-féminin',
+      isAddedToMyList: false,
     },
     {
       title: 'Seven Samurai',
@@ -333,6 +351,7 @@ const netStruckData = {
       img: sevenSamurai,
       id: uuid.v4(),
       slug: 'seven-samurai',
+      isAddedToMyList: false,
     },
     {
       title: 'Persona',
@@ -346,6 +365,7 @@ const netStruckData = {
       img: persona,
       id: uuid.v4(),
       slug: 'persona',
+      isAddedToMyList: false,
     },
     {
       title: 'Chungking Express',
@@ -357,6 +377,7 @@ const netStruckData = {
       img: chungkingExpress,
       id: uuid.v4(),
       slug: 'chungking-express',
+      isAddedToMyList: false,
     },
     {
       title: 'Last Year at Marienbad',
@@ -370,6 +391,7 @@ const netStruckData = {
       img: marienbad,
       id: uuid.v4(),
       slug: 'last-year-at-marienbad',
+      isAddedToMyList: false,
     },
     {
       title: 'Twin Peaks: Fire Walk with Me',
@@ -383,6 +405,7 @@ const netStruckData = {
       img: fireWalkWithMe,
       id: uuid.v4(),
       slug: 'fire-walk-with-me',
+      isAddedToMyList: false,
     },
     {
       title: 'Dogtooth',
@@ -396,6 +419,7 @@ const netStruckData = {
       img: dogtooth,
       id: uuid.v4(),
       slug: 'dogtooth',
+      isAddedToMyList: false,
     },
     {
       title: 'Mulholland Drive',
@@ -409,6 +433,7 @@ const netStruckData = {
       img: mulhollandDrive,
       id: uuid.v4(),
       slug: 'mulholland-drive',
+      isAddedToMyList: false,
     },
     {
       title: '3 Women',
@@ -422,6 +447,7 @@ const netStruckData = {
       img: threeWomen,
       id: uuid.v4(),
       slug: '3-women',
+      isAddedToMyList: false,
     },
     {
       title: 'Planet of the Apes',
@@ -435,6 +461,7 @@ const netStruckData = {
       img: planetOfTheApes,
       id: uuid.v4(),
       slug: 'planet-of-the-apes',
+      isAddedToMyList: false,
     },
     {
       title: 'Vanilla Sky',
@@ -448,6 +475,7 @@ const netStruckData = {
       img: vanillaSky,
       id: uuid.v4(),
       slug: 'vanilla-sky',
+      isAddedToMyList: false,
     },
     {
       title: 'Rebecca',
@@ -461,6 +489,7 @@ const netStruckData = {
       img: rebecca,
       id: uuid.v4(),
       slug: 'rebecca',
+      isAddedToMyList: false,
     },
     {
       title: 'Casablanca',
@@ -474,6 +503,7 @@ const netStruckData = {
       img: casablanca,
       id: uuid.v4(),
       slug: 'casablanca',
+      isAddedToMyList: false,
     },
     {
       title: 'Moonlight',
@@ -487,6 +517,7 @@ const netStruckData = {
       img: moonlight,
       id: uuid.v4(),
       slug: 'moonlight',
+      isAddedToMyList: false,
     },
     {
       title: 'Rocky',
@@ -500,6 +531,7 @@ const netStruckData = {
       img: rocky,
       id: uuid.v4(),
       slug: 'rocky',
+      isAddedToMyList: false,
     },
     {
       title: 'The Apartment',
@@ -513,6 +545,7 @@ const netStruckData = {
       img: theApartment,
       id: uuid.v4(),
       slug: 'the-apartment',
+      isAddedToMyList: false,
     },
     {
       title: 'Amadeus',
@@ -526,6 +559,7 @@ const netStruckData = {
       img: amadeus,
       id: uuid.v4(),
       slug: 'amadeus',
+      isAddedToMyList: false,
     },
     {
       title: 'From Here To Eternity',
@@ -539,6 +573,7 @@ const netStruckData = {
       img: fromHereToEternity,
       id: uuid.v4(),
       slug: 'from-here-to-eternity',
+      isAddedToMyList: false,
     },
     {
       title: 'Annie Hall',
@@ -552,6 +587,7 @@ const netStruckData = {
       img: annieHall,
       id: uuid.v4(),
       slug: 'annie-hall',
+      isAddedToMyList: false,
     },
     {
       title: 'Frances Ha',
@@ -565,6 +601,7 @@ const netStruckData = {
       img: francesHa,
       id: uuid.v4(),
       slug: 'frances-ha',
+      isAddedToMyList: false,
     },
     {
       title: 'Mistress America',
@@ -578,6 +615,7 @@ const netStruckData = {
       img: mistressAmerica,
       id: uuid.v4(),
       slug: 'mistress-america',
+      isAddedToMyList: false,
     },
     {
       title: 'Kicking and Screaming',
@@ -591,6 +629,7 @@ const netStruckData = {
       img: kickingAndScreaming,
       id: uuid.v4(),
       slug: 'kicking-and-screaming',
+      isAddedToMyList: false,
     },
     {
       title: 'Greenberg',
@@ -604,6 +643,7 @@ const netStruckData = {
       img: greenberg,
       id: uuid.v4(),
       slug: 'greenberg',
+      isAddedToMyList: false,
     },
     {
       title: 'Margot at the Wedding',
@@ -617,6 +657,7 @@ const netStruckData = {
       img: margotAtTheWedding,
       id: uuid.v4(),
       slug: 'margot-at-the-wedding',
+      isAddedToMyList: false,
     },
     {
       title: 'The Meyerowitz Stories (New and Selected)',
@@ -630,6 +671,7 @@ const netStruckData = {
       img: theMeyerowitzStories,
       id: uuid.v4(),
       slug: 'the-meyerowitz-stories',
+      isAddedToMyList: false,
     },
     {
       title: 'While We Were Young',
@@ -643,6 +685,7 @@ const netStruckData = {
       img: whileWeWereYoung,
       id: uuid.v4(),
       slug: 'while-we-were-young',
+      isAddedToMyList: false,
     },
     {
       title: 'Apocalypse Now',
@@ -656,6 +699,7 @@ const netStruckData = {
       img: apocalypseNow,
       id: uuid.v4(),
       slug: 'apocalypse-now',
+      isAddedToMyList: false,
     },
     {
       title: 'All That Jazz',
@@ -669,6 +713,7 @@ const netStruckData = {
       img: allThatJazz,
       id: uuid.v4(),
       slug: 'all-that-jazz',
+      isAddedToMyList: false,
     },
     {
       title: 'Pulp Fiction',
@@ -682,6 +727,7 @@ const netStruckData = {
       img: pulpFiction,
       id: uuid.v4(),
       slug: 'pulp-fiction',
+      isAddedToMyList: false,
     },
     {
       title: 'Miss Julie',
@@ -695,6 +741,7 @@ const netStruckData = {
       img: missJulie,
       id: uuid.v4(),
       slug: 'miss-julie',
+      isAddedToMyList: false,
     },
     {
       title: 'The Conversation',
@@ -708,6 +755,7 @@ const netStruckData = {
       img: theConversation,
       id: uuid.v4(),
       slug: 'the-conversation',
+      isAddedToMyList: false,
     },
     {
       title: 'Wages of Fear',
@@ -721,6 +769,7 @@ const netStruckData = {
       img: wagesOfFear,
       id: uuid.v4(),
       slug: 'wages-of-fear',
+      isAddedToMyList: false,
     },
     {
       title: 'If....',
@@ -734,6 +783,7 @@ const netStruckData = {
       img: ifEllipsis,
       id: uuid.v4(),
       slug: 'if',
+      isAddedToMyList: false,
     },
     {
       title: 'Kagemusha',
@@ -747,6 +797,7 @@ const netStruckData = {
       img: kagemusha,
       id: uuid.v4(),
       slug: 'kagemusha',
+      isAddedToMyList: false,
     },
     {
       title: 'Paris, Texas',
@@ -760,6 +811,7 @@ const netStruckData = {
       img: parisTexas,
       id: uuid.v4(),
       slug: 'paris-texas',
+      isAddedToMyList: false,
     },
     {
       title: 'Dancer in the Dark',
@@ -773,6 +825,7 @@ const netStruckData = {
       img: dancerInTheDark,
       id: uuid.v4(),
       slug: 'dancer-in-the-dark',
+      isAddedToMyList: false,
     },
     {
       title: 'Taxi Driver',
@@ -786,6 +839,7 @@ const netStruckData = {
       img: taxiDriver,
       id: uuid.v4(),
       slug: 'taxi-driver',
+      isAddedToMyList: false,
     },
     {
       title: 'Casino',
@@ -799,6 +853,7 @@ const netStruckData = {
       img: casino,
       id: uuid.v4(),
       slug: 'casino',
+      isAddedToMyList: false,
     },
     {
       title: 'Mean Streets',
@@ -812,6 +867,7 @@ const netStruckData = {
       img: meanStreets,
       id: uuid.v4(),
       slug: 'mean-streets',
+      isAddedToMyList: false,
     },
     {
       title: 'King of Comedy',
@@ -825,6 +881,7 @@ const netStruckData = {
       img: kingOfComedy,
       id: uuid.v4(),
       slug: 'king-of-comedy',
+      isAddedToMyList: false,
     },
     {
       title: 'New York, New York',
@@ -838,6 +895,7 @@ const netStruckData = {
       img: newYorkNewYork,
       id: uuid.v4(),
       slug: 'new-york-new-york',
+      isAddedToMyList: false,
     },
     {
       title: 'Goodfellas',
@@ -851,6 +909,7 @@ const netStruckData = {
       img: goodfellas,
       id: uuid.v4(),
       slug: 'goodfellas',
+      isAddedToMyList: false,
     },
     {
       title: 'Magnolia',
@@ -864,6 +923,7 @@ const netStruckData = {
       img: magnolia,
       id: uuid.v4(),
       slug: 'magnolia',
+      isAddedToMyList: false,
     },
     {
       title: 'Fish Tank',
@@ -877,6 +937,7 @@ const netStruckData = {
       img: fishTank,
       id: uuid.v4(),
       slug: 'fish-tank',
+      isAddedToMyList: false,
     },
     {
       title: 'Bottle Rocket',
@@ -890,6 +951,7 @@ const netStruckData = {
       img: bottleRocket,
       id: uuid.v4(),
       slug: 'bottle-rocket',
+      isAddedToMyList: false,
     },
     {
       title: 'Jackie Brown',
@@ -903,6 +965,7 @@ const netStruckData = {
       img: jackieBrown,
       id: uuid.v4(),
       slug: 'jackie-brown',
+      isAddedToMyList: false,
     },
     {
       title: 'Once Upon a Time in America',
@@ -916,6 +979,7 @@ const netStruckData = {
       img: onceUponATimeInAmerica,
       id: uuid.v4(),
       slug: 'once-upon-a-time-in-america',
+      isAddedToMyList: false,
     },
     {
       title: 'Broken Embraces',
@@ -929,6 +993,7 @@ const netStruckData = {
       img: brokenEmbraces,
       id: uuid.v4(),
       slug: 'broken-embraces',
+      isAddedToMyList: false,
     },
     {
       title: 'There Will Be Blood',
@@ -942,6 +1007,7 @@ const netStruckData = {
       img: thereWillBeBlood,
       id: uuid.v4(),
       slug: 'there-will-be-blood',
+      isAddedToMyList: false,
     },
   ],
   featuredGenres: [

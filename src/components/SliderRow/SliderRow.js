@@ -1,10 +1,10 @@
-import React, { useEffect, useState, useReducer } from 'react';
+import React, { useEffect, useReducer } from 'react';
 import PropTypes from 'prop-types';
 import sliderRowReducer from './sliderRowReducer';
-import TileGroup from '../Tiles/TileGroup';
+import InfiniteTileGroup from '../Tiles/InfiniteTileGroup';
 import NextSlideTrigger from '../NextSlideTrigger';
 import PreviousSlideTrigger from '../PreviousSlideTrigger';
-import debounce from '../../utilityFunctions/debounce';
+import useWindowWidth from '../../utilityFunctions/useWindowWidth';
 
 const mediaBreakpoints = {
   sm: 500,
@@ -52,19 +52,12 @@ const resizeSlider = (windowWidth, slidesPerPosition, callback) => {
 };
 
 export default function SliderRow({ category, filmGroupData }) {
-  // const [slidesPerPosition, setSlidesPerPosition] = useState(0);
-  const [windowWidth, setWindowWidth] = useState(
-    window.innerWidth || document.documentElement.clientWidth,
-  );
   const [state, dispatch] = useReducer(sliderRowReducer, {
     transition: false,
     slidesPerPosition: 0,
     xPosition: 0,
     visibleSlideIndexes: [],
   });
-
-  // console.log('resize');
-  // console.log('sliderRow render', state, filmGroupData);
 
   const moveSliderBackward = () =>
     dispatch({
@@ -81,18 +74,7 @@ export default function SliderRow({ category, filmGroupData }) {
   const wrapAround = () =>
     dispatch({ type: 'WRAP_AROUND', id: filmGroupData.length });
 
-  const handleResize = () => {
-    setWindowWidth(window.innerWidth || document.documentElement.clientWidth);
-  };
-
-  // add/remove resize event on mount/unmount
-  useEffect(() => {
-    window.addEventListener('resize', debounce(handleResize));
-
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
+  const windowWidth = useWindowWidth();
 
   // run resizeSlider when windowWidth changes
   useEffect(() => {
@@ -114,7 +96,7 @@ export default function SliderRow({ category, filmGroupData }) {
           ariaLabel='slide previous films into view'
         />
       </div>
-      <TileGroup
+      <InfiniteTileGroup
         filmGroupData={filmGroupData}
         {...state}
         category={category}
