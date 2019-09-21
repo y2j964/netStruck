@@ -1,3 +1,16 @@
+const getInitialFilmData = (dataSource, myListSlugs) => {
+  let updatedFilms = [];
+  dataSource.films.forEach(film => {
+    const filmObj = { ...film };
+    // if that film was saved to MyList in localStorage, reflect accurate isAddedToMyList value
+    if (myListSlugs.includes(filmObj.slug)) {
+      filmObj.isAddedToMyList = true;
+    }
+    updatedFilms = [...updatedFilms, filmObj];
+  });
+  return updatedFilms;
+};
+
 const getUpdatedMyList = (dataSource, film) => {
   if (film.isAddedToMyList) {
     const updatedMyList = dataSource.concat(film);
@@ -20,7 +33,6 @@ const filmDataReducer = (state, action) => {
 
       // update MyList array
       const updatedMyList = getUpdatedMyList(state.myList, targetedFilm);
-      console.log(updatedMyList);
 
       return { ...state, films: updatedFilms, myList: updatedMyList };
     }
@@ -33,13 +45,15 @@ const filmDataReducer = (state, action) => {
       document.querySelector('html').classList.remove('overflow-hidden');
       return { ...state, modalIsOpen: false };
 
-    case 'CONTENT_LOADED':
+    case 'CONTENT_LOADED': {
+      const myListSlugs = state.myList.map(film => film.slug);
+      const updatedFilms = getInitialFilmData(action.id, myListSlugs);
       return {
         ...state,
-        films: action.id,
+        films: updatedFilms,
         isLoading: false,
       };
-
+    }
     default:
       return state;
   }

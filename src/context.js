@@ -7,20 +7,6 @@ import netStruckData from './netStruckData';
 const FilmValuesContext = React.createContext();
 const FilmGetSetContext = React.createContext();
 
-const getInitialFilmData = (dataSource, myListSlugs) => {
-  let updatedFilms = [];
-  dataSource.films.forEach(film => {
-    const filmObj = { ...film };
-    // if that film was saved to MyList in localStorage, reflect accurate isAddedToMyList value
-    if (myListSlugs.includes(filmObj.slug)) {
-      filmObj.isAddedToMyList = true;
-    }
-    updatedFilms = [...updatedFilms, filmObj];
-  });
-  console.log(updatedFilms)
-  return updatedFilms;
-};
-
 const getInitialGenreData = dataSource => {
   const updatedGenres = dataSource.featuredGenres.map(genre => genre);
   return updatedGenres;
@@ -36,12 +22,10 @@ const FilmDataProvider = props => {
   });
 
   useEffect(() => {
-    const myListSlugs = state.myList.map(film => film.slug);
-    const updatedFilms = getInitialFilmData(netStruckData, myListSlugs);
     const updatedGenres = getInitialGenreData(netStruckData);
-
     setFeaturedGenres(updatedGenres);
-    dispatch({ type: 'CONTENT_LOADED', id: updatedFilms });
+
+    dispatch({ type: 'CONTENT_LOADED', id: netStruckData });
   }, []);
 
   useEffect(

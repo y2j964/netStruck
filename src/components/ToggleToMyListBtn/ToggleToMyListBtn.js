@@ -8,7 +8,7 @@ function ToggleToMyListBtn({ isAddedToMyList, isHovered, slug }) {
   const { dispatch } = useFilmGetSet();
   const toggleFilmMyListState = () => {
     dispatch({ type: 'TOGGLE_FILM_MYLIST_STATE', id: slug });
-  }
+  };
 
   if (isAddedToMyList) {
     return (
@@ -20,7 +20,7 @@ function ToggleToMyListBtn({ isAddedToMyList, isHovered, slug }) {
         aria-label='Remove from MyList'
       >
         <React.Fragment>
-          <Minus width='10' height='10' />
+          <Minus width='10' height='10' svgClassName='rotate-transition' />
           <span className='text-xs text-white ml-35'>My List</span>
         </React.Fragment>
       </button>

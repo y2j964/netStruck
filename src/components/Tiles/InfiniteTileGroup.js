@@ -78,7 +78,10 @@ function InfiniteTileGroup({
 
     setEndClones(endClonesFrags);
     setFrontClones(frontClonesFrags);
-  }, [slidesPerPosition, filmGroupData, visibleSlideIndexes]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [slidesPerPosition, visibleSlideIndexes]);
+  // omitting filmGroupData b/c I don't care if clones have updated info;
+  // they are window dressing that the user never interacts with
 
   const tileGroupStyle = {
     transform: `translateX(${xPosition}%)`,
