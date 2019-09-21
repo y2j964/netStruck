@@ -14,7 +14,7 @@ export default function SearchResults({ filteredFilms, inputValue }) {
   }
   return (
     <div className='search-filter__results' aria-live='polite'>
-      <h3 className='text-white text-right uppercase font-bold light-gray mb-3'>
+      <h3 className='text-white text-center text-2xl uppercase font-bold light-gray mb-8'>
         {filteredFilms.length} Results
       </h3>
       <TileGroups filmList={filteredFilms} />

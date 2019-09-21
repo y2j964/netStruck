@@ -1,5 +1,5 @@
 .toggle-to-MyList-btn {
-  @apply relative flex justify-center items-center border border-white z-10 cursor-pointer opacity-0;
+  @apply relative flex justify-center items-center border border-white z-10 cursor-pointer;
   padding: 0 18px;
   height: 30px;
   border-radius: 18px;

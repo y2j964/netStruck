@@ -5,14 +5,10 @@ import ToggleToMyListBtn from '../ToggleToMyListBtn/ToggleToMyListBtn';
 
 const placementInViewportClassValues = {
   leftPreview: 'tile-group__item',
-  // leftEdgeIsHovered: tile-group__item--is-stationary
-  //  rightEdgeIsHovered: 'tile-group__item tile-group__item--is-hard-left',
   rightPreview: 'tile-group__item',
   leftEdge: 'tile-group__item tile-group__item--is-left-edge',
-  //   rightEdgeIsHovered: 'tile-group__item tile-group__item--is-hard-left tile-group__item--is-left-edge',
   rightEdge: 'tile-group__item tile-group__item--is-right-edge',
   middle: 'tile-group__item ',
-  // rightEdgeIsHovered: 'tile-group__item tile-group__item--is-hard-left',
   offscreen: 'tile-group__item',
 };
 
@@ -27,35 +23,35 @@ const getTileClasses = (
     leftEdgeIsHovered &&
     ['middle', 'rightEdge', 'rightPreview'].includes(placementInViewport)
   ) {
-    return 'tile-group__item tile-group__item--is-hard-right';
+    return `${placementInViewportClassValues[placementInViewport]} tile-group__item--is-hard-right`;
   }
 
   if (
     middleHoveredIndex &&
     ['leftEdge', 'leftPreview'].includes(placementInViewport)
   ) {
-    return 'tile-group__item tile-group__item--is-soft-left';
+    return `${placementInViewportClassValues[placementInViewport]} tile-group__item--is-soft-left`;
   }
 
   if (
     middleHoveredIndex &&
     ['rightEdge', 'rightPreview'].includes(placementInViewport)
   ) {
-    return 'tile-group__item tile-group__item--is-soft-right';
+    return `${placementInViewportClassValues[placementInViewport]} tile-group__item--is-soft-right`;
   }
 
   if (middleHoveredIndex && placementInViewport === 'middle') {
     if (index > middleHoveredIndex) {
-      return 'tile-group__item tile-group__item--is-soft-right';
+      return `${placementInViewportClassValues[placementInViewport]} tile-group__item--is-soft-right`;
     }
-    return 'tile-group__item tile-group__item--is-soft-left';
+    return `${placementInViewportClassValues[placementInViewport]} tile-group__item--is-soft-left`;
   }
 
   if (
     rightEdgeIsHovered &&
     ['middle', 'leftEdge', 'leftPreview'].includes(placementInViewport)
   ) {
-    return 'tile-group__item tile-group__item--is-hard-left';
+    return `${placementInViewportClassValues[placementInViewport]} tile-group__item--is-hard-left`;
   }
 
   return placementInViewportClassValues[placementInViewport];

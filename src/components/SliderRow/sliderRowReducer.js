@@ -132,7 +132,7 @@ const filmDataReducer = (state, action) => {
     case 'MOVE_SLIDER_BACKWARD': {
       const slideWidth = step / state.slidesPerPosition;
 
-      if (state.xPosition > step) {
+      if (state.xPosition > -step) {
         // prevents slider from sliding off tracks; endPositionX - step is the clones at the end
         return state;
       }

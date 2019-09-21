@@ -7,7 +7,7 @@
   }
 
   &__results {
-    @apply mt-16 mx-auto;
+    @apply mt-5 mx-auto;
     width: 85%;
   }
 }
