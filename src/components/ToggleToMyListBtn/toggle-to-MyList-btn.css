@@ -1,23 +1,18 @@
 .toggle-to-MyList-btn {
-  @apply relative flex justify-center items-center border border-white z-10 cursor-pointer;
-  padding: 0 18px;
-  height: 30px;
-  border-radius: 18px;
+  @apply relative flex justify-center items-center px-4 border border-white z-10 cursor-pointer;
+  height: 25px;
+  border-radius: 16px;
   transition: opacity 400ms cubic-bezier(0, 0, 0.2, 1);;
   transition-delay: 400ms;
-  /* @apply relative rounded-full flex justify-center items-center bg-main border border-white z-10 cursor-pointer opacity-0;
-  width: 18px;
-  height: 18px;
-  transition: opacity 400ms cubic-bezier(0, 0, 0.2, 1);;
-  transition-delay: 400ms; */
 
   &:hover {
-    /* border-color: #151515; */
     .rotate-transition {
       transform: rotate(180deg);
     }
-    .tooltip {
-      display: flex;
-    }
+  }
+
+  &__text {
+    @apply text-white ml-35;
+    font-size: .675rem;
   }
 }

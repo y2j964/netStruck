@@ -38,7 +38,7 @@ export default function SelectionGenre({ match }) {
         </div>
       </div>
       <div className='p-10 mb-10 max-w-80 mx-auto'>
-        <TileGroups filmList={filmsOfSameGenre} />
+        <TileGroups filmGroupData={filmsOfSameGenre} />
       </div>
     </main>
   );

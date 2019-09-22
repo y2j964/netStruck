@@ -26,7 +26,7 @@ export default function MyList() {
         <EmptyList />
       ) : (
         <div className='p-10 mb-10 overflow-x-hidden'>
-          <TileGroups filmList={myList} />
+          <TileGroups filmGroupData={myList} />
         </div>
       )}
     </main>

@@ -293,10 +293,16 @@ td{
 	color: #9b9b9b;
 }
 
+text-2xs {
+  font-size : .675rem;
+}
+
 .bg-overlay {
-  @apply flex flex-col items-center justify-around w-full h-full opacity-0;
+  @apply flex flex-col items-center justify-around opacity-0;
   background-color: rgba(0, 0, 0, 0.55);
-  transition: all 400ms ease-in-out;
+  /* zoom: 98%;; */
+  /* zoom to tame blur */
+  transition: opacity 400ms ease-in-out;
   transition-delay: 400ms;
   /* &:hover {
     transform: scale(1.5) translateZ(0px);

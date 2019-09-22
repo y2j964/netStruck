@@ -18,7 +18,6 @@ export default function SelectionItem({ match }) {
     img,
     description,
     genres,
-    id,
     isAddedToMyList,
   } = selectedFilm;
 

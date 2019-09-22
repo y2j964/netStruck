@@ -17,7 +17,7 @@ export default function SearchResults({ filteredFilms, inputValue }) {
       <h3 className='text-white text-center text-2xl uppercase font-bold light-gray mb-8'>
         {filteredFilms.length} Results
       </h3>
-      <TileGroups filmList={filteredFilms} />
+      <TileGroups filmGroupData={filteredFilms} />
     </div>
   );
 }

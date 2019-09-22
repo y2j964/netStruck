@@ -33,7 +33,7 @@
   }
 
   &__title {
-    @apply text-white text-sm text-center;
+    @apply text-white text-xs text-center;
     /* font-size: 21px; */
   }
 
@@ -41,4 +41,20 @@
     @apply absolute right-0 bottom-0 p-1;
 
   }
+}
+
+.bob {
+  opacity: 0;
+  transform: scale(calc(1/1.5));
+  /* this counteracts the scaling of the tile-group__item which gets 1.5, that way we don't have blur */
+  /* visibility: visible; */
+  width: 150%;
+  height: 150%;
+  transition: opacity 400ms cubic-bezier(0, 0, 0.2, 1);
+  transform-origin: top left;
+  transition-duration: 400ms;
+}
+
+.nnn {
+  background-color: rgba(0, 0, 0, 0.55);
 }

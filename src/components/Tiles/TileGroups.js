@@ -58,20 +58,24 @@ const resizeWindow = (windowWidth, slidesPerPosition, callback) => {
   }
 };
 
-export default function TileGroups({ filmList }) {
+export default function TileGroups({ filmGroupData }) {
   const [slidesPerPosition, setSlidesPerPosition] = useState();
 
   const windowWidth = useWindowWidth();
 
   useEffect(() => {
     resizeWindow(windowWidth, slidesPerPosition, setSlidesPerPosition);
-  }, [windowWidth, filmList.length, slidesPerPosition]);
+  }, [windowWidth, filmGroupData.length, slidesPerPosition]);
 
   if (slidesPerPosition) {
-    const tileRows = chunk(filmList, slidesPerPosition);
+    const tileRows = chunk(filmGroupData, slidesPerPosition);
 
-     const tileRowFrags = tileRows.map((row, i) => (
-      <TileGroup key={i} filmGroupData={row} slidesPerPosition={slidesPerPosition}/>
+    const tileRowFrags = tileRows.map((row, i) => (
+      <TileGroup
+        key={i}
+        filmGroupData={row}
+        slidesPerPosition={slidesPerPosition}
+      />
     ));
 
     return <React.Fragment>{tileRowFrags}</React.Fragment>;
@@ -84,5 +88,5 @@ export default function TileGroups({ filmList }) {
 }
 
 TileGroups.propTypes = {
-  filmList: PropTypes.array.isRequired,
+  filmGroupData: PropTypes.array.isRequired,
 };

@@ -137,7 +137,14 @@ const Tile = ({
           }`}
           aria-label={title}
         />
-        <div className='absolute top-0 bottom-0 left-0 right-0 bg-overlay'>
+        <div className=' absolute top-0 bottom-0 left-0 right-0 bg-overlay'>
+          {/* <div className='bob absolute top-0 bottom-0 left-0 right-0 bg-overlay'>
+          <img
+            src={img}
+            alt=''
+            className='relative top-0 left-0 bottom-0 right-0 z-neg nnn'
+          /> */}
+          {/* <div className='absolute top-0 bottom-0 left-0 right-0 bg-overlay'></div> */}
           <h3 className='tile__title'>{title}</h3>
           <span className='tile__title'>{year}</span>
           <ToggleToMyListBtn
