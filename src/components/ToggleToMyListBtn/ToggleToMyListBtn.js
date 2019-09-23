@@ -20,7 +20,7 @@ function ToggleToMyListBtn({ isAddedToMyList, isHovered, slug }) {
         aria-label='Remove from MyList'
       >
         <React.Fragment>
-          <Minus width='11' height='11' svgClassName='rotate-transition' />
+          <Minus width='14' height='14' svgClassName='rotate-transition' />
           <span className='toggle-to-MyList-btn__text'>My List</span>
         </React.Fragment>
       </button>
@@ -37,7 +37,7 @@ function ToggleToMyListBtn({ isAddedToMyList, isHovered, slug }) {
         aria-label='Add To MyList'
       >
         <React.Fragment>
-          <Plus width='11' height='11' svgClassName='rotate-transition' />
+          <Plus width='14' height='14' svgClassName='rotate-transition' />
           <span className='toggle-to-MyList-btn__text'>My List</span>
         </React.Fragment>
       </button>

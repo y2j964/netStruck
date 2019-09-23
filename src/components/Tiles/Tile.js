@@ -75,6 +75,7 @@ const Tile = ({
   isAddedToMyList,
 }) => {
   const [isHovered, setIsHovered] = useState(false);
+  // const [isFocused, setIsFocused] = useState(false);
   const handleMouseEnter = () => {
     setIsHovered(true);
     if (placementInViewport === 'leftEdge') {
@@ -122,12 +123,11 @@ const Tile = ({
       }
       aria-label={ariaLabel}
     >
-      {/* <p>{title}</p> */}
-      <div className='ratio-16-9 ratio-16-9--overflowed'>
+      <div className='z-neg ratio-16-9 ratio-16-9--overflowed'>
         <img src={img} alt='' />
         <Link
           to={`/now-playing/${slug}`}
-          className='absolute top-0 bottom-0 left-0 right-0 z-10'
+          className=' absolute top-0 bottom-0 left-0 right-0'
           tabIndex={`${
             ['offscreen', 'leftPreview', 'rightPreview'].includes(
               placementInViewport,
@@ -137,20 +137,19 @@ const Tile = ({
           }`}
           aria-label={title}
         />
-        <div className=' absolute top-0 bottom-0 left-0 right-0 bg-overlay'>
-          {/* <div className='bob absolute top-0 bottom-0 left-0 right-0 bg-overlay'>
-          <img
-            src={img}
-            alt=''
-            className='relative top-0 left-0 bottom-0 right-0 z-neg nnn'
-          /> */}
-          {/* <div className='absolute top-0 bottom-0 left-0 right-0 bg-overlay'></div> */}
+        <div className='exploder flex flex-col items-center justify-around'>
           <h3 className='tile__title'>{title}</h3>
           <span className='tile__title'>{year}</span>
           <ToggleToMyListBtn
             slug={slug}
             isAddedToMyList={isAddedToMyList}
             isHovered={isHovered}
+          />
+          <Link
+            to={`/now-playing/${slug}`}
+            className='absolute top-0 bottom-0 left-0 right-0'
+            tabIndex='-1'
+            aria-label={title}
           />
         </div>
       </div>

@@ -185,6 +185,20 @@ main {
   );
 }
 
+.exploder {
+  @apply absolute top-0 bottom-0 left-0 right-0;
+  opacity: 0;
+  background-color: rgba(0, 0, 0, 0.55);
+  backface-visibility: hidden;
+  transform: scale(calc(1/1.5));
+  /* this counteracts the scaling of the tile-group__item which gets 1.5, that way we don't have blur */
+  width: 150%;
+  height: 150%;
+  transition: opacity 400ms cubic-bezier(0, 0, 0.2, 1);
+  transform-origin: top left;
+  transition-delay: 400ms;
+}
+
 .z-neg {
   z-index: -1;
 }
@@ -295,18 +309,6 @@ td{
 
 text-2xs {
   font-size : .675rem;
-}
-
-.bg-overlay {
-  @apply flex flex-col items-center justify-around opacity-0;
-  background-color: rgba(0, 0, 0, 0.55);
-  /* zoom: 98%;; */
-  /* zoom to tame blur */
-  transition: opacity 400ms ease-in-out;
-  transition-delay: 400ms;
-  /* &:hover {
-    transform: scale(1.5) translateZ(0px);
-    } */
 }
 
 .ml-35 {
