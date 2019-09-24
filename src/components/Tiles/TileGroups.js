@@ -75,6 +75,7 @@ export default function TileGroups({ filmGroupData }) {
         key={i}
         filmGroupData={row}
         slidesPerPosition={slidesPerPosition}
+        tileIsUnmountedOnRemove={true}
       />
     ));
 

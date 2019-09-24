@@ -51,7 +51,7 @@ const resizeSlider = (windowWidth, slidesPerPosition, callback) => {
   }
 };
 
-export default function SliderRow({ category, filmGroupData }) {
+export default function SliderRow({ filmGroupData }) {
   const [state, dispatch] = useReducer(sliderRowReducer, {
     transition: false,
     slidesPerPosition: 0,
@@ -99,7 +99,6 @@ export default function SliderRow({ category, filmGroupData }) {
       <InfiniteTileGroup
         filmGroupData={filmGroupData}
         {...state}
-        category={category}
         wrapAround={wrapAround}
       />
       <div className='slider-row__content-preview slider-row__content-preview--right'>
@@ -115,5 +114,4 @@ export default function SliderRow({ category, filmGroupData }) {
 
 SliderRow.propTypes = {
   filmGroupData: PropTypes.array.isRequired,
-  category: PropTypes.string.isRequired,
 };

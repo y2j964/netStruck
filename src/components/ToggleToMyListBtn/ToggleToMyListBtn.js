@@ -4,11 +4,21 @@ import { useFilmGetSet } from '../../context';
 import Plus from '../../icons/Plus';
 import Minus from '../../icons/Minus';
 
-function ToggleToMyListBtn({ isAddedToMyList, isHovered, slug }) {
+function ToggleToMyListBtn({
+  isAddedToMyList,
+  isHovered,
+  slug,
+  handleMouseLeave,
+}) {
   const { dispatch } = useFilmGetSet();
   const toggleFilmMyListState = () => {
     dispatch({ type: 'TOGGLE_FILM_MYLIST_STATE', id: slug });
   };
+
+  // const removeFilmMyListState = () => {
+  //   handleMouseLeave();
+  //   dispatch({ type: 'TOGGLE_FILM_MYLIST_STATE', id: slug });
+  // };
 
   if (isAddedToMyList) {
     return (
@@ -52,7 +62,7 @@ export default memo(ToggleToMyListBtn);
 ToggleToMyListBtn.propTypes = {
   isAddedToMyList: PropTypes.bool,
   isHovered: PropTypes.bool,
-  slug: PropTypes.string.isRequired,
+  slug: PropTypes.string,
 };
 
 // import React, { useState, useEffect, memo } from 'react';

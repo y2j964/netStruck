@@ -8020,15 +8020,17 @@ video {
   }
 
 .collapsible-group {
+  visibility: hidden;
   display: flex;
   height: 0;
   flex-direction: column;
   width: 100%;
-  transition: all .3s ease-in-out;
+  /* visibility is used so that it is removed from tab-index, but still works as transition */
+  transition: height .3s ease-in-out, visibility .3s ease-in-out;
 }
 
 .collapsible-group--is-expanded {
-    display: flex;
+    visibility: visible;
     /* height is hard coded here, so if you want to add or subtract any nav links,
     you will have to adjust this value to whatever the new collapsible-group height is */
     height: 144px;
@@ -8037,7 +8039,7 @@ video {
 @media (min-width: 800px) {
 
 .collapsible-group {
-    display: flex;
+    visibility: visible;
 
     flex-direction: row;
 
@@ -8596,6 +8598,16 @@ video {
     padding: 0.25rem;
   }
 
+@keyframes slideInFromLeft {
+  from {
+    transform: translateX(-85px)
+  }
+
+  to {
+    transform: translateX(0)
+  }
+}
+
 .tile-group {
   display: flex;
 }
@@ -8639,13 +8651,14 @@ video {
 
 .tile-group__item--is-left-edge {
       transform-origin: left;
-      transition: transform 400ms cubic-bezier(0, 0, 0.2, 1), transform-origin 400ms cubic-bezier(0, 0, 0.2, 1);
+      transition: transform 400ms cubic-bezier(0, 0, 0.2, 1);
+      /* transition: transform 400ms cubic-bezier(0, 0, 0.2, 1), transform-origin 400ms cubic-bezier(0, 0, 0.2, 1); */
       transition-delay: 400ms;
     }
 
 .tile-group__item--is-right-edge {
       transform-origin: right;
-      transition: transform 400ms cubic-bezier(0, 0, 0.2, 1), transform-origin 400ms cubic-bezier(0, 0, 0.2, 1);
+      transition: transform 400ms cubic-bezier(0, 0, 0.2, 1);
       transition-delay: 400ms;
     }
 

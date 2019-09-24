@@ -17,7 +17,7 @@ export default function TileGroup({ filmGroupData, slidesPerPosition }) {
   const [rightEdgeIsHovered, setRightEdgeIsHovered] = useState(false);
   const [middleHoveredIndex, setMiddleHoveredIndex] = useState();
 
-  const tileFrags = filmGroupData.map((film, index) => (
+  const tileFrags = filmGroupData.map((film, index, tileIsUnmountedOnRemove) => (
     <Tile
       {...film}
       key={film.id}
@@ -29,6 +29,7 @@ export default function TileGroup({ filmGroupData, slidesPerPosition }) {
       handleRightEdgeIsHovered={setRightEdgeIsHovered}
       middleHoveredIndex={middleHoveredIndex}
       handleMiddleHoveredIndex={setMiddleHoveredIndex}
+      tileIsUnmountedOnRemove={tileIsUnmountedOnRemove}
     />
   ));
 

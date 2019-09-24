@@ -8,7 +8,6 @@ export default function ContentRows() {
   const rowFrags = featuredGenres.map(genre => (
     <ContentRow {...genre} key={genre.id} />
   ));
-  // console.log('rows rendered');
 
   return <React.Fragment>{rowFrags}</React.Fragment>;
 }

@@ -60,6 +60,7 @@ const getTileClasses = (
 const Tile = ({
   title,
   year,
+  style,
   id,
   placementInViewport,
   ariaLabel,
@@ -73,6 +74,7 @@ const Tile = ({
   middleHoveredIndex,
   handleMiddleHoveredIndex,
   isAddedToMyList,
+  tileIsUnmountedOnRemove,
 }) => {
   const [isHovered, setIsHovered] = useState(false);
   // const [isFocused, setIsFocused] = useState(false);
@@ -105,6 +107,7 @@ const Tile = ({
 
   return (
     <li
+      style={style}
       className={`
         ${getTileClasses(
           rightEdgeIsHovered,
@@ -144,6 +147,8 @@ const Tile = ({
             slug={slug}
             isAddedToMyList={isAddedToMyList}
             isHovered={isHovered}
+            handleMouseLeave={handleMouseLeave}
+            tileIsUnmountedOnRemove={tileIsUnmountedOnRemove}
           />
           <Link
             to={`/now-playing/${slug}`}
