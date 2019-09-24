@@ -21,10 +21,9 @@ export default class SliderContainer extends Component {
           icon: (
             <div className='w-24 h-sm flex justify-center items-center border-2 border-white'>
               <Play
-                playWidth='25'
-                playHeight='25'
-                playFill='#fff'
-                iconClassName='inline'
+                width='25'
+                height='25'
+                fill='#fff'
               />
             </div>
           ),

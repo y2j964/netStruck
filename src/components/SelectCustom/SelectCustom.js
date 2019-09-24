@@ -37,7 +37,7 @@ export default function SelectCustom({
       >
         {optionFrags}
       </select>
-      <ChevronDown svgClassName='icon--positioned-right z-10' />
+      <ChevronDown additionalClasses='icon--positioned-right z-10' />
     </div>
   );
 }

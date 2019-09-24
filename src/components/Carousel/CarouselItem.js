@@ -1,7 +1,7 @@
 import React, { memo } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import PlayIcon from '../../icons/Play';
+import Play from '../../icons/Play';
 
 const getSlidingDirection = (enterFrom, exitTo) => {
   if (!enterFrom && !exitTo) {
@@ -52,7 +52,7 @@ const CarouselItem = ({
           tabIndex={isActive ? 0 : -1}
           to={`/now-playing/${slug}`}
         >
-          <PlayIcon svgClassName='inline mr-2' />
+          <Play additionalClasses='inline mr-2' />
           VIEW FILM
         </Link>
       </div>

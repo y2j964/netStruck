@@ -1,26 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export default function playIcon(props) {
-  const playWidth = props.playWidth || '12';
-  const playHeight = props.playHeight || '12';
-  const playFill = props.playFill || 'black';
+export default function Play({ width, height, fill, additionalClasses }) {
   return (
     <svg
-      width={playWidth}
-      height={playHeight}
       viewBox='0 0 32 32'
-      className={props.svgClassName}
+      width={width || '12'}
+      height={height || '12'}
+      fill={fill || 'black'}
+      className={additionalClasses}
       aria-hidden='true'
     >
-      <path fill={playFill} d='M6 4l20 12-20 12z'></path>
+      <path d='M6 4l20 12-20 12z'></path>
     </svg>
   );
 }
 
-playIcon.propTypes = {
-  playWidth: PropTypes.string,
-  playFill: PropTypes.string,
-  playHeight: PropTypes.string,
-  svgClassName: PropTypes.string,
+Play.propTypes = {
+  width: PropTypes.string,
+  height: PropTypes.string,
+  fill: PropTypes.string,
+  additionalClasses: PropTypes.string,
 };

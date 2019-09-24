@@ -30,7 +30,7 @@ function ToggleToMyListBtn({
         aria-label='Remove from MyList'
       >
         <React.Fragment>
-          <Minus width='14' height='14' svgClassName='rotate-transition' />
+          <Minus width='14' height='14' additionalClasses='rotate-transition' />
           <span className='toggle-to-MyList-btn__text'>My List</span>
         </React.Fragment>
       </button>
@@ -47,7 +47,7 @@ function ToggleToMyListBtn({
         aria-label='Add To MyList'
       >
         <React.Fragment>
-          <Plus width='14' height='14' svgClassName='rotate-transition' />
+          <Plus width='14' height='14' additionalClasses='rotate-transition' />
           <span className='toggle-to-MyList-btn__text'>My List</span>
         </React.Fragment>
       </button>

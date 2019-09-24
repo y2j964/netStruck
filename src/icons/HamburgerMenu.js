@@ -1,12 +1,13 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-export default function HamburgerToggle({ additionalClasses }) {
+export default function HamburgerToggle({ width, height, fill, additionalClasses }) {
   return (
     <svg
       viewBox='0 0 20 20'
-      width='20'
-      height='20'
-      fill='white'
+      width={width || '20'}
+      height={height || '20'}
+      fill={fill || 'white'}
       aria-hidden='true'
       className={additionalClasses}
     >
@@ -14,3 +15,10 @@ export default function HamburgerToggle({ additionalClasses }) {
     </svg>
   );
 }
+
+HamburgerToggle.propTypes = {
+  width: PropTypes.string,
+  height: PropTypes.string,
+  fill: PropTypes.string,
+  additionalClasses: PropTypes.string,
+};

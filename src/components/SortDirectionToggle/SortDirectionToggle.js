@@ -22,7 +22,7 @@ export default function SortDirectionToggle({
       >{`Sort direction is currently ${
         sortIsAscending ? 'ascending' : 'descending'
       }`}</span>
-      <SortingDirectionArrows svgClassName='sort-direction-toggle__svg' />
+      <SortingDirectionArrows additionalClasses='sort-direction-toggle__svg' />
     </button>
   );
 }

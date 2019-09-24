@@ -3,7 +3,7 @@ import { useFilmValues } from '../../context';
 import useDebounce from '../../utilityFunctions/useDebounce';
 import SearchResults from '../SearchResults';
 import SearchFilterInput from '../SearchFilterInput';
-import SearchIcon from '../../icons/SearchIcon';
+import SearchGlass from '../../icons/SearchGlass';
 
 // only filter input based on these properties
 const relevantKeys = ['title', 'genres', 'actors', 'director', 'description'];
@@ -54,11 +54,7 @@ export default function SearchFilter() {
     <React.Fragment>
       <form role='search' className='search-filter' onSubmit={handleSubmit}>
         <span className='pr-4 pb-2 mr-5 border-r border-gray'>
-          <SearchIcon
-            searchIconWidth='35'
-            searchIconHeight='35'
-            fill='#bebebb'
-          />
+          <SearchGlass width='35' height='35' fill='#bebebb' />
         </span>
         <label htmlFor='searchInput' className='sr-only'>
           Enter search terms

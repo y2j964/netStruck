@@ -9,7 +9,7 @@ export default function SearchFilterTrigger() {
   return (
     <button className='filter-btn' onClick={toggleSearchModal}>
       FILTER
-      <Plus svgClassName='icon--positioned-right' width='20' height='20' />
+      <Plus additionalClasses='icon--positioned-right' width='20' height='20' />
     </button>
   );
 }
