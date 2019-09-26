@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import uuid from 'uuid';
-import { useFilmGetSet } from '../../context';
+import { useNetStruckDataDispatcher } from '../../context';
 import NavbarItem from './NavbarItem';
 import ModalTrigger from '../ModalTrigger';
 import SignUpTrigger from '../SignUpTrigger';
@@ -31,7 +31,7 @@ export default function NavbarItems() {
     false,
   );
 
-  const { dispatch } = useFilmGetSet();
+  const dispatch = useNetStruckDataDispatcher();
 
   const toggleCollapsibleNav = () =>
     setCollapsibleNavIsExpanded(!collapsibleNavIsExpanded);

@@ -5,13 +5,7 @@ import InfiniteTileGroup from '../Tiles/InfiniteTileGroup';
 import NextSlideTrigger from '../NextSlideTrigger';
 import PreviousSlideTrigger from '../PreviousSlideTrigger';
 import useWindowWidth from '../../utilityFunctions/useWindowWidth';
-
-const mediaBreakpoints = {
-  sm: 500,
-  md: 800,
-  lg: 1100,
-  xl: 1400,
-};
+import mediaBreakpoints from '../../mediaBreakpoints';
 
 const resizeSlider = (windowWidth, slidesPerPosition, callback) => {
   // console.log('resize');

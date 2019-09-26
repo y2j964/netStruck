@@ -2,11 +2,22 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import BtnPrimary from '../../components/BtnPrimary/BtnPrimary';
-import { useFilmGetSet } from '../../context';
+import {
+  useNetStruckDataState,
+  useNetStruckDataDispatcher,
+} from '../../context';
 
 export default function SelectionItem({ match }) {
   const { slug } = match.params;
-  const { getFilm, dispatch, getFeaturedGenreSlug } = useFilmGetSet();
+  const { state, featuredGenres } = useNetStruckDataState();
+
+  const getFilm = targetSlug =>
+    state.films.find(film => film.slug === targetSlug);
+
+  const getFeaturedGenreSlug = name =>
+    featuredGenres.find(featuredGenre => featuredGenre.name === name).slug;
+
+  const dispatch = useNetStruckDataDispatcher();
 
   const selectedFilm = getFilm(slug);
   const {

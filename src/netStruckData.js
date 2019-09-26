@@ -1056,7 +1056,7 @@ const netStruckData = {
       slug: 'favorite-palme-dor-winner',
       id: uuid.v4(),
       description:
-        "The Palme d'Or is the most honorable prize a film can receive. It is bestowed by the Cannes film festival in Cannes, France every year. Here are some of our favorites.",
+        "The Palme d'Or is the arguably the most honorable prize a film can receive. It is bestowed by the Cannes film festival in Cannes, France every year. Here are some of our favorite winners.",
       poster: favoritePalmeDorWinners,
     },
     {

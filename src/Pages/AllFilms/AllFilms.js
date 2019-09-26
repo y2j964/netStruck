@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useFilmValues } from '../../context';
+import { useNetStruckDataState } from '../../context';
 import FilmTable from '../../components/FilmTable/FilmTable';
 import FilmRows from '../../components/FilmTable/FilmRows';
 import FilmTableViewOptions from '../../components/FilmTable/FilmTableViewOptions';
@@ -65,7 +65,8 @@ export default function AllFilms() {
     document.title = 'All Films - NetStruck';
   }, []);
 
-  const { state } = useFilmValues();
+  const { state } = useNetStruckDataState();
+  // make a copy of films, so that we aren't mutating original order
   const [...filmData] = state.films;
   const { isLoading } = state;
 

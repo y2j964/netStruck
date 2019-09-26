@@ -4,15 +4,15 @@ import PropTypes from 'prop-types';
 import filmDataReducer from './filmDataReducer';
 import netStruckData from './netStruckData';
 
-const FilmValuesContext = React.createContext();
-const FilmGetSetContext = React.createContext();
+const NetStruckDataState = React.createContext();
+const NetStruckDataDispatcher = React.createContext();
 
 const getInitialGenreData = dataSource => {
   const updatedGenres = dataSource.featuredGenres.map(genre => genre);
   return updatedGenres;
 };
 
-const FilmDataProvider = props => {
+const NetStruckDataProvider = props => {
   const [featuredGenres, setFeaturedGenres] = useState([]);
   const [state, dispatch] = useReducer(filmDataReducer, {
     films: [],
@@ -33,20 +33,6 @@ const FilmDataProvider = props => {
     [state.myList],
   );
 
-  // const sortFilms = sortCriterion => {
-  //   dispatch({ type: 'SORT_FILMS', id: sortCriterion });
-  // };
-
-  // const toggleFilmMyListState = id => {
-  //   dispatch({ type: 'TOGGLE_FILM_MYLIST_STATE', id });
-  // };
-
-  const getFeaturedGenreData = slug =>
-    featuredGenres.find(featuredGenre => featuredGenre.slug === slug);
-
-  const getFeaturedGenreSlug = name =>
-    featuredGenres.find(featuredGenre => featuredGenre.name === name).slug;
-
   const getFilmsOfSameGenre = category => {
     const filmsOfSameGenre = state.films.filter(film =>
       film.genres.includes(category),
@@ -54,42 +40,46 @@ const FilmDataProvider = props => {
     return filmsOfSameGenre;
   };
 
-  const getFilm = slug => state.films.find(film => film.slug === slug);
-
   return (
-    <FilmValuesContext.Provider value={{ state, featuredGenres }}>
-      <FilmGetSetContext.Provider
-        value={{
-          dispatch,
-          getFilmsOfSameGenre,
-          getFilm,
-          getFeaturedGenreData,
-          getFeaturedGenreSlug,
-        }}
-      >
+    <NetStruckDataState.Provider
+      value={{
+        state,
+        featuredGenres,
+        getFilmsOfSameGenre,
+      }}
+    >
+      <NetStruckDataDispatcher.Provider value={dispatch}>
         {props.children}
-      </FilmGetSetContext.Provider>
-    </FilmValuesContext.Provider>
+      </NetStruckDataDispatcher.Provider>
+    </NetStruckDataState.Provider>
   );
 };
 
-function useFilmValues() {
-  const context = useContext(FilmValuesContext);
+function useNetStruckDataState() {
+  const context = useContext(NetStruckDataState);
   if (context === undefined) {
-    throw new Error('useFilmValues must be used within a FilmDataProvider');
+    throw new Error(
+      'useNetStruckDataState must be used within a NetStruckDataProvider',
+    );
   }
   return context;
 }
-function useFilmGetSet() {
-  const context = useContext(FilmGetSetContext);
+function useNetStruckDataDispatcher() {
+  const context = useContext(NetStruckDataDispatcher);
   if (context === undefined) {
-    throw new Error('useFilmGetSet must be used within a FilmDataProvider');
+    throw new Error(
+      'useNetStruckDataDispatcher must be used within a NetStruckDataProvider',
+    );
   }
   return context;
 }
 
-export { FilmDataProvider, useFilmValues, useFilmGetSet };
+export {
+  NetStruckDataProvider,
+  useNetStruckDataState,
+  useNetStruckDataDispatcher,
+};
 
-FilmDataProvider.propTypes = {
+NetStruckDataProvider.propTypes = {
   children: PropTypes.node.isRequired,
 };

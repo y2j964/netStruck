@@ -1,9 +1,9 @@
 import React from 'react';
 import ContentRow from './ContentRow';
-import { useFilmValues } from '../../context';
+import { useNetStruckDataState } from '../../context';
 
 export default function ContentRows() {
-  const { featuredGenres } = useFilmValues();
+  const { featuredGenres } = useNetStruckDataState();
 
   const rowFrags = featuredGenres.map(genre => (
     <ContentRow {...genre} key={genre.id} />

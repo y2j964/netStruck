@@ -1,9 +1,9 @@
 import React from 'react';
-import { useFilmGetSet } from '../../context';
+import { useNetStruckDataDispatcher } from '../../context';
 import Plus from '../../icons/Plus';
 
 export default function SearchFilterTrigger() {
-  const { dispatch } = useFilmGetSet();
+  const dispatch = useNetStruckDataDispatcher();
   const toggleSearchModal = () => dispatch({ type: 'TOGGLE_MODAL' });
 
   return (

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import TileGroups from './Tiles/TileGroups';
+import TileChunks from './Tiles/TileChunks';
 
 export default function SearchResults({ filteredFilms, inputValue }) {
   if (!inputValue || filteredFilms.length === 0) {
@@ -17,7 +17,7 @@ export default function SearchResults({ filteredFilms, inputValue }) {
       <h3 className='text-white text-center text-2xl uppercase font-bold light-gray mb-8'>
         {filteredFilms.length} Results
       </h3>
-      <TileGroups filmGroupData={filteredFilms} />
+      <TileChunks filmGroupData={filteredFilms} />
     </div>
   );
 }

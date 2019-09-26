@@ -3,13 +3,16 @@ import React, { useEffect, useRef } from 'react';
 import ReactDOM from 'react-dom';
 import FocusTrap from 'focus-trap-react';
 import { CSSTransition } from 'react-transition-group';
-import { useFilmValues, useFilmGetSet } from '../../context';
+import {
+  useNetStruckDataState,
+  useNetStruckDataDispatcher,
+} from '../../context';
 import Close from '../../icons/Close';
 
 export default function Modal({ children }) {
-  const { state } = useFilmValues();
+  const { state } = useNetStruckDataState();
   const { modalIsOpen } = state;
-  const { dispatch } = useFilmGetSet();
+  const dispatch = useNetStruckDataDispatcher();
   const closeRef = useRef();
 
   useEffect(() => {
@@ -33,7 +36,7 @@ export default function Modal({ children }) {
   return ReactDOM.createPortal(
     <CSSTransition
       in={modalIsOpen}
-      timeout={300}
+      timeout={1300}
       unmountOnExit
       classNames='modal'
     >

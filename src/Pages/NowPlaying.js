@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useFilmValues } from '../context';
+import { useNetStruckDataState } from '../context';
 import Spinner from '../icons/Spinner';
 import Carousel from '../components/Carousel/Carousel';
 import ContentRows from '../components/ContentRows/ContentRows';
@@ -9,7 +9,7 @@ export default function NowPlaying() {
     document.title = 'Now Playing - NetStruck';
   }, []);
 
-  const { state } = useFilmValues();
+  const { state } = useNetStruckDataState();
   const { isLoading } = state;
 
   return (

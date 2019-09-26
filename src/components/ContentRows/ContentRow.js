@@ -2,10 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import SliderRow from '../SliderRow/SliderRow';
-import { useFilmGetSet } from '../../context';
+import { useNetStruckDataState } from '../../context';
 
 function ContentRow({ name, slug }) {
-  const { getFilmsOfSameGenre } = useFilmGetSet();
+  const { getFilmsOfSameGenre } = useNetStruckDataState();
   const filmsOfSameGenre = getFilmsOfSameGenre(name);
 
   return (

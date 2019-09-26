@@ -1,11 +1,14 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
-import TileGroups from '../../components/Tiles/TileGroups';
-import { useFilmGetSet } from '../../context';
+import TileChunks from '../../components/Tiles/TileChunks';
+import { useNetStruckDataState } from '../../context';
 
 export default function SelectionGenre({ match }) {
   const { slug } = match.params;
-  const { getFeaturedGenreData, getFilmsOfSameGenre } = useFilmGetSet();
+  const { featuredGenres, getFilmsOfSameGenre } = useNetStruckDataState();
+
+  const getFeaturedGenreData = targetSlug =>
+    featuredGenres.find(featuredGenre => featuredGenre.slug === targetSlug);
 
   const genreData = getFeaturedGenreData(slug);
   const { name, description, poster } = genreData;
@@ -38,7 +41,7 @@ export default function SelectionGenre({ match }) {
         </div>
       </div>
       <div className='p-10 mb-10 max-w-80 mx-auto'>
-        <TileGroups filmGroupData={filmsOfSameGenre} />
+        <TileChunks filmGroupData={filmsOfSameGenre} />
       </div>
     </main>
   );

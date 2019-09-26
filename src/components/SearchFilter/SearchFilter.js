@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useFilmValues } from '../../context';
+import { useNetStruckDataState } from '../../context';
 import useDebounce from '../../utilityFunctions/useDebounce';
 import SearchResults from '../SearchResults';
 import SearchFilterInput from '../SearchFilterInput';
@@ -30,7 +30,7 @@ export default function SearchFilter() {
   const [inputValue, setInputValue] = useState();
   const [filteredFilms, setFilteredFilms] = useState([]);
 
-  const { state } = useFilmValues();
+  const { state } = useNetStruckDataState();
   const { films } = state;
 
   const debouncedInputValue = useDebounce(inputValue, 500);

@@ -147,7 +147,6 @@ const Tile = ({
             slug={slug}
             isAddedToMyList={isAddedToMyList}
             isHovered={isHovered}
-            handleMouseLeave={handleMouseLeave}
             tileIsUnmountedOnRemove={tileIsUnmountedOnRemove}
           />
           <Link

@@ -13,12 +13,12 @@ import MyList from './Pages/MyList/MyList';
 import Error404 from './Pages/Error404';
 import SearchFilter from './components/SearchFilter/SearchFilter';
 import Modal from './components/Modal/Modal';
-import { FilmDataProvider } from './context';
+import { NetStruckDataProvider } from './context';
 
 function App() {
   return (
     <Router>
-      <FilmDataProvider>
+      <NetStruckDataProvider>
         <Navbar />
         <Switch>
           <Route exact path='/' component={Home} />
@@ -33,7 +33,7 @@ function App() {
         <Modal>
           <SearchFilter />
         </Modal>
-      </FilmDataProvider>
+      </NetStruckDataProvider>
       <Footer />
     </Router>
   );
