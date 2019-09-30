@@ -6,6 +6,9 @@ import FilmTableViewOptions from '../../components/FilmTable/FilmTableViewOption
 import SelectCustom from '../../components/SelectCustom/SelectCustom';
 import options from './options';
 import Spinner from '../../icons/Spinner';
+import InfiniteScroller from '../../components/InfiniteScroller';
+
+const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
 
 // regex func from Thorsten Frommen
 const stripLeadingArticle = string => string.replace(/^(an?|the)\s/i, '');
@@ -57,13 +60,18 @@ const getSortCompareFunc = (sortCriterion, sortIsAscending) => {
   }
 };
 
+const postsPerPage = 12;
+
 export default function AllFilms() {
   const [sortBy, setSortBy] = useState('title');
   const [sortIsAscending, setSortIsAscending] = useState(true);
+  const [currentPage, setCurrentPage] = useState(1);
 
   useEffect(() => {
     document.title = 'All Films - NetStruck';
   }, []);
+
+  const loadMore = () => setCurrentPage(currentPage + 1);
 
   const { state } = useNetStruckDataState();
   // make a copy of films, so that we aren't mutating original order
@@ -73,6 +81,10 @@ export default function AllFilms() {
   const compareFunc = getSortCompareFunc(sortBy, sortIsAscending);
   filmData.sort(compareFunc);
   const filmDataLength = filmData.length;
+
+  const lastPostIndex = currentPage * postsPerPage;
+  const firstPostIndex = 0;
+  const currentPosts = filmData.slice(firstPostIndex, lastPostIndex);
 
   return (
     <main className='md:px-12 my-16'>
@@ -98,7 +110,9 @@ export default function AllFilms() {
         </div>
       ) : (
         <FilmTable>
-          <FilmRows filmData={filmData} />
+          <InfiniteScroller loadMore={loadMore} isTable>
+            <FilmRows filmData={currentPosts} />
+          </InfiniteScroller>
         </FilmTable>
       )}
     </main>

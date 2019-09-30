@@ -8546,6 +8546,13 @@ video {
     margin-bottom: 2rem;
   }
 
+.tile--is-empty {
+    padding: 0;
+    background-color:#0d0d0d;
+    border-left: 2px solid #151515;
+    border-right: 2px solid #151515;
+  }
+
 .tile:hover {
     /* & .toggle-to-MyList-btn {
       transform: scale(0.6667‬);

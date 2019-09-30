@@ -26,9 +26,12 @@ const getFilteredFilms = (dataSource, searchQuery) => {
   return updatedFilteredFilms;
 };
 
+const postsPerPage = 8;
+
 export default function SearchFilter() {
   const [inputValue, setInputValue] = useState();
   const [filteredFilms, setFilteredFilms] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
 
   const { state } = useNetStruckDataState();
   const { films } = state;
@@ -50,6 +53,15 @@ export default function SearchFilter() {
     setFilteredFilms(updatedFilteredFilms);
   };
 
+  const showMore = () => setCurrentPage(currentPage + 1);
+
+  const lastPostIndex = currentPage * postsPerPage;
+  const firstPostIndex = 0;
+  // I don't true pagination here. I want to append extra results onto the already existing results
+  // for pagination you would do something like:
+  // const firstPostIndex = lastPostIndex - postsPerPage;
+  const currentPosts = filteredFilms.slice(firstPostIndex, lastPostIndex);
+
   return (
     <React.Fragment>
       <form role='search' className='search-filter' onSubmit={handleSubmit}>
@@ -61,7 +73,12 @@ export default function SearchFilter() {
         </label>
         <SearchFilterInput handleChange={e => setInputValue(e.target.value)} />
       </form>
-      <SearchResults filteredFilms={filteredFilms} inputValue={inputValue} />
+      <SearchResults
+        filteredFilms={currentPosts}
+        totalResults={filteredFilms.length}
+        inputValue={inputValue}
+        showMore={showMore}
+      />
     </React.Fragment>
   );
 }

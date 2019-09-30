@@ -1,10 +1,12 @@
-import React, { useEffect, useReducer } from 'react';
+import React, { useEffect, useReducer, useRef } from 'react';
 import PropTypes from 'prop-types';
 import sliderRowReducer from './sliderRowReducer';
 import InfiniteTileGroup from '../Tiles/InfiniteTileGroup';
+import EmptyTileGroup from '../Tiles/EmptyTileGroup';
 import NextSlideTrigger from '../NextSlideTrigger';
 import PreviousSlideTrigger from '../PreviousSlideTrigger';
 import useWindowWidth from '../../utilityFunctions/useWindowWidth';
+import useIsIntersecting from '../../utilityFunctions/useIsIntersecting';
 import mediaBreakpoints from '../../mediaBreakpoints';
 
 const resizeSlider = (windowWidth, slidesPerPosition, callback) => {
@@ -81,8 +83,11 @@ export default function SliderRow({ filmGroupData }) {
     resizeSlider(windowWidth, state.slidesPerPosition, recalibrateSlider);
   }, [windowWidth, filmGroupData.length, state.slidesPerPosition]);
 
+  const ref = useRef();
+  const isIntersecting = useIsIntersecting(ref);
+
   return (
-    <div className='slider-row relative w-full h-full'>
+    <div className='slider-row relative w-full h-full' ref={ref}>
       <div className='slider-row__content-preview slider-row__content-preview--left'>
         <PreviousSlideTrigger
           handleClick={moveSliderBackward}
@@ -90,11 +95,16 @@ export default function SliderRow({ filmGroupData }) {
           ariaLabel='slide previous films into view'
         />
       </div>
-      <InfiniteTileGroup
-        filmGroupData={filmGroupData}
-        {...state}
-        wrapAround={wrapAround}
-      />
+      {!isIntersecting ? (
+        <EmptyTileGroup numOfTiles={8} />
+      ) : (
+        <InfiniteTileGroup
+          filmGroupData={filmGroupData}
+          {...state}
+          wrapAround={wrapAround}
+        />
+      )}
+
       <div className='slider-row__content-preview slider-row__content-preview--right'>
         <NextSlideTrigger
           handleClick={moveSliderForward}

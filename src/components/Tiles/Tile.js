@@ -1,6 +1,7 @@
 import React, { memo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+// import LazyImage from '../LazyImage';
 import ToggleToMyListBtn from '../ToggleToMyListBtn/ToggleToMyListBtn';
 
 const placementInViewportClassValues = {
@@ -60,7 +61,6 @@ const getTileClasses = (
 const Tile = ({
   title,
   year,
-  style,
   id,
   placementInViewport,
   ariaLabel,
@@ -107,7 +107,6 @@ const Tile = ({
 
   return (
     <li
-      style={style}
       className={`
         ${getTileClasses(
           rightEdgeIsHovered,

@@ -4,6 +4,7 @@ export default function Spinner() {
   return (
     <svg
       className='lds-spinner'
+      aria-label='loading'
       width='200px'
       height='200px'
       viewBox='0 0 100 100'

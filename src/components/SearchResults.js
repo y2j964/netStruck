@@ -1,9 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import TileChunks from './Tiles/TileChunks';
+import BtnPrimary from './BtnPrimary/BtnPrimary';
 
-export default function SearchResults({ filteredFilms, inputValue }) {
-  if (!inputValue || filteredFilms.length === 0) {
+export default function SearchResults({
+  filteredFilms,
+  inputValue,
+  showMore,
+  totalResults,
+}) {
+  if (!inputValue || totalResults === 0) {
     return (
       <div className='search-filter__results'>
         <p className='light-gray text-center font-bold'>
@@ -15,9 +21,14 @@ export default function SearchResults({ filteredFilms, inputValue }) {
   return (
     <div className='search-filter__results' aria-live='polite'>
       <h3 className='text-white text-center text-2xl uppercase font-bold light-gray mb-8'>
-        {filteredFilms.length} Results
+        {totalResults} Results
       </h3>
       <TileChunks filmGroupData={filteredFilms} />
+      <div className='text-center'>
+        <BtnPrimary handleClick={showMore} additionalClasses='mb-12'>
+          Show More
+        </BtnPrimary>
+      </div>
     </div>
   );
 }
