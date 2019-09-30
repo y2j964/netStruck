@@ -36,4 +36,6 @@ export default function SearchResults({
 SearchResults.propTypes = {
   filteredFilms: PropTypes.array,
   inputValue: PropTypes.string,
+  showMore: PropTypes.func,
+  totalResults: PropTypes.number,
 };

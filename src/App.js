@@ -13,28 +13,31 @@ import MyList from './Pages/MyList/MyList';
 import Error404 from './Pages/Error404';
 import SearchFilter from './components/SearchFilter/SearchFilter';
 import Modal from './components/Modal/Modal';
+import ScrollToTop from './components/ScrollToTop';
 import { NetStruckDataProvider } from './context';
 
 function App() {
   return (
     <Router>
-      <NetStruckDataProvider>
-        <Navbar />
-        <Switch>
-          <Route exact path='/' component={Home} />
-          <Route exact path='/now-playing' component={NowPlaying} />
-          <Route exact path='/now-playing/:slug' component={SelectionItem} />
-          <Route path='/now-playing/genre/:slug' component={SelectionGenre} />
-          <Route path='/all-films' component={AllFilms} />
-          <Route path='/my-list' component={MyList} />
-          <Route path='/signup' component={SignUp} />
-          <Route component={Error404} />
-        </Switch>
-        <Modal>
-          <SearchFilter />
-        </Modal>
-      </NetStruckDataProvider>
-      <Footer />
+      <ScrollToTop>
+        <NetStruckDataProvider>
+          <Navbar />
+          <Switch>
+            <Route exact path='/' component={Home} />
+            <Route exact path='/now-playing' component={NowPlaying} />
+            <Route exact path='/now-playing/:slug' component={SelectionItem} />
+            <Route path='/now-playing/genre/:slug' component={SelectionGenre} />
+            <Route path='/all-films' component={AllFilms} />
+            <Route path='/my-list' component={MyList} />
+            <Route path='/signup' component={SignUp} />
+            <Route component={Error404} />
+          </Switch>
+          <Modal>
+            <SearchFilter />
+          </Modal>
+        </NetStruckDataProvider>
+        <Footer />
+      </ScrollToTop>
     </Router>
   );
 }

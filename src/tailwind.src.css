@@ -44,7 +44,7 @@
 
 body {
   background-color: #151515;
-  transition: background-color 200ms linear;
+  transition: background-color 300ms linear;
 }
 
 #root {

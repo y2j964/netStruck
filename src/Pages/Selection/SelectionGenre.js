@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import TileChunks from '../../components/Tiles/TileChunks';
 import { useNetStruckDataState } from '../../context';
@@ -28,10 +29,9 @@ export default function SelectionGenre({ match }) {
             {description}
           </p>
           <div className='flex flex-wrap'>
-            {/* <button className='btn-primary mr-4 mb-4'>SIGN UP</button> */}
-            {/* <button className='btn-primary mr-4 mb-4' onClick={addAllToMyList}>
-              ADD ALL TO MYLIST
-            </button> */}
+            <Link to={'/signup'} className='btn-primary btn-primary--wider'>
+              SIGN UP
+            </Link>
           </div>
         </div>
         <div className='selection__poster'>
@@ -40,7 +40,8 @@ export default function SelectionGenre({ match }) {
           </div>
         </div>
       </div>
-      <div className='p-10 mb-10 max-w-80 mx-auto'>
+      {/* <div className='p-10 mb-10 mx-auto'> */}
+      <div className='px-4 md:px-10 mb-10'>
         <TileChunks filmGroupData={filmsOfSameGenre} />
       </div>
     </main>

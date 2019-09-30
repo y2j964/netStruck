@@ -8823,14 +8823,18 @@ video {
 .selection {
   display: flex;
   flex-direction: column;
-  padding-left: 2.5rem;
-  padding-right: 2.5rem;
-  padding-top: 2.5rem;
-  padding-bottom: 2.5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
   margin-bottom: 2.5rem;
 }
 
-@media (min-width: 500px) {
+/* @media (--sm) {
+    @apply px-8;
+  } */
+
+@media (min-width: 800px) {
 
 .selection {
     flex-direction: row;
@@ -8844,7 +8848,7 @@ video {
     order: 2;
   }
 
-@media (min-width: 500px) {
+@media (min-width: 800px) {
 
 .selection__info {
       width: 50%;
@@ -8860,11 +8864,20 @@ video {
     }
 
 .selection__poster {
-    width: 100%;
+    margin: 0 -1rem;
     order: 1;
   }
 
 @media (min-width: 500px) {
+
+.selection__poster {
+      margin-left: 0;
+
+      margin-right: 0
+  }
+    }
+
+@media (min-width: 800px) {
 
 .selection__poster {
       width: 50%;
@@ -8883,7 +8896,7 @@ video {
     margin-top: 0.75rem;
   }
 
-@media (min-width: 500px) {
+@media (min-width: 800px) {
 
 .selection__title {
       margin-top: 0
@@ -8911,10 +8924,10 @@ video {
   } */
 
 .selection__content {
-    width: 100%;
+    width: 50%;
   }
 
-@media (min-width: 500px) {
+@media (min-width: 800px) {
 
 .selection__content {
       width: 33.333333%
@@ -8923,7 +8936,7 @@ video {
 
 body {
   background-color: #151515;
-  transition: background-color 200ms linear;
+  transition: background-color 300ms linear;
 }
 
 #root {

@@ -8,7 +8,7 @@ export default function Play({ width, height, fill, additionalClasses }) {
       width={width || '12'}
       height={height || '12'}
       fill={fill || 'black'}
-      className={additionalClasses}
+      className={additionalClasses || ''}
       aria-hidden='true'
     >
       <path d='M6 4l20 12-20 12z'></path>

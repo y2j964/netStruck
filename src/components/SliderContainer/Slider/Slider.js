@@ -6,7 +6,7 @@ import useIsIntersecting from '../../../utilityFunctions/useIsIntersecting';
 const options = {
   root: null,
   rootMargin: '0px 0px 300px 0px',
-  threshold: 1.0,
+  threshold: 0.5,
 };
 
 export default function Slider({ sliderSwitches }) {

@@ -8,8 +8,6 @@ import options from './options';
 import Spinner from '../../icons/Spinner';
 import InfiniteScroller from '../../components/InfiniteScroller';
 
-const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
-
 // regex func from Thorsten Frommen
 const stripLeadingArticle = string => string.replace(/^(an?|the)\s/i, '');
 

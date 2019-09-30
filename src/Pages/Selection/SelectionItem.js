@@ -68,10 +68,7 @@ export default function SelectionItem({ match }) {
             {description}
           </p>
           <div className='flex flex-wrap'>
-            <BtnPrimary
-              additionalClasses={'mr-4 mb-4'}
-              handleClick={addToMyList}
-            >
+            <BtnPrimary additionalClasses='mr-4' handleClick={addToMyList}>
               {isAddedToMyList ? 'REMOVE FROM MYLIST' : 'ADD TO MYLIST'}
             </BtnPrimary>
           </div>
@@ -82,7 +79,7 @@ export default function SelectionItem({ match }) {
           </div>
         </div>
       </div>
-      <div className='p-10'>
+      <div className='px-4 md:px-10 mb-10'>
         <div className='selection__content'>
           <div className='ratio-16-9'>
             <img src={img} alt='' />

@@ -1,7 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export default function HamburgerToggle({ width, height, fill, additionalClasses }) {
+export default function HamburgerToggle({
+  width,
+  height,
+  fill,
+  additionalClasses,
+}) {
   return (
     <svg
       viewBox='0 0 20 20'
@@ -9,7 +14,7 @@ export default function HamburgerToggle({ width, height, fill, additionalClasses
       height={height || '20'}
       fill={fill || 'white'}
       aria-hidden='true'
-      className={additionalClasses}
+      className={additionalClasses || ''}
     >
       <path d='M0 3h20v2h-20v-2zM0 9h20v2h-20v-2zM0 15h20v2h-20v-2z'></path>
     </svg>

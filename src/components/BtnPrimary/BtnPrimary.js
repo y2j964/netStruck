@@ -8,7 +8,7 @@ export default function BtnPrimary({
 }) {
   return (
     <button
-      className={`btn-primary ${additionalClasses}`}
+      className={`btn-primary ${additionalClasses || ''}`}
       onClick={handleClick}
     >
       {children}
