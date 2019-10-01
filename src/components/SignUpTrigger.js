@@ -1,16 +1,17 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 export default function SignUpTrigger({ handleClick }) {
   return (
-    <Link
+    <NavLink
       to={'/signup'}
-      className='text-white mr-5 font-semibold block'
+      className='navbar__link mr-5'
+      activeClassName={'navbar__link--is-active'}
       onClick={handleClick}
     >
       SIGN UP
-    </Link>
+    </NavLink>
   );
 }
 

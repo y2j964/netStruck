@@ -7,7 +7,7 @@ export default function Hero() {
     <div className='relative hero'>
       <img
         src={onceUponATimeInAmerica2}
-        alt='kids skipping in between buildings that frame the Williamsburg Bridge in the film, Once Upon a Time in America'
+        alt=''
         className='absolutely-covered'
       />
       <div className='absolute top-0 bottom-0 left-0 right-0 flex justify-center items-center'>

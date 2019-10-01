@@ -6,7 +6,17 @@
   }
 
   &__link {
-    @apply text-white my-3 font-semibold block uppercase;
+    @apply my-3 block uppercase opacity-100;
+    color: #e5e5e5;
+    transition: opacity 300ms ease-in-out;
+
+    &--is-active {
+      @apply text-white font-bold;
+    }
+
+    &:hover {
+      @apply opacity-75;
+    }
 
     @media (--md) {
       @apply my-0 mr-8;

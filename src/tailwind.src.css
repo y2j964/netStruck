@@ -44,13 +44,32 @@
 
 body {
   background-color: #151515;
-  transition: background-color 300ms linear;
+  /* transition: background-color 300ms linear; */
 }
 
 #root {
   @apply flex flex-col min-h-screen;
 }
 
+.fade {
+  &-enter {
+    opacity: 0;
+  }
+
+  &-enter-active {
+    opacity: 1;
+    transition: opacity 200ms linear 100ms;
+  }
+
+  &-exit {
+    opacity: 1;
+  }
+
+  &-exit-active {
+    opacity: 0;
+    transition: opacity 200ms linear;
+  }
+}
 /* main and root styles to ensure that footer doesn't creep up the page
 in the event that there isn't much content within main */
 main {

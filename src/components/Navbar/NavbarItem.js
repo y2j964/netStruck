@@ -1,25 +1,32 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 export default function NavbarItem({ isHome, text, slug, handleClick }) {
   if (!isHome) {
     return (
       <li>
-        <Link
+        <NavLink
           to={`/${slug}`}
           className={'navbar__link collapsible-group__item'}
+          activeClassName={'navbar__link--is-active'}
           onClick={handleClick}
         >
           {text}
-        </Link>
+        </NavLink>
       </li>
     );
   }
   return (
-    <Link to={'/'} className={'navbar__link'} onClick={handleClick}>
+    <NavLink
+      to={'/'}
+      exact
+      className={'navbar__link'}
+      activeClassName={'navbar__link--is-active'}
+      onClick={handleClick}
+    >
       {text}
-    </Link>
+    </NavLink>
   );
 }
 

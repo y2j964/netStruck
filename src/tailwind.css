@@ -8080,13 +8080,23 @@ video {
   }
 
 .navbar__link {
-    color: #fff;
     margin-top: 0.75rem;
     margin-bottom: 0.75rem;
-    font-weight: 600;
     display: block;
     text-transform: uppercase;
+    opacity: 1;
+    color: #e5e5e5;
+    transition: opacity 300ms ease-in-out;
   }
+
+.navbar__link--is-active {
+      color: #fff;
+      font-weight: 700;
+    }
+
+.navbar__link:hover {
+      opacity: 0.75;
+    }
 
 @media (min-width: 800px) {
 
@@ -8936,7 +8946,7 @@ video {
 
 body {
   background-color: #151515;
-  transition: background-color 300ms linear;
+  /* transition: background-color 300ms linear; */
 }
 
 #root {
@@ -8944,6 +8954,24 @@ body {
   flex-direction: column;
   min-height: 100vh;
 }
+
+.fade-enter {
+    opacity: 0;
+  }
+
+.fade-enter-active {
+    opacity: 1;
+    transition: opacity 200ms linear 100ms;
+  }
+
+.fade-exit {
+    opacity: 1;
+  }
+
+.fade-exit-active {
+    opacity: 0;
+    transition: opacity 200ms linear;
+  }
 
 /* main and root styles to ensure that footer doesn't creep up the page
 in the event that there isn't much content within main */
