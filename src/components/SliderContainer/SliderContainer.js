@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 import uuid from 'uuid';
 import SliderSwitches from './SliderSwitches/SliderSwitches';
 import Slider from './Slider/Slider';
-import Play from '../../icons/Play';
+import PlayBox from '../../icons/PlayBox';
 import Eye from '../../icons/Eye';
 import Mobile from '../../icons/Mobile';
 
@@ -19,20 +19,14 @@ export default class SliderContainer extends Component {
           isActive: true,
           text: 'The movies you want',
           icon: (
-            <div className='w-24 h-sm flex justify-center items-center border-2 border-white'>
-              <Play
-                width='25'
-                height='25'
-                fill='#fff'
-              />
-            </div>
+                <PlayBox  fill='#fff' stroke='#fff' additionalClasses='slider-switch-content__PlayBox'/>
           ),
         },
         {
           id: uuid.v4(),
           isActive: false,
           text: 'Thematically presented',
-          icon: <Eye />,
+          icon: <Eye additionalClasses='slider-switch-content__Eye'/>,
         },
         {
           id: uuid.v4(),

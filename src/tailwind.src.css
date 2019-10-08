@@ -23,6 +23,7 @@
 @import 'components/SliderContainer/Slider/slide.css';
 @import 'components/SliderContainer/Slider/slider.css';
 @import 'components/SliderContainer/SliderSwitches/slider-switch.css';
+@import 'components/SliderContainer/SliderSwitches/slider-switch-content.css';
 @import 'components/SliderRow/slider-row.css';
 @import 'components/SortDirectionToggle/sort-direction-toggle.css';
 @import 'components/SubscriptionDetails/subscription-description.css';

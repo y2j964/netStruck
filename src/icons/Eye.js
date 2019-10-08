@@ -1,12 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export default function Eye({ width, height, fill }) {
+export default function Eye({ width, height, fill, additionalClasses }) {
   return (
     <svg
       viewBox='0 0 32 32'
       width={width || '48'}
       height={height || '55'}
+      className={additionalClasses || ''}
       aria-hidden='true'
     >
       <path

@@ -52,7 +52,7 @@
   &__img-block {
     @apply flex scrim w-full;
     height: calc(100% - 36px - 40px);
-    /* height: calc(100% - 90px - 40px); */
+    /* subtract out the height of the carousel-item__mobile-text-block and the carouselCoins */
 
     @media (--sm) {
       @apply h-full;

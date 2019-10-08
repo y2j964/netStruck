@@ -3,6 +3,7 @@
   /* @apply scrim mb-4 w-full relative; */
 
   padding-top: calc(56.25% + 36px + 40px);
+  /* add in the height of the carousel-item__mobile-text-block and the carouselCoins */
 
   &:hover .carousel__chevron,
   &:hover .carousel-coin {
