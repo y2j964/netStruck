@@ -5,11 +5,46 @@ import CarouselItems from './CarouselItems';
 import CarouselCoins from './CarouselCoins';
 import PreviousSlideTrigger from '../PreviousSlideTrigger';
 import NextSlideTrigger from '../NextSlideTrigger';
-import thereWillBeBlood from '../../images/thereWillBeBlood.jpg';
-import brokenEmbraces2 from '../../images/brokenEmbraces2.jpg';
-import mistressAmerica2 from '../../images/mistressAmerica2.jpg';
-import lastYearAtMarienbad2 from '../../images/lastYearAtMarienbad2.jpg';
-import masculinFeminin from '../../images/masculinFeminin.jpg';
+import thereWillBeBloodPosterWebp200 from '../../images/responsive/thereWillBeBloodPoster-200.webp';
+import thereWillBeBloodPosterWebp400 from '../../images/responsive/thereWillBeBloodPoster-400.webp';
+import thereWillBeBloodPosterWebp800 from '../../images/responsive/thereWillBeBloodPoster-800.webp';
+import thereWillBeBloodPosterWebp1200 from '../../images/responsive/thereWillBeBloodPoster-1200.webp';
+import thereWillBeBloodPosterJpg200 from '../../images/responsive/thereWillBeBloodPoster-200.jpg';
+import thereWillBeBloodPosterJpg400 from '../../images/responsive/thereWillBeBloodPoster-400.jpg';
+import thereWillBeBloodPosterJpg800 from '../../images/responsive/thereWillBeBloodPoster-800.jpg';
+import thereWillBeBloodPosterJpg1200 from '../../images/responsive/thereWillBeBloodPoster-1200.jpg';
+import brokenEmbracesPosterWebp200 from '../../images/responsive/brokenEmbracesPoster-200.webp';
+import brokenEmbracesPosterWebp400 from '../../images/responsive/brokenEmbracesPoster-400.webp';
+import brokenEmbracesPosterWebp800 from '../../images/responsive/brokenEmbracesPoster-800.webp';
+import brokenEmbracesPosterWebp1200 from '../../images/responsive/brokenEmbracesPoster-1200.webp';
+import brokenEmbracesPosterJpg200 from '../../images/responsive/brokenEmbracesPoster-200.jpg';
+import brokenEmbracesPosterJpg400 from '../../images/responsive/brokenEmbracesPoster-400.jpg';
+import brokenEmbracesPosterJpg800 from '../../images/responsive/brokenEmbracesPoster-800.jpg';
+import brokenEmbracesPosterJpg1200 from '../../images/responsive/brokenEmbracesPoster-1200.jpg';
+import mistressAmericaPosterWebp200 from '../../images/responsive/mistressAmericaPoster-200.webp';
+import mistressAmericaPosterWebp400 from '../../images/responsive/mistressAmericaPoster-400.webp';
+import mistressAmericaPosterWebp800 from '../../images/responsive/mistressAmericaPoster-800.webp';
+import mistressAmericaPosterWebp1200 from '../../images/responsive/mistressAmericaPoster-1200.webp';
+import mistressAmericaPosterJpg200 from '../../images/responsive/mistressAmericaPoster-200.jpg';
+import mistressAmericaPosterJpg400 from '../../images/responsive/mistressAmericaPoster-400.jpg';
+import mistressAmericaPosterJpg800 from '../../images/responsive/mistressAmericaPoster-800.jpg';
+import mistressAmericaPosterJpg1200 from '../../images/responsive/mistressAmericaPoster-1200.jpg';
+import lastYearAtMarienbadPosterWebp200 from '../../images/responsive/lastYearAtMarienbadPoster-200.webp';
+import lastYearAtMarienbadPosterWebp400 from '../../images/responsive/lastYearAtMarienbadPoster-400.webp';
+import lastYearAtMarienbadPosterWebp800 from '../../images/responsive/lastYearAtMarienbadPoster-800.webp';
+import lastYearAtMarienbadPosterWebp1200 from '../../images/responsive/lastYearAtMarienbadPoster-1200.webp';
+import lastYearAtMarienbadPosterJpg200 from '../../images/responsive/lastYearAtMarienbadPoster-200.jpg';
+import lastYearAtMarienbadPosterJpg400 from '../../images/responsive/lastYearAtMarienbadPoster-400.jpg';
+import lastYearAtMarienbadPosterJpg800 from '../../images/responsive/lastYearAtMarienbadPoster-800.jpg';
+import lastYearAtMarienbadPosterJpg1200 from '../../images/responsive/lastYearAtMarienbadPoster-1200.jpg';
+import masculinFemininPosterWebp200 from '../../images/responsive/masculinFemininPoster-200.webp';
+import masculinFemininPosterWebp400 from '../../images/responsive/masculinFemininPoster-400.webp';
+import masculinFemininPosterWebp800 from '../../images/responsive/masculinFemininPoster-800.webp';
+import masculinFemininPosterWebp1200 from '../../images/responsive/masculinFemininPoster-1200.webp';
+import masculinFemininPosterJpg200 from '../../images/responsive/masculinFemininPoster-200.jpg';
+import masculinFemininPosterJpg400 from '../../images/responsive/masculinFemininPoster-400.jpg';
+import masculinFemininPosterJpg800 from '../../images/responsive/masculinFemininPoster-800.jpg';
+import masculinFemininPosterJpg1200 from '../../images/responsive/masculinFemininPoster-1200.jpg';
 
 export default class Carousel extends Component {
   constructor(props) {
@@ -24,7 +59,16 @@ export default class Carousel extends Component {
           exitTo: '',
           title: 'There Will Be Blood',
           slug: 'there-will-be-blood',
-          img: thereWillBeBlood,
+          img: {
+            webp200: thereWillBeBloodPosterWebp200,
+            webp400: thereWillBeBloodPosterWebp400,
+            webp800: thereWillBeBloodPosterWebp800,
+            webp1200: thereWillBeBloodPosterWebp1200,
+            jpg200: thereWillBeBloodPosterJpg200,
+            jpg400: thereWillBeBloodPosterJpg400,
+            jpg800: thereWillBeBloodPosterJpg800,
+            jpg1200: thereWillBeBloodPosterJpg1200,
+          },
           description:
             "Paul Thomas Anderson's 2007 saga of an competitive oilman, featuring an Oscar award winning performance by Daniel Day-Lewis",
         },
@@ -35,7 +79,16 @@ export default class Carousel extends Component {
           exitTo: '',
           title: 'Masculin Féminin',
           slug: 'masculin-féminin',
-          img: masculinFeminin,
+          img: {
+            webp200: masculinFemininPosterWebp200,
+            webp400: masculinFemininPosterWebp400,
+            webp800: masculinFemininPosterWebp800,
+            webp1200: masculinFemininPosterWebp1200,
+            jpg200: masculinFemininPosterJpg200,
+            jpg400: masculinFemininPosterJpg400,
+            jpg800: masculinFemininPosterJpg800,
+            jpg1200: masculinFemininPosterJpg1200,
+          },
           description:
             'The "Pepsi Generation" is subject to subversive Godard wit and playful characterizations by Jean-Pierre Léaud and Chantal Goya in this 1966 French New Wave delight',
         },
@@ -46,7 +99,16 @@ export default class Carousel extends Component {
           exitTo: '',
           title: 'Broken Embraces',
           slug: 'broken-embraces',
-          img: brokenEmbraces2,
+          img: {
+            webp200: brokenEmbracesPosterWebp200,
+            webp400: brokenEmbracesPosterWebp400,
+            webp800: brokenEmbracesPosterWebp800,
+            webp1200: brokenEmbracesPosterWebp1200,
+            jpg200: brokenEmbracesPosterJpg200,
+            jpg400: brokenEmbracesPosterJpg400,
+            jpg800: brokenEmbracesPosterJpg800,
+            jpg1200: brokenEmbracesPosterJpg1200,
+          },
           description:
             'Telanovela meets Alfred Hitchcock in this Pedro Almodóvar masterpiece, starring Penélope Cruz',
         },
@@ -57,7 +119,16 @@ export default class Carousel extends Component {
           exitTo: '',
           title: 'Last Year at Marienbad',
           slug: 'last-year-at-marienbad',
-          img: lastYearAtMarienbad2,
+          img: {
+            webp200: lastYearAtMarienbadPosterWebp200,
+            webp400: lastYearAtMarienbadPosterWebp400,
+            webp800: lastYearAtMarienbadPosterWebp800,
+            webp1200: lastYearAtMarienbadPosterWebp1200,
+            jpg200: lastYearAtMarienbadPosterJpg200,
+            jpg400: lastYearAtMarienbadPosterJpg400,
+            jpg800: lastYearAtMarienbadPosterJpg800,
+            jpg1200: lastYearAtMarienbadPosterJpg1200,
+          },
           description:
             'Is it deja vu or is it something else entirely in this truly one of a kind film directed by Alain Resnais?',
         },
@@ -68,7 +139,16 @@ export default class Carousel extends Component {
           exitTo: '',
           title: 'Mistress America',
           slug: 'mistress-america',
-          img: mistressAmerica2,
+          img: {
+            webp200: mistressAmericaPosterWebp200,
+            webp400: mistressAmericaPosterWebp400,
+            webp800: mistressAmericaPosterWebp800,
+            webp1200: mistressAmericaPosterWebp1200,
+            jpg200: mistressAmericaPosterJpg200,
+            jpg400: mistressAmericaPosterJpg400,
+            jpg800: mistressAmericaPosterJpg800,
+            jpg1200: mistressAmericaPosterJpg1200,
+          },
           description:
             'Noah Baumbach serves up a modern screwball comedy classic in what marks his third collaboration with actress Greta Gerwig',
         },
@@ -195,3 +275,281 @@ export default class Carousel extends Component {
     );
   }
 }
+
+// /* eslint-disable no-param-reassign */
+// import React, { Component } from 'react';
+// import uuid from 'uuid';
+// import CarouselItems from './CarouselItems';
+// import CarouselCoins from './CarouselCoins';
+// import PreviousSlideTrigger from '../PreviousSlideTrigger';
+// import NextSlideTrigger from '../NextSlideTrigger';
+// import thereWillBeBloodPosterWebp200 from '../../images/responsive/thereWillBeBloodPoster-200.webp';
+// import thereWillBeBloodPosterWebp400 from '../../images/responsive/thereWillBeBloodPoster-400.webp';
+// import thereWillBeBloodPosterWebp800 from '../../images/responsive/thereWillBeBloodPoster-800.webp';
+// import thereWillBeBloodPosterWebp1200 from '../../images/responsive/thereWillBeBloodPoster-1200.webp';
+// import thereWillBeBloodPosterJpg200 from '../../images/responsive/thereWillBeBloodPoster-200.jpg';
+// import thereWillBeBloodPosterJpg400 from '../../images/responsive/thereWillBeBloodPoster-400.jpg';
+// import thereWillBeBloodPosterJpg800 from '../../images/responsive/thereWillBeBloodPoster-800.jpg';
+// import thereWillBeBloodPosterJpg1200 from '../../images/responsive/thereWillBeBloodPoster-1200.jpg';
+// import brokenEmbracesPosterWebp200 from '../../images/responsive/brokenEmbracesPoster-200.webp';
+// import brokenEmbracesPosterWebp400 from '../../images/responsive/brokenEmbracesPoster-400.webp';
+// import brokenEmbracesPosterWebp800 from '../../images/responsive/brokenEmbracesPoster-800.webp';
+// import brokenEmbracesPosterWebp1200 from '../../images/responsive/brokenEmbracesPoster-1200.webp';
+// import brokenEmbracesPosterJpg200 from '../../images/responsive/brokenEmbracesPoster-200.jpg';
+// import brokenEmbracesPosterJpg400 from '../../images/responsive/brokenEmbracesPoster-400.jpg';
+// import brokenEmbracesPosterJpg800 from '../../images/responsive/brokenEmbracesPoster-800.jpg';
+// import brokenEmbracesPosterJpg1200 from '../../images/responsive/brokenEmbracesPoster-1200.jpg';
+// import mistressAmericaPosterWebp200 from '../../images/responsive/mistressAmericaPoster-200.webp';
+// import mistressAmericaPosterWebp400 from '../../images/responsive/mistressAmericaPoster-400.webp';
+// import mistressAmericaPosterWebp800 from '../../images/responsive/mistressAmericaPoster-800.webp';
+// import mistressAmericaPosterWebp1200 from '../../images/responsive/mistressAmericaPoster-1200.webp';
+// import mistressAmericaPosterJpg200 from '../../images/responsive/mistressAmericaPoster-200.jpg';
+// import mistressAmericaPosterJpg400 from '../../images/responsive/mistressAmericaPoster-400.jpg';
+// import mistressAmericaPosterJpg800 from '../../images/responsive/mistressAmericaPoster-800.jpg';
+// import mistressAmericaPosterJpg1200 from '../../images/responsive/mistressAmericaPoster-1200.jpg';
+// import lastYearAtMarienbadPosterWebp200 from '../../images/responsive/lastYearAtMarienbadPoster-200.webp';
+// import lastYearAtMarienbadPosterWebp400 from '../../images/responsive/lastYearAtMarienbadPoster-400.webp';
+// import lastYearAtMarienbadPosterWebp800 from '../../images/responsive/lastYearAtMarienbadPoster-800.webp';
+// import lastYearAtMarienbadPosterWebp1200 from '../../images/responsive/lastYearAtMarienbadPoster-1200.webp';
+// import lastYearAtMarienbadPosterJpg200 from '../../images/responsive/lastYearAtMarienbadPoster-200.jpg';
+// import lastYearAtMarienbadPosterJpg400 from '../../images/responsive/lastYearAtMarienbadPoster-400.jpg';
+// import lastYearAtMarienbadPosterJpg800 from '../../images/responsive/lastYearAtMarienbadPoster-800.jpg';
+// import lastYearAtMarienbadPosterJpg1200 from '../../images/responsive/lastYearAtMarienbadPoster-1200.jpg';
+// import masculinFemininPosterWebp200 from '../../images/responsive/masculinFemininPoster-200.webp';
+// import masculinFemininPosterWebp400 from '../../images/responsive/masculinFemininPoster-400.webp';
+// import masculinFemininPosterWebp800 from '../../images/responsive/masculinFemininPoster-800.webp';
+// import masculinFemininPosterWebp1200 from '../../images/responsive/masculinFemininPoster-1200.webp';
+// import masculinFemininPosterJpg200 from '../../images/responsive/masculinFemininPoster-200.jpg';
+// import masculinFemininPosterJpg400 from '../../images/responsive/masculinFemininPoster-400.jpg';
+// import masculinFemininPosterJpg800 from '../../images/responsive/masculinFemininPoster-800.jpg';
+// import masculinFemininPosterJpg1200 from '../../images/responsive/masculinFemininPoster-1200.jpg';
+
+// export default class Carousel extends Component {
+//   constructor(props) {
+//     super(props);
+
+//     this.state = {
+//       filmData: [
+//         {
+//           id: uuid.v4(),
+//           isActive: true,
+//           enterFrom: '',
+//           exitTo: '',
+//           title: 'There Will Be Blood',
+//           slug: 'there-will-be-blood',
+//           img: {
+//             webp200: thereWillBeBloodPosterWebp200,
+//             webp400: thereWillBeBloodPosterWebp400,
+//             webp800: thereWillBeBloodPosterWebp800,
+//             webp1200: thereWillBeBloodPosterWebp1200,
+//             jpg200: thereWillBeBloodPosterJpg200,
+//             jpg400: thereWillBeBloodPosterJpg400,
+//             jpg800: thereWillBeBloodPosterJpg800,
+//             jpg1200: thereWillBeBloodPosterJpg1200,
+//           },
+//           description:
+//             "Paul Thomas Anderson's 2007 saga of an competitive oilman, featuring an Oscar award winning performance by Daniel Day-Lewis",
+//         },
+//         {
+//           id: uuid.v4(),
+//           isActive: false,
+//           enterFrom: '',
+//           exitTo: '',
+//           title: 'Masculin Féminin',
+//           slug: 'masculin-féminin',
+//           img: {
+//             webp200: masculinFemininPosterWebp200,
+//             webp400: masculinFemininPosterWebp400,
+//             webp800: masculinFemininPosterWebp800,
+//             webp1200: masculinFemininPosterWebp1200,
+//             jpg200: masculinFemininPosterJpg200,
+//             jpg400: masculinFemininPosterJpg400,
+//             jpg800: masculinFemininPosterJpg800,
+//             jpg1200: masculinFemininPosterJpg1200,
+//           },
+//           description:
+//             'The "Pepsi Generation" is subject to subversive Godard wit and playful characterizations by Jean-Pierre Léaud and Chantal Goya in this 1966 French New Wave delight',
+//         },
+//         {
+//           id: uuid.v4(),
+//           isActive: false,
+//           enterFrom: '',
+//           exitTo: '',
+//           title: 'Broken Embraces',
+//           slug: 'broken-embraces',
+//           img: {
+//             webp200: brokenEmbracesPosterWebp200,
+//             webp400: brokenEmbracesPosterWebp400,
+//             webp800: brokenEmbracesPosterWebp800,
+//             webp1200: brokenEmbracesPosterWebp1200,
+//             jpg200: brokenEmbracesPosterJpg200,
+//             jpg400: brokenEmbracesPosterJpg400,
+//             jpg800: brokenEmbracesPosterJpg800,
+//             jpg1200: brokenEmbracesPosterJpg1200,
+//           },
+//           description:
+//             'Telanovela meets Alfred Hitchcock in this Pedro Almodóvar masterpiece, starring Penélope Cruz',
+//         },
+//         {
+//           id: uuid.v4(),
+//           isActive: false,
+//           enterFrom: '',
+//           exitTo: '',
+//           title: 'Last Year at Marienbad',
+//           slug: 'last-year-at-marienbad',
+//           img: {
+//             webp200: lastYearAtMarienbadPosterWebp200,
+//             webp400: lastYearAtMarienbadPosterWebp400,
+//             webp800: lastYearAtMarienbadPosterWebp800,
+//             webp1200: lastYearAtMarienbadPosterWebp1200,
+//             jpg200: lastYearAtMarienbadPosterJpg200,
+//             jpg400: lastYearAtMarienbadPosterJpg400,
+//             jpg800: lastYearAtMarienbadPosterJpg800,
+//             jpg1200: lastYearAtMarienbadPosterJpg1200,
+//           },
+//           description:
+//             'Is it deja vu or is it something else entirely in this truly one of a kind film directed by Alain Resnais?',
+//         },
+//         {
+//           id: uuid.v4(),
+//           isActive: false,
+//           enterFrom: '',
+//           exitTo: '',
+//           title: 'Mistress America',
+//           slug: 'mistress-america',
+//           img: {
+//             webp200: mistressAmericaPosterWebp200,
+//             webp400: mistressAmericaPosterWebp400,
+//             webp800: mistressAmericaPosterWebp800,
+//             webp1200: mistressAmericaPosterWebp1200,
+//             jpg200: mistressAmericaPosterJpg200,
+//             jpg400: mistressAmericaPosterJpg400,
+//             jpg800: mistressAmericaPosterJpg800,
+//             jpg1200: mistressAmericaPosterJpg1200,
+//           },
+//           description:
+//             'Noah Baumbach serves up a modern screwball comedy classic in what marks his third collaboration with actress Greta Gerwig',
+//         },
+//       ],
+//     };
+//   }
+
+//   getActiveIndex = () =>
+//     this.state.filmData.findIndex(obj => obj.isActive === true);
+
+//   queueNextSlide = () => {
+//     const activeIndex = this.getActiveIndex();
+//     const incrementedActiveIndex =
+//       activeIndex === this.state.filmData.length - 1 ? 0 : activeIndex + 1;
+
+//     this.setState(prevState => {
+//       const updatedFilmData = prevState.filmData.map((entry, index) => {
+//         if (index === activeIndex) {
+//           entry.isActive = false;
+//           entry.enterFrom = '';
+//           entry.exitTo = 'left';
+//           return entry;
+//         }
+//         if (index === incrementedActiveIndex) {
+//           entry.isActive = true;
+//           entry.exitTo = '';
+//           entry.enterFrom = 'right';
+//           return entry;
+//         }
+//         return entry;
+//       });
+
+//       return { filmData: updatedFilmData };
+//     });
+//   };
+
+//   queuePrevSlide = () => {
+//     const activeIndex = this.getActiveIndex();
+//     const decrementedActiveIndex =
+//       activeIndex === 0 ? this.state.filmData.length - 1 : activeIndex - 1;
+
+//     this.setState(prevState => {
+//       const updatedFilmData = prevState.filmData.map((entry, index) => {
+//         if (index === activeIndex) {
+//           entry.isActive = false;
+//           entry.enterFrom = '';
+//           entry.exitTo = 'right';
+//           return entry;
+//         }
+//         if (index === decrementedActiveIndex) {
+//           entry.isActive = true;
+//           entry.exitTo = '';
+//           entry.enterFrom = 'left';
+//           return entry;
+//         }
+//         entry.enterFrom = '';
+//         entry.exitTo = '';
+//         return entry;
+//       });
+
+//       return { filmData: updatedFilmData };
+//     });
+//   };
+
+//   jumpToSlide = targetId => {
+//     this.setState(prevState => {
+//       const updatedFilmData = prevState.filmData.map(entry => {
+//         if (entry.id !== targetId) {
+//           entry.isActive = false;
+//           return entry;
+//         }
+//         entry.isActive = true;
+//         return entry;
+//       });
+
+//       return { filmData: updatedFilmData };
+//     });
+//   };
+
+//   triggerCarouselArrow = e => {
+//     const key = e.key || e.code;
+//     if (key !== 'ArrowLeft' && key !== 'ArrowRight') {
+//       return;
+//     }
+//     if (key === 'ArrowRight') {
+//       this.queueNextSlide();
+//     } else {
+//       this.queuePrevSlide();
+//     }
+//   };
+
+//   render() {
+//     return (
+//       // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
+//       <section
+//         className='carousel'
+//         aria-roledescription='carousel'
+//         tabIndex='-1'
+//         onKeyDown={this.triggerCarouselArrow}
+//       >
+//         <h2 className='sr-only'>Film Carousel Smorgasbord</h2>
+//         <div className='absolute top-0 bottom-0 left-0 flex items-center px-3 z-20'>
+//           <PreviousSlideTrigger
+//             handleClick={this.queuePrevSlide}
+//             classes='opacity-0 carousel__chevron'
+//             ariaLabel='display previous slide'
+//           />
+//         </div>
+//         <CarouselItems carouselItems={this.state.filmData} />
+//         <div className='absolute top-0 bottom-0 right-0 flex items-center px-3 z-20'>
+//           <NextSlideTrigger
+//             handleClick={this.queueNextSlide}
+//             classes='opacity-0 carousel__chevron'
+//             ariaLabel='display next slide'
+//           />
+//         </div>
+//         <div className='absolute left-0 bottom-0 w-full h-10 z-20'>
+//           <CarouselCoins
+//             films={this.state.filmData}
+//             jumpToSlide={this.jumpToSlide}
+//           />
+//         </div>
+//       </section>
+//     );
+//   }
+// }

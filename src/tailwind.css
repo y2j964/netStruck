@@ -7522,11 +7522,18 @@ video {
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
   background-color: #f7fafc;
-  font-size: 0.875rem;
+  font-size: 0.75rem;
   text-transform: uppercase;
 }
 
 /* @apply px-4 py-2 text-sm bg-gray-100 uppercase; */
+
+@media (min-width: 500px) {
+
+.btn-primary {
+    font-size: 0.875rem
+}
+  }
 
 .btn-primary--wider {
     padding-left: 1.5rem;
@@ -7534,26 +7541,12 @@ video {
   }
 
 .carousel {
-  background-image: linear-gradient(
-    to top,
-    hsl(0, 0%, 0%) 0%,
-    hsla(0, 0%, 0%, 0.738) 19%,
-    hsla(0, 0%, 0%, 0.541) 34%,
-    hsla(0, 0%, 0%, 0.382) 47%,
-    hsla(0, 0%, 0%, 0.278) 56.5%,
-    hsla(0, 0%, 0%, 0.194) 65%,
-    hsla(0, 0%, 0%, 0.126) 73%,
-    hsla(0, 0%, 0%, 0.075) 80.2%,
-    hsla(0, 0%, 0%, 0.042) 86.1%,
-    hsla(0, 0%, 0%, 0.021) 91%,
-    hsla(0, 0%, 0%, 0.008) 95.2%,
-    hsla(0, 0%, 0%, 0.002) 98.2%,
-    hsla(0, 0%, 0%, 0) 100%
-  );
   margin-bottom: 1rem;
   width: 100%;
   position: relative;
-  padding-top: 56.25%;
+  background-color: #000;
+  /* @apply scrim mb-4 w-full relative; */
+  padding-top: calc(56.25% + 36px + 40px);
 }
 
 .carousel:hover .carousel__chevron,
@@ -7592,9 +7585,9 @@ video {
 .carousel-item {
   position: absolute;
   top: 0;
-  bottom: 0;
   left: 0;
   right: 0;
+  bottom: 0;
   z-index: -1;
   opacity: 0;
   transition: all 800ms ease;
@@ -7606,6 +7599,7 @@ video {
   }
 
 .carousel-item__text-block {
+    display: none;
     position: absolute;
     left: 0;
     bottom: 10%;
@@ -7614,6 +7608,13 @@ video {
     padding-left: 40px;
   }
 
+@media (min-width: 500px) {
+
+.carousel-item__text-block {
+      display: block
+  }
+    }
+
 @media (min-width: 800px) {
 
 .carousel-item__text-block {
@@ -7621,11 +7622,46 @@ video {
   }
     }
 
+.carousel-item__mobile-text-block {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    text-align: center;
+    opacity: 0;
+    z-index: -1;
+    transition: all 800ms ease;
+    margin-bottom: 32px;
+  }
+
+/* margin-bottom: 50px; */
+
+@media(min-width: 500px) {
+
+.carousel-item__mobile-text-block {
+      display: none
+  }
+    }
+
+.carousel-item__mobile-text-block--is-active {
+      opacity: 1;
+    }
+
 .carousel-item__title {
     color: #fff;
-    font-size: 1.875rem;
+    font-size: 1.5rem;
     font-weight: 600;
+    margin-bottom: 0.75rem;
   }
+
+@media (min-width: 500px) {
+
+.carousel-item__title {
+      font-size: 1.875rem;
+
+      margin-bottom: 0
+  }
+    }
 
 .carousel-item__description {
     display: none;
@@ -7644,10 +7680,6 @@ video {
     }
 
 .carousel-item__img-block {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    right: 0;
     display: flex;
     background-image: linear-gradient(
     to top,
@@ -7665,12 +7697,31 @@ video {
     hsla(0, 0%, 0%, 0.002) 98.2%,
     hsla(0, 0%, 0%, 0) 100%
   );
+    width: 100%;
+    height: calc(100% - 36px - 40px);
   }
+
+/* height: calc(100% - 90px - 40px); */
 
 @media (min-width: 500px) {
 
 .carousel-item__img-block {
-      max-width: 32rem
+      height: 100%
+  }
+    }
+
+@media (min-width: 500px) {
+
+.carousel-item__img-block {
+      max-width: 32rem;
+
+      position: absolute;
+
+      top: 0;
+
+      bottom: 0;
+
+      right: 0
   }
     }
 
@@ -7703,6 +7754,8 @@ video {
     }
 
 .carousel-item__img {
+    height: 100%;
+    width: 100%;
     object-fit: cover;
     z-index: -1;
   }
@@ -7800,12 +7853,28 @@ video {
     font-weight: 700;
     color: #fff;
     margin-bottom: 0.5rem;
+    font-size: 0.875rem;
   }
+
+@media (min-width: 500px) {
+
+.content-row__title {
+      font-size: 1rem
+  }
+    }
 
 .content-row__see-more {
     color: #fff;
     height: 1.5rem;
+    font-size: 0.875rem;
   }
+
+@media (min-width: 500px) {
+
+.content-row__see-more {
+      font-size: 1rem
+  }
+    }
 
 .film-table {
   width: 100%;
@@ -7958,7 +8027,7 @@ video {
   }
 
 .hero {
-  padding-top: 265px;
+  padding-top: 117%;
 }
 
 @media (min-width: 500px) {
@@ -8946,7 +9015,7 @@ video {
 
 body {
   background-color: #151515;
-  /* transition: background-color 300ms linear; */
+  /* transition: background-color 200ms linear; */
 }
 
 #root {
@@ -9016,12 +9085,17 @@ main {
     right: 0;
     bottom: 0;
     display: block;
+    height: 100%;
     margin: auto;
   }
 
 .ratio-16-9--overflowed {
     overflow: visible;
   }
+
+.ratio-16-9--left-aligned img {
+      margin: auto 0;
+    }
 
 .ratio-2-1 {
   position: relative;
@@ -9274,6 +9348,16 @@ text-2xs {
     left: 0;
     content: '';
   }
+
+.a-pseudo-wrap--mb::after {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      content: '';
+      margin-bottom: 40px;
+    }
 
 .rotate-transition {
   transition: transform 300ms ease-in-out;

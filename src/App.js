@@ -30,6 +30,8 @@ function App() {
                   key={location.key}
                   timeout={300}
                   classNames='fade'
+                  mountOnEnter
+                  unmountOnExit
                 >
                   <Switch location={location}>
                     <Route exact path='/' component={Home} />

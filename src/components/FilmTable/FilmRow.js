@@ -13,8 +13,12 @@ export default function FilmRow({
   return (
     <tr className='film-table__row'>
       <td className='film-table__thumbnail'>
-        <div className='ratio-16-9'>
-          <img src={img} alt='' />
+        <div className='ratio-16-9 ratio-16-9--left-aligned'>
+          <picture>
+            <source srcSet={img.webp400} type='image/webp' />
+            <source srcSet={img.jpg400} />
+            <img src={img.jpg400} alt='' />
+          </picture>
         </div>
       </td>
       <td className='film-table__title'>

@@ -6,7 +6,29 @@ function Slide({ slide }) {
   return (
     <div className='slide'>
       <h2 className='sr-only'>{slide.heading}</h2>
-      <img src={slide.img} alt={slide.imgAlt} className='absolutely-covered' />
+      <picture>
+        <source
+          sizes='100vw'
+          srcSet={`${slide.img.webp200} 200w,
+          ${slide.img.webp400} 400w,
+          ${slide.img.webp800} 800w,
+          ${slide.img.webp1200} 1200w,
+          ${slide.img.webp1600} 1600w,
+          ${slide.img.webp1920} 1920w,`}
+          type='image/webp'
+        />
+        <source
+          sizes='100vw'
+          srcSet={`${slide.img.jpg200} 200w,
+          ${slide.img.jpg400} 400w,
+          ${slide.img.jpg800} 800w,
+          ${slide.img.jpg1200} 1200w,
+          ${slide.img.jpg1600} 1600w,
+          ${slide.img.jpg1920} 1920w,`}
+        />
+        <img src={slide.img.jpg800} alt='' className='absolutely-covered' />
+      </picture>
+      {/* <img src={slide.img} alt={slide.imgAlt} className='absolutely-covered' /> */}
       <div className='absolutely-centered'>
         <div className='slide__text-block'>
           <p className='slide__text'>{slide.text} </p>

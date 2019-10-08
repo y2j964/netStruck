@@ -29,7 +29,7 @@ ContentRow.propTypes = {
   name: PropTypes.string.isRequired,
   slug: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
-  poster: PropTypes.string.isRequired,
+  poster: PropTypes.object.isRequired,
 };
 
 // function areEqual(prevProps, nextProps) {

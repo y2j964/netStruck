@@ -6,10 +6,18 @@
     padding: 0 calc(4% + 3.2px);
   }
   &__title {
-    @apply font-bold text-white mb-2;
+    @apply font-bold text-white mb-2 text-sm;
+
+    @media (--sm) {
+      @apply text-base;
+    }
   }
 
   &__see-more {
-    @apply text-white h-6;
+    @apply text-white h-6 text-sm;
+
+    @media (--sm) {
+      @apply text-base;
+    }
   }
 }

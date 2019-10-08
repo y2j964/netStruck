@@ -8,7 +8,24 @@ function SlideCentered({ slide }) {
       <h2 className='sr-only'>{slide.heading}</h2>
       <div className='slide--centered__img-group'>
         <div className='ratio-2-1'>
-          <img src={slide.img} alt={slide.imgAlt} className='object-cover' />
+          <picture>
+            <source
+              sizes='100vw'
+              srcSet={`${slide.img.webp200} 200w,
+              ${slide.img.webp400} 400w,
+              ${slide.img.webp800} 800w,
+              ${slide.img.webp1200} 1200w,`}
+              type='image/webp'
+            />
+            <source
+              sizes='100vw'
+              srcSet={`${slide.img.jpg200} 200w,
+              ${slide.img.jpg400} 400w,
+              ${slide.img.jpg800} 800w,
+              ${slide.img.jpg1200} 1200w,`}
+            />
+            <img src={slide.img.jpg800} alt='' className='object-cover' />
+          </picture>
         </div>
       </div>
       <div className='slide--centered__text-group'>

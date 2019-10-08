@@ -75,14 +75,37 @@ export default function SelectionItem({ match }) {
         </div>
         <div className='selection__poster'>
           <div className='ratio-16-9'>
-            <img src={img} alt='' />
+            {/* <img src={img} alt='' /> */}
+            <picture>
+              <source
+                sizes='(min-width: 800px) calc(50vw - 0.5rem), 100vw'
+                srcSet={`${img.webp200} 200w,
+                  ${img.webp400} 400w,
+                  ${img.webp800} 800w,
+                  ${img.webp1200} 1200w`}
+                type='image/webp'
+              />
+              <source
+                sizes='(min-width: 800px) calc(50vw - 0.5rem), 100vw'
+                srcSet={`${img.jpg200} 200w,
+                  ${img.jpg400} 400w,
+                  ${img.jpg800} 800w,
+                  ${img.jpg1200} 1200w`}
+              />
+              <img src={img.jpg800} alt='' />
+            </picture>
           </div>
         </div>
       </div>
       <div className='px-4 md:px-10 mb-10'>
         <div className='selection__content'>
           <div className='ratio-16-9'>
-            <img src={img} alt='' />
+            {/* <img src={img} alt='' /> */}
+            <picture>
+              <source sizes='100vw' srcSet={img.webp400} type='image/webp' />
+              <source srcSet={img.jpg400} />
+              <img src={img.jpg400} alt='' />
+            </picture>
           </div>
         </div>
       </div>

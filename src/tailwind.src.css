@@ -44,7 +44,7 @@
 
 body {
   background-color: #151515;
-  /* transition: background-color 300ms linear; */
+  /* transition: background-color 200ms linear; */
 }
 
 #root {
@@ -111,10 +111,18 @@ main {
     right: 0;
     bottom: 0;
     display: block;
+    height: 100%;
     margin: auto;
   }
+
   &--overflowed {
     overflow: visible;
+  }
+
+  &--left-aligned {
+    img {
+    margin: auto 0;
+    }
   }
 }
 
@@ -339,6 +347,13 @@ text-2xs {
   &::after {
     @apply absolute top-0 bottom-0 right-0 left-0;
     content: '';
+  }
+  &--mb {
+    &::after {
+      @apply absolute top-0 bottom-0 right-0 left-0;
+      content: '';
+      margin-bottom: 40px;
+    }
   }
 }
 

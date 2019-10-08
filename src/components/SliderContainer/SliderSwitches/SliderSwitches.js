@@ -15,7 +15,7 @@ export default function SliderSwitches({ sliderSwitches, activateTab }) {
     </SliderSwitch>
   ));
   return (
-    <div className='pt-4 border-b border-gray-700'>
+    <div className='sm:pt-4 border-b border-gray-700'>
       <ol className='flex justify-center' aria-hidden='true'>
         {sliderSwitchFrags}
       </ol>

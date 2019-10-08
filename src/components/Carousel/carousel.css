@@ -1,7 +1,8 @@
 .carousel {
-  @apply scrim mb-4 w-full relative;
+  @apply mb-4 w-full relative bg-black;
+  /* @apply scrim mb-4 w-full relative; */
 
-  padding-top: 56.25%;
+  padding-top: calc(56.25% + 36px + 40px);
 
   &:hover .carousel__chevron,
   &:hover .carousel-coin {

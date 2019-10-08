@@ -36,7 +36,24 @@ export default function SelectionGenre({ match }) {
         </div>
         <div className='selection__poster'>
           <div className='ratio-16-9'>
-            <img src={poster} alt='' />
+            <picture>
+              <source
+                sizes='(min-width: 800px) calc(50vw - 0.5rem), 100vw'
+                srcSet={`${poster.webp200} 200w,
+                  ${poster.webp400} 400w,
+                  ${poster.webp800} 800w,
+                  ${poster.webp1200} 1200w`}
+                type='image/webp'
+              />
+              <source
+                sizes='(min-width: 800px) calc(50vw - 0.5rem), 100vw'
+                srcSet={`${poster.jpg200} 200w,
+                  ${poster.jpg400} 400w,
+                  ${poster.jpg800} 800w,
+                  ${poster.jpg1200} 1200w`}
+              />
+              <img src={poster.jpg800} alt='' />
+            </picture>
           </div>
         </div>
       </div>

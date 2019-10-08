@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 // import LazyImage from '../LazyImage';
 import ToggleToMyListBtn from '../ToggleToMyListBtn/ToggleToMyListBtn';
+import EmptyTile from './EmptyTile';
 
 const placementInViewportClassValues = {
   leftPreview: 'tile-group__item',
@@ -61,7 +62,6 @@ const getTileClasses = (
 const Tile = ({
   title,
   year,
-  id,
   placementInViewport,
   ariaLabel,
   slug,
@@ -74,7 +74,6 @@ const Tile = ({
   middleHoveredIndex,
   handleMiddleHoveredIndex,
   isAddedToMyList,
-  tileIsUnmountedOnRemove,
 }) => {
   const [isHovered, setIsHovered] = useState(false);
   // const [isFocused, setIsFocused] = useState(false);
@@ -105,65 +104,72 @@ const Tile = ({
     }
   };
 
-  return (
-    <li
-      className={`
-        ${getTileClasses(
-          rightEdgeIsHovered,
-          leftEdgeIsHovered,
-          middleHoveredIndex,
-          index,
-          placementInViewport,
-        )} tile`}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-      // eslint-disable-next-line no-unneeded-ternary
-      aria-hidden={
-        placementInViewport !== 'middle' &&
-        placementInViewport !== 'leftEdge' &&
-        placementInViewport !== 'rightEdge'
-      }
-      aria-label={ariaLabel}
-    >
-      <div className='z-neg ratio-16-9 ratio-16-9--overflowed'>
-        <img src={img} alt='' />
-        <Link
-          to={`/now-playing/${slug}`}
-          className=' absolute top-0 bottom-0 left-0 right-0'
-          tabIndex={`${
-            ['offscreen', 'leftPreview', 'rightPreview'].includes(
-              placementInViewport,
-            )
-              ? '-1'
-              : '0'
-          }`}
-          aria-label={title}
-        />
-        <div className='exploder flex flex-col items-center justify-around'>
-          <h3 className='tile__title'>{title}</h3>
-          <span className='tile__title'>{year}</span>
-          <ToggleToMyListBtn
-            slug={slug}
-            isAddedToMyList={isAddedToMyList}
-            isHovered={isHovered}
-            tileIsUnmountedOnRemove={tileIsUnmountedOnRemove}
-          />
+  if (img) {
+    return (
+      <li
+        className={`
+          ${getTileClasses(
+            rightEdgeIsHovered,
+            leftEdgeIsHovered,
+            middleHoveredIndex,
+            index,
+            placementInViewport,
+          )} tile`}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+        // eslint-disable-next-line no-unneeded-ternary
+        aria-hidden={
+          placementInViewport !== 'middle' &&
+          placementInViewport !== 'leftEdge' &&
+          placementInViewport !== 'rightEdge'
+        }
+        aria-label={ariaLabel}
+      >
+        <div className='z-neg ratio-16-9 ratio-16-9--overflowed'>
+          <picture>
+            <source srcSet={img.webp400} type='image/webp' />
+            <source srcSet={img.jpg400} />
+            <img src={img.jpg400} alt='' />
+          </picture>
           <Link
             to={`/now-playing/${slug}`}
-            className='absolute top-0 bottom-0 left-0 right-0'
-            tabIndex='-1'
+            className=' absolute top-0 bottom-0 left-0 right-0'
+            tabIndex={`${
+              ['offscreen', 'leftPreview', 'rightPreview'].includes(
+                placementInViewport,
+              )
+                ? '-1'
+                : '0'
+            }`}
             aria-label={title}
           />
+          <div className='exploder flex flex-col items-center justify-around'>
+            <h3 className='tile__title'>{title}</h3>
+            <span className='tile__title'>{year}</span>
+            <ToggleToMyListBtn
+              slug={slug}
+              isAddedToMyList={isAddedToMyList}
+              isHovered={isHovered}
+            />
+            <Link
+              to={`/now-playing/${slug}`}
+              className='absolute top-0 bottom-0 left-0 right-0'
+              tabIndex='-1'
+              aria-label={title}
+            />
+          </div>
         </div>
-      </div>
-    </li>
-  );
+      </li>
+    );
+  }
+  // if loading, just return nothing until it is done
+  return null;
 };
 
 Tile.propTypes = {
   title: PropTypes.string,
   year: PropTypes.number,
-  img: PropTypes.string,
+  img: PropTypes.object,
   id: PropTypes.string,
   placementInViewport: PropTypes.string,
   slug: PropTypes.string,
