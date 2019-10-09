@@ -24,4 +24,14 @@
   &:hover .slider-row__btn {
     opacity: 1;
   }
+
+  &__chevron {
+    height: 18px;
+    width: 18px;
+
+    @media(--sm) {
+      height: 25px;
+      width: 25px;
+    }
+  }
 }

@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import SliderRow from '../SliderRow/SliderRow';
+import RightArrow from '../../icons/RightArrow';
 
 import { useNetStruckDataState } from '../../context';
 
@@ -15,9 +16,16 @@ function ContentRow({ name, slug }) {
         <h2 className='content-row__title'>{name}</h2>
         <Link
           to={`now-playing/genre/${slug}`}
-          className='content-row__see-more'
+          className='content-row__see-more hidden sm:block'
         >
           See More
+        </Link>
+        <Link
+          to={`now-playing/genre/${slug}`}
+          className='flex items-center mb-2 sm:hidden'
+          aria-label='see all films in genre'
+        >
+          <RightArrow fill='#fff' height='21' width='15' />
         </Link>
       </div>
       <SliderRow filmGroupData={filmsOfSameGenre} />

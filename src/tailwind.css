@@ -8570,6 +8570,20 @@ video {
     opacity: 1;
   }
 
+.slider-row__chevron {
+    height: 18px;
+    width: 18px;
+  }
+
+@media(min-width: 500px) {
+
+.slider-row__chevron {
+      height: 25px;
+
+      width: 25px
+  }
+    }
+
 .sort-direction-toggle {
   background-color: transparent;
   display: flex;

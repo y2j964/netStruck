@@ -9,7 +9,7 @@ export default function PreviousSlideTrigger({
 }) {
   return (
     <button onClick={handleClick} className={classes} aria-label={ariaLabel}>
-      <ChevronLeft />
+      <ChevronLeft additionalClasses='slider-row__chevron'/>
     </button>
   );
 }

@@ -5,7 +5,7 @@ import ChevronRight from '../icons/ChevronRight';
 export default function NextSlideTrigger({ handleClick, classes, ariaLabel }) {
   return (
     <button onClick={handleClick} className={classes} aria-label={ariaLabel}>
-      <ChevronRight />
+      <ChevronRight additionalClasses='slider-row__chevron'/>
     </button>
   );
 }
