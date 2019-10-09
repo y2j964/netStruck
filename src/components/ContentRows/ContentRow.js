@@ -13,20 +13,9 @@ function ContentRow({ name, slug }) {
   return (
     <div className='content-row'>
       <div className='content-row__header'>
-        <h2 className='content-row__title'>{name}</h2>
-        <Link
-          to={`now-playing/genre/${slug}`}
-          className='content-row__see-more hidden sm:block'
-        >
-          See More
-        </Link>
-        <Link
-          to={`now-playing/genre/${slug}`}
-          className='flex items-center mb-2 sm:hidden'
-          aria-label='see all films in genre'
-        >
-          <RightArrow fill='#fff' height='21' width='15' />
-        </Link>
+        <h2 className='content-row__title'>
+          <Link to={`now-playing/genre/${slug}`}>{name}</Link>
+        </h2>
       </div>
       <SliderRow filmGroupData={filmsOfSameGenre} />
     </div>

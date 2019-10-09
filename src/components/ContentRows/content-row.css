@@ -2,11 +2,10 @@
   @apply mb-12;
 
   &__header {
-    @apply flex justify-between uppercase;
     padding: 0 calc(4% + 3.2px);
   }
   &__title {
-    @apply font-bold text-white mb-2 text-sm;
+    @apply font-bold text-white mb-2 uppercase text-sm underline;
 
     @media (--sm) {
       @apply text-base;

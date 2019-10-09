@@ -7845,9 +7845,6 @@ video {
 }
 
 .content-row__header {
-    display: flex;
-    justify-content: space-between;
-    text-transform: uppercase;
     padding: 0 calc(4% + 3.2px);
   }
 
@@ -7855,7 +7852,9 @@ video {
     font-weight: 700;
     color: #fff;
     margin-bottom: 0.5rem;
+    text-transform: uppercase;
     font-size: 0.875rem;
+    text-decoration: underline;
   }
 
 @media (min-width: 500px) {
