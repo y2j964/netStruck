@@ -9,17 +9,17 @@ gulp.task('responsiveImgs', () => {
         {
           '*.jpg': [
             {
-              width: 200,
+              width: 400,
               rename: {
-                suffix: '-200',
+                suffix: '-400',
                 extname: '.jpg',
               },
               format: 'jpg',
             },
             {
-              width: 400,
+              width: 640,
               rename: {
-                suffix: '-400',
+                suffix: '-640',
                 extname: '.jpg',
               },
               format: 'jpg',
@@ -33,9 +33,27 @@ gulp.task('responsiveImgs', () => {
               format: 'jpg',
             },
             {
+              width: 1024,
+              rename: {
+                suffix: '-1024',
+                extname: '.jpg',
+              },
+              format: 'jpg',
+            },
+            {
               width: 1200,
               rename: {
                 suffix: '-1200',
+                extname: '.jpg',
+              },
+              format: 'jpg',
+              // Do not enlarge the output image if the input image are already less than the required dimensions.
+              withoutEnlargement: true,
+            },
+            {
+              width: 1366,
+              rename: {
+                suffix: '-1366',
                 extname: '.jpg',
               },
               format: 'jpg',
@@ -63,17 +81,16 @@ gulp.task('responsiveImgs', () => {
               withoutEnlargement: true,
             },
             {
-              width: 200,
-              rename: {
-                suffix: '-200',
-                extname: '.webp',
-              },
-              format: 'webp',
-            },
-            {
               width: 400,
               rename: {
                 suffix: '-400',
+                extname: '.webp',
+              },
+            },
+            {
+              width: 640,
+              rename: {
+                suffix: '-640',
                 extname: '.webp',
               },
             },
@@ -85,9 +102,25 @@ gulp.task('responsiveImgs', () => {
               },
             },
             {
+              width: 1024,
+              rename: {
+                suffix: '-1024',
+                extname: '.webp',
+              },
+            },
+            {
               width: 1200,
               rename: {
                 suffix: '-1200',
+                extname: '.webp',
+              },
+              // Do not enlarge the output image if the input image are already less than the required dimensions.
+              withoutEnlargement: true,
+            },
+            {
+              width: 1366,
+              rename: {
+                suffix: '-1366',
                 extname: '.webp',
               },
               // Do not enlarge the output image if the input image are already less than the required dimensions.

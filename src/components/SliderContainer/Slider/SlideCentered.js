@@ -10,19 +10,21 @@ function SlideCentered({ slide }) {
         <div className='ratio-2-1'>
           <picture>
             <source
-              sizes='100vw'
-              srcSet={`${slide.img.webp200} 200w,
-              ${slide.img.webp400} 400w,
-              ${slide.img.webp800} 800w,
-              ${slide.img.webp1200} 1200w,`}
+              sizes='(min-width: 800px) calc(50vw - 1em), 100vw'
+              srcSet={`${slide.img.webp400} 400w,
+				  ${slide.img.webp640} 640w,
+				  ${slide.img.webp800} 800w,
+				  ${slide.img.webp1024} 1024w,
+				  ${slide.img.webp1200} 1200w,`}
               type='image/webp'
             />
             <source
-              sizes='100vw'
-              srcSet={`${slide.img.jpg200} 200w,
-              ${slide.img.jpg400} 400w,
-              ${slide.img.jpg800} 800w,
-              ${slide.img.jpg1200} 1200w,`}
+              sizes='(min-width: 800px) calc(50vw - 1em), 100vw'
+              srcSet={`${slide.img.webp400} 400w,
+				  ${slide.img.jpg640} 640w,
+				  ${slide.img.jpg800} 800w,
+				  ${slide.img.jpg1024} 1024w,
+				  ${slide.img.jpg1200} 1200w,`}
             />
             <img src={slide.img.jpg800} alt='' className='object-cover' />
           </picture>

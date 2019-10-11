@@ -9,22 +9,26 @@ function Slide({ slide }) {
       <picture>
         <source
           sizes='100vw'
-          srcSet={`${slide.img.webp200} 200w,
-          ${slide.img.webp400} 400w,
-          ${slide.img.webp800} 800w,
-          ${slide.img.webp1200} 1200w,
-          ${slide.img.webp1600} 1600w,
-          ${slide.img.webp1920} 1920w,`}
+          srcSet={`${slide.img.webp400} 400w,
+				  ${slide.img.webp640} 640w,
+				  ${slide.img.webp800} 800w,
+				  ${slide.img.webp1024} 1024w,
+				  ${slide.img.webp1200} 1200w,
+				  ${slide.img.webp1366} 1366w,
+				  ${slide.img.webp1600} 1600w,
+				  ${slide.img.webp1920} 1920w`}
           type='image/webp'
         />
         <source
           sizes='100vw'
-          srcSet={`${slide.img.jpg200} 200w,
-          ${slide.img.jpg400} 400w,
-          ${slide.img.jpg800} 800w,
-          ${slide.img.jpg1200} 1200w,
-          ${slide.img.jpg1600} 1600w,
-          ${slide.img.jpg1920} 1920w,`}
+          srcSet={`${slide.img.jpg400} 400w,
+				  ${slide.img.jpg640} 640w,
+				  ${slide.img.jpg800} 800w,
+				  ${slide.img.jpg1024} 1024w,
+				  ${slide.img.jpg1200} 1200w,
+				  ${slide.img.jpg1366} 1366w,
+				  ${slide.img.jpg1600} 1600w,
+				  ${slide.img.jpg1920} 1920w`}
         />
         <img src={slide.img.jpg800} alt='' className='absolutely-covered' />
       </picture>

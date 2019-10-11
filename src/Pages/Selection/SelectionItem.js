@@ -79,18 +79,20 @@ export default function SelectionItem({ match }) {
             <picture>
               <source
                 sizes='(min-width: 800px) calc(50vw - 0.5rem), 100vw'
-                srcSet={`${img.webp200} 200w,
-                  ${img.webp400} 400w,
-                  ${img.webp800} 800w,
-                  ${img.webp1200} 1200w`}
+                srcSet={`${img.webp400} 400w,
+				  ${img.webp640} 640w,
+				  ${img.webp800} 800w,
+				  ${img.webp1024} 1024w,
+				  ${img.webp1200} 1200w,`}
                 type='image/webp'
               />
               <source
                 sizes='(min-width: 800px) calc(50vw - 0.5rem), 100vw'
-                srcSet={`${img.jpg200} 200w,
-                  ${img.jpg400} 400w,
-                  ${img.jpg800} 800w,
-                  ${img.jpg1200} 1200w`}
+                srcSet={`${img.jpg400} 400w,
+				  ${img.jpg640} 640w,
+				  ${img.jpg800} 800w,
+				  ${img.jpg1024} 1024w,
+				  ${img.jpg1200} 1200w,`}
               />
               <img src={img.jpg800} alt='' />
             </picture>

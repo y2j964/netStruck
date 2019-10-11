@@ -5,44 +5,49 @@ import CarouselItems from './CarouselItems';
 import CarouselCoins from './CarouselCoins';
 import PreviousSlideTrigger from '../PreviousSlideTrigger';
 import NextSlideTrigger from '../NextSlideTrigger';
-import thereWillBeBloodPosterWebp200 from '../../images/responsive/thereWillBeBloodPoster-200.webp';
 import thereWillBeBloodPosterWebp400 from '../../images/responsive/thereWillBeBloodPoster-400.webp';
+import thereWillBeBloodPosterWebp640 from '../../images/responsive/thereWillBeBloodPoster-640.webp';
 import thereWillBeBloodPosterWebp800 from '../../images/responsive/thereWillBeBloodPoster-800.webp';
+import thereWillBeBloodPosterWebp1024 from '../../images/responsive/thereWillBeBloodPoster-1024.webp';
 import thereWillBeBloodPosterWebp1200 from '../../images/responsive/thereWillBeBloodPoster-1200.webp';
-import thereWillBeBloodPosterJpg200 from '../../images/responsive/thereWillBeBloodPoster-200.jpg';
 import thereWillBeBloodPosterJpg400 from '../../images/responsive/thereWillBeBloodPoster-400.jpg';
+import thereWillBeBloodPosterJpg640 from '../../images/responsive/thereWillBeBloodPoster-640.jpg';
 import thereWillBeBloodPosterJpg800 from '../../images/responsive/thereWillBeBloodPoster-800.jpg';
 import thereWillBeBloodPosterJpg1200 from '../../images/responsive/thereWillBeBloodPoster-1200.jpg';
-import brokenEmbracesPosterWebp200 from '../../images/responsive/brokenEmbracesPoster-200.webp';
 import brokenEmbracesPosterWebp400 from '../../images/responsive/brokenEmbracesPoster-400.webp';
+import brokenEmbracesPosterWebp640 from '../../images/responsive/brokenEmbracesPoster-640.webp';
 import brokenEmbracesPosterWebp800 from '../../images/responsive/brokenEmbracesPoster-800.webp';
+import brokenEmbracesPosterWebp1024 from '../../images/responsive/brokenEmbracesPoster-1024.webp';
 import brokenEmbracesPosterWebp1200 from '../../images/responsive/brokenEmbracesPoster-1200.webp';
-import brokenEmbracesPosterJpg200 from '../../images/responsive/brokenEmbracesPoster-200.jpg';
 import brokenEmbracesPosterJpg400 from '../../images/responsive/brokenEmbracesPoster-400.jpg';
+import brokenEmbracesPosterJpg640 from '../../images/responsive/brokenEmbracesPoster-640.jpg';
 import brokenEmbracesPosterJpg800 from '../../images/responsive/brokenEmbracesPoster-800.jpg';
 import brokenEmbracesPosterJpg1200 from '../../images/responsive/brokenEmbracesPoster-1200.jpg';
-import mistressAmericaPosterWebp200 from '../../images/responsive/mistressAmericaPoster-200.webp';
 import mistressAmericaPosterWebp400 from '../../images/responsive/mistressAmericaPoster-400.webp';
+import mistressAmericaPosterWebp640 from '../../images/responsive/mistressAmericaPoster-640.webp';
 import mistressAmericaPosterWebp800 from '../../images/responsive/mistressAmericaPoster-800.webp';
+import mistressAmericaPosterWebp1024 from '../../images/responsive/mistressAmericaPoster-1024.webp';
 import mistressAmericaPosterWebp1200 from '../../images/responsive/mistressAmericaPoster-1200.webp';
-import mistressAmericaPosterJpg200 from '../../images/responsive/mistressAmericaPoster-200.jpg';
 import mistressAmericaPosterJpg400 from '../../images/responsive/mistressAmericaPoster-400.jpg';
+import mistressAmericaPosterJpg640 from '../../images/responsive/mistressAmericaPoster-640.jpg';
 import mistressAmericaPosterJpg800 from '../../images/responsive/mistressAmericaPoster-800.jpg';
 import mistressAmericaPosterJpg1200 from '../../images/responsive/mistressAmericaPoster-1200.jpg';
-import lastYearAtMarienbadPosterWebp200 from '../../images/responsive/lastYearAtMarienbadPoster-200.webp';
 import lastYearAtMarienbadPosterWebp400 from '../../images/responsive/lastYearAtMarienbadPoster-400.webp';
+import lastYearAtMarienbadPosterWebp640 from '../../images/responsive/lastYearAtMarienbadPoster-640.webp';
 import lastYearAtMarienbadPosterWebp800 from '../../images/responsive/lastYearAtMarienbadPoster-800.webp';
+import lastYearAtMarienbadPosterWebp1024 from '../../images/responsive/lastYearAtMarienbadPoster-1024.webp';
 import lastYearAtMarienbadPosterWebp1200 from '../../images/responsive/lastYearAtMarienbadPoster-1200.webp';
-import lastYearAtMarienbadPosterJpg200 from '../../images/responsive/lastYearAtMarienbadPoster-200.jpg';
 import lastYearAtMarienbadPosterJpg400 from '../../images/responsive/lastYearAtMarienbadPoster-400.jpg';
+import lastYearAtMarienbadPosterJpg640 from '../../images/responsive/lastYearAtMarienbadPoster-640.jpg';
 import lastYearAtMarienbadPosterJpg800 from '../../images/responsive/lastYearAtMarienbadPoster-800.jpg';
 import lastYearAtMarienbadPosterJpg1200 from '../../images/responsive/lastYearAtMarienbadPoster-1200.jpg';
-import masculinFemininPosterWebp200 from '../../images/responsive/masculinFemininPoster-200.webp';
 import masculinFemininPosterWebp400 from '../../images/responsive/masculinFemininPoster-400.webp';
+import masculinFemininPosterWebp640 from '../../images/responsive/masculinFemininPoster-640.webp';
 import masculinFemininPosterWebp800 from '../../images/responsive/masculinFemininPoster-800.webp';
+import masculinFemininPosterWebp1024 from '../../images/responsive/masculinFemininPoster-1024.webp';
 import masculinFemininPosterWebp1200 from '../../images/responsive/masculinFemininPoster-1200.webp';
-import masculinFemininPosterJpg200 from '../../images/responsive/masculinFemininPoster-200.jpg';
 import masculinFemininPosterJpg400 from '../../images/responsive/masculinFemininPoster-400.jpg';
+import masculinFemininPosterJpg640 from '../../images/responsive/masculinFemininPoster-640.jpg';
 import masculinFemininPosterJpg800 from '../../images/responsive/masculinFemininPoster-800.jpg';
 import masculinFemininPosterJpg1200 from '../../images/responsive/masculinFemininPoster-1200.jpg';
 
@@ -60,12 +65,13 @@ export default class Carousel extends Component {
           title: 'There Will Be Blood',
           slug: 'there-will-be-blood',
           img: {
-            webp200: thereWillBeBloodPosterWebp200,
             webp400: thereWillBeBloodPosterWebp400,
+            webp640: thereWillBeBloodPosterWebp640,
             webp800: thereWillBeBloodPosterWebp800,
+            webp1024: thereWillBeBloodPosterWebp1024,
             webp1200: thereWillBeBloodPosterWebp1200,
-            jpg200: thereWillBeBloodPosterJpg200,
             jpg400: thereWillBeBloodPosterJpg400,
+            jpg640: thereWillBeBloodPosterJpg640,
             jpg800: thereWillBeBloodPosterJpg800,
             jpg1200: thereWillBeBloodPosterJpg1200,
           },
@@ -80,12 +86,13 @@ export default class Carousel extends Component {
           title: 'Masculin Féminin',
           slug: 'masculin-féminin',
           img: {
-            webp200: masculinFemininPosterWebp200,
             webp400: masculinFemininPosterWebp400,
+            webp640: masculinFemininPosterWebp640,
             webp800: masculinFemininPosterWebp800,
+            webp1024: masculinFemininPosterWebp1024,
             webp1200: masculinFemininPosterWebp1200,
-            jpg200: masculinFemininPosterJpg200,
             jpg400: masculinFemininPosterJpg400,
+            jpg640: masculinFemininPosterJpg640,
             jpg800: masculinFemininPosterJpg800,
             jpg1200: masculinFemininPosterJpg1200,
           },
@@ -100,12 +107,13 @@ export default class Carousel extends Component {
           title: 'Broken Embraces',
           slug: 'broken-embraces',
           img: {
-            webp200: brokenEmbracesPosterWebp200,
             webp400: brokenEmbracesPosterWebp400,
+            webp640: brokenEmbracesPosterWebp640,
             webp800: brokenEmbracesPosterWebp800,
+            webp1024: brokenEmbracesPosterWebp1024,
             webp1200: brokenEmbracesPosterWebp1200,
-            jpg200: brokenEmbracesPosterJpg200,
             jpg400: brokenEmbracesPosterJpg400,
+            jpg640: brokenEmbracesPosterJpg640,
             jpg800: brokenEmbracesPosterJpg800,
             jpg1200: brokenEmbracesPosterJpg1200,
           },
@@ -120,12 +128,13 @@ export default class Carousel extends Component {
           title: 'Last Year at Marienbad',
           slug: 'last-year-at-marienbad',
           img: {
-            webp200: lastYearAtMarienbadPosterWebp200,
             webp400: lastYearAtMarienbadPosterWebp400,
+            webp640: lastYearAtMarienbadPosterWebp640,
             webp800: lastYearAtMarienbadPosterWebp800,
+            webp1024: lastYearAtMarienbadPosterWebp1024,
             webp1200: lastYearAtMarienbadPosterWebp1200,
-            jpg200: lastYearAtMarienbadPosterJpg200,
             jpg400: lastYearAtMarienbadPosterJpg400,
+            jpg640: lastYearAtMarienbadPosterJpg640,
             jpg800: lastYearAtMarienbadPosterJpg800,
             jpg1200: lastYearAtMarienbadPosterJpg1200,
           },
@@ -140,12 +149,13 @@ export default class Carousel extends Component {
           title: 'Mistress America',
           slug: 'mistress-america',
           img: {
-            webp200: mistressAmericaPosterWebp200,
             webp400: mistressAmericaPosterWebp400,
+            webp640: mistressAmericaPosterWebp640,
             webp800: mistressAmericaPosterWebp800,
+            webp1024: mistressAmericaPosterWebp1024,
             webp1200: mistressAmericaPosterWebp1200,
-            jpg200: mistressAmericaPosterJpg200,
             jpg400: mistressAmericaPosterJpg400,
+            jpg640: mistressAmericaPosterJpg640,
             jpg800: mistressAmericaPosterJpg800,
             jpg1200: mistressAmericaPosterJpg1200,
           },
@@ -283,44 +293,46 @@ export default class Carousel extends Component {
 // import CarouselCoins from './CarouselCoins';
 // import PreviousSlideTrigger from '../PreviousSlideTrigger';
 // import NextSlideTrigger from '../NextSlideTrigger';
-// import thereWillBeBloodPosterWebp200 from '../../images/responsive/thereWillBeBloodPoster-200.webp';
 // import thereWillBeBloodPosterWebp400 from '../../images/responsive/thereWillBeBloodPoster-400.webp';
+// import thereWillBeBloodPosterWebp640 from '../../images/responsive/thereWillBeBloodPoster-640.webp';
 // import thereWillBeBloodPosterWebp800 from '../../images/responsive/thereWillBeBloodPoster-800.webp';
+// import thereWillBeBloodPosterWebp1024 from '../../images/responsive/thereWillBeBloodPoster-1200.webp';
 // import thereWillBeBloodPosterWebp1200 from '../../images/responsive/thereWillBeBloodPoster-1200.webp';
-// import thereWillBeBloodPosterJpg200 from '../../images/responsive/thereWillBeBloodPoster-200.jpg';
 // import thereWillBeBloodPosterJpg400 from '../../images/responsive/thereWillBeBloodPoster-400.jpg';
+// import thereWillBeBloodPosterJpg200 from '../../images/responsive/thereWillBeBloodPoster-640.jpg';
 // import thereWillBeBloodPosterJpg800 from '../../images/responsive/thereWillBeBloodPoster-800.jpg';
 // import thereWillBeBloodPosterJpg1200 from '../../images/responsive/thereWillBeBloodPoster-1200.jpg';
-// import brokenEmbracesPosterWebp200 from '../../images/responsive/brokenEmbracesPoster-200.webp';
 // import brokenEmbracesPosterWebp400 from '../../images/responsive/brokenEmbracesPoster-400.webp';
+// import brokenEmbracesPosterWebp640 from '../../images/responsive/brokenEmbracesPoster-640.webp';
 // import brokenEmbracesPosterWebp800 from '../../images/responsive/brokenEmbracesPoster-800.webp';
+// import brokenEmbracesPosterWebp1024 from '../../images/responsive/brokenEmbracesPoster-1200.webp';
 // import brokenEmbracesPosterWebp1200 from '../../images/responsive/brokenEmbracesPoster-1200.webp';
-// import brokenEmbracesPosterJpg200 from '../../images/responsive/brokenEmbracesPoster-200.jpg';
 // import brokenEmbracesPosterJpg400 from '../../images/responsive/brokenEmbracesPoster-400.jpg';
+// import brokenEmbracesPosterJpg200 from '../../images/responsive/brokenEmbracesPoster-640.jpg';
 // import brokenEmbracesPosterJpg800 from '../../images/responsive/brokenEmbracesPoster-800.jpg';
 // import brokenEmbracesPosterJpg1200 from '../../images/responsive/brokenEmbracesPoster-1200.jpg';
-// import mistressAmericaPosterWebp200 from '../../images/responsive/mistressAmericaPoster-200.webp';
 // import mistressAmericaPosterWebp400 from '../../images/responsive/mistressAmericaPoster-400.webp';
+// import mistressAmericaPosterWebp640 from '../../images/responsive/mistressAmericaPoster-640.webp';
 // import mistressAmericaPosterWebp800 from '../../images/responsive/mistressAmericaPoster-800.webp';
 // import mistressAmericaPosterWebp1200 from '../../images/responsive/mistressAmericaPoster-1200.webp';
-// import mistressAmericaPosterJpg200 from '../../images/responsive/mistressAmericaPoster-200.jpg';
 // import mistressAmericaPosterJpg400 from '../../images/responsive/mistressAmericaPoster-400.jpg';
+// import mistressAmericaPosterJpg200 from '../../images/responsive/mistressAmericaPoster-640.jpg';
 // import mistressAmericaPosterJpg800 from '../../images/responsive/mistressAmericaPoster-800.jpg';
 // import mistressAmericaPosterJpg1200 from '../../images/responsive/mistressAmericaPoster-1200.jpg';
-// import lastYearAtMarienbadPosterWebp200 from '../../images/responsive/lastYearAtMarienbadPoster-200.webp';
 // import lastYearAtMarienbadPosterWebp400 from '../../images/responsive/lastYearAtMarienbadPoster-400.webp';
+// import lastYearAtMarienbadPosterWebp640 from '../../images/responsive/lastYearAtMarienbadPoster-640.webp';
 // import lastYearAtMarienbadPosterWebp800 from '../../images/responsive/lastYearAtMarienbadPoster-800.webp';
 // import lastYearAtMarienbadPosterWebp1200 from '../../images/responsive/lastYearAtMarienbadPoster-1200.webp';
-// import lastYearAtMarienbadPosterJpg200 from '../../images/responsive/lastYearAtMarienbadPoster-200.jpg';
 // import lastYearAtMarienbadPosterJpg400 from '../../images/responsive/lastYearAtMarienbadPoster-400.jpg';
+// import lastYearAtMarienbadPosterJpg200 from '../../images/responsive/lastYearAtMarienbadPoster-640.jpg';
 // import lastYearAtMarienbadPosterJpg800 from '../../images/responsive/lastYearAtMarienbadPoster-800.jpg';
 // import lastYearAtMarienbadPosterJpg1200 from '../../images/responsive/lastYearAtMarienbadPoster-1200.jpg';
-// import masculinFemininPosterWebp200 from '../../images/responsive/masculinFemininPoster-200.webp';
 // import masculinFemininPosterWebp400 from '../../images/responsive/masculinFemininPoster-400.webp';
+// import masculinFemininPosterWebp640 from '../../images/responsive/masculinFemininPoster-640.webp';
 // import masculinFemininPosterWebp800 from '../../images/responsive/masculinFemininPoster-800.webp';
 // import masculinFemininPosterWebp1200 from '../../images/responsive/masculinFemininPoster-1200.webp';
-// import masculinFemininPosterJpg200 from '../../images/responsive/masculinFemininPoster-200.jpg';
 // import masculinFemininPosterJpg400 from '../../images/responsive/masculinFemininPoster-400.jpg';
+// import masculinFemininPosterJpg200 from '../../images/responsive/masculinFemininPoster-640.jpg';
 // import masculinFemininPosterJpg800 from '../../images/responsive/masculinFemininPoster-800.jpg';
 // import masculinFemininPosterJpg1200 from '../../images/responsive/masculinFemininPoster-1200.jpg';
 
@@ -338,7 +350,7 @@ export default class Carousel extends Component {
 //           title: 'There Will Be Blood',
 //           slug: 'there-will-be-blood',
 //           img: {
-//             webp200: thereWillBeBloodPosterWebp200,
+//             webp640: thereWillBeBloodPosterWebp640,
 //             webp400: thereWillBeBloodPosterWebp400,
 //             webp800: thereWillBeBloodPosterWebp800,
 //             webp1200: thereWillBeBloodPosterWebp1200,
@@ -358,7 +370,7 @@ export default class Carousel extends Component {
 //           title: 'Masculin Féminin',
 //           slug: 'masculin-féminin',
 //           img: {
-//             webp200: masculinFemininPosterWebp200,
+//             webp640: masculinFemininPosterWebp640,
 //             webp400: masculinFemininPosterWebp400,
 //             webp800: masculinFemininPosterWebp800,
 //             webp1200: masculinFemininPosterWebp1200,
@@ -378,7 +390,7 @@ export default class Carousel extends Component {
 //           title: 'Broken Embraces',
 //           slug: 'broken-embraces',
 //           img: {
-//             webp200: brokenEmbracesPosterWebp200,
+//             webp640: brokenEmbracesPosterWebp640,
 //             webp400: brokenEmbracesPosterWebp400,
 //             webp800: brokenEmbracesPosterWebp800,
 //             webp1200: brokenEmbracesPosterWebp1200,
@@ -398,7 +410,7 @@ export default class Carousel extends Component {
 //           title: 'Last Year at Marienbad',
 //           slug: 'last-year-at-marienbad',
 //           img: {
-//             webp200: lastYearAtMarienbadPosterWebp200,
+//             webp640: lastYearAtMarienbadPosterWebp640,
 //             webp400: lastYearAtMarienbadPosterWebp400,
 //             webp800: lastYearAtMarienbadPosterWebp800,
 //             webp1200: lastYearAtMarienbadPosterWebp1200,
@@ -418,7 +430,7 @@ export default class Carousel extends Component {
 //           title: 'Mistress America',
 //           slug: 'mistress-america',
 //           img: {
-//             webp200: mistressAmericaPosterWebp200,
+//             webp640: mistressAmericaPosterWebp640,
 //             webp400: mistressAmericaPosterWebp400,
 //             webp800: mistressAmericaPosterWebp800,
 //             webp1200: mistressAmericaPosterWebp1200,

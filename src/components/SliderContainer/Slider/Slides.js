@@ -2,37 +2,47 @@ import React, { PureComponent } from 'react';
 import uuid from 'uuid';
 import Slide from './Slide';
 import SlideCentered from './SlideCentered';
-import phantomThreadWebp200 from '../../../images/responsive/phantomThread-200.webp';
 import phantomThreadWebp400 from '../../../images/responsive/phantomThread-400.webp';
+import phantomThreadWebp640 from '../../../images/responsive/phantomThread-640.webp';
 import phantomThreadWebp800 from '../../../images/responsive/phantomThread-800.webp';
+import phantomThreadWebp1024 from '../../../images/responsive/phantomThread-1024.webp';
 import phantomThreadWebp1200 from '../../../images/responsive/phantomThread-1200.webp';
+import phantomThreadWebp1366 from '../../../images/responsive/phantomThread-1366.webp';
 import phantomThreadWebp1600 from '../../../images/responsive/phantomThread-1600.webp';
 import phantomThreadWebp1920 from '../../../images/responsive/phantomThread-1920.webp';
-import phantomThreadJpg200 from '../../../images/responsive/phantomThread-200.jpg';
 import phantomThreadJpg400 from '../../../images/responsive/phantomThread-400.jpg';
+import phantomThreadJpg640 from '../../../images/responsive/phantomThread-640.jpg';
 import phantomThreadJpg800 from '../../../images/responsive/phantomThread-800.jpg';
+import phantomThreadJpg1024 from '../../../images/responsive/phantomThread-1024.jpg';
 import phantomThreadJpg1200 from '../../../images/responsive/phantomThread-1200.jpg';
+import phantomThreadJpg1366 from '../../../images/responsive/phantomThread-1366.jpg';
 import phantomThreadJpg1600 from '../../../images/responsive/phantomThread-1600.jpg';
 import phantomThreadJpg1920 from '../../../images/responsive/phantomThread-1920.jpg';
-import redBalloonWebp200 from '../../../images/responsive/redBalloon-200.webp';
 import redBalloonWebp400 from '../../../images/responsive/redBalloon-400.webp';
+import redBalloonWebp640 from '../../../images/responsive/redBalloon-640.webp';
 import redBalloonWebp800 from '../../../images/responsive/redBalloon-800.webp';
+import redBalloonWebp1024 from '../../../images/responsive/redBalloon-1024.webp';
 import redBalloonWebp1200 from '../../../images/responsive/redBalloon-1200.webp';
+import redBalloonWebp1366 from '../../../images/responsive/redBalloon-1366.webp';
 import redBalloonWebp1600 from '../../../images/responsive/redBalloon-1600.webp';
 import redBalloonWebp1920 from '../../../images/responsive/redBalloon-1920.webp';
-import redBalloonJpg200 from '../../../images/responsive/redBalloon-200.jpg';
 import redBalloonJpg400 from '../../../images/responsive/redBalloon-400.jpg';
+import redBalloonJpg640 from '../../../images/responsive/redBalloon-640.jpg';
 import redBalloonJpg800 from '../../../images/responsive/redBalloon-800.jpg';
+import redBalloonJpg1024 from '../../../images/responsive/redBalloon-1024.jpg';
 import redBalloonJpg1200 from '../../../images/responsive/redBalloon-1200.jpg';
+import redBalloonJpg1366 from '../../../images/responsive/redBalloon-1366.jpg';
 import redBalloonJpg1600 from '../../../images/responsive/redBalloon-1600.jpg';
 import redBalloonJpg1920 from '../../../images/responsive/redBalloon-1920.jpg';
-import judyGarlandWebp200 from '../../../images/responsive/judyGarland-200.webp';
 import judyGarlandWebp400 from '../../../images/responsive/judyGarland-400.webp';
+import judyGarlandWebp640 from '../../../images/responsive/judyGarland-640.webp';
 import judyGarlandWebp800 from '../../../images/responsive/judyGarland-800.webp';
+import judyGarlandWebp1024 from '../../../images/responsive/judyGarland-1024.webp';
 import judyGarlandWebp1200 from '../../../images/responsive/judyGarland-1200.webp';
-import judyGarlandJpg200 from '../../../images/responsive/judyGarland-200.jpg';
 import judyGarlandJpg400 from '../../../images/responsive/judyGarland-400.jpg';
+import judyGarlandJpg640 from '../../../images/responsive/judyGarland-640.jpg';
 import judyGarlandJpg800 from '../../../images/responsive/judyGarland-800.jpg';
+import judyGarlandJpg1024 from '../../../images/responsive/judyGarland-1024.jpg';
 import judyGarlandJpg1200 from '../../../images/responsive/judyGarland-1200.jpg';
 
 export default class Slides extends PureComponent {
@@ -45,16 +55,20 @@ export default class Slides extends PureComponent {
           isCentered: false,
           heading: 'Collection of Films',
           img: {
-            webp200: phantomThreadWebp200,
             webp400: phantomThreadWebp400,
+            webp640: phantomThreadWebp640,
             webp800: phantomThreadWebp800,
+            webp1024: phantomThreadWebp1024,
             webp1200: phantomThreadWebp1200,
+            webp1366: phantomThreadWebp1366,
             webp1600: phantomThreadWebp1600,
             webp1920: phantomThreadWebp1920,
-            jpg200: phantomThreadJpg200,
             jpg400: phantomThreadJpg400,
+            jpg640: phantomThreadJpg640,
             jpg800: phantomThreadJpg800,
+            jpg1024: phantomThreadJpg1024,
             jpg1200: phantomThreadJpg1200,
+            jpg1366: phantomThreadJpg1366,
             jpg1600: phantomThreadJpg1600,
             jpg1920: phantomThreadJpg1920,
           },
@@ -70,16 +84,20 @@ export default class Slides extends PureComponent {
           isCentered: false,
           heading: 'Variety of Content',
           img: {
-            webp200: redBalloonWebp200,
             webp400: redBalloonWebp400,
+            webp640: redBalloonWebp640,
             webp800: redBalloonWebp800,
+            webp1024: redBalloonWebp1024,
             webp1200: redBalloonWebp1200,
+            webp1366: redBalloonWebp1366,
             webp1600: redBalloonWebp1600,
             webp1920: redBalloonWebp1920,
-            jpg200: redBalloonJpg200,
             jpg400: redBalloonJpg400,
+            jpg640: redBalloonJpg640,
             jpg800: redBalloonJpg800,
+            jpg1024: redBalloonJpg1024,
             jpg1200: redBalloonJpg1200,
+            jpg1366: redBalloonJpg1366,
             jpg1600: redBalloonJpg1600,
             jpg1920: redBalloonJpg1920,
           },
@@ -95,13 +113,15 @@ export default class Slides extends PureComponent {
           isCentered: true,
           heading: 'Platform Diversity',
           img: {
-            webp200: judyGarlandWebp200,
             webp400: judyGarlandWebp400,
+            webp640: judyGarlandWebp640,
             webp800: judyGarlandWebp800,
+            webp1024: judyGarlandWebp1024,
             webp1200: judyGarlandWebp1200,
-            jpg200: judyGarlandJpg200,
             jpg400: judyGarlandJpg400,
+            jpg640: judyGarlandJpg640,
             jpg800: judyGarlandJpg800,
+            jpg1024: judyGarlandJpg1024,
             jpg1200: judyGarlandJpg1200,
           },
           imgAlt: '',

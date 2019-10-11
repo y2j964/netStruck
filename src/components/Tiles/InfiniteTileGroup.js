@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useLayoutEffect } from 'react';
 import PropTypes from 'prop-types';
 import uuid from 'uuid';
 import Tile from './Tile';
@@ -68,7 +68,7 @@ function InfiniteTileGroup({
   const [rightEdgeIsHovered, setRightEdgeIsHovered] = useState(false);
   const [middleHoveredIndex, setMiddleHoveredIndex] = useState(null);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const endClonesFrags = createEndClones(slidesPerPosition, filmGroupData);
 
     const frontClonesFrags = createFrontClones(

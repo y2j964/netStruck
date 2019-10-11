@@ -74,19 +74,21 @@ const CarouselItem = ({
         {/* <img src={img.webp1200} alt='' className='carousel-item__img' /> */}
         <picture className='z-neg w-full'>
           <source
-            sizes='(min-width: 500px) 32rem, (min-width: 1400px) 58rem, 100vw'
-            srcSet={`${img.webp200} 200w,
-            ${img.webp400} 400w,
+            sizes='(min-width: 1700px) 72rem, (min-width: 1400px) 58rem, (min-width: 1100px) 48rem, (min-width: 500px) 36rem, 100vw'
+            srcSet={`${img.webp400} 400w,
+            ${img.webp640} 640w,
             ${img.webp800} 800w,
-            ${img.webp1200} 1200w`}
+            ${img.webp1024} 1024w,
+            ${img.webp1200} 1200w,`}
             type='image/webp'
           />
           <source
-            sizes='(min-width: 500px) 32rem, (min-width: 1400px) 58rem, 100vw'
-            srcSet={`${img.jpg200} 200w,
-              ${img.jpg400} 400w,
+            sizes='(min-width: 1700px) 72rem, (min-width: 1400px) 58rem, (min-width: 1100px) 48rem, (min-width: 500px) 36rem, 100vw'
+            srcSet={`${img.jpg400} 400w,
+            ${img.jpg640} 640w,
             ${img.jpg800} 800w,
-            ${img.jpg1200} 1200w`}
+            ${img.jpg1024} 1024w,
+            ${img.jpg1200} 1200w,`}
           />
           <img src={img.jpg800} alt='' className='carousel-item__img' />
         </picture>

@@ -39,18 +39,20 @@ export default function SelectionGenre({ match }) {
             <picture>
               <source
                 sizes='(min-width: 800px) calc(50vw - 0.5rem), 100vw'
-                srcSet={`${poster.webp200} 200w,
-                  ${poster.webp400} 400w,
-                  ${poster.webp800} 800w,
-                  ${poster.webp1200} 1200w`}
+                srcSet={`${poster.webp400} 400w,
+				  ${poster.webp640} 640w,
+				  ${poster.webp800} 800w,
+				  ${poster.webp1024} 1024w,
+				  ${poster.webp1200} 1200w,`}
                 type='image/webp'
               />
               <source
                 sizes='(min-width: 800px) calc(50vw - 0.5rem), 100vw'
-                srcSet={`${poster.jpg200} 200w,
-                  ${poster.jpg400} 400w,
-                  ${poster.jpg800} 800w,
-                  ${poster.jpg1200} 1200w`}
+                srcSet={`${poster.jpg400} 400w,
+                ${poster.jpg640} 640w,
+                ${poster.jpg800} 800w,
+                ${poster.jpg1024} 1024w,
+                ${poster.jpg1200} 1200w,`}
               />
               <img src={poster.jpg800} alt='' />
             </picture>

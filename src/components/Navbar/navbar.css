@@ -6,7 +6,7 @@
   }
 
   &__link {
-    @apply my-3 block uppercase opacity-100;
+    @apply my-3 block uppercase opacity-100 font-medium;
     color: #e5e5e5;
     transition: opacity 300ms ease-in-out;
 

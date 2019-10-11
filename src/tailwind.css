@@ -7545,7 +7545,6 @@ video {
   width: 100%;
   position: relative;
   background-color: #000;
-  /* @apply scrim mb-4 w-full relative; */
   padding-top: calc(56.25% + 36px + 40px);
 }
 
@@ -8155,6 +8154,7 @@ video {
     display: block;
     text-transform: uppercase;
     opacity: 1;
+    font-weight: 500;
     color: #e5e5e5;
     transition: opacity 300ms ease-in-out;
   }
@@ -9047,7 +9047,18 @@ video {
 
 body {
   background-color: #151515;
-  /* transition: background-color 200ms linear; */
+  transition: background-color 200ms linear;
+}
+
+.signup::after {
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  content: '';
+  background-color: #68696f;
 }
 
 #root {
@@ -9062,7 +9073,7 @@ body {
 
 .fade-enter-active {
     opacity: 1;
-    transition: opacity 200ms linear 100ms;
+    transition: opacity 200ms linear;
   }
 
 .fade-exit {

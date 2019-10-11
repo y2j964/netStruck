@@ -1,15 +1,27 @@
 import React, { useState, useEffect } from 'react';
+import { withRouter } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import SubscriptionType from '../components/SubscriptionType/SubscriptionType';
 import SubscriptionDetails from '../components/SubscriptionDetails/SubscriptionDetails';
 import UserInfo from '../components/UserInfo/UserInfo';
 import RadioInputCustom from '../components/RadioInputCustom/RadioInputCustom';
 
-export default function SignUp() {
+function SignUp({ history }) {
   const [subscription, setSubscription] = useState('annual');
 
   useEffect(() => {
-    document.querySelector('body').classList.toggle('bg-form');
-    return () => document.querySelector('body').classList.toggle('bg-form');
+    document.querySelector('body').classList.add('bg-form');
+
+    // remove the class by listening to the history b/c otherwise the bg transition will trigger after
+    // the router opacity transition; we want them to flow concurrently
+    const unlisten = history.listen(location => {
+      if (location.pathname !== '/signup') {
+        document.querySelector('body').classList.remove('bg-form');
+      }
+    });
+    return () => {
+      unlisten();
+    };
   }, []);
 
   return (
@@ -48,3 +60,9 @@ export default function SignUp() {
     </main>
   );
 }
+
+SignUp.propTypes = {
+  history: PropTypes.object.isRequired,
+};
+
+export default withRouter(SignUp);

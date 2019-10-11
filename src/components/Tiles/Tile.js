@@ -163,7 +163,7 @@ const Tile = ({
     );
   }
   // if loading, just return nothing until it is done
-  return null;
+  // return null;
 };
 
 Tile.propTypes = {

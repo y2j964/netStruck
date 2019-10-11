@@ -38,7 +38,7 @@ export default function FilmRow({
 }
 
 FilmRow.propTypes = {
-  img: PropTypes.string.isRequired,
+  img: PropTypes.object.isRequired,
   title: PropTypes.string.isRequired,
   duration: PropTypes.string,
   year: PropTypes.number,

@@ -45,7 +45,13 @@
 
 body {
   background-color: #151515;
-  /* transition: background-color 200ms linear; */
+  transition: background-color 200ms linear;
+}
+
+.signup::after {
+  @apply z-neg absolute top-0 bottom-0 right-0 left-0;
+    content: '';
+    background-color: #68696f;
 }
 
 #root {
@@ -59,7 +65,7 @@ body {
 
   &-enter-active {
     opacity: 1;
-    transition: opacity 200ms linear 100ms;
+    transition: opacity 200ms linear;
   }
 
   &-exit {
