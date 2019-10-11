@@ -13,7 +13,7 @@ function SignUp({ history }) {
     document.querySelector('body').classList.add('bg-form');
 
     // remove the class by listening to the history b/c otherwise the bg transition will trigger after
-    // the router opacity transition; we want them to flow concurrently
+    // the router opacity transition and the effect will look janky; this way the transitions flow concurrently
     const unlisten = history.listen(location => {
       if (location.pathname !== '/signup') {
         document.querySelector('body').classList.remove('bg-form');
@@ -22,7 +22,7 @@ function SignUp({ history }) {
     return () => {
       unlisten();
     };
-  }, []);
+  }, [history]);
 
   return (
     <main className='max-w-6xl mx-auto flex flex-col lg:flex-row items-center justify-center px-5 lg:px-10'>

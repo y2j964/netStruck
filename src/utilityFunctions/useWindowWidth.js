@@ -6,13 +6,15 @@ const useWindowWidth = () => {
     window.innerWidth || document.documentElement.clientWidth,
   );
 
-  const handleWindowResize = () => {
-    setWindowWidth(window.innerWidth);
-  };
-
   useEffect(() => {
-    window.addEventListener('resize', debounce(handleWindowResize));
-    return () => window.removeEventListener('resize', handleWindowResize);
+    const debouncedHandleResize = debounce(() => {
+      setWindowWidth(window.innerWidth);
+    });
+    window.addEventListener('resize', debouncedHandleResize);
+
+    return () => {
+      window.removeEventListener('resize', debouncedHandleResize)
+    };
   }, []);
 
   return windowWidth;

@@ -9,6 +9,7 @@ const SliderSwitch = ({ id, isActive, text, handleClick, children }) => {
       <button
         onClick={handleClick.bind(this, id)}
         tabIndex='-1'
+        className='w-full'
       >
         <div className={'slider-switch-content'}>
         {children}
