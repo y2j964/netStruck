@@ -69,8 +69,6 @@ export default function AllFilms() {
     document.title = 'All Films - NetStruck';
   }, []);
 
-  const loadMore = () => setCurrentPage(currentPage + 1);
-
   const { state } = useNetStruckDataState();
   // make a copy of films, so that we aren't mutating original order
   const [...filmData] = state.films;
@@ -83,6 +81,13 @@ export default function AllFilms() {
   const lastPostIndex = currentPage * postsPerPage;
   const firstPostIndex = 0;
   const currentPosts = filmData.slice(firstPostIndex, lastPostIndex);
+
+  const loadMore = () => {
+    if (currentPosts.length === filmData.length) {
+      return;
+    }
+    setCurrentPage(currentPage + 1);
+  };
 
   return (
     <main className='md:px-12 my-16'>

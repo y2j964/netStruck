@@ -125,7 +125,6 @@ import useIsIntersecting from '../../utilityFunctions/useIsIntersecting';
 import mediaBreakpoints from '../../mediaBreakpoints';
 
 const resizeSlider = (windowWidth, slidesPerPosition, callback) => {
-  // console.log('resize');
   switch (true) {
     case windowWidth < mediaBreakpoints.sm && slidesPerPosition !== 2: {
       const updatedSlidesPerPosition = 2;
@@ -211,7 +210,7 @@ export default function SliderRow({ filmGroupData }) {
         />
       </div>
       {!isIntersecting ? (
-        <EmptyTileGroup numOfTiles={8} />
+        <EmptyTileGroup numOfTiles={7} />
       ) : (
         <InfiniteTileGroup
           filmGroupData={filmGroupData}
@@ -219,7 +218,6 @@ export default function SliderRow({ filmGroupData }) {
           wrapAround={wrapAround}
         />
       )}
-
       <div className='slider-row__content-preview slider-row__content-preview--right'>
         <NextSlideTrigger
           handleClick={moveSliderForward}

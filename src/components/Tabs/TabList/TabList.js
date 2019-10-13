@@ -2,7 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Tab from './Tab';
 
-export default function TabList({ tabListData, activateTab, activatePrevTab, activateNextTab }) {
+export default function TabList({
+  tabListData,
+  activateTab,
+  activatePrevTab,
+  activateNextTab,
+}) {
   const tabListFrags = tabListData.map((entry, index) => (
     <Tab
       key={entry.id}
@@ -18,17 +23,21 @@ export default function TabList({ tabListData, activateTab, activatePrevTab, act
 
   const handleKeyDown = e => {
     const key = e.key || e.code;
-    if (key === "ArrowLeft") {
+    if (key === 'ArrowLeft') {
       activatePrevTab();
       return;
     }
-    if (key === "ArrowRight") {
+    if (key === 'ArrowRight') {
       activateNextTab();
     }
-  }
+  };
   return (
     <div className='sm:pt-4 border-b border-gray-700'>
-      <ol className='flex justify-center' role='tablist' onKeyDown={handleKeyDown}>
+      <ol
+        className='flex justify-center'
+        role='tablist'
+        onKeyDown={handleKeyDown}
+      >
         {tabListFrags}
       </ol>
     </div>
@@ -37,7 +46,6 @@ export default function TabList({ tabListData, activateTab, activatePrevTab, act
 
 TabList.propTypes = {
   tabListData: PropTypes.array.isRequired,
-  // renderItem: PropTypes.func.isRequired,
   activateTab: PropTypes.func.isRequired,
   activatePrevTab: PropTypes.func.isRequired,
   activateNextTab: PropTypes.func.isRequired,

@@ -11,6 +11,7 @@ export default function InfiniteScroller({
   intersectionObserverOptions = defaultOptions,
   children,
   loadMore,
+  trigger,
   isTable = false,
 }) {
   const ref = useRef();
