@@ -1,7 +1,11 @@
-import React from 'react';
+import React, {useEffect, useRef} from 'react';
 import PropTypes from 'prop-types';
 
 export default function SearchFilterInput({ handleChange }) {
+  const ref = useRef();
+useEffect(() => {
+  ref.current.focus();
+},[])
   return (
     <input
       type='search'
@@ -10,6 +14,7 @@ export default function SearchFilterInput({ handleChange }) {
       className='search-filter__input input-stripped placeholder-color'
       id='searchInput'
       onChange={handleChange}
+      ref={ref}
     />
   );
 }

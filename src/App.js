@@ -51,7 +51,7 @@ function App({ location }) {
             </Switch>
           </CSSTransition>
         </TransitionGroup>
-        <Modal>
+        <Modal autoFocusCloseBtn={false}>
           <SearchFilter />
         </Modal>
       </NetStruckDataProvider>

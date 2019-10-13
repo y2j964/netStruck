@@ -9,17 +9,18 @@ import {
 } from '../../context';
 import Close from '../../icons/Close';
 
-export default function Modal({ children }) {
+export default function Modal({ children, autoFocusCloseBtn }) {
   const { state } = useNetStruckDataState();
   const { modalIsOpen } = state;
   const dispatch = useNetStruckDataDispatcher();
   const closeRef = useRef();
 
   useEffect(() => {
-    if (modalIsOpen) {
+    if (modalIsOpen && autoFocusCloseBtn) {
+      console.log(autoFocusCloseBtn)
       closeRef.current.focus();
     }
-  }, [modalIsOpen]);
+  }, [modalIsOpen, autoFocusCloseBtn]);
 
   const toggleSearchModal = () => {
     dispatch({ type: 'TOGGLE_MODAL' });

@@ -1,7 +1,8 @@
 import React, { PureComponent } from 'react';
 import uuid from 'uuid';
-import Slide from './Slide';
-import SlideCentered from './SlideCentered';
+import PropTypes from 'prop-types';
+import TabPanel from './TabPanel';
+import TabPanelCentered from './TabPanelCentered';
 import phantomThreadWebp400 from '../../../images/responsive/phantomThread-400.webp';
 import phantomThreadWebp640 from '../../../images/responsive/phantomThread-640.webp';
 import phantomThreadWebp800 from '../../../images/responsive/phantomThread-800.webp';
@@ -45,11 +46,11 @@ import judyGarlandJpg800 from '../../../images/responsive/judyGarland-800.jpg';
 import judyGarlandJpg1024 from '../../../images/responsive/judyGarland-1024.jpg';
 import judyGarlandJpg1200 from '../../../images/responsive/judyGarland-1200.jpg';
 
-export default class Slides extends PureComponent {
+export default class TabPanels extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {
-      slidesData: [
+      tabPanelsData: [
         {
           id: uuid.v4(),
           isCentered: false,
@@ -135,13 +136,31 @@ export default class Slides extends PureComponent {
   }
 
   render() {
-    const slideFrags = this.state.slidesData.map(entry => {
+    const tabPanelFrags = this.state.tabPanelsData.map((entry, index) => {
       if (!entry.isCentered) {
-        return <Slide key={entry.id} slide={entry} />;
+        return (
+          <TabPanel
+            key={entry.id}
+            tabPanel={entry}
+            index={index}
+            isActive={this.props.tabListData[index].isActive}
+          />
+        );
       }
-      return <SlideCentered key={entry.id} slide={entry} />;
+      return (
+        <TabPanelCentered
+          key={entry.id}
+          tabPanel={entry}
+          index={index}
+          isActive={this.props.tabListData[index].isActive}
+        />
+      );
     });
 
-    return slideFrags;
+    return tabPanelFrags;
   }
+}
+
+TabPanels.propTypes = {
+  tabListData: PropTypes.array.isRequired,
 }

@@ -57,7 +57,7 @@ export default function SearchFilter() {
 
   const lastPostIndex = currentPage * postsPerPage;
   const firstPostIndex = 0;
-  // I don't true pagination here. I want to append extra results onto the already existing results
+  // I don't want true pagination here. I want to append extra results onto the already existing results
   // for pagination you would do something like:
   // const firstPostIndex = lastPostIndex - postsPerPage;
   const currentPosts = filteredFilms.slice(firstPostIndex, lastPostIndex);
