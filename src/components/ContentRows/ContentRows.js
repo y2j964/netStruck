@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import ContentRow from './ContentRow';
 import InfiniteScroller from '../InfiniteScroller';
 import { useNetStruckDataState } from '../../context';

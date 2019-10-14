@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import TileChunks from './Tiles/TileChunks';
 import BtnPrimary from './BtnPrimary/BtnPrimary';
+import Spinner from '../icons/Spinner';
 
 export default function SearchResults({
   filteredFilms,
@@ -9,6 +10,19 @@ export default function SearchResults({
   loadMore,
   totalResults,
 }) {
+  const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {
+    setIsLoading(false);
+  }, [filteredFilms]);
+
+  const handleClick = () => {
+    setIsLoading(true);
+    setTimeout(() => {
+      loadMore();
+    }, 500);
+  };
+
   if (!inputValue || totalResults === 0) {
     return (
       <div className='search-filter__results'>
@@ -24,11 +38,17 @@ export default function SearchResults({
         {totalResults} Results
       </h3>
       <TileChunks filmGroupData={filteredFilms} />
-      <div className='text-center'>
-        <BtnPrimary handleClick={loadMore} additionalClasses='mb-12'>
-          Show More
-        </BtnPrimary>
-      </div>
+      {isLoading ? (
+        <div className='flex justify-center items-center'>
+          <Spinner />
+        </div>
+      ) : (
+        <div className='text-center'>
+          <BtnPrimary handleClick={handleClick} additionalClasses='mb-12'>
+            Show More
+          </BtnPrimary>
+        </div>
+      )}
     </div>
   );
 }

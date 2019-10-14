@@ -31,13 +31,22 @@ const postsPerPage = 8;
 
 export default function SearchFilter() {
   const [inputValue, setInputValue] = useState();
+  useEffect(() => {
+    // reset value onMount so previous values don't hang around
+    return () => setInputValue();
+  }, []);
+
   const [filteredFilms, setFilteredFilms] = useState([]);
+
+  const [currentPosts, loadMore, setCurrentPage] = usePaginatedPosts(
+    postsPerPage,
+    filteredFilms,
+  );
 
   const { state } = useNetStruckDataState();
   const { films } = state;
 
   const debouncedInputValue = useDebounce(inputValue, 500);
-
   useEffect(() => {
     if (debouncedInputValue) {
       const updatedFilteredFilms = getFilteredFilms(films, debouncedInputValue);
@@ -45,18 +54,17 @@ export default function SearchFilter() {
     } else {
       setFilteredFilms([]);
     }
-  }, [debouncedInputValue, films]);
+    // if input changes, reset CurrentPage from pagination hook; if you don't do this,
+    // you could incrementally load up to 30 posts, and when you change the input,
+    // SearchResults will spit out 30 posts for the new query.
+    setCurrentPage(1);
+  }, [debouncedInputValue, films, setCurrentPage]);
 
   const handleSubmit = e => {
     e.preventDefault();
     const updatedFilteredFilms = getFilteredFilms(films, inputValue);
     setFilteredFilms(updatedFilteredFilms);
   };
-
-  const [currentPosts, loadMore] = usePaginatedPosts(
-    postsPerPage,
-    filteredFilms,
-  );
 
   return (
     <React.Fragment>
