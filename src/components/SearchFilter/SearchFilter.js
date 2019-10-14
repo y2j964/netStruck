@@ -33,7 +33,7 @@ export default function SearchFilter() {
   const [inputValue, setInputValue] = useState();
   useEffect(() => {
     // reset value onMount so previous values don't hang around
-    return () => setInputValue();
+    setInputValue();
   }, []);
 
   const [filteredFilms, setFilteredFilms] = useState([]);

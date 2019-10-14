@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import TileGroup from './TileGroup';
 import Spinner from '../../icons/Spinner';
 import useWindowWidth from '../../utilityFunctions/useWindowWidth';
-import mediaBreakpoints from '../../mediaBreakpoints';
+import getUpdatedSlidesPerPosition from '../../utilityFunctions/getUpdatedSlidesPerPosition';
 
 // from https://github.com/you-dont-need/You-Dont-Need-Lodash-Underscore#_chunk
 const chunk = (input, size) => {
@@ -14,51 +14,15 @@ const chunk = (input, size) => {
   }, []);
 };
 
-const resizeWindow = (windowWidth, slidesPerPosition, callback) => {
-  // console.log('resize');
-  switch (true) {
-    case windowWidth < mediaBreakpoints.sm && slidesPerPosition !== 2: {
-      const updatedSlidesPerPosition = 2;
-      callback(updatedSlidesPerPosition);
-      break;
-    }
-    case windowWidth > mediaBreakpoints.sm &&
-      windowWidth < mediaBreakpoints.md &&
-      slidesPerPosition !== 3: {
-      const updatedSlidesPerPosition = 3;
-      callback(updatedSlidesPerPosition);
-      break;
-    }
-    case windowWidth > mediaBreakpoints.md &&
-      windowWidth < mediaBreakpoints.lg &&
-      slidesPerPosition !== 4: {
-      const updatedSlidesPerPosition = 4;
-      callback(updatedSlidesPerPosition);
-      break;
-    }
-    case windowWidth > mediaBreakpoints.lg &&
-      windowWidth < mediaBreakpoints.xl &&
-      slidesPerPosition !== 5: {
-      const updatedSlidesPerPosition = 5;
-      callback(updatedSlidesPerPosition);
-      break;
-    }
-    case windowWidth > mediaBreakpoints.xl && slidesPerPosition !== 6: {
-      const updatedSlidesPerPosition = 6;
-      callback(updatedSlidesPerPosition);
-      break;
-    }
-    default:
-  }
-};
-
 export default function TileChunks({ filmGroupData }) {
   const [slidesPerPosition, setSlidesPerPosition] = useState();
 
   const windowWidth = useWindowWidth();
 
   useEffect(() => {
-    resizeWindow(windowWidth, slidesPerPosition, setSlidesPerPosition);
+    getUpdatedSlidesPerPosition(windowWidth, slidesPerPosition).then(res =>
+      setSlidesPerPosition(res),
+    );
   }, [windowWidth, filmGroupData.length, slidesPerPosition]);
 
   if (slidesPerPosition) {
@@ -84,12 +48,17 @@ export default function TileChunks({ filmGroupData }) {
 TileChunks.propTypes = {
   filmGroupData: PropTypes.array.isRequired,
 };
+
 // import React, { useState, useEffect } from 'react';
 // import PropTypes from 'prop-types';
 // import TileGroup from './TileGroup';
 // import Spinner from '../../icons/Spinner';
+// import InfiniteScroller from '../InfiniteScroller';
 // import useWindowWidth from '../../utilityFunctions/useWindowWidth';
-// import mediaBreakpoints from '../../mediaBreakpoints';
+// import getUpdatedSlidesPerPosition from '../../utilityFunctions/getUpdatedSlidesPerPosition';
+// import usePaginatedPosts from '../../utilityFunctions/usePaginatedPosts';
+
+// const postsPerPage = 3;
 
 // // from https://github.com/you-dont-need/You-Dont-Need-Lodash-Underscore#_chunk
 // const chunk = (input, size) => {
@@ -100,75 +69,56 @@ TileChunks.propTypes = {
 //   }, []);
 // };
 
-// const resizeWindow = (windowWidth, slidesPerPosition, callback) => {
-//   // console.log('resize');
-//   switch (true) {
-//     case windowWidth < mediaBreakpoints.sm && slidesPerPosition !== 2: {
-//       const updatedSlidesPerPosition = 2;
-//       callback(updatedSlidesPerPosition);
-//       break;
-//     }
-//     case windowWidth > mediaBreakpoints.sm &&
-//       windowWidth < mediaBreakpoints.md &&
-//       slidesPerPosition !== 3: {
-//       const updatedSlidesPerPosition = 3;
-//       callback(updatedSlidesPerPosition);
-//       break;
-//     }
-//     case windowWidth > mediaBreakpoints.md &&
-//       windowWidth < mediaBreakpoints.lg &&
-//       slidesPerPosition !== 4: {
-//       const updatedSlidesPerPosition = 4;
-//       callback(updatedSlidesPerPosition);
-//       break;
-//     }
-//     case windowWidth > mediaBreakpoints.lg &&
-//       windowWidth < mediaBreakpoints.xl &&
-//       slidesPerPosition !== 5: {
-//       const updatedSlidesPerPosition = 5;
-//       callback(updatedSlidesPerPosition);
-//       break;
-//     }
-//     case windowWidth > mediaBreakpoints.xl && slidesPerPosition !== 6: {
-//       const updatedSlidesPerPosition = 6;
-//       callback(updatedSlidesPerPosition);
-//       break;
-//     }
-//     default:
-//   }
-// };
-
-// export default function TileChunks({ filmGroupData }) {
-//   const [slidesPerPosition, setSlidesPerPosition] = useState();
+// export default function TileChunks({ filmGroupData, isLazyLoaded }) {
+//   // initialize slidesPerPosition with value of 1 so that passes chunk func
+//   // but it will be changed respective to the windowWidth asap
+//   const [slidesPerPosition, setSlidesPerPosition] = useState(1);
 
 //   const windowWidth = useWindowWidth();
 
 //   useEffect(() => {
-//     resizeWindow(windowWidth, slidesPerPosition, setSlidesPerPosition);
+//     getUpdatedSlidesPerPosition(windowWidth, slidesPerPosition).then(res => setSlidesPerPosition(res));
 //   }, [windowWidth, filmGroupData.length, slidesPerPosition]);
 
-//   if (slidesPerPosition) {
-//     const tileRows = chunk(filmGroupData, slidesPerPosition);
+//   const tileRows = chunk(filmGroupData, slidesPerPosition);
 
-//     const tileRowFrags = tileRows.map((row, i) => (
+//   const [currentPosts, loadMore] = usePaginatedPosts(postsPerPage, tileRows);
+
+//   // loading state; waiting for getUpdatedSlidesPerPosition to calculate an accurate slidesPerPosition value
+//   if (slidesPerPosition === 1) {
+//     return (
+//       <div className='flex justify-center items-center'>
+//         <Spinner />
+//       </div>
+//     );
+//   }
+
+//   if (isLazyLoaded) {
+//     const tileRowFrags = currentPosts.map((row, i) => (
 //       <TileGroup
 //         key={i}
 //         filmGroupData={row}
 //         slidesPerPosition={slidesPerPosition}
-//         tileIsUnmountedOnRemove={true}
-//         tileIsAnimatedOnMount={true}
 //       />
 //     ));
-
-//     return <React.Fragment>{tileRowFrags}</React.Fragment>;
+//     return (
+//       <React.Fragment>
+//         <InfiniteScroller loadMore={loadMore}>{tileRowFrags}</InfiniteScroller>
+//       </React.Fragment>
+//     );
 //   }
-//   return (
-//     <div className='flex justify-center items-center'>
-//       <Spinner />
-//     </div>
-//   );
+
+//   const tileRowFrags = tileRows.map((row, i) => (
+//     <TileGroup
+//       key={i}
+//       filmGroupData={row}
+//       slidesPerPosition={slidesPerPosition}
+//     />
+//   ));
+//   return <React.Fragment>{tileRowFrags}</React.Fragment>;
 // }
 
 // TileChunks.propTypes = {
 //   filmGroupData: PropTypes.array.isRequired,
+//   isLazyLoaded: PropTypes.bool.isRequired,
 // };

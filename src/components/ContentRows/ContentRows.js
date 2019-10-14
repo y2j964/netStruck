@@ -4,6 +4,7 @@ import InfiniteScroller from '../InfiniteScroller';
 import { useNetStruckDataState } from '../../context';
 import usePaginatedPosts from '../../utilityFunctions/usePaginatedPosts';
 
+// a post here represents a row
 const postsPerPage = 4;
 
 export default function ContentRows() {
@@ -17,9 +18,5 @@ export default function ContentRows() {
     <ContentRow {...genre} key={genre.id} />
   ));
 
-  return (
-    <InfiniteScroller loadMore={loadMore} trigger={<h2>help</h2>}>
-      {rowFrags}
-    </InfiniteScroller>
-  );
+  return <InfiniteScroller loadMore={loadMore}>{rowFrags}</InfiniteScroller>;
 }

@@ -1,5 +1,7 @@
 import React, { useEffect } from 'react';
+// import InfiniteScroller from '../InfiniteScroller';
 import { useNetStruckDataState } from '../../context';
+import usePaginatedPosts from '../../utilityFunctions/usePaginatedPosts';
 import EmptyList from './EmptyList';
 import TileChunks from '../../components/Tiles/TileChunks';
 
@@ -10,6 +12,7 @@ export default function MyList() {
 
   const { state } = useNetStruckDataState();
   const { myList } = state;
+
   const myListLength = myList.length;
 
   return (
@@ -21,7 +24,7 @@ export default function MyList() {
         <EmptyList />
       ) : (
         <div className='p-10 mb-10 overflow-x-hidden'>
-          <TileChunks filmGroupData={myList} />
+          <TileChunks filmGroupData={myList} isLazyLoaded />
         </div>
       )}
     </main>

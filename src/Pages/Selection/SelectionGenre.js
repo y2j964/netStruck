@@ -61,7 +61,7 @@ export default function SelectionGenre({ match }) {
       </div>
       {/* <div className='p-10 mb-10 mx-auto'> */}
       <div className='px-4 md:px-10 mb-10'>
-        <TileChunks filmGroupData={filmsOfSameGenre} />
+        <TileChunks filmGroupData={filmsOfSameGenre} isLazyLoaded />
       </div>
     </main>
   );
