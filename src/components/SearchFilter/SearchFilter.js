@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNetStruckDataState } from '../../context';
+import usePaginatedPosts from '../../utilityFunctions/usePaginatedPosts';
 import useDebounce from '../../utilityFunctions/useDebounce';
 import SearchResults from '../SearchResults';
 import SearchFilterInput from '../SearchFilterInput';
@@ -31,7 +32,6 @@ const postsPerPage = 8;
 export default function SearchFilter() {
   const [inputValue, setInputValue] = useState();
   const [filteredFilms, setFilteredFilms] = useState([]);
-  const [currentPage, setCurrentPage] = useState(1);
 
   const { state } = useNetStruckDataState();
   const { films } = state;
@@ -53,14 +53,10 @@ export default function SearchFilter() {
     setFilteredFilms(updatedFilteredFilms);
   };
 
-  const showMore = () => setCurrentPage(currentPage + 1);
-
-  const lastPostIndex = currentPage * postsPerPage;
-  const firstPostIndex = 0;
-  // I don't want true pagination here. I want to append extra results onto the already existing results
-  // for pagination you would do something like:
-  // const firstPostIndex = lastPostIndex - postsPerPage;
-  const currentPosts = filteredFilms.slice(firstPostIndex, lastPostIndex);
+  const [currentPosts, loadMore] = usePaginatedPosts(
+    postsPerPage,
+    filteredFilms,
+  );
 
   return (
     <React.Fragment>
@@ -77,7 +73,7 @@ export default function SearchFilter() {
         filteredFilms={currentPosts}
         totalResults={filteredFilms.length}
         inputValue={inputValue}
-        showMore={showMore}
+        loadMore={loadMore}
       />
     </React.Fragment>
   );

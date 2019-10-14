@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNetStruckDataState } from '../../context';
+import usePaginatedPosts from '../../utilityFunctions/usePaginatedPosts';
 import FilmTable from '../../components/FilmTable/FilmTable';
 import FilmRows from '../../components/FilmTable/FilmRows';
 import FilmTableViewOptions from '../../components/FilmTable/FilmTableViewOptions';
@@ -63,7 +64,6 @@ const postsPerPage = 12;
 export default function AllFilms() {
   const [sortBy, setSortBy] = useState('title');
   const [sortIsAscending, setSortIsAscending] = useState(true);
-  const [currentPage, setCurrentPage] = useState(1);
 
   useEffect(() => {
     document.title = 'All Films - NetStruck';
@@ -76,18 +76,10 @@ export default function AllFilms() {
 
   const compareFunc = getSortCompareFunc(sortBy, sortIsAscending);
   filmData.sort(compareFunc);
+
+  const [currentPosts, loadMore] = usePaginatedPosts(postsPerPage, filmData);
+
   const filmDataLength = filmData.length;
-
-  const lastPostIndex = currentPage * postsPerPage;
-  const firstPostIndex = 0;
-  const currentPosts = filmData.slice(firstPostIndex, lastPostIndex);
-
-  const loadMore = () => {
-    if (currentPosts.length === filmData.length) {
-      return;
-    }
-    setCurrentPage(currentPage + 1);
-  };
 
   return (
     <main className='md:px-12 my-16'>

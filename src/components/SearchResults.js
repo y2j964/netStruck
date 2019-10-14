@@ -6,7 +6,7 @@ import BtnPrimary from './BtnPrimary/BtnPrimary';
 export default function SearchResults({
   filteredFilms,
   inputValue,
-  showMore,
+  loadMore,
   totalResults,
 }) {
   if (!inputValue || totalResults === 0) {
@@ -25,7 +25,7 @@ export default function SearchResults({
       </h3>
       <TileChunks filmGroupData={filteredFilms} />
       <div className='text-center'>
-        <BtnPrimary handleClick={showMore} additionalClasses='mb-12'>
+        <BtnPrimary handleClick={loadMore} additionalClasses='mb-12'>
           Show More
         </BtnPrimary>
       </div>
@@ -36,6 +36,6 @@ export default function SearchResults({
 SearchResults.propTypes = {
   filteredFilms: PropTypes.array,
   inputValue: PropTypes.string,
-  showMore: PropTypes.func,
+  loadMore: PropTypes.func,
   totalResults: PropTypes.number,
 };
