@@ -1,5 +1,9 @@
 .content-row {
-  @apply mb-12;
+  @apply mb-8;
+
+  @media (--sm) {
+    @apply mb-10;
+  }
 
   &__header {
     padding: 0 calc(4% + 3.2px);

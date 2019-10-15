@@ -1,20 +1,30 @@
 .user-info {
   &__form-group {
     @apply relative mb-2;
-    height: 50px;
+    height: 44px;
+    /* height: 50px; */
   }
 
   &__input {
+    @apply text-sm;
     width: 100%;
     height: 100%;
     padding: 0.3125rem 0.9375rem 0px;
     border-color: rgb(179, 191, 200);
     border-width: 1px;
     border-style: solid;
+
+    @media (--sm) {
+      @apply text-base;
+    }
+  }
+
+  &__small-print {
+    @apply text-center text-xs text-black;
   }
 
   &__submission {
-    @apply mb-5 block w-full rounded flex items-center justify-center;
+    @apply mb-5 block w-full rounded flex items-center justify-center text-sm;
 
     height: 3.4375rem;
     background-color: rgb(185, 188, 199);
@@ -24,5 +34,9 @@
     border-width: 1px;
     border-style: solid;
     border-color: rgb(157, 160, 169);
+
+    @media (--sm) {
+      @apply text-base;
+    }
   }
 }

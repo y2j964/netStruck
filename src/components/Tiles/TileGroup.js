@@ -32,7 +32,7 @@ export default function TileGroup({ filmGroupData, slidesPerPosition }) {
     />
   ));
 
-  return <ul className='tile-group mb-12'>{tileFrags}</ul>;
+  return <ul className='tile-group'>{tileFrags}</ul>;
 }
 
 TileGroup.propTypes = {

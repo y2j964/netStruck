@@ -1,9 +1,10 @@
 .selection {
-  @apply flex flex-col px-4 py-5 mb-10;
+  /* @apply flex flex-col px-4 py-5 mb-10; */
+  @apply flex flex-col px-4 mb-8;
 
-  /* @media (--sm) {
-    @apply px-8;
-  } */
+  @media (--sm) {
+    @apply mb-10;
+  }
 
   @media (--md) {
     @apply flex-row p-0;

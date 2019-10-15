@@ -1,5 +1,9 @@
 .tile-group {
-  display: flex;
+  @apply flex mb-8;
+
+  @media (--sm) {
+    @apply mb-10;
+  }
 
   &__item {
     backface-visibility: hidden;

@@ -64,7 +64,7 @@ export default function SelectionItem({ match }) {
           <p className='selection__text mb-3'>
             Genres: <React.Fragment>{genreLinks}</React.Fragment>
           </p>
-          <p className='selection__text mb-8' id='selectionDescription'>
+          <p className='selection__text mb-6' id='selectionDescription'>
             {description}
           </p>
           <div className='flex flex-wrap'>
@@ -99,7 +99,7 @@ export default function SelectionItem({ match }) {
           </div>
         </div>
       </div>
-      <div className='px-4 md:px-10 mb-10'>
+      <div className='px-4 md:px-10 mb-10 overflow-x-hidden'>
         <div className='selection__content'>
           <div className='ratio-16-9'>
             {/* <img src={img} alt='' /> */}

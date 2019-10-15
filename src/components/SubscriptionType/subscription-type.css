@@ -2,6 +2,11 @@
   @apply mb-6;
 
   &__form-group {
-    @apply h-16 px-5 mb-2 bg-white rounded flex items-center justify-between;
+    @apply px-5 mb-2 bg-white rounded flex items-center justify-between;
+    height: 3.3rem;
+
+    @media (--sm) {
+      @apply h-16;
+    }
   }
 }

@@ -29,8 +29,8 @@ export default function UserInfo({ subscription }) {
   };
 
   return (
-    <div className='pb-16 pt-10 px-20 bg-white rounded'>
-      <h2 className='text-center text-2xl font-bold mb-6'>
+    <div className='p-5 sm:pb-16 sm:pt-10 sm:px-20 bg-white rounded'>
+      <h2 className='text-center text-xl sm:text-2xl font-bold mb-6'>
         Start your 14-day free trial
       </h2>
       <form action='' onSubmit={submitForm}>
@@ -74,10 +74,10 @@ export default function UserInfo({ subscription }) {
           isChecked={permissionCheck}
           handleCheckChange={() => setPermissionCheck(!permissionCheck)}
         >
-          I agree to receive newletters and product updates from NetStruck
+          I agree to receive newsletters and product updates from NetStruck
         </CheckBox>
         <button className='user-info__submission'>Continue</button>
-        <p className='text-center text-xs'>
+        <p className='user-info__small-print'>
           By registering you agree to our
           <span className='block text-center text-xs text-blue-500'>
             Terms, Cookies Policy <span className='text-black'>&</span> Privacy

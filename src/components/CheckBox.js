@@ -1,23 +1,29 @@
-import React from 'react'
+import React from 'react';
 import PropTypes from 'prop-types';
 
-export default function CheckBox({children, name, id, isChecked, handleCheckChange}) {
+export default function CheckBox({
+  children,
+  name,
+  id,
+  isChecked,
+  handleCheckChange,
+}) {
   return (
     <div className='mb-6'>
-          <input
-            type='checkbox'
-            name={name}
-            className='mr-2'
-            id={id}
-            checked={isChecked}
-            aria-checked={isChecked}
-            onChange={handleCheckChange}
-          />
-          <label htmlFor={id}>
-            {children}
-          </label>
-        </div>
-  )
+      <input
+        type='checkbox'
+        name={name}
+        className='mr-2'
+        id={id}
+        checked={isChecked}
+        aria-checked={isChecked}
+        onChange={handleCheckChange}
+      />
+      <label className='text-sm' htmlFor={id}>
+        {children}
+      </label>
+    </div>
+  );
 }
 
 CheckBox.propTypes = {
