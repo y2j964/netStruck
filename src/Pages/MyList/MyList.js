@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 // import InfiniteScroller from '../InfiniteScroller';
 import { useNetStruckDataState } from '../../context';
-import usePaginatedPosts from '../../utilityFunctions/usePaginatedPosts';
 import EmptyList from './EmptyList';
 import TileChunks from '../../components/Tiles/TileChunks';
 

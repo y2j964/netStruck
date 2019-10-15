@@ -100,9 +100,7 @@ export default function AllFilms() {
         }
       />
       {isLoading ? (
-        <div className='flex justify-center items-center'>
-          <Spinner />
-        </div>
+        <Spinner />
       ) : (
         <FilmTable>
           <InfiniteScroller loadMore={loadMore} isTable>

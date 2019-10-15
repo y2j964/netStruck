@@ -2,6 +2,7 @@ import React from 'react';
 
 export default function Spinner() {
   return (
+    <div className="flex justify-center items-center">
     <svg
       className='lds-spinner'
       aria-label='loading'
@@ -252,5 +253,6 @@ export default function Spinner() {
         </rect>
       </g>
     </svg>
+    </div>
   );
 }

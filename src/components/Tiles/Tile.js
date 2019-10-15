@@ -1,9 +1,7 @@
 import React, { memo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-// import LazyImage from '../LazyImage';
 import ToggleToMyListBtn from '../ToggleToMyListBtn/ToggleToMyListBtn';
-import EmptyTile from './EmptyTile';
 
 const placementInViewportClassValues = {
   leftPreview: 'tile-group__item',

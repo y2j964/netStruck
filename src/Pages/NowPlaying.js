@@ -19,13 +19,7 @@ export default function NowPlaying() {
       <Carousel />
       <section>
         <h2 className='sr-only'>Organized Content</h2>
-        {isLoading ? (
-          <div className='flex justify-center items-center'>
-            <Spinner />
-          </div>
-        ) : (
-          <ContentRows />
-        )}
+        {isLoading ? <Spinner /> : <ContentRows />}
       </section>
     </main>
   );

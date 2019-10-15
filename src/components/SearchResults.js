@@ -39,9 +39,7 @@ export default function SearchResults({
       </h3>
       <TileChunks filmGroupData={filteredFilms} />
       {isLoading ? (
-        <div className='flex justify-center items-center'>
-          <Spinner />
-        </div>
+        <Spinner />
       ) : (
         <div className='text-center'>
           <BtnPrimary handleClick={handleClick} additionalClasses='mb-12'>
