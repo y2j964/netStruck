@@ -2,12 +2,20 @@ import React, { useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 
 const Tab = ({ id, isActive, index, text, handleClick, children }) => {
-  const ref = useRef();
+  const ref = useRef(true);
+  const isInitialMount = useRef(true);
+
   useEffect(() => {
-    if (!isActive) {
+    // don't focus default isActive element that gets set on mount
+    // preserve natural tab order in that instance
+    if (isInitialMount.current) {
+      isInitialMount.current = false;
       return;
     }
-    ref.current.focus();
+    // ensure focus is accurate when using left and right arrow keys
+    if (isActive) {
+      ref.current.focus();
+    }
   }, [isActive]);
 
   return (
