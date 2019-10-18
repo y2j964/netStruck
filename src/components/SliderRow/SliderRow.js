@@ -59,6 +59,9 @@ export default function SliderRow({ filmGroupData }) {
           ariaLabel='slide previous films into view'
         />
       </div>
+
+      {/* <EmptyTileGroup numOfTiles={7} /> */}
+
       {!isIntersecting ? (
         <EmptyTileGroup numOfTiles={7} />
       ) : (

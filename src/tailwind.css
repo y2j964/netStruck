@@ -8688,6 +8688,16 @@ video {
     border-right: 2px solid #151515;
   }
 
+.tile__underlay {
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color:#0d0d0d;
+  }
+
 .tile:hover {
     /* & .toggle-to-MyList-btn {
       transform: scale(0.6667‬);
@@ -9163,6 +9173,10 @@ main {
 
 .border-gray {
   border-color: #383838;
+}
+
+.font-logo {
+  font-family: 'IBM Plex Mono', monospace;
 }
 
 .ratio-16-9 {

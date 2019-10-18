@@ -98,6 +98,10 @@ main {
   border-color: #383838;
 }
 
+.font-logo {
+  font-family: 'IBM Plex Mono', monospace;
+}
+
 .ratio-16-9 {
   position: relative;
   overflow: hidden;

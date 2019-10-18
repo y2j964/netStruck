@@ -57,6 +57,7 @@ export default function NavbarItems() {
         isHome={true}
         text={homeLink}
         handleClick={ensureCollapsibleNavIsClosed}
+        additionalClasses='font-logo'
       />
       <HamburgerToggle
         controls='navbarCollapsibleGroup'

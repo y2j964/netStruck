@@ -129,9 +129,12 @@ const Tile = ({
             <source srcSet={img.jpg400} />
             <img src={img.jpg400} alt='' />
           </picture>
+          <div className='tile__underlay flex justify-center items-center'>
+            {/* <p className='text-white truncate px-2'>{title}</p> */}
+          </div>
           <Link
             to={`/now-playing/${slug}`}
-            className=' absolute top-0 bottom-0 left-0 right-0'
+            className='absolute top-0 bottom-0 left-0 right-0'
             tabIndex={`${
               ['offscreen', 'leftPreview', 'rightPreview'].includes(
                 placementInViewport,
