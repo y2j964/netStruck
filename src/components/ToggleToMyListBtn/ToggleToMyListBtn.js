@@ -10,41 +10,22 @@ function ToggleToMyListBtn({ isAddedToMyList, isHovered, slug }) {
     dispatch({ type: 'TOGGLE_FILM_MYLIST_STATE', id: slug });
   };
 
-  if (isAddedToMyList) {
-    return (
-      <button
-        className='toggle-to-MyList-btn'
-        onClick={toggleFilmMyListState}
-        aria-hidden={!isHovered}
-        tabIndex={!isHovered ? -1 : 0}
-        aria-label='Remove from MyList'
-      >
-        <React.Fragment>
-          <Minus width='14' height='14' additionalClasses='rotate-transition' />
-          <span className='toggle-to-MyList-btn__text'>My List</span>
-        </React.Fragment>
-      </button>
-    );
-  }
-
-  if (!isAddedToMyList) {
-    return (
-      <button
-        className='toggle-to-MyList-btn'
-        onClick={toggleFilmMyListState}
-        aria-hidden={!isHovered}
-        tabIndex={!isHovered ? -1 : 0}
-        aria-label='Add To MyList'
-      >
-        <React.Fragment>
-          <Plus width='14' height='14' additionalClasses='rotate-transition' />
-          <span className='toggle-to-MyList-btn__text'>My List</span>
-        </React.Fragment>
-      </button>
-    );
-  }
-
-  return null;
+  return (
+    <button
+      className='toggle-to-MyList-btn'
+      onClick={toggleFilmMyListState}
+      aria-hidden={!isHovered}
+      tabIndex={!isHovered ? -1 : 0}
+      aria-label={isAddedToMyList ? 'Remove from My List' : 'Add to My List'}
+    >
+      {isAddedToMyList ? (
+        <Minus width='13' height='13' additionalClasses='rotate-transition' />
+      ) : (
+        <Plus width='13' height='13' additionalClasses='rotate-transition' />
+      )}
+      <span className='toggle-to-MyList-btn__text'>My List</span>
+    </button>
+  );
 }
 
 export default memo(ToggleToMyListBtn);
