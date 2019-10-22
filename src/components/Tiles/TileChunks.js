@@ -30,7 +30,7 @@ export default function TileChunks({ filmGroupData, isLazyLoaded }) {
 
   // loading state; waiting for getUpdatedSlidesPerPosition to calculate an accurate slidesPerPosition value
   if (slidesPerPosition === 0) {
-    return <Spinner />;
+    return null;
   }
 
   if (isLazyLoaded) {
@@ -60,5 +60,5 @@ export default function TileChunks({ filmGroupData, isLazyLoaded }) {
 
 TileChunks.propTypes = {
   filmGroupData: PropTypes.array.isRequired,
-  isLazyLoaded: PropTypes.bool.isRequired,
+  isLazyLoaded: PropTypes.bool,
 };

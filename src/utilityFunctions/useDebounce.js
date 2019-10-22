@@ -1,8 +1,8 @@
-// Gabe Ragland's debounce hook from https://dev.to/gabe_ragland/debouncing-with-react-hooks-jci
+// based on Gabe Ragland's debounce hook from https://dev.to/gabe_ragland/debouncing-with-react-hooks-jci
 import { useState, useEffect } from 'react';
 
 // Our hook
-export default function useDebounce(value, delay) {
+export default function useDebounce(value, delay, setIsLoading) {
   // State and setters for debounced value
   const [debouncedValue, setDebouncedValue] = useState(value);
 
@@ -10,6 +10,8 @@ export default function useDebounce(value, delay) {
     () => {
       // Set debouncedValue to value (passed in) after the specified delay
       const handler = setTimeout(() => {
+        // setLoading here so that debounced value and loading is set in same render
+        setIsLoading(true);
         setDebouncedValue(value);
       }, delay);
 
@@ -28,7 +30,7 @@ export default function useDebounce(value, delay) {
     // Only re-call effect if value changes
     // You could also add the "delay" var to inputs array if you ...
     // ... need to be able to change that dynamically.
-    [value, delay],
+    [value, delay, setIsLoading],
   );
 
   return debouncedValue;
