@@ -9,25 +9,27 @@ export default function SearchResults({
   filteredFilms,
   loadMore,
 }) {
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoadingMore, setIsLoadingMore] = useState(false);
 
   useEffect(() => {
-    setIsLoading(false);
+    // set isLoadingMore to false when you get more filteredFilms via pagination
+    setIsLoadingMore(false);
   }, [filteredFilms]);
 
   const handleClick = () => {
-    setIsLoading(true);
+    setIsLoadingMore(true);
     setTimeout(() => {
       loadMore();
     }, 500);
   };
+
   return (
     <div className='search-filter__results' aria-live='polite'>
       <h3 className='text-white text-center text-2xl uppercase font-bold light-gray mb-8'>
         {totalResults} Results
       </h3>
       <TileChunks filmGroupData={filteredFilms} />
-      {isLoading ? (
+      {isLoadingMore ? (
         <Spinner />
       ) : (
         <div className='text-center'>

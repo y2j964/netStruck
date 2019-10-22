@@ -32,13 +32,14 @@ const postsPerPage = 8;
 export default function SearchFilter() {
   const [inputValue, setInputValue] = useState('');
   useEffect(() => {
-    // reset value onMount so previous values don't hang around
+    // reset value onMount so previous values don't persist
     setInputValue('');
   }, []);
 
   const [isLoading, setIsLoading] = useState(false);
   const [filteredFilms, setFilteredFilms] = useState([]);
 
+  // break up filtered films into tranches via pagination
   const [currentPosts, loadMore, setCurrentPage] = usePaginatedPosts(
     postsPerPage,
     filteredFilms,
@@ -94,6 +95,7 @@ export default function SearchFilter() {
         totalResults={filteredFilms.length}
         debouncedInputValue={debouncedInputValue}
         isLoading={isLoading}
+        setIsLoading={setIsLoading}
         loadMore={loadMore}
       />
     </React.Fragment>
