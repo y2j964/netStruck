@@ -8075,7 +8075,6 @@ video {
   left: 0;
   right: 0;
   z-index: 20;
-  overflow-y: auto;
   background: rgba(20, 20, 20, 0.95);
 }
 
@@ -8997,20 +8996,11 @@ video {
     }
 
 .selection {
-  /* @apply flex flex-col px-4 py-5 mb-10; */
   display: flex;
   flex-direction: column;
   padding-left: 1rem;
   padding-right: 1rem;
-  margin-bottom: 2rem;
 }
-
-@media (min-width: 500px) {
-
-.selection {
-    margin-bottom: 2.5rem
-}
-  }
 
 @media (min-width: 800px) {
 
@@ -9102,13 +9092,27 @@ video {
   } */
 
 .selection__content {
-    width: 50%;
+    /* padding top is important to preserve the y overflow (since we are using overflow-x-hidden) */
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 2rem;
+    padding-bottom: 2.5rem;
+    overflow-x: hidden;
   }
+
+@media (min-width: 500px) {
+
+.selection__content {
+      padding-top: 2.5rem
+  }
+    }
 
 @media (min-width: 800px) {
 
 .selection__content {
-      width: 33.333333%
+      padding-left: 2.5rem;
+
+      padding-right: 2.5rem
   }
     }
 

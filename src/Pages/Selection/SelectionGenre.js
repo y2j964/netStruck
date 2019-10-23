@@ -59,7 +59,7 @@ export default function SelectionGenre({ match }) {
           </div>
         </div>
       </div>
-      <div className='px-4 md:px-10 mb-10 overflow-x-hidden'>
+      <div className='selection__content'>
         <TileChunks filmGroupData={filmsOfSameGenre} isLazyLoaded />
       </div>
     </main>

@@ -99,10 +99,9 @@ export default function SelectionItem({ match }) {
           </div>
         </div>
       </div>
-      <div className='px-4 md:px-10 mb-10 overflow-x-hidden'>
-        <div className='selection__content'>
+      <div className='selection__content'>
+        <div className='tile'>
           <div className='ratio-16-9'>
-            {/* <img src={img} alt='' /> */}
             <picture>
               <source sizes='100vw' srcSet={img.webp400} type='image/webp' />
               <source srcSet={img.jpg400} />
