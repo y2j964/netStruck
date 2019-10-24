@@ -22,7 +22,7 @@ export default class Tabs extends Component {
             <PlayBox
               fill='#fff'
               stroke='#fff'
-              additionalClasses='slider-switch-content__PlayBox'
+              additionalClasses='tab__PlayBox'
             />
           ),
         },
@@ -30,7 +30,7 @@ export default class Tabs extends Component {
           id: uuid.v4(),
           isActive: false,
           text: 'Thematically presented',
-          icon: <Eye additionalClasses='slider-switch-content__Eye' />,
+          icon: <Eye additionalClasses='tab__Eye' />,
         },
         {
           id: uuid.v4(),

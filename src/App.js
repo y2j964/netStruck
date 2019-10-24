@@ -25,7 +25,11 @@ function App({ location, history }) {
 
   // set up listener and ensure collapsibleNav is collapsed on route change
   useEffect(() => {
-    history.listen(() => setCollapsibleNavIsExpanded(false));
+    history.listen(() => {
+      document.getElementById('navbarCollapsibleGroup').style.transition =
+        'none';
+      setCollapsibleNavIsExpanded(false);
+    });
   }, [history]);
 
   return (

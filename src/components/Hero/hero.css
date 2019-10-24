@@ -2,6 +2,33 @@
   padding-top: 117%;
 
   @media (--sm) {
-    padding-top: 570px;
+    padding-top: 620px;
+  }
+
+  &__text-block {
+    @apply max-w-md text-center px-4;
+    @media (--md) {
+      max-width: 30rem;
+    }
+    @media (--lg) {
+      max-width: 32rem;
+    }
+    @media (--xl) {
+      max-width: 35rem;
+    }
+  }
+
+  &__header {
+    @apply text-white text-2xl font-bold mb-2;
+    @media (--sm) {
+      @apply text-3xl;
+    }
+  }
+
+  &__description {
+    @apply text-white mb-5 leading-tight text-sm;
+    @media (--sm) {
+      @apply text-base;
+    }
   }
 }
