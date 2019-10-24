@@ -71,7 +71,6 @@ const CarouselItem = ({
         to={`/now-playing/${slug}`}
       />
       <div className='carousel-item__img-block'>
-        {/* <img src={img.webp1200} alt='' className='carousel-item__img' /> */}
         <picture className='z-neg w-full'>
           <source
             sizes='(min-width: 1700px) 72rem, (min-width: 1400px) 58rem, (min-width: 1100px) 48rem, (min-width: 500px) 36rem, 100vw'

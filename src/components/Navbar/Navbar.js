@@ -1,10 +1,33 @@
 import React from 'react';
-import NavbarItems from './NavbarItems';
+import PropTypes from 'prop-types';
+import NavbarBrand from './NavbarBrand';
+import HamburgerToggle from '../HamburgerToggle/HamburgerToggle';
+import NavbarPrimaryItems from './NavbarPrimaryItems';
+import SignUpTrigger from '../SignUpTrigger';
+import ModalTrigger from '../ModalTrigger';
 
-export default function Navbar() {
+export default function Navbar({
+  collapsibleNavIsExpanded,
+  toggleCollapsibleNav,
+}) {
   return (
     <nav className='navbar'>
-      <NavbarItems />
+      <NavbarBrand />
+      <HamburgerToggle
+        controls='navbarCollapsibleGroup'
+        collapsibleNavIsExpanded={collapsibleNavIsExpanded}
+        handleClick={toggleCollapsibleNav}
+      />
+      <NavbarPrimaryItems collapsibleNavIsExpanded={collapsibleNavIsExpanded} />
+      <div className='ml-auto hidden md:flex'>
+        <SignUpTrigger />
+        <ModalTrigger />
+      </div>
     </nav>
   );
 }
+
+Navbar.propTypes = {
+  collapsibleNavIsExpanded: PropTypes.bool.isRequired,
+  toggleCollapsibleNav: PropTypes.func.isRequired,
+};

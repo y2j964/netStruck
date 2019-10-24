@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './tailwind.css';
 import { withRouter, Route, Switch } from 'react-router-dom';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
@@ -18,11 +18,25 @@ import Modal from './components/Modal/Modal';
 import ScrollToTop from './components/ScrollToTop';
 import { NetStruckDataProvider } from './context';
 
-function App({ location }) {
+function App({ location, history }) {
+  const [collapsibleNavIsExpanded, setCollapsibleNavIsExpanded] = useState(
+    false,
+  );
+
+  // set up listener and ensure collapsibleNav is collapsed on route change
+  useEffect(() => {
+    history.listen(() => setCollapsibleNavIsExpanded(false));
+  }, [history]);
+
   return (
     <ScrollToTop>
       <NetStruckDataProvider>
-        <Navbar />
+        <Navbar
+          collapsibleNavIsExpanded={collapsibleNavIsExpanded}
+          toggleCollapsibleNav={() =>
+            setCollapsibleNavIsExpanded(!collapsibleNavIsExpanded)
+          }
+        />
         <TransitionGroup component={null}>
           <CSSTransition
             // prevent reanimation if active link is clicked by using pathname property
@@ -64,4 +78,5 @@ export default withRouter(App);
 
 App.propTypes = {
   location: PropTypes.object,
+  history: PropTypes.object,
 };
