@@ -145,19 +145,23 @@ const Tile = ({
             aria-label={title}
           />
           <div className='exploder flex flex-col items-center justify-around'>
-            <h3 className='tile__title'>{title}</h3>
-            <span className='tile__title'>{year}</span>
-            <ToggleToMyListBtn
-              slug={slug}
-              isAddedToMyList={isAddedToMyList}
-              isHovered={isHovered}
-            />
-            <Link
-              to={`/now-playing/${slug}`}
-              className='absolute top-0 bottom-0 left-0 right-0'
-              tabIndex='-1'
-              aria-label={title}
-            />
+            {isHovered && (
+              <React.Fragment>
+                <h3 className='tile__title'>{title}</h3>
+                <span className='tile__title'>{year}</span>
+                <ToggleToMyListBtn
+                  slug={slug}
+                  isAddedToMyList={isAddedToMyList}
+                  isHovered={isHovered}
+                />
+                <Link
+                  to={`/now-playing/${slug}`}
+                  className='absolute top-0 bottom-0 left-0 right-0'
+                  tabIndex='-1'
+                  aria-label={title}
+                />
+              </React.Fragment>
+            )}
           </div>
         </div>
       </li>
