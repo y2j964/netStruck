@@ -20,6 +20,7 @@ NetStruck emerged as a fun coding challenge I gave myself to create a unique Rea
 ## Technologies
 * React 16.8.6
 * React Router 5.0.1
+* React Hooks
 * React-Transition-Group 4.2.2
 * Gulp 4.0.2
 * Git and Git Bash

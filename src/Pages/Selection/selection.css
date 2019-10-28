@@ -10,8 +10,7 @@
     order: 2;
 
     @media (--md) {
-      @apply w-1/2 px-10;
-      padding-top: 3.6rem;
+      @apply w-1/2 px-10 pt-6 flex flex-col justify-center;
       order: initial;
     }
   }

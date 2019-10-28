@@ -13,5 +13,5 @@ export default function usePaginatedPosts(postsPerPage, dataSrc) {
     }
     setCurrentPage(currentPage + 1);
   };
-  return [currentPosts, loadMore, setCurrentPage];
+  return { currentPosts, loadMore, setCurrentPage };
 }

@@ -1,7 +1,6 @@
 // based on Gabe Ragland's debounce hook from https://dev.to/gabe_ragland/debouncing-with-react-hooks-jci
 import { useState, useEffect } from 'react';
 
-// Our hook
 export default function useDebounce(value, delay, setIsLoading) {
   // State and setters for debounced value
   const [debouncedValue, setDebouncedValue] = useState(value);

@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import uuid from 'uuid';
 import Tile from './Tile';
 
-const getTilePlaceholders = slidesPerPosition => {
+const getTilePlaceholders = tilesPerPosition => {
   const tileList = [];
-  for (let i = 0; i < slidesPerPosition; i += 1) {
+  for (let i = 0; i < tilesPerPosition; i += 1) {
     tileList.push(<Tile key={i} />);
   }
   return tileList;
@@ -30,9 +30,9 @@ const getPlacementInViewPort = (visibleSlideIndexes, index) => {
   return 'middle';
 };
 
-const createFrontClones = (slidesPerPosition, filmGroupData) => {
+const createFrontClones = (tilesPerPosition, filmGroupData) => {
   const frontClones = [];
-  for (let i = 0; i < slidesPerPosition; i += 1) {
+  for (let i = 0; i < tilesPerPosition; i += 1) {
     const tile = filmGroupData[i];
     tile.id = uuid.v4();
     frontClones.push(tile);
@@ -40,10 +40,10 @@ const createFrontClones = (slidesPerPosition, filmGroupData) => {
   return frontClones;
 };
 
-const createEndClones = (slidesPerPosition, filmGroupData) => {
+const createEndClones = (tilesPerPosition, filmGroupData) => {
   const endClones = [];
   for (
-    let i = filmGroupData.length - slidesPerPosition;
+    let i = filmGroupData.length - tilesPerPosition;
     i < filmGroupData.length;
     i += 1
   ) {
@@ -59,7 +59,7 @@ function InfiniteTileGroup({
   xPosition,
   transition,
   wrapAround,
-  slidesPerPosition,
+  tilesPerPosition,
   visibleSlideIndexes,
 }) {
   const [endClones, setEndClones] = useState([]);
@@ -69,17 +69,17 @@ function InfiniteTileGroup({
   const [middleHoveredIndex, setMiddleHoveredIndex] = useState(null);
 
   useLayoutEffect(() => {
-    const endClonesFrags = createEndClones(slidesPerPosition, filmGroupData);
+    const endClonesFrags = createEndClones(tilesPerPosition, filmGroupData);
 
     const frontClonesFrags = createFrontClones(
-      slidesPerPosition,
+      tilesPerPosition,
       filmGroupData,
     );
 
     setEndClones(endClonesFrags);
     setFrontClones(frontClonesFrags);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [slidesPerPosition]);
+  }, [tilesPerPosition]);
   // omitting filmGroupData b/c I don't care if clones have updated info;
   // they are window dressing that the user never interacts with
 
@@ -92,7 +92,7 @@ function InfiniteTileGroup({
     <Tile
       {...film}
       key={film.id}
-      index={index + filmGroupData.length + slidesPerPosition}
+      index={index + filmGroupData.length + tilesPerPosition}
       placementInViewport={index !== 0 ? 'offscreen' : 'rightPreview'}
       leftEdgeIsHovered={leftEdgeIsHovered}
       rightEdgeIsHovered={rightEdgeIsHovered}
@@ -106,7 +106,7 @@ function InfiniteTileGroup({
       key={film.id}
       index={index}
       placementInViewport={
-        index + 1 !== slidesPerPosition ? 'offscreen' : 'leftPreview'
+        index + 1 !== tilesPerPosition ? 'offscreen' : 'leftPreview'
       }
       leftEdgeIsHovered={leftEdgeIsHovered}
       rightEdgeIsHovered={rightEdgeIsHovered}
@@ -120,11 +120,11 @@ function InfiniteTileGroup({
       key={film.id}
       placementInViewport={getPlacementInViewPort(
         visibleSlideIndexes,
-        index + slidesPerPosition,
+        index + tilesPerPosition,
       )}
       rowLength={filmGroupData.length}
       ariaLabel={`slide ${index + 1} of ${filmGroupData.length}`}
-      index={index + slidesPerPosition}
+      index={index + tilesPerPosition}
       // index value is accumulated to account for slides
       leftEdgeIsHovered={leftEdgeIsHovered}
       handleLeftEdgeIsHovered={setLeftEdgeIsHovered}
@@ -141,11 +141,11 @@ function InfiniteTileGroup({
       style={tileGroupStyle}
       onTransitionEnd={wrapAround}
     >
-      {clonedEndTileFrags.length === slidesPerPosition ? (
+      {clonedEndTileFrags.length === tilesPerPosition ? (
         clonedEndTileFrags
       ) : (
         <React.Fragment>
-          {getTilePlaceholders(slidesPerPosition)}
+          {getTilePlaceholders(tilesPerPosition)}
         </React.Fragment>
       )}
       {naturalTileFrags}
@@ -157,7 +157,7 @@ function InfiniteTileGroup({
 InfiniteTileGroup.propTypes = {
   filmGroupData: PropTypes.array,
   wrapAround: PropTypes.func.isRequired,
-  slidesPerPosition: PropTypes.number.isRequired,
+  tilesPerPosition: PropTypes.number.isRequired,
   visibleSlideIndexes: PropTypes.array.isRequired,
   xPosition: PropTypes.number.isRequired,
   transition: PropTypes.bool.isRequired,

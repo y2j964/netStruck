@@ -6,7 +6,7 @@ import FilmRows from '../../components/FilmTable/FilmRows';
 import FilmTableViewOptions from '../../components/FilmTable/FilmTableViewOptions';
 import SelectCustom from '../../components/SelectCustom/SelectCustom';
 import options from './options';
-import Spinner from '../../icons/Spinner';
+import WithLoadingIndicator from '../../components/WithLoadingIndicator';
 import InfiniteScroller from '../../components/InfiniteScroller';
 
 // regex func from Thorsten Frommen
@@ -77,7 +77,7 @@ export default function AllFilms() {
   const compareFunc = getSortCompareFunc(sortBy, sortIsAscending);
   filmData.sort(compareFunc);
 
-  const [currentPosts, loadMore] = usePaginatedPosts(postsPerPage, filmData);
+  const { currentPosts, loadMore } = usePaginatedPosts(postsPerPage, filmData);
 
   const filmDataLength = filmData.length;
 
@@ -99,15 +99,16 @@ export default function AllFilms() {
           />
         }
       />
-      {isLoading ? (
-        <Spinner />
-      ) : (
-        <FilmTable>
-          <InfiniteScroller loadMore={loadMore} isTable>
-            <FilmRows filmData={currentPosts} />
-          </InfiniteScroller>
-        </FilmTable>
-      )}
+      <WithLoadingIndicator
+        isLoading={isLoading}
+        render={() => (
+          <FilmTable>
+            <InfiniteScroller loadMore={loadMore} isTable>
+              <FilmRows filmData={currentPosts} />
+            </InfiniteScroller>
+          </FilmTable>
+        )}
+      />
     </main>
   );
 }

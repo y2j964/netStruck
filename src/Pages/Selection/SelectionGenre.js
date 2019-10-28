@@ -3,6 +3,10 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import TileChunks from '../../components/Tiles/TileChunks';
 import { useNetStruckDataState } from '../../context';
+import useResponsivePagination from '../../utilityFunctions/useResponsivePagination';
+import InfiniteScroller from '../../components/InfiniteScroller';
+
+const postsPerPageMinimum = 6;
 
 export default function SelectionGenre({ match }) {
   const { slug } = match.params;
@@ -19,6 +23,11 @@ export default function SelectionGenre({ match }) {
   useEffect(() => {
     document.title = `${name} - NetStruck`;
   }, [name]);
+
+  const { currentPosts, loadMore, itemsPerPosition } = useResponsivePagination(
+    postsPerPageMinimum,
+    filmsOfSameGenre,
+  );
 
   return (
     <main>
@@ -60,7 +69,12 @@ export default function SelectionGenre({ match }) {
         </div>
       </div>
       <div className='selection__content'>
-        <TileChunks filmGroupData={filmsOfSameGenre} isLazyLoaded />
+        <InfiniteScroller loadMore={loadMore}>
+          <TileChunks
+            filmGroupData={currentPosts}
+            tilesPerPosition={itemsPerPosition}
+          />
+        </InfiniteScroller>
       </div>
     </main>
   );

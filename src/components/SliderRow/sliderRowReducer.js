@@ -3,14 +3,14 @@ const step = 100;
 const getActiveSlideIndexes = (
   updatedXPosition,
   slideWidth,
-  slidesPerPosition,
+  tilesPerPosition,
 ) => {
-  const cloneOffsets = slidesPerPosition;
+  const cloneOffsets = tilesPerPosition;
   const activeSlides = [];
-  for (let i = 0; i < slidesPerPosition; i += 1) {
+  for (let i = 0; i < tilesPerPosition; i += 1) {
     const slideIndex =
       Math.floor(-updatedXPosition / slideWidth) -
-      slidesPerPosition +
+      tilesPerPosition +
       cloneOffsets +
       i;
     activeSlides.push(slideIndex);
@@ -19,30 +19,27 @@ const getActiveSlideIndexes = (
 };
 
 const getLeftMostSlideIndex = (
-  prevSlidesPerPosition,
+  prevTilesPerPosition,
   visibleSlideIndexes,
-  updatedSlidesPerPosition,
+  updatedTilesPerPosition,
 ) => {
   if (visibleSlideIndexes.length > 0) {
     const leftMostSlideIndex = visibleSlideIndexes[0];
     // we'll want the change in clones to factor into the new layout
-    const cloneAdjustment = prevSlidesPerPosition - updatedSlidesPerPosition;
+    const cloneAdjustment = prevTilesPerPosition - updatedTilesPerPosition;
     const adjustedLeftMostSlideIndex = leftMostSlideIndex - cloneAdjustment;
     return adjustedLeftMostSlideIndex;
   }
-  return updatedSlidesPerPosition;
+  return updatedTilesPerPosition;
 };
 
 // 'natural' here is to be understood as slides that aren't cloned
-const getNaturalEndingSlideIndexes = (
-  genreLength,
-  updatedSlidesPerPosition,
-) => {
-  const cloneOffset = updatedSlidesPerPosition;
+const getNaturalEndingSlideIndexes = (genreLength, updatedTilesPerPosition) => {
+  const cloneOffset = updatedTilesPerPosition;
   const clonedEndingLeftMostIndex = genreLength + cloneOffset;
   // last position before cloned series
   const naturalEndingLeftMostIndex =
-    genreLength + cloneOffset - updatedSlidesPerPosition;
+    genreLength + cloneOffset - updatedTilesPerPosition;
   const naturalEndingSlideIndexes = [];
   for (
     let i = naturalEndingLeftMostIndex;
@@ -72,18 +69,18 @@ const getLeftAlignedSlideIndexes = (
 };
 
 const getResizedSlideIndexes = (
-  prevSlidesPerPosition,
-  updatedSlidesPerPosition,
+  prevTilesPerPosition,
+  updatedTilesPerPosition,
   visibleSlideIndexes,
   genreLength,
 ) => {
-  const cloneOffset = updatedSlidesPerPosition;
+  const cloneOffset = updatedTilesPerPosition;
   const naturalEndingLeftMostIndex =
-    genreLength + cloneOffset - updatedSlidesPerPosition;
+    genreLength + cloneOffset - updatedTilesPerPosition;
   const leftMostSlideIndex = getLeftMostSlideIndex(
-    prevSlidesPerPosition,
+    prevTilesPerPosition,
     visibleSlideIndexes,
-    updatedSlidesPerPosition,
+    updatedTilesPerPosition,
   );
   // on resize, we want to maintain the left-most slide
   // if the left-most slide doesn't support a wider viewport (i.e. you end up wrapping
@@ -91,31 +88,31 @@ const getResizedSlideIndexes = (
   if (leftMostSlideIndex > naturalEndingLeftMostIndex) {
     const naturalEndingSlideIndexes = getNaturalEndingSlideIndexes(
       genreLength,
-      updatedSlidesPerPosition,
+      updatedTilesPerPosition,
     );
     return naturalEndingSlideIndexes;
   }
   const resizedSlideIndexes = getLeftAlignedSlideIndexes(
     leftMostSlideIndex,
-    updatedSlidesPerPosition,
+    updatedTilesPerPosition,
   );
   return resizedSlideIndexes;
 };
 
 const getResizedXPosition = (
-  prevSlidesPerPosition,
-  updatedSlidesPerPosition,
+  prevTilesPerPosition,
+  updatedTilesPerPosition,
   updatedVisibleSlideIndexes,
   genreLength,
 ) => {
-  const slideWidth = step / updatedSlidesPerPosition;
-  const cloneOffset = updatedSlidesPerPosition;
+  const slideWidth = step / updatedTilesPerPosition;
+  const cloneOffset = updatedTilesPerPosition;
   const naturalEndingLeftMostIndex =
-    genreLength + cloneOffset - updatedSlidesPerPosition;
+    genreLength + cloneOffset - updatedTilesPerPosition;
   const leftMostSlideIndex = getLeftMostSlideIndex(
-    prevSlidesPerPosition,
+    prevTilesPerPosition,
     updatedVisibleSlideIndexes,
-    updatedSlidesPerPosition,
+    updatedTilesPerPosition,
   );
   if (leftMostSlideIndex > naturalEndingLeftMostIndex) {
     const endPositionX = -slideWidth * naturalEndingLeftMostIndex;
@@ -123,14 +120,14 @@ const getResizedXPosition = (
   }
   // maintain position respective to previous leftMostSlide
   const updatedXPosition =
-    (leftMostSlideIndex - updatedSlidesPerPosition) * -slideWidth - 100;
+    (leftMostSlideIndex - updatedTilesPerPosition) * -slideWidth - 100;
   return updatedXPosition;
 };
 
 const filmDataReducer = (state, action) => {
   switch (action.type) {
     case 'MOVE_SLIDER_BACKWARD': {
-      const slideWidth = step / state.slidesPerPosition;
+      const slideWidth = step / state.tilesPerPosition;
 
       if (state.xPosition > -step) {
         // prevents slider from sliding off tracks; endPositionX - step is the clones at the end
@@ -144,7 +141,7 @@ const filmDataReducer = (state, action) => {
         const updatedSlideIndexes = getActiveSlideIndexes(
           updatedXPosition,
           slideWidth,
-          state.slidesPerPosition,
+          state.tilesPerPosition,
         );
         return {
           ...state,
@@ -165,7 +162,7 @@ const filmDataReducer = (state, action) => {
       const updatedSlideIndexes = getActiveSlideIndexes(
         updatedXPosition,
         slideWidth,
-        state.slidesPerPosition,
+        state.tilesPerPosition,
       );
       return {
         ...state,
@@ -176,7 +173,7 @@ const filmDataReducer = (state, action) => {
     }
 
     case 'MOVE_SLIDER_FORWARD': {
-      const slideWidth = step / state.slidesPerPosition;
+      const slideWidth = step / state.tilesPerPosition;
       const naturalEndPositionX = -slideWidth * action.id;
 
       if (state.xPosition === naturalEndPositionX - step) {
@@ -193,7 +190,7 @@ const filmDataReducer = (state, action) => {
         const updatedSlideIndexes = getActiveSlideIndexes(
           updatedXPosition,
           slideWidth,
-          state.slidesPerPosition,
+          state.tilesPerPosition,
         );
         return {
           ...state,
@@ -214,7 +211,7 @@ const filmDataReducer = (state, action) => {
       const updatedSlideIndexes = getActiveSlideIndexes(
         updatedXPosition,
         slideWidth,
-        state.slidesPerPosition,
+        state.tilesPerPosition,
       );
       return {
         ...state,
@@ -225,14 +222,14 @@ const filmDataReducer = (state, action) => {
     }
 
     case 'WRAP_AROUND': {
-      const slideWidth = step / state.slidesPerPosition;
+      const slideWidth = step / state.tilesPerPosition;
       const naturalEndPositionX = -slideWidth * action.id;
 
       if (state.xPosition === 0) {
         const updatedSlideIndexes = getActiveSlideIndexes(
           naturalEndPositionX,
           slideWidth,
-          state.slidesPerPosition,
+          state.tilesPerPosition,
         );
         return {
           ...state,
@@ -246,7 +243,7 @@ const filmDataReducer = (state, action) => {
         const updatedSlideIndexes = getActiveSlideIndexes(
           -step,
           slideWidth,
-          state.slidesPerPosition,
+          state.tilesPerPosition,
         );
         return {
           ...state,
@@ -260,21 +257,21 @@ const filmDataReducer = (state, action) => {
 
     case 'RECALIBRATE_SLIDER': {
       const updatedVisibleSlideIndexes = getResizedSlideIndexes(
-        state.slidesPerPosition,
-        action.id.updatedSlidesPerPosition,
+        state.tilesPerPosition,
+        action.id.updatedTilesPerPosition,
         state.visibleSlideIndexes,
         action.id.genreLength,
       );
       const updatedXPosition = getResizedXPosition(
-        state.slidesPerPosition,
-        action.id.updatedSlidesPerPosition,
+        state.tilesPerPosition,
+        action.id.updatedTilesPerPosition,
         state.visibleSlideIndexes,
         action.id.genreLength,
       );
 
       return {
         ...state,
-        slidesPerPosition: action.id.updatedSlidesPerPosition,
+        tilesPerPosition: action.id.updatedTilesPerPosition,
         visibleSlideIndexes: updatedVisibleSlideIndexes,
         xPosition: updatedXPosition,
       };

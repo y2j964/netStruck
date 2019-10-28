@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useNetStruckDataState } from '../../context';
-import usePaginatedPosts from '../../utilityFunctions/usePaginatedPosts';
 import useDebounce from '../../utilityFunctions/useDebounce';
 import SearchResultsRenderer from '../SearchResultsRenderer';
 import SearchFilterInput from '../SearchFilterInput';
 import SearchGlass from '../../icons/SearchGlass';
+import useResponsivePagination from '../../utilityFunctions/useResponsivePagination';
+import SearchResults from '../SearchResults';
 
 // only filter input based on these properties
 const relevantKeys = ['title', 'genres', 'actors', 'director', 'description'];
@@ -27,9 +28,12 @@ const getFilteredFilms = (dataSource, searchQuery) => {
   return updatedFilteredFilms;
 };
 
-const postsPerPage = 8;
+const postsPerPageMinimum = 6;
 
 export default function SearchFilter() {
+  const { state } = useNetStruckDataState();
+  const { films } = state;
+
   const [inputValue, setInputValue] = useState('');
   useEffect(() => {
     // reset value onMount so previous values don't persist
@@ -39,14 +43,12 @@ export default function SearchFilter() {
   const [isLoading, setIsLoading] = useState(false);
   const [filteredFilms, setFilteredFilms] = useState([]);
 
-  // break up filtered films into tranches via pagination
-  const [currentPosts, loadMore, setCurrentPage] = usePaginatedPosts(
-    postsPerPage,
-    filteredFilms,
-  );
-
-  const { state } = useNetStruckDataState();
-  const { films } = state;
+  const {
+    currentPosts,
+    loadMore,
+    setCurrentPage,
+    itemsPerPosition,
+  } = useResponsivePagination(postsPerPageMinimum, filteredFilms);
 
   const debouncedInputValue = useDebounce(inputValue, 500, setIsLoading);
 
@@ -95,9 +97,18 @@ export default function SearchFilter() {
         totalResults={filteredFilms.length}
         debouncedInputValue={debouncedInputValue}
         isLoading={isLoading}
-        setIsLoading={setIsLoading}
         loadMore={loadMore}
-      />
+        hasMore={currentPosts.length !== filteredFilms.length}
+        tilesPerPosition={itemsPerPosition}
+      >
+        <SearchResults
+          totalResults={filteredFilms.length}
+          filteredFilms={currentPosts}
+          loadMore={loadMore}
+          hasMore={currentPosts.length !== filteredFilms.length}
+          tilesPerPosition={itemsPerPosition}
+        />
+      </SearchResultsRenderer>
     </React.Fragment>
   );
 }

@@ -163,4 +163,4 @@ export default class TabPanels extends PureComponent {
 
 TabPanels.propTypes = {
   tabListData: PropTypes.array.isRequired,
-}
+};

@@ -9,7 +9,7 @@ const postsPerPage = 4;
 
 export default function ContentRows() {
   const { featuredGenres } = useNetStruckDataState();
-  const [currentPosts, loadMore] = usePaginatedPosts(
+  const { currentPosts, loadMore } = usePaginatedPosts(
     postsPerPage,
     featuredGenres,
   );

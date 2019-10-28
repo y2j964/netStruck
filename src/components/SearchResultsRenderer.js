@@ -2,16 +2,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import WithSearchInputPrompt from './WithSearchInputPrompt';
 import WithLoadingIndicator from './WithLoadingIndicator';
-import WithSearchResultsNone from './WithSearchResultsNone';
-import SearchResults from './SearchResults';
+import WithEmpty from './WithEmpty';
+import SearchResultsNone from './SearchResultsNone';
 import SearchLoadingText from './SearchLoadingText';
 
 function SearchResultsRenderer({
-  filteredFilms,
   debouncedInputValue,
-  loadMore,
   isLoading,
   totalResults,
+  children,
 }) {
   return (
     // order is important
@@ -22,15 +21,10 @@ function SearchResultsRenderer({
           isLoading={isLoading}
           Component={SearchLoadingText}
           render={() => (
-            <WithSearchResultsNone
-              totalResults={totalResults}
-              render={() => (
-                <SearchResults
-                  totalResults={totalResults}
-                  filteredFilms={filteredFilms}
-                  loadMore={loadMore}
-                />
-              )}
+            <WithEmpty
+              length={totalResults}
+              Component={SearchResultsNone}
+              render={() => children}
             />
           )}
         />
@@ -42,9 +36,8 @@ function SearchResultsRenderer({
 export default SearchResultsRenderer;
 
 SearchResultsRenderer.propTypes = {
-  filteredFilms: PropTypes.array,
   debouncedInputValue: PropTypes.string,
-  loadMore: PropTypes.func,
+  children: PropTypes.node,
   totalResults: PropTypes.number,
   isLoading: PropTypes.bool,
 };

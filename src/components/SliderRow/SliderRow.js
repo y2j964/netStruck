@@ -7,12 +7,12 @@ import NextSlideTrigger from '../NextSlideTrigger';
 import PreviousSlideTrigger from '../PreviousSlideTrigger';
 import useWindowWidth from '../../utilityFunctions/useWindowWidth';
 import useIsIntersecting from '../../utilityFunctions/useIsIntersecting';
-import getUpdatedSlidesPerPosition from '../../utilityFunctions/getUpdatedSlidesPerPosition';
+import getUpdatedTilesPerPosition from '../../utilityFunctions/getUpdatedTilesPerPosition';
 
 export default function SliderRow({ filmGroupData }) {
   const [state, dispatch] = useReducer(sliderRowReducer, {
     transition: false,
-    slidesPerPosition: 0,
+    tilesPerPosition: 0,
     xPosition: 0,
     visibleSlideIndexes: [],
   });
@@ -34,18 +34,18 @@ export default function SliderRow({ filmGroupData }) {
 
   const windowWidth = useWindowWidth();
 
-  // run getUpdatedSlidesPerPosition when windowWidth changes
+  // run getUpdatedTilesPerPosition when windowWidth changes
   useEffect(() => {
-    const recalibrateSlider = updatedSlidesPerPosition => {
+    const recalibrateSlider = updatedTilesPerPosition => {
       dispatch({
         type: 'RECALIBRATE_SLIDER',
-        id: { updatedSlidesPerPosition, genreLength: filmGroupData.length },
+        id: { updatedTilesPerPosition, genreLength: filmGroupData.length },
       });
     };
-    getUpdatedSlidesPerPosition(windowWidth, state.slidesPerPosition).then(
-      res => recalibrateSlider(res),
+    getUpdatedTilesPerPosition(windowWidth, state.tilesPerPosition).then(res =>
+      recalibrateSlider(res),
     );
-  }, [windowWidth, filmGroupData.length, state.slidesPerPosition]);
+  }, [windowWidth, filmGroupData.length, state.tilesPerPosition]);
 
   const ref = useRef();
   const isIntersecting = useIsIntersecting(ref);

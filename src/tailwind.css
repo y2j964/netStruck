@@ -8132,6 +8132,7 @@ video {
   right: 0;
   z-index: 20;
   background: rgba(20, 20, 20, 0.95);
+  overflow-x: hidden;
 }
 
 .modal__header {
@@ -9123,7 +9124,13 @@ video {
 
       padding-right: 2.5rem;
 
-      padding-top: 3.6rem;
+      padding-top: 1.5rem;
+
+      display: flex;
+
+      flex-direction: column;
+
+      justify-content: center;
 
       order: initial
   }

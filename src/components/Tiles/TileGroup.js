@@ -2,17 +2,17 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import Tile from './Tile';
 
-const getPlacementInViewport = (index, slidesPerPosition) => {
-  if (index % slidesPerPosition === 0) {
+const getPlacementInViewport = (index, tilesPerPosition) => {
+  if (index % tilesPerPosition === 0) {
     return 'leftEdge';
   }
-  if (index % slidesPerPosition === slidesPerPosition - 1) {
+  if (index % tilesPerPosition === tilesPerPosition - 1) {
     return 'rightEdge';
   }
   return 'middle';
 };
 
-export default function TileGroup({ filmGroupData, slidesPerPosition }) {
+export default function TileGroup({ filmGroupData, tilesPerPosition }) {
   const [leftEdgeIsHovered, setLeftEdgeIsHovered] = useState(false);
   const [rightEdgeIsHovered, setRightEdgeIsHovered] = useState(false);
   const [middleHoveredIndex, setMiddleHoveredIndex] = useState();
@@ -22,7 +22,7 @@ export default function TileGroup({ filmGroupData, slidesPerPosition }) {
       {...film}
       key={film.id}
       index={index}
-      placementInViewport={getPlacementInViewport(index, slidesPerPosition)}
+      placementInViewport={getPlacementInViewport(index, tilesPerPosition)}
       leftEdgeIsHovered={leftEdgeIsHovered}
       handleLeftEdgeIsHovered={setLeftEdgeIsHovered}
       rightEdgeIsHovered={rightEdgeIsHovered}
@@ -37,5 +37,5 @@ export default function TileGroup({ filmGroupData, slidesPerPosition }) {
 
 TileGroup.propTypes = {
   filmGroupData: PropTypes.array.isRequired,
-  slidesPerPosition: PropTypes.number.isRequired,
+  tilesPerPosition: PropTypes.number.isRequired,
 };

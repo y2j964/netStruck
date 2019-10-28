@@ -60,7 +60,9 @@ export default function SelectionItem({ match }) {
         <div className='selection__info'>
           <h2 className='selection__title'>{title}</h2>
           <p className='selection__text mb-1'>{`Directed by ${director} • ${year} • ${duration}`}</p>
-          <p className='selection__text mb-1'>{`Starring ${actors}`}</p>
+          <p className='selection__text mb-1'>{`Starring: ${actors.join(
+            ', ',
+          )}`}</p>
           <p className='selection__text mb-3'>
             Genres: <React.Fragment>{genreLinks}</React.Fragment>
           </p>
