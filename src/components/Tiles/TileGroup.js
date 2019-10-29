@@ -13,9 +13,8 @@ const getPlacementInViewport = (index, tilesPerPosition) => {
 };
 
 export default function TileGroup({ filmGroupData, tilesPerPosition }) {
-  const [leftEdgeIsHovered, setLeftEdgeIsHovered] = useState(false);
-  const [rightEdgeIsHovered, setRightEdgeIsHovered] = useState(false);
-  const [middleHoveredIndex, setMiddleHoveredIndex] = useState();
+  const [hoveredItem, setHoveredItem] = useState({ position: '', index: null });
+  // relevant position values are 'rightEdge', 'leftEdge', 'middle'
 
   const tileFrags = filmGroupData.map((film, index) => (
     <Tile
@@ -23,12 +22,8 @@ export default function TileGroup({ filmGroupData, tilesPerPosition }) {
       key={film.id}
       index={index}
       placementInViewport={getPlacementInViewport(index, tilesPerPosition)}
-      leftEdgeIsHovered={leftEdgeIsHovered}
-      handleLeftEdgeIsHovered={setLeftEdgeIsHovered}
-      rightEdgeIsHovered={rightEdgeIsHovered}
-      handleRightEdgeIsHovered={setRightEdgeIsHovered}
-      middleHoveredIndex={middleHoveredIndex}
-      handleMiddleHoveredIndex={setMiddleHoveredIndex}
+      hoveredItem={hoveredItem}
+      setHoveredItem={setHoveredItem}
     />
   ));
 
