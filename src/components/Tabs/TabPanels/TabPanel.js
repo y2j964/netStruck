@@ -4,7 +4,12 @@ import PropTypes from 'prop-types';
 
 export default function TabPanel({ tabPanel, isActive, index }) {
   return (
-    <div className='tab-panel' id={`tab-panel-${index + 1}`} aria-hidden={!isActive} aria-labelledby={`tab-${index + 1}`}>
+    <div
+      className='tab-panel'
+      id={`tab-panel-${index + 1}`}
+      aria-hidden={!isActive}
+      aria-labelledby={`tab-${index + 1}`}
+    >
       <h2 className='sr-only'>{tabPanel.heading}</h2>
       <picture>
         <source

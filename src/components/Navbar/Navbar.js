@@ -16,7 +16,11 @@ export default function Navbar({
       <HamburgerToggle
         controls='navbarCollapsibleGroup'
         collapsibleNavIsExpanded={collapsibleNavIsExpanded}
-        handleClick={toggleCollapsibleNav}
+        handleClick={() => {
+          document.getElementById('navbarCollapsibleGroup').style.transition =
+            'transition: height .3s ease-in-out, visibility .3s ease-in-out';
+          toggleCollapsibleNav();
+        }}
       />
       <NavbarPrimaryItems collapsibleNavIsExpanded={collapsibleNavIsExpanded} />
       <div className='ml-auto hidden md:flex'>

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './tailwind.css';
 import { withRouter, Route, Switch } from 'react-router-dom';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
@@ -23,12 +23,21 @@ function App({ location, history }) {
     false,
   );
 
+  const collapsibleNavRef = useRef();
+
   // set up listener and ensure collapsibleNav is collapsed on route change
   useEffect(() => {
     history.listen(() => {
-      document.getElementById('navbarCollapsibleGroup').style.transition =
-        'none';
+      const navbarCollapsibleGroup = document.getElementById(
+        'navbarCollapsibleGroup',
+      );
+      navbarCollapsibleGroup.style.transition = 'none';
       setCollapsibleNavIsExpanded(false);
+
+      // remove transition: 'none' from inline style so it still works on toggle
+      window.requestAnimationFrame(() =>
+        navbarCollapsibleGroup.removeAttribute('style'),
+      );
     });
   }, [history]);
 
@@ -37,6 +46,7 @@ function App({ location, history }) {
       <NetStruckDataProvider>
         <Navbar
           collapsibleNavIsExpanded={collapsibleNavIsExpanded}
+          collapsibleNavRef={collapsibleNavRef}
           toggleCollapsibleNav={() =>
             setCollapsibleNavIsExpanded(!collapsibleNavIsExpanded)
           }

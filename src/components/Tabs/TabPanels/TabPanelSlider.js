@@ -21,7 +21,7 @@ export default function TabPanelSlider({ tabListData }) {
       <div
         className={`tab-panel-slider tab-panel-slider--position-${tabPanelSliderPosition}`}
       >
-        {!isIntersecting ? null : <TabPanels tabListData={tabListData} />}
+        {isIntersecting && <TabPanels tabListData={tabListData} />}
       </div>
     </div>
   );
