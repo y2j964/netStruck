@@ -22,10 +22,6 @@
     & .bg-overlay {
       @apply opacity-100;
     }
-    /* & .toggle-to-MyList-btn {
-      transform: scale(0.6667‬);
-      opacity: 1;
-    } */
   }
 
   @media (--sm) {

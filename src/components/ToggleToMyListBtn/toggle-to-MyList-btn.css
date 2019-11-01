@@ -12,6 +12,7 @@
   }
 
   &__text {
-    @apply text-white ml-35;
-}
+    @apply text-white;
+    padding-left: .35rem;
+  }
 }

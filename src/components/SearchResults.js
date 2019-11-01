@@ -27,7 +27,7 @@ export default function SearchResults({
 
   return (
     <div className='search-filter__results' aria-live='polite'>
-      <h3 className='text-white text-center text-2xl uppercase font-bold light-gray mb-8'>
+      <h3 className='text-white text-center text-2xl uppercase font-bold text-light-gray mb-8'>
         {totalResults} Results
       </h3>
       <TileChunks
@@ -83,7 +83,7 @@ SearchResults.propTypes = {
 
 //   return (
 //     <div className='search-filter__results' aria-live='polite'>
-//       <h3 className='text-white text-center text-2xl uppercase font-bold light-gray mb-8'>
+//       <h3 className='text-white text-center text-2xl uppercase font-bold text-light-gray mb-8'>
 //         {totalResults} Results
 //       </h3>
 //       <TileChunks

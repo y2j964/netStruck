@@ -1,5 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
-import './tailwind.css';
+import React, { useState, useEffect } from 'react';
 import { withRouter, Route, Switch } from 'react-router-dom';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import PropTypes from 'prop-types';
@@ -23,8 +22,6 @@ function App({ location, history }) {
     false,
   );
 
-  const collapsibleNavRef = useRef();
-
   // set up listener and ensure collapsibleNav is collapsed on route change
   useEffect(() => {
     history.listen(() => {
@@ -46,7 +43,6 @@ function App({ location, history }) {
       <NetStruckDataProvider>
         <Navbar
           collapsibleNavIsExpanded={collapsibleNavIsExpanded}
-          collapsibleNavRef={collapsibleNavRef}
           toggleCollapsibleNav={() =>
             setCollapsibleNavIsExpanded(!collapsibleNavIsExpanded)
           }

@@ -3,7 +3,7 @@
   width: 85%;
 
   &__input {
-    @apply light-gray text-2xl flex-1 pb-2;
+    @apply text-light-gray text-2xl flex-1 pb-2;
   }
 
   &__results {

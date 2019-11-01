@@ -7761,54 +7761,6 @@ video {
     z-index: -1;
   }
 
-@keyframes enterFromLeft {
-  0% {
-    transform: translateX(-60px);
-  }
-
-  100% {
-    transform: translateX(0);
-  }
-}
-
-@keyframes enterFromRight {
-  0% {
-    transform: translateX(60px);
-  }
-
-  100% {
-    transform: translateX(0);
-  }
-}
-
-@keyframes exitToLeft {
-  100% {
-    transform: translateX(-60px);
-  }
-}
-
-@keyframes exitToRight {
-  100% {
-    transform: translateX(60px);
-  }
-}
-
-.exit-to-left {
-  animation: exitToLeft 800ms ease;
-}
-
-.exit-to-right {
-  animation: exitToRight 800ms ease;
-}
-
-.enter-from-left {
-  animation: enterFromLeft 800ms ease;
-}
-
-.enter-from-right {
-  animation: enterFromRight 800ms ease;
-}
-
 .carousel-coin {
   background-color: #f7fafc;
   height: 0.5rem;
@@ -8250,10 +8202,6 @@ video {
   }
     }
 
-/* flex-no-wrap */
-
-/* md:flex md:flex-col */
-
 .custom-radio {
   display: flex;
   justify-content: center;
@@ -8330,7 +8278,7 @@ video {
 }
 
 .search-filter__input {
-    color:  #bebebb ;
+    color: #bebebb;
     font-size: 1.5rem;
     flex: 1 1 0%;
     padding-bottom: 0.5rem;
@@ -8796,13 +8744,6 @@ video {
     background-color:#1f1f1f;
   }
 
-.tile:hover {
-    /* & .toggle-to-MyList-btn {
-      transform: scale(0.6667‬);
-      opacity: 1;
-    } */
-  }
-
 .tile:hover .bg-overlay {
       opacity: 1;
     }
@@ -9221,63 +9162,22 @@ video {
   }
     }
 
-@keyframes pulse {
-  0% {
-    background-color: #1f1f1f;
-  }
-
-  25% {
-    background-color: #333333;
-  }
-
-  50% {
-    background-color: #1f1f1f;
-  }
-
-  100% {
-    background-color: #1f1f1f;
-  }
-}
-
-body {
-  background-color: #151515;
-  transition: background-color 200ms linear;
-}
-
-.signup::after {
-  z-index: -1;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  content: '';
-  background-color: #68696f;
-}
-
 #root {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 }
 
-.fade-enter {
-    opacity: 0;
-  }
-
-.fade-enter-active {
-    opacity: 1;
-    transition: opacity 200ms linear;
-  }
-
-.fade-exit {
-    opacity: 1;
-  }
-
-.fade-exit-active {
-    opacity: 0;
-    transition: opacity 200ms linear;
-  }
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #151515;
+  transition: background-color 200ms linear;
+}
 
 /* main and root styles to ensure that footer doesn't creep up the page
 in the event that there isn't much content within main */
@@ -9285,6 +9185,59 @@ in the event that there isn't much content within main */
 main {
   flex: 1 0 auto;
 }
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+table, thead, tbody, tfoot, tr, td, th, caption {
+  display: block;
+}
+
+@media (min-width: 800px) {
+
+table {
+    display: table;
+
+    table-layout: fixed
+}
+  }
+
+@media (min-width: 800px) {
+
+thead {
+    display: table-header-group
+}
+  }
+
+@media (min-width: 800px) {
+
+tbody {
+    display: table-row-group
+}
+  }
+
+@media (min-width: 800px) {
+
+tr {
+    display: table-row
+}
+  }
+
+@media (min-width: 800px) {
+
+th {
+    display: table-cell
+}
+  }
+
+@media (min-width: 800px) {
+
+td{
+    display: table-cell
+}
+  }
 
 .bg-main {
   background-color: #151515;
@@ -9294,16 +9247,66 @@ main {
   background-color: #68696f;
 }
 
-.light-gray {
-  color:  #bebebb ;
+.text-light-gray {
+  color: #bebebb;
 }
 
 .border-gray {
   border-color: #383838;
 }
 
+.bottom-10 {
+  bottom: 10%;
+}
+
+.max-w-80 {
+  max-width: 80rem;
+}
+
+.max-w-7xl {
+  max-width: 82.5em;
+}
+
+.text-shadow {
+  text-shadow: 0 1px 10px #000;
+}
+
+.z-neg {
+  z-index: -1;
+}
+
 .font-logo {
   font-family: 'IBM Plex Mono', monospace;
+}
+
+.order-2 {
+  order: 2;
+}
+
+.order-3 {
+  order: 3;
+}
+
+.absolutely-centered {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.absolutely-covered {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .ratio-16-9 {
@@ -9357,6 +9360,8 @@ main {
     margin: auto;
   }
 
+/* nicked from bootstrap */
+
 .sr-only {
   position: absolute;
   width: 1px;
@@ -9367,56 +9372,6 @@ main {
   clip: rect(0, 0, 0, 0);
   white-space: nowrap; /* added line */
   border: 0;
-}
-
-.mirror {
-  transition: transform .2s ease-in-out;
-}
-
-.mirror--is-active {
-    transform: rotate(180deg);
-  }
-
-.absolutely-centered {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.absolutely-covered {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.h-sm {
-  height: 55px;
-}
-
-.bottom-10 {
-  bottom: 10%;
-}
-
-.max-w-80 {
-  max-width: 80rem;
-}
-
-.max-w-7xl {
-  max-width: 82.5em;
-}
-
-.text-shadow {
-  text-shadow: 0 1px 10px #000;
 }
 
 .scrim {
@@ -9457,62 +9412,6 @@ main {
   transition-delay: 400ms;
 }
 
-.z-neg {
-  z-index: -1;
-}
-
-table, thead, tbody, tfoot, tr, td, th, caption {
-  display: block;
-}
-
-@media (min-width: 800px) {
-
-table {
-    display: table;
-
-    table-layout: fixed
-}
-  }
-
-@media (min-width: 800px) {
-
-thead {
-    display: table-header-group
-}
-  }
-
-@media (min-width: 800px) {
-
-tbody {
-    display: table-row-group
-}
-  }
-
-@media (min-width: 800px) {
-
-tr {
-    display: table-row
-}
-  }
-
-@media (min-width: 800px) {
-
-th {
-    display: table-cell
-}
-  }
-
-@media (min-width: 800px) {
-
-td{
-    display: table-cell
-}
-  }
-
-.text-light-gray {
-  color: #bebebb;
-}
-
 .tr-overlay {
   position: absolute;
   top: 0;
@@ -9532,19 +9431,42 @@ td{
     opacity: .2;
   }
 
+.a-pseudo-wrap::after {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    content: '';
+  }
+
+.a-pseudo-wrap--mb::after {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      content: '';
+      margin-bottom: 40px;
+    }
+
+.rotate-transition {
+  transition: transform 300ms ease-in-out;
+}
+
 .icon--positioned-right {
   position: absolute;
   right: 6%;
   transition: fill .3s ease-in-out;
 }
 
-.order-2 {
-  order: 2;
+.mirror {
+  transition: transform .2s ease-in-out;
 }
 
-.order-3 {
-  order: 3;
-}
+.mirror--is-active {
+    transform: rotate(180deg);
+  }
 
 .input-stripped {
   -webkit-appearance: none;
@@ -9573,35 +9495,88 @@ td{
   color: #9b9b9b;
 }
 
-text-2xs {
-  font-size : .675rem;
-}
-
-.ml-35 {
-  padding-left: .35rem;
-}
-
-.a-pseudo-wrap::after {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    content: '';
+.fade-enter {
+    opacity: 0;
   }
 
-.a-pseudo-wrap--mb::after {
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      right: 0;
-      left: 0;
-      content: '';
-      margin-bottom: 40px;
-    }
+.fade-enter-active {
+    opacity: 1;
+    transition: opacity 200ms linear;
+  }
 
-.rotate-transition {
-  transition: transform 300ms ease-in-out;
+.fade-exit {
+    opacity: 1;
+  }
+
+.fade-exit-active {
+    opacity: 0;
+    transition: opacity 200ms linear;
+  }
+
+@keyframes pulse {
+  0% {
+    background-color: #1f1f1f;
+  }
+
+  25% {
+    background-color: #333333;
+  }
+
+  50% {
+    background-color: #1f1f1f;
+  }
+
+  100% {
+    background-color: #1f1f1f;
+  }
+}
+
+@keyframes enterFromLeft {
+  0% {
+    transform: translateX(-60px);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes enterFromRight {
+  0% {
+    transform: translateX(60px);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes exitToLeft {
+  100% {
+    transform: translateX(-60px);
+  }
+}
+
+@keyframes exitToRight {
+  100% {
+    transform: translateX(60px);
+  }
+}
+
+.exit-to-left {
+  animation: exitToLeft 800ms ease;
+}
+
+.exit-to-right {
+  animation: exitToRight 800ms ease;
+}
+
+.enter-from-left {
+  animation: enterFromLeft 800ms ease;
+}
+
+.enter-from-right {
+  animation: enterFromRight 800ms ease;
 }
 
 @media (min-width: 500px) {
