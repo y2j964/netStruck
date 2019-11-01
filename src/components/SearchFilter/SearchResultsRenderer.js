@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import WithSearchInputPrompt from './WithSearchInputPrompt';
-import WithLoadingIndicator from './WithLoadingIndicator';
-import WithEmpty from './WithEmpty';
+import WithSearchInputPrompt from '../WithSearchInputPrompt';
+import WithLoadingIndicator from '../WithLoadingIndicator';
+import WithEmpty from '../WithEmpty';
 import SearchResultsNone from './SearchResultsNone';
 import SearchLoadingText from './SearchLoadingText';
 

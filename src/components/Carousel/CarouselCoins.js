@@ -6,7 +6,7 @@ export default function CarouselCoins({ films, jumpToSlide }) {
   const carouselCoinFrags = films.map((entry, index) => (
     <CarouselCoin
       key={entry.id}
-      count={index + 1}
+      index={index}
       targetId={entry.id}
       targetIsActive={entry.isActive}
       jumpToSlide={jumpToSlide}

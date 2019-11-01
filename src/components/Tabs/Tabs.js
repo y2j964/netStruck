@@ -2,8 +2,8 @@
 
 import React, { Component } from 'react';
 import uuid from 'uuid';
-import TabList from './TabList/TabList';
-import TabPanelSlider from './TabPanels/TabPanelSlider';
+import TabList from './TabList';
+import TabPanelSlider from './TabPanelSlider';
 import PlayBox from '../../icons/PlayBox';
 import Eye from '../../icons/Eye';
 import Mobile from '../../icons/Mobile';

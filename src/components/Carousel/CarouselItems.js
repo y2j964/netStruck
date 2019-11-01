@@ -9,7 +9,7 @@ export default function CarouselItems({ carouselItems }) {
       <CarouselItem
         key={id}
         {...presentational}
-        count={index + 1}
+        index={index}
         length={carouselItems.length}
       />
     );

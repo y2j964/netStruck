@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import TileChunks from './Tiles/TileChunks';
-import BtnPrimary from './BtnPrimary/BtnPrimary';
-import ShowMoreButtonRenderer from './ShowMoreButtonRenderer';
+import TileChunks from '../Tiles/TileChunks';
+import BtnPrimary from '../BtnPrimary/BtnPrimary';
+import ShowMoreButtonRenderer from '../ShowMoreButtonRenderer';
 
 export default function SearchResults({
   totalResults,

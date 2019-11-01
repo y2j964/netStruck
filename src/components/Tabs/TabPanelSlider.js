@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
 import TabPanels from './TabPanels';
-import useIsIntersecting from '../../../utilityFunctions/useIsIntersecting';
+import useIsIntersecting from '../../utilityFunctions/useIsIntersecting';
 
 const options = {
   root: null,

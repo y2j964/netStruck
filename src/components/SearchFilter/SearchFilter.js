@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useNetStruckDataState } from '../../context';
 import useDebounce from '../../utilityFunctions/useDebounce';
-import SearchResultsRenderer from '../SearchResultsRenderer';
-import SearchFilterInput from '../SearchFilterInput';
+import SearchResultsRenderer from './SearchResultsRenderer';
+import SearchFilterInput from './SearchFilterInput';
 import SearchGlass from '../../icons/SearchGlass';
 import useResponsivePagination from '../../utilityFunctions/useResponsivePagination';
-import SearchResults from '../SearchResults';
+import SearchResults from './SearchResults';
 
 // only filter input based on these properties
 const relevantKeys = ['title', 'genres', 'actors', 'director', 'description'];
@@ -93,13 +93,9 @@ export default function SearchFilter() {
         />
       </form>
       <SearchResultsRenderer
-        filteredFilms={currentPosts}
         totalResults={filteredFilms.length}
         debouncedInputValue={debouncedInputValue}
         isLoading={isLoading}
-        loadMore={loadMore}
-        hasMore={currentPosts.length !== filteredFilms.length}
-        tilesPerPosition={itemsPerPosition}
       >
         <SearchResults
           totalResults={filteredFilms.length}

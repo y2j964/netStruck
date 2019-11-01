@@ -30,7 +30,7 @@ const CarouselItem = ({
   enterFrom,
   exitTo,
   img,
-  count,
+  index,
   length,
 }) => {
   return (
@@ -38,11 +38,11 @@ const CarouselItem = ({
       className={`carousel-item${
         isActive ? ' carousel-item--is-active' : ''
       } ${getSlidingDirection(enterFrom, exitTo)}`}
-      id={`carousel-item-${count}`}
+      id={`carousel-item-${index + 1}`}
       aria-hidden={isActive ? 'false' : 'true'}
       role='group'
       aria-roledescription='slide'
-      aria-label={`${count} of ${length}`}
+      aria-label={`${index + 1} of ${length}`}
     >
       <div className='carousel-item__text-block'>
         <h2 className='carousel-item__title'>{title}</h2>
@@ -104,7 +104,7 @@ CarouselItem.propTypes = {
   enterFrom: PropTypes.string.isRequired,
   exitTo: PropTypes.string.isRequired,
   img: PropTypes.object.isRequired,
-  count: PropTypes.number.isRequired,
+  index: PropTypes.number.isRequired,
   length: PropTypes.number.isRequired,
 };
 
