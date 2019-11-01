@@ -53,7 +53,7 @@ export default function MyList() {
 // import InfiniteScroller from '../../components/InfiniteScroller';
 // import WithEmpty from '../../components/WithEmpty';
 // import useWindowWidth from '../../utilityFunctions/useWindowWidth';
-// import usePaginatedPosts from '../../utilityFunctions/usePaginatedPosts';
+// import usePagination from '../../utilityFunctions/usePagination';
 // import getUpdatedtilesPerPosition from '../../utilityFunctions/getUpdatedtilesPerPosition';
 
 // const postsPerPageMinimum = 6;
@@ -82,7 +82,7 @@ export default function MyList() {
 //   // take the postsPerPageMinimum if the latter value is too paltry
 //   const postsPerPage = Math.max(postsPerPageMinimum, tilesPerPosition * 2);
 //   // break up filtered films into tranches via pagination
-//   const [currentPosts, loadMore] = usePaginatedPosts(postsPerPage, myList);
+//   const [currentPosts, loadMore] = usePagination(postsPerPage, myList);
 
 //   return (
 //     <main>

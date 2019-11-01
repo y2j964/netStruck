@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-export default function usePaginatedPosts(postsPerPage, dataSrc) {
+export default function usePagination(postsPerPage, dataSrc) {
   const [currentPage, setCurrentPage] = useState(1);
 
   const lastPostIndex = currentPage * postsPerPage;

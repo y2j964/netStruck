@@ -2,14 +2,14 @@ import React from 'react';
 import ContentRow from './ContentRow';
 import InfiniteScroller from '../InfiniteScroller';
 import { useNetStruckDataState } from '../../context';
-import usePaginatedPosts from '../../utilityFunctions/usePaginatedPosts';
+import usePagination from '../../utilityFunctions/usePagination';
 
 // a post here represents a row
 const postsPerPage = 4;
 
 export default function ContentRows() {
   const { featuredGenres } = useNetStruckDataState();
-  const { currentPosts, loadMore } = usePaginatedPosts(
+  const { currentPosts, loadMore } = usePagination(
     postsPerPage,
     featuredGenres,
   );
@@ -18,5 +18,9 @@ export default function ContentRows() {
     <ContentRow {...genre} key={genre.id} />
   ));
 
-  return <InfiniteScroller loadMore={loadMore}>{rowFrags}</InfiniteScroller>;
+  return (
+    <InfiniteScroller loadMore={loadMore}>
+      {rowFrags}
+    </InfiniteScroller>
+  );
 }

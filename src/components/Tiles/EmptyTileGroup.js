@@ -1,18 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import EmptyTile from './EmptyTile';
+// import { Transition, TransitionGroup } from 'react-transition-group';
 
 export default function EmptyTileGroup({ numOfTiles }) {
   const emptyTileFrags = [];
-  for (let x = 0; x < numOfTiles; x += 1) {
-    emptyTileFrags.push(<EmptyTile key={x} />);
+  for (let i = 0; i < numOfTiles; i += 1) {
+    emptyTileFrags.push(<EmptyTile key={i} index={i} />);
   }
 
   return (
-    <ul className='flex'>
-      {/* <ul className='flex' style={{ transform: 'translateX(-100%)' }}> */}
-      {emptyTileFrags}
-    </ul>
+    <ul className='flex'>{emptyTileFrags}</ul>
   );
 }
 

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNetStruckDataState } from '../../context';
-import usePaginatedPosts from '../../utilityFunctions/usePaginatedPosts';
+import usePagination from '../../utilityFunctions/usePagination';
 import FilmTable from '../../components/FilmTable/FilmTable';
 import FilmRows from '../../components/FilmTable/FilmRows';
 import FilmTableViewOptions from '../../components/FilmTable/FilmTableViewOptions';
@@ -77,7 +77,7 @@ export default function AllFilms() {
   const compareFunc = getSortCompareFunc(sortBy, sortIsAscending);
   filmData.sort(compareFunc);
 
-  const { currentPosts, loadMore } = usePaginatedPosts(postsPerPage, filmData);
+  const { currentPosts, loadMore } = usePagination(postsPerPage, filmData);
 
   const filmDataLength = filmData.length;
 

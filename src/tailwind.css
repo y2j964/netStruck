@@ -8781,7 +8781,7 @@ video {
 
 .tile--is-empty {
     padding: 0;
-    background-color:#0d0d0d;
+    background-color:#1f1f1f;
     border-left: 2px solid #151515;
     border-right: 2px solid #151515;
   }
@@ -8793,7 +8793,7 @@ video {
     bottom: 0;
     left: 0;
     right: 0;
-    background-color:#0d0d0d;
+    background-color:#1f1f1f;
   }
 
 .tile:hover {
@@ -9220,6 +9220,24 @@ video {
       padding-right: 2.5rem
   }
     }
+
+@keyframes pulse {
+  0% {
+    background-color: #1f1f1f;
+  }
+
+  25% {
+    background-color: #333333;
+  }
+
+  50% {
+    background-color: #1f1f1f;
+  }
+
+  100% {
+    background-color: #1f1f1f;
+  }
+}
 
 body {
   background-color: #151515;

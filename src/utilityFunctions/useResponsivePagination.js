@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import useWindowWidth from './useWindowWidth';
-import usePaginatedPosts from './usePaginatedPosts';
+import usePagination from './usePagination';
 import getUpdatedSlidesPerPosition from './getUpdatedTilesPerPosition';
 
 export default function useResponsivePagination(postsPerPageMinimum, dataSrc) {
@@ -18,7 +18,7 @@ export default function useResponsivePagination(postsPerPageMinimum, dataSrc) {
   // take the postsPerPageMinimum if the latter value is too paltry
   const postsPerPage = Math.max(postsPerPageMinimum, itemsPerPosition * 2);
   // break up filtered films into tranches via pagination
-  const { currentPosts, loadMore, setCurrentPage } = usePaginatedPosts(
+  const { currentPosts, loadMore, setCurrentPage } = usePagination(
     postsPerPage,
     dataSrc,
   );
