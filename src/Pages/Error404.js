@@ -11,8 +11,8 @@ export default function Error404() {
         404 Error: Page Not Found
       </h1>
       <p className='text-white mb-10'>
-        Woah, we couldn't find that url, partner. Here's another handy link back
-        home:{' '}
+        Woah, we couldn&apos;t find that url, partner. Here&apos;s another handy
+        link back home:{' '}
       </p>
       <Link to={'/'} className='mt-6 text-white border-white border px-2 py-1'>
         NetStruck

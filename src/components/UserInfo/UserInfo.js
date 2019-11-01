@@ -21,6 +21,7 @@ export default function UserInfo({ subscription }) {
 
   const submitForm = e => {
     e.preventDefault();
+    // eslint-disable-next-line no-console
     console.log(
       `name: ${nameValue}; email: ${emailValue}; password: ${passwordValue}; emailPreference: ${
         permissionCheck ? "send 'em" : "don't send 'em"

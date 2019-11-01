@@ -52,7 +52,7 @@ export default function Hero() {
       </picture>
       <div className='absolute top-0 bottom-0 left-0 right-0 flex justify-center items-center'>
         <div className='hero__text-block'>
-          <h2 className='hero__header'>A Film Lover's Fantasy</h2>
+          <h2 className='hero__header'>A Film Lover&apos;s Fantasy</h2>
           <p className='hero__description'>
             Classics and discoveries from around the world, thematically
             programmed with special features, on a streaming service brought to
