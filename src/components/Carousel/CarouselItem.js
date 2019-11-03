@@ -1,6 +1,7 @@
 import React, { memo } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import {imgType} from './types';
 import Play from '../../icons/Play';
 
 const getSlidingDirection = (enterFrom, exitTo) => {
@@ -103,7 +104,7 @@ CarouselItem.propTypes = {
   slug: PropTypes.string.isRequired,
   enterFrom: PropTypes.string.isRequired,
   exitTo: PropTypes.string.isRequired,
-  img: PropTypes.object.isRequired,
+  img: imgType,
   index: PropTypes.number.isRequired,
   length: PropTypes.number.isRequired,
 };

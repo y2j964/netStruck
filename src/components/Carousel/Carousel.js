@@ -267,7 +267,7 @@ export default class Carousel extends Component {
             ariaLabel='display previous slide'
           />
         </div>
-        <CarouselItems carouselItems={this.state.filmData} />
+        <CarouselItems featuredFilms={this.state.filmData} />
         <div className='absolute top-0 bottom-0 right-0 flex items-center px-3 z-20'>
           <NextSlideTrigger
             handleClick={this.queueNextSlide}
@@ -277,7 +277,7 @@ export default class Carousel extends Component {
         </div>
         <div className='absolute left-0 bottom-0 w-full h-10 z-20'>
           <CarouselCoins
-            films={this.state.filmData}
+            featuredFilms={this.state.filmData}
             jumpToSlide={this.jumpToSlide}
           />
         </div>

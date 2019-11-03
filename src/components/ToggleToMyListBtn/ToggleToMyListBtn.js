@@ -31,7 +31,7 @@ function ToggleToMyListBtn({ isAddedToMyList, isHovered, slug }) {
 export default memo(ToggleToMyListBtn);
 
 ToggleToMyListBtn.propTypes = {
-  isAddedToMyList: PropTypes.bool,
-  isHovered: PropTypes.bool,
-  slug: PropTypes.string,
+  isAddedToMyList: PropTypes.bool.isRequired,
+  isHovered: PropTypes.bool.isRequired,
+  slug: PropTypes.string.isRequired,
 };

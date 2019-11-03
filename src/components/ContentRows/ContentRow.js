@@ -23,8 +23,6 @@ function ContentRow({ name, slug }) {
 ContentRow.propTypes = {
   name: PropTypes.string.isRequired,
   slug: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
-  poster: PropTypes.object.isRequired,
 };
 
 export default ContentRow;

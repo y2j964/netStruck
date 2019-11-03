@@ -21,8 +21,9 @@ const footerItemsData = [
 ];
 
 export default function FooterItems() {
-  const footerItemFrags = footerItemsData.map(link => (
-    <FooterItem key={link.id} {...link} />
-  ));
+  const footerItemFrags = footerItemsData.map(link => {
+    const { id, ...otherProps } = link;
+    return <FooterItem key={id} {...otherProps} />;
+  });
   return <React.Fragment>{footerItemFrags}</React.Fragment>;
 }

@@ -6,6 +6,6 @@ export default function WithIsEmpty({ length, Component, render }) {
 }
 
 WithIsEmpty.propTypes = {
-  length: PropTypes.number,
-  render: PropTypes.func,
+  length: PropTypes.number.isRequired,
+  render: PropTypes.func.isRequired,
 };

@@ -43,7 +43,7 @@ export default function SelectCustom({
 }
 
 SelectCustom.propTypes = {
-  options: PropTypes.array.isRequired,
+  options: PropTypes.arrayOf(PropTypes.object).isRequired,
   name: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
   controls: PropTypes.string.isRequired,

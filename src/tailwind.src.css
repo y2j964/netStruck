@@ -19,9 +19,9 @@
 @import 'components/SearchFilter/search-filter.css';
 @import 'components/SearchFilterTrigger/search-filter-trigger.css';
 @import 'components/SelectCustom/select-custom.css';
-@import 'components/Tabs/TabList/tab.css';
-@import 'components/Tabs/TabPanels/tab-panel.css';
-@import 'components/Tabs/TabPanels/tab-panel-slider.css';
+@import 'components/Tabs/tab.css';
+@import 'components/Tabs/tab-panel.css';
+@import 'components/Tabs/tab-panel-slider.css';
 @import 'components/SliderRow/slider-row.css';
 @import 'components/SortDirectionToggle/sort-direction-toggle.css';
 @import 'components/SubscriptionDetails/subscription-description.css';

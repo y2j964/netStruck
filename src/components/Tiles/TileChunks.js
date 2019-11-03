@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { netStruckDataTypes } from '../../netStruckDataTypes';
 import TileGroup from './TileGroup';
 import chunk from '../../utilityFunctions/chunk';
 
@@ -19,6 +20,6 @@ export default function TileChunks({ filmGroupData, tilesPerPosition }) {
 }
 
 TileChunks.propTypes = {
-  filmGroupData: PropTypes.array.isRequired,
+  filmGroupData: PropTypes.arrayOf(netStruckDataTypes).isRequired,
   tilesPerPosition: PropTypes.number,
 };

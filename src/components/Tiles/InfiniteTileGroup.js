@@ -1,6 +1,7 @@
 import React, { useState, useLayoutEffect } from 'react';
 import PropTypes from 'prop-types';
 import uuid from 'uuid';
+import { netStruckDataTypes } from '../../netStruckDataTypes';
 import Tile from './Tile';
 
 const getPlacementInViewport = (visibleSlideIndexes, index) => {
@@ -56,7 +57,7 @@ function InfiniteTileGroup({
 }) {
   const [endClones, setEndClones] = useState([]);
   const [frontClones, setFrontClones] = useState([]);
-  const [hoveredItem, setHoveredItem] = useState({ position: '', index: null });
+  const [hoveredItem, setHoveredItem] = useState({ position: '', index: NaN });
   // relevant position values are 'rightEdge', 'leftEdge', 'middle'
 
   useLayoutEffect(() => {
@@ -77,8 +78,8 @@ function InfiniteTileGroup({
 
   const clonedFrontTileFrags = frontClones.map((film, index) => (
     <Tile
-      {...film}
       key={film.id}
+      {...film}
       index={index + filmGroupData.length + tilesPerPosition}
       placementInViewport={index !== 0 ? 'offscreen' : 'rightPreview'}
       hoveredItem={hoveredItem}
@@ -87,8 +88,8 @@ function InfiniteTileGroup({
 
   const clonedEndTileFrags = endClones.map((film, index) => (
     <Tile
-      {...film}
       key={film.id}
+      {...film}
       index={index}
       placementInViewport={
         index + 1 !== tilesPerPosition ? 'offscreen' : 'leftPreview'
@@ -99,8 +100,8 @@ function InfiniteTileGroup({
 
   const naturalTileFrags = filmGroupData.map((film, index) => (
     <Tile
-      {...film}
       key={film.id}
+      {...film}
       placementInViewport={getPlacementInViewport(
         visibleSlideIndexes,
         index + tilesPerPosition,
@@ -127,7 +128,7 @@ function InfiniteTileGroup({
 }
 
 InfiniteTileGroup.propTypes = {
-  filmGroupData: PropTypes.array,
+  filmGroupData: PropTypes.arrayOf(netStruckDataTypes).isRequired,
   wrapAround: PropTypes.func.isRequired,
   tilesPerPosition: PropTypes.number.isRequired,
   visibleSlideIndexes: PropTypes.array.isRequired,

@@ -47,7 +47,11 @@ export default function InfiniteScroller({
 }
 
 InfiniteScroller.propTypes = {
-  intersectionObserverOptions: PropTypes.object,
+  intersectionObserverOptions: PropTypes.shape({
+    root: PropTypes.element,
+    rootMargin: PropTypes.string,
+    threshold: PropTypes.number,
+  }),
   children: PropTypes.node.isRequired,
   loadMore: PropTypes.func.isRequired,
   isTable: PropTypes.bool,

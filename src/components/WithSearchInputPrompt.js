@@ -7,6 +7,6 @@ export default function WithSearchInputPrompt({ debouncedInputValue, render }) {
 }
 
 WithSearchInputPrompt.propTypes = {
-  debouncedInputValue: PropTypes.string,
-  render: PropTypes.func,
+  debouncedInputValue: PropTypes.string.isRequired,
+  render: PropTypes.func.isRequired,
 };

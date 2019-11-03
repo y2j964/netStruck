@@ -5,8 +5,8 @@ function WithHasMore({ hasMore, render }) {
 }
 
 WithHasMore.propTypes = {
-  hasMore: PropTypes.bool,
-  render: PropTypes.func,
+  hasMore: PropTypes.bool.isRequired,
+  render: PropTypes.func.isRequired,
 };
 
 export default WithHasMore;

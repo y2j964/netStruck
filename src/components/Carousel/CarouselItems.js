@@ -1,16 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import CarouselItem from './CarouselItem';
+import { filmDataType } from './types';
 
-export default function CarouselItems({ carouselItems }) {
-  const carouselItemFrags = carouselItems.map((entry, index) => {
-    const { id, ...presentational } = entry;
+export default function CarouselItems({ featuredFilms }) {
+  const carouselItemFrags = featuredFilms.map((entry, index) => {
+    const { id, ...otherProps } = entry;
     return (
       <CarouselItem
         key={id}
-        {...presentational}
+        {...otherProps}
         index={index}
-        length={carouselItems.length}
+        length={featuredFilms.length}
       />
     );
   });
@@ -19,5 +20,5 @@ export default function CarouselItems({ carouselItems }) {
 }
 
 CarouselItems.propTypes = {
-  carouselItems: PropTypes.array.isRequired,
+  featuredFilms: PropTypes.arrayOf(filmDataType).isRequired,
 };

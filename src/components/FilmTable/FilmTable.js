@@ -19,5 +19,5 @@ export default function FilmTable({ children }) {
 }
 
 FilmTable.propTypes = {
-  children: PropTypes.node,
+  children: PropTypes.node.isRequired,
 };

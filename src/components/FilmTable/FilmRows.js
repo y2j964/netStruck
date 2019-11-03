@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { netStruckDataTypes } from '../../netStruckDataTypes';
 import FilmRow from './FilmRow';
 
 export default function FilmRows({ filmData }) {
@@ -19,5 +20,5 @@ export default function FilmRows({ filmData }) {
 }
 
 FilmRows.propTypes = {
-  filmData: PropTypes.array,
+  filmData: PropTypes.arrayOf(netStruckDataTypes).isRequired,
 };

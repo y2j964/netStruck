@@ -36,8 +36,8 @@ function SearchResultsRenderer({
 export default SearchResultsRenderer;
 
 SearchResultsRenderer.propTypes = {
-  debouncedInputValue: PropTypes.string,
-  children: PropTypes.node,
-  totalResults: PropTypes.number,
-  isLoading: PropTypes.bool,
+  debouncedInputValue: PropTypes.string.isRequired,
+  children: PropTypes.node.isRequired,
+  totalResults: PropTypes.number.isRequired,
+  isLoading: PropTypes.bool.isRequired,
 };

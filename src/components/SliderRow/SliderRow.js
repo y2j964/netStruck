@@ -1,5 +1,6 @@
 import React, { useEffect, useReducer, useRef } from 'react';
 import PropTypes from 'prop-types';
+import { netStruckDataTypes } from '../../netStruckDataTypes';
 import sliderRowReducer from './sliderRowReducer';
 import InfiniteTileGroup from '../Tiles/InfiniteTileGroup';
 import EmptyTileGroup from '../Tiles/EmptyTileGroup';
@@ -80,5 +81,5 @@ export default function SliderRow({ filmGroupData }) {
 }
 
 SliderRow.propTypes = {
-  filmGroupData: PropTypes.array.isRequired,
+  filmGroupData: PropTypes.arrayOf(netStruckDataTypes),
 };

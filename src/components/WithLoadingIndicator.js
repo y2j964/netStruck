@@ -11,7 +11,7 @@ export default function WithLoadingIndicator({
 }
 
 WithLoadingIndicator.propTypes = {
-  isLoading: PropTypes.bool,
+  isLoading: PropTypes.bool.isRequired,
   Component: PropTypes.elementType,
-  render: PropTypes.func,
+  render: PropTypes.func.isRequired,
 };

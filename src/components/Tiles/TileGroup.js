@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import { netStruckDataTypes } from '../../netStruckDataTypes';
 import Tile from './Tile';
 
 const getPlacementInViewport = (index, tilesPerPosition) => {
@@ -13,13 +14,13 @@ const getPlacementInViewport = (index, tilesPerPosition) => {
 };
 
 export default function TileGroup({ filmGroupData, tilesPerPosition }) {
-  const [hoveredItem, setHoveredItem] = useState({ position: '', index: null });
-  // relevant position values are 'rightEdge', 'leftEdge', 'middle'
+  const [hoveredItem, setHoveredItem] = useState({ position: '', index: NaN });
+  // relevant position values are 'leftEdge', 'middle', 'rightEdge'
 
   const tileFrags = filmGroupData.map((film, index) => (
     <Tile
-      {...film}
       key={film.id}
+      {...film}
       index={index}
       placementInViewport={getPlacementInViewport(index, tilesPerPosition)}
       hoveredItem={hoveredItem}
@@ -31,6 +32,6 @@ export default function TileGroup({ filmGroupData, tilesPerPosition }) {
 }
 
 TileGroup.propTypes = {
-  filmGroupData: PropTypes.array.isRequired,
+  filmGroupData: PropTypes.arrayOf(netStruckDataTypes).isRequired,
   tilesPerPosition: PropTypes.number.isRequired,
 };

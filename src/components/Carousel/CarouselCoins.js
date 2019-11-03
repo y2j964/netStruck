@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import CarouselCoin from './CarouselCoin';
+import { filmDataType } from './types';
 
-export default function CarouselCoins({ films, jumpToSlide }) {
-  const carouselCoinFrags = films.map((entry, index) => (
+export default function CarouselCoins({ featuredFilms, jumpToSlide }) {
+  const carouselCoinFrags = featuredFilms.map((entry, index) => (
     <CarouselCoin
       key={entry.id}
       index={index}
@@ -24,6 +25,6 @@ export default function CarouselCoins({ films, jumpToSlide }) {
 }
 
 CarouselCoins.propTypes = {
-  films: PropTypes.array.isRequired,
+  featuredFilms: PropTypes.arrayOf(filmDataType).isRequired,
   jumpToSlide: PropTypes.func.isRequired,
 };

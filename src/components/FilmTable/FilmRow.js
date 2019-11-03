@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { imgTypeMini } from '../../netStruckDataTypes';
 
 export default function FilmRow({
   img,
@@ -38,10 +39,10 @@ export default function FilmRow({
 }
 
 FilmRow.propTypes = {
-  img: PropTypes.object.isRequired,
+  img: imgTypeMini,
   title: PropTypes.string.isRequired,
-  duration: PropTypes.string,
-  year: PropTypes.number,
-  director: PropTypes.string,
-  slug: PropTypes.string,
+  duration: PropTypes.string.isRequired,
+  year: PropTypes.number.isRequired,
+  director: PropTypes.string.isRequired,
+  slug: PropTypes.string.isRequired,
 };

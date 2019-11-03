@@ -2,6 +2,7 @@ import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
 import TabPanels from './TabPanels';
 import useIsIntersecting from '../../utilityFunctions/useIsIntersecting';
+import { tabListDataTypes } from './types';
 
 const options = {
   root: null,
@@ -28,5 +29,5 @@ export default function TabPanelSlider({ tabListData }) {
 }
 
 TabPanelSlider.propTypes = {
-  tabListData: PropTypes.array.isRequired,
+  tabListData: PropTypes.arrayOf(tabListDataTypes).isRequired,
 };

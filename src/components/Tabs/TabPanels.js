@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import uuid from 'uuid';
 import PropTypes from 'prop-types';
+import { tabListDataTypes } from './types';
 import TabPanel from './TabPanel';
 import TabPanelCentered from './TabPanelCentered';
 import phantomThreadWebp400 from '../../images/responsive/phantomThread-400.webp';
@@ -137,11 +138,12 @@ export default class TabPanels extends PureComponent {
 
   render() {
     const tabPanelFrags = this.state.tabPanelsData.map((entry, index) => {
-      if (!entry.isCentered) {
+      const { id, isCentered, ...otherProps } = entry;
+      if (!isCentered) {
         return (
           <TabPanel
-            key={entry.id}
-            tabPanel={entry}
+            key={id}
+            {...otherProps}
             index={index}
             isActive={this.props.tabListData[index].isActive}
           />
@@ -149,8 +151,8 @@ export default class TabPanels extends PureComponent {
       }
       return (
         <TabPanelCentered
-          key={entry.id}
-          tabPanel={entry}
+          key={id}
+          {...otherProps}
           index={index}
           isActive={this.props.tabListData[index].isActive}
         />
@@ -162,5 +164,5 @@ export default class TabPanels extends PureComponent {
 }
 
 TabPanels.propTypes = {
-  tabListData: PropTypes.array.isRequired,
+  tabListData: PropTypes.arrayOf(tabListDataTypes).isRequired,
 };

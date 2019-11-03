@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { tabListDataTypes } from './types';
 import Tab from './Tab';
 
 export default function TabList({
@@ -45,7 +46,7 @@ export default function TabList({
 }
 
 TabList.propTypes = {
-  tabListData: PropTypes.array.isRequired,
+  tabListData: PropTypes.arrayOf(tabListDataTypes).isRequired,
   activateTab: PropTypes.func.isRequired,
   activatePrevTab: PropTypes.func.isRequired,
   activateNextTab: PropTypes.func.isRequired,
