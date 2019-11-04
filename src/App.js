@@ -47,39 +47,41 @@ function App({ location, history }) {
             setCollapsibleNavIsExpanded(!collapsibleNavIsExpanded)
           }
         />
-        <TransitionGroup component={null}>
-          <CSSTransition
-            // prevent reanimation if active link is clicked by using pathname property
-            key={location.pathname}
-            timeout={200}
-            classNames='fade'
-            mountOnEnter
-            unmountOnExit
-          >
-            <Switch location={location}>
-              <Route exact path='/' component={Home} />
-              <Route exact path='/now-playing' component={NowPlaying} />
-              <Route
-                exact
-                path='/now-playing/:slug'
-                component={SelectionItem}
-              />
-              <Route
-                path='/now-playing/genre/:slug'
-                component={SelectionGenre}
-              />
-              <Route path='/all-films' component={AllFilms} />
-              <Route path='/my-list' component={MyList} />
-              <Route path='/signup' component={SignUp} />
-              <Route component={Error404} />
-            </Switch>
-          </CSSTransition>
-        </TransitionGroup>
+        <div className='relative flex-auto flex flex-col'>
+          <TransitionGroup component={null}>
+            <CSSTransition
+              // prevent reanimation if active link is clicked by using pathname property
+              key={location.pathname}
+              timeout={{ enter: 200, exit: 200 }}
+              classNames='page-fade'
+              mountOnEnter
+              unmountOnExit
+            >
+              <Switch location={location}>
+                <Route exact path='/' component={Home} />
+                <Route exact path='/now-playing' component={NowPlaying} />
+                <Route
+                  exact
+                  path='/now-playing/:slug'
+                  component={SelectionItem}
+                />
+                <Route
+                  path='/now-playing/genre/:slug'
+                  component={SelectionGenre}
+                />
+                <Route path='/all-films' component={AllFilms} />
+                <Route path='/my-list' component={MyList} />
+                <Route path='/signup' component={SignUp} />
+                <Route component={Error404} />
+              </Switch>
+            </CSSTransition>
+          </TransitionGroup>
+          <Footer />
+        </div>
         <Modal autoFocusCloseBtn={false}>
           <SearchFilter />
         </Modal>
       </NetStruckDataProvider>
-      <Footer />
     </ScrollToTop>
   );
 }

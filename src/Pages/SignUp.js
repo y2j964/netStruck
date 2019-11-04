@@ -25,7 +25,7 @@ function SignUp({ history }) {
   }, [history]);
 
   return (
-    <main className='max-w-lg lg:max-w-6xl mx-auto flex flex-col lg:flex-row items-center justify-center px-5 lg:px-10'>
+    <main className='max-w-lg lg:max-w-6xl lg:flex lg:flex-row lg:items-center lg:justify-center px-5 lg:px-10 mx-auto'>
       <div className='lg:flex-1 mb-12 lg:mb-0 lg:mr-16'>
         <header className='mb-10 mt-5'>
           <h1 className='text-white text-4xl md:text-5xl font-bold'>
