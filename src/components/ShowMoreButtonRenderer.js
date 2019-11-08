@@ -15,7 +15,7 @@ function ShowMoreButtonRenderer({ isLoadingMore, hasMore, children }) {
 ShowMoreButtonRenderer.propTypes = {
   isLoadingMore: PropTypes.bool.isRequired,
   hasMore: PropTypes.bool.isRequired,
-  render: PropTypes.func.isRequired,
+  render: PropTypes.func,
   children: PropTypes.node.isRequired,
 };
 

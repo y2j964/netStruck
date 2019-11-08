@@ -10,6 +10,7 @@ import WithLoadingIndicator from '../../components/WithLoadingIndicator';
 import InfiniteScroller from '../../components/InfiniteScroller';
 
 // regex func from Thorsten Frommen
+// https://tfrommen.de/javascript-30-day-17-sorting-without-leading-articles/
 const stripLeadingArticle = string => string.replace(/^(an?|the)\s/i, '');
 
 // eslint-disable-next-line consistent-return
@@ -54,8 +55,11 @@ const getSortCompareFunc = (sortCriterion, sortIsAscending) => {
         );
 
     default:
-      // will fire if changed to 'sort'
-      break;
+      // will fire if changed to 'sort'; defaults to alphabetical titles
+      return (filmA, filmB) =>
+        stripLeadingArticle(filmA.title).localeCompare(
+          stripLeadingArticle(filmB.title),
+        );
   }
 };
 
