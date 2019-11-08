@@ -310,7 +310,7 @@ td{
 
   &-enter-active {
     opacity: 1;
-    transition: opacity 200ms ease-ins;
+    transition: opacity 150ms ease-in 150ms;
   }
 
   &-exit {
@@ -328,7 +328,7 @@ td{
 
   &-exit-active {
     opacity: 0;
-    transition: opacity 200ms ease-in;
+    transition: opacity 150ms ease-in;
   }
 }
 

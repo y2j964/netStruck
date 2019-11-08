@@ -9505,7 +9505,7 @@ td{
 
 .page-fade-enter-active {
     opacity: 1;
-    transition: opacity 200ms ease-ins;
+    transition: opacity 150ms ease-in 150ms;
   }
 
 .page-fade-exit {
@@ -9523,7 +9523,7 @@ td{
 
 .page-fade-exit-active {
     opacity: 0;
-    transition: opacity 200ms ease-in;
+    transition: opacity 150ms ease-in;
   }
 
 @keyframes pulse {

@@ -52,7 +52,7 @@ function App({ location, history }) {
             <CSSTransition
               // prevent reanimation if active link is clicked by using pathname property
               key={location.pathname}
-              timeout={{ enter: 200, exit: 200 }}
+              timeout={{ enter: 300, exit: 150 }}
               classNames='page-fade'
               mountOnEnter
               unmountOnExit
