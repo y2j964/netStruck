@@ -32,6 +32,7 @@ NetStruck emerged as a fun coding challenge I gave myself to create a unique Rea
 * Local Storage of films added to MyList to retain MyList items between sessions
 * Page transitions on route change
 * Responsive images and webp support
+* Responsive table layout
 * Aria-supported
 * Pagination and custom InfiniteScroller
 * Multiple item infinite, responsive carousel

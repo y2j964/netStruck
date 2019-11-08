@@ -83,6 +83,7 @@ function InfiniteTileGroup({
       index={index + filmGroupData.length + tilesPerPosition}
       placementInViewport={index !== 0 ? 'offscreen' : 'rightPreview'}
       hoveredItem={hoveredItem}
+      setHoveredItem={setHoveredItem}
     />
   ));
 
@@ -95,6 +96,7 @@ function InfiniteTileGroup({
         index + 1 !== tilesPerPosition ? 'offscreen' : 'leftPreview'
       }
       hoveredItem={hoveredItem}
+      setHoveredItem={setHoveredItem}
     />
   ));
 

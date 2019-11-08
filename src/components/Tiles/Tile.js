@@ -1,4 +1,4 @@
-import React, { memo, useState } from 'react';
+import React, { memo, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { imgTypeMini } from '../../netStruckDataTypes';
@@ -13,7 +13,7 @@ const placementInViewportClassValues = {
   offscreen: 'tile-group__item',
 };
 
-const getTileClasses = (hoveredItem, index, placementInViewport) => {
+const getPositionalClasses = (hoveredItem, index, placementInViewport) => {
   if (
     hoveredItem.position === 'leftEdge' &&
     ['middle', 'rightEdge', 'rightPreview'].includes(placementInViewport)
@@ -59,22 +59,27 @@ const Tile = ({
   hoveredItem,
   setHoveredItem,
 }) => {
-  const [isHovered, setIsHovered] = useState(false);
-
   const handleMouseEnter = () => {
-    setIsHovered(true);
     setHoveredItem({ position: placementInViewport, index });
   };
 
   const handleMouseLeave = () => {
-    setIsHovered(false);
     setHoveredItem({ position: '', index: NaN });
   };
+
+  useEffect(() => {
+    // reset hoveredItem if Tile is removed from view
+    return () => {
+      setHoveredItem({ position: '', index: NaN });
+    };
+  }, [setHoveredItem]);
 
   return (
     <li
       className={`
-          ${getTileClasses(hoveredItem, index, placementInViewport)} tile`}
+          ${getPositionalClasses(hoveredItem, index, placementInViewport)} ${
+        hoveredItem.index === index ? 'tile-group__item--is-hovered ' : ''
+      }tile`}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       // eslint-disable-next-line no-unneeded-ternary
@@ -107,14 +112,13 @@ const Tile = ({
           aria-label={title}
         />
         <div className='exploder flex flex-col items-center justify-around'>
-          {isHovered && (
+          {hoveredItem.index === index && (
             <React.Fragment>
               <h3 className='tile__title'>{title}</h3>
               <span className='tile__title'>{year}</span>
               <ToggleToMyListBtn
                 slug={slug}
                 isAddedToMyList={isAddedToMyList}
-                isHovered={isHovered}
               />
               <Link
                 to={`/now-playing/${slug}`}

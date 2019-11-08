@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+
 import { netStruckDataTypes } from '../../netStruckDataTypes';
 import Tile from './Tile';
 
@@ -15,16 +16,18 @@ const getPlacementInViewport = (index, tilesPerPosition) => {
 
 export default function TileGroup({ filmGroupData, tilesPerPosition }) {
   const [hoveredItem, setHoveredItem] = useState({ position: '', index: NaN });
-  // relevant position values are 'leftEdge', 'middle', 'rightEdge'
+  // // relevant position values are 'leftEdge', 'middle', 'rightEdge'
 
   const tileFrags = filmGroupData.map((film, index) => (
     <Tile
       key={film.id}
       {...film}
       index={index}
+      groupLength={filmGroupData.length}
       placementInViewport={getPlacementInViewport(index, tilesPerPosition)}
       hoveredItem={hoveredItem}
       setHoveredItem={setHoveredItem}
+      isMyList
     />
   ));
 
@@ -35,3 +38,59 @@ TileGroup.propTypes = {
   filmGroupData: PropTypes.arrayOf(netStruckDataTypes).isRequired,
   tilesPerPosition: PropTypes.number.isRequired,
 };
+
+// import React, { useState, useEffect } from 'react';
+// import PropTypes from 'prop-types';
+// import { TransitionGroup, CSSTransition } from 'react-transition-group';
+// import { netStruckDataTypes } from '../../netStruckDataTypes';
+// import Tile from './Tile';
+
+// const getPlacementInViewport = (index, tilesPerPosition) => {
+//   if (index % tilesPerPosition === 0) {
+//     return 'leftEdge';
+//   }
+//   if (index % tilesPerPosition === tilesPerPosition - 1) {
+//     return 'rightEdge';
+//   }
+//   return 'middle';
+// };
+
+// export default function TileGroup({
+//   filmGroupData,
+//   tilesPerPosition,
+//   isUnmountable,
+// }) {
+//   const [hoveredItem, setHoveredItem] = useState({ position: '', index: NaN });
+//   // // relevant position values are 'leftEdge', 'middle', 'rightEdge'
+
+//   const tileFrags = filmGroupData.map((film, index) => (
+//     <CSSTransition
+//       key={film.id}
+//       timeout={250}
+//       classNames='collapse'
+//       unmountOnExit
+//     >
+//       <Tile
+//         {...film}
+//         index={index}
+//         groupLength={filmGroupData.length}
+//         placementInViewport={getPlacementInViewport(index, tilesPerPosition)}
+//         hoveredItem={hoveredItem}
+//         setHoveredItem={setHoveredItem}
+//         // triggerNewHover={triggerNewHover}
+//         isMyList
+//       />
+//     </CSSTransition>
+//   ));
+
+//   return (
+//     <TransitionGroup component={'ul'} className='tile-group'>
+//       {tileFrags}
+//     </TransitionGroup>
+//   );
+// }
+
+// TileGroup.propTypes = {
+//   filmGroupData: PropTypes.arrayOf(netStruckDataTypes).isRequired,
+//   tilesPerPosition: PropTypes.number.isRequired,
+// };

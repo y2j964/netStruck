@@ -4,18 +4,15 @@ import { useNetStruckDataDispatcher } from '../../context';
 import Plus from '../../icons/Plus';
 import Minus from '../../icons/Minus';
 
-function ToggleToMyListBtn({ isAddedToMyList, isHovered, slug }) {
+function ToggleToMyListBtn({ isAddedToMyList, slug }) {
   const dispatch = useNetStruckDataDispatcher();
-  const toggleFilmMyListState = () => {
+  const toggleFilmMyListState = () =>
     dispatch({ type: 'TOGGLE_FILM_MYLIST_STATE', id: slug });
-  };
 
   return (
     <button
       className='toggle-to-MyList-btn'
       onClick={toggleFilmMyListState}
-      aria-hidden={!isHovered}
-      tabIndex={!isHovered ? -1 : 0}
       aria-label={isAddedToMyList ? 'Remove from My List' : 'Add to My List'}
     >
       {isAddedToMyList ? (
@@ -32,6 +29,5 @@ export default memo(ToggleToMyListBtn);
 
 ToggleToMyListBtn.propTypes = {
   isAddedToMyList: PropTypes.bool.isRequired,
-  isHovered: PropTypes.bool.isRequired,
   slug: PropTypes.string.isRequired,
 };
