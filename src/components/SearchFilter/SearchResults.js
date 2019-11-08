@@ -37,7 +37,7 @@ export default function SearchResults({
       />
       <ShowMoreButtonRenderer isLoadingMore={isLoadingMore} hasMore={hasMore}>
         <div className='text-center'>
-          <BtnPrimary handleClick={handleClick} additionalClasses='mb-12'>
+          <BtnPrimary handleClick={handleClick}>
             Show More
           </BtnPrimary>
         </div>
