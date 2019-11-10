@@ -12,54 +12,81 @@ import InfiniteScroller from '../../components/InfiniteScroller';
 // regex func from Thorsten Frommen
 // https://tfrommen.de/javascript-30-day-17-sorting-without-leading-articles/
 const stripLeadingArticle = string => string.replace(/^(an?|the)\s/i, '');
+const compareStrings = (a, b) => (a > b) - (a < b);
 
-// eslint-disable-next-line consistent-return
+const sortByTitleAscending = (filmA, filmB) =>
+  compareStrings(
+    stripLeadingArticle(filmA.title),
+    stripLeadingArticle(filmB.title),
+  );
+
+const sortByTitleDescending = (filmA, filmB) =>
+  compareStrings(
+    stripLeadingArticle(filmB.title),
+    stripLeadingArticle(filmA.title),
+  );
+
+// accepts a name, and returns it with the last name in front
+// if I input Justin Carmen Mooney as an arg, it will return Mooney Justin Carmen
+const getNameFlipped = fullName => {
+  const nameArray = fullName.split(' ');
+  const lastName = nameArray.pop();
+  // put the last name in front
+  nameArray.unshift(lastName);
+  const nameFlipped = nameArray.join(' ');
+  return nameFlipped;
+};
+
+const sortByDirectorAscending = (filmA, filmB) => {
+  const directorAFlipped = getNameFlipped(filmA.director);
+  const directorBFlipped = getNameFlipped(filmB.director);
+  return (
+    compareStrings(directorAFlipped, directorBFlipped) ||
+    sortByTitleAscending(filmA, filmB)
+  );
+};
+
+const sortByDirectorDescending = (filmA, filmB) => {
+  const directorAFlipped = getNameFlipped(filmA.director);
+  const directorBFlipped = getNameFlipped(filmB.director);
+  return (
+    compareStrings(directorBFlipped, directorAFlipped) ||
+    sortByTitleAscending(filmA, filmB)
+  );
+};
+
+const sortByReleaseDateAscending = (filmA, filmB) =>
+  filmA.year - filmB.year || sortByTitleAscending(filmA, filmB);
+const sortByReleaseDateDescending = (filmA, filmB) =>
+  filmB.year - filmA.year || sortByTitleAscending(filmA, filmB);
+
+const sortByDurationAscending = (filmA, filmB) =>
+  parseInt(filmA.duration, 10) - parseInt(filmB.duration, 10) ||
+  sortByTitleAscending(filmA, filmB);
+
+const sortByDurationDescending = (filmA, filmB) =>
+  parseInt(filmB.duration, 10) - parseInt(filmA.duration, 10) ||
+  sortByTitleAscending(filmA, filmB);
+
 const getSortCompareFunc = (sortCriterion, sortIsAscending) => {
-  switch (true) {
-    case sortCriterion === 'duration' && sortIsAscending:
-      return (filmA, filmB) =>
-        parseInt(filmA.duration, 10) - parseInt(filmB.duration, 10);
-
-    case sortCriterion === 'duration' && !sortIsAscending:
-      return (filmA, filmB) =>
-        parseInt(filmB.duration, 10) - parseInt(filmA.duration, 10);
-
-    case sortCriterion === 'year' && sortIsAscending:
-      return (filmA, filmB) => filmA.year - filmB.year;
-
-    case sortCriterion === 'year' && !sortIsAscending:
-      return (filmA, filmB) => filmB.year - filmA.year;
-
-    case sortCriterion === 'director' && sortIsAscending:
-      return (filmA, filmB) =>
-        filmA.director
-          .split(' ')[1]
-          .localeCompare(filmB.director.split(' ')[1]);
-
-    case sortCriterion === 'director' && !sortIsAscending:
-      return (filmA, filmB) =>
-        filmB.director
-          .split(' ')[1]
-          .localeCompare(filmA.director.split(' ')[1]);
-
-    case sortCriterion === 'title' && sortIsAscending:
-      return (filmA, filmB) =>
-        stripLeadingArticle(filmA.title).localeCompare(
-          stripLeadingArticle(filmB.title),
-        );
-
-    case sortCriterion === 'title' && !sortIsAscending:
-      return (filmA, filmB) =>
-        stripLeadingArticle(filmB.title).localeCompare(
-          stripLeadingArticle(filmA.title),
-        );
-
+  switch (sortCriterion) {
+    case 'title':
+      return sortIsAscending ? sortByTitleAscending : sortByTitleDescending;
+    case 'director':
+      return sortIsAscending
+        ? sortByDirectorAscending
+        : sortByDirectorDescending;
+    case 'duration':
+      return sortIsAscending
+        ? sortByDurationAscending
+        : sortByDurationDescending;
+    case 'year':
+      return sortIsAscending
+        ? sortByReleaseDateAscending
+        : sortByReleaseDateDescending;
     default:
       // will fire if changed to 'sort'; defaults to alphabetical titles
-      return (filmA, filmB) =>
-        stripLeadingArticle(filmA.title).localeCompare(
-          stripLeadingArticle(filmB.title),
-        );
+      return sortByTitleAscending;
   }
 };
 

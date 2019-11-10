@@ -1637,7 +1637,7 @@ const netStruckData = {
     },
     {
       title: 'Ran',
-      duration: ' minutes',
+      duration: '162 minutes',
       year: 1985,
       genres: ['Essential Art-House'],
       director: 'Akira Kurosawa',
@@ -2790,7 +2790,7 @@ const netStruckData = {
       duration: '97 minutes',
       year: 2014,
       genres: ["Favorite Palme d'Or Winners"],
-      director: 'Akira Kurosawa ',
+      director: 'Akira Kurosawa',
       actors: ["Tatsuya Nakadai, Tsutomu Yamazaki, Ken'ichi Hagiwara"],
       description:
         "Akira Kurosawa's lauded feudal epic presents the tale of a petty thief who is recruited to impersonate Shingen, an aging warlord, in order to avoid attacks by competing clans. When Shingen dies, his generals reluctantly agree to have the impostor take over as the powerful ruler. He soon begins to appreciate life as Shingen, but his commitment to the role is tested when he must lead his troops into battle against the forces of a rival warlord.",
@@ -3042,7 +3042,7 @@ const netStruckData = {
       isAddedToMyList: false,
     },
     {
-      title: 'goodfellas',
+      title: 'Goodfellas',
       duration: '97 minutes',
       year: 1990,
       genres: ['Scorsese and De Niro'],

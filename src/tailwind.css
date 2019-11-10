@@ -8791,16 +8791,6 @@ video {
     padding: 0.25rem;
   }
 
-@keyframes slideInFromLeft {
-  from {
-    transform: translateX(-85px)
-  }
-
-  to {
-    transform: translateX(0)
-  }
-}
-
 .tile-group {
   display: flex;
   margin-bottom: 2rem;

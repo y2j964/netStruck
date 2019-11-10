@@ -1,9 +1,0 @@
-@keyframes slideInFromLeft {
-  from {
-    transform: translateX(-85px)
-  }
-
-  to {
-    transform: translateX(0)
-  }
-}
