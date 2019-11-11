@@ -1,19 +1,26 @@
 import { useState, useEffect } from 'react';
-import useWindowWidth from './useWindowWidth';
 import usePagination from './usePagination';
-import getUpdatedSlidesPerPosition from './getUpdatedTilesPerPosition';
+import useMedia from './useMedia';
+import {
+  mediaQueries,
+  slidesPerPosition,
+  defaultSlidesPerPosition,
+} from '../mediaQueries';
 
 export default function useResponsivePagination(postsPerPageMinimum, dataSrc) {
-  const windowWidth = useWindowWidth();
-  // for pagination to be responsive, we need window width and itemsPerPosition
   const [itemsPerPosition, setItemsPerPosition] = useState();
 
-  // when windowWidth changes, update itemsPerPosition
+  // responsive aspect coming from here
+  const updatedSlidesPerPosition = useMedia(
+    mediaQueries,
+    slidesPerPosition,
+    defaultSlidesPerPosition,
+  );
+
+  // when new media query is hit, update itemsPerPosition
   useEffect(() => {
-    getUpdatedSlidesPerPosition(windowWidth, itemsPerPosition).then(res =>
-      setItemsPerPosition(res),
-    );
-  }, [windowWidth, itemsPerPosition]);
+    setItemsPerPosition(updatedSlidesPerPosition);
+  }, [updatedSlidesPerPosition, itemsPerPosition]);
 
   // take the postsPerPageMinimum if the latter value is too paltry
   const postsPerPage = Math.max(postsPerPageMinimum, itemsPerPosition * 2);

@@ -71,6 +71,7 @@ const sortByDurationDescending = (filmA, filmB) =>
 const getSortCompareFunc = (sortCriterion, sortIsAscending) => {
   switch (sortCriterion) {
     case 'title':
+      // return func variation based on sortIsAscending
       return sortIsAscending ? sortByTitleAscending : sortByTitleDescending;
     case 'director':
       return sortIsAscending
