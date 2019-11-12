@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useNetStruckDataState } from '../context';
+import { useNetStruckDataState } from '../NetStruckDataContext';
 import Spinner from '../icons/Spinner';
 import Carousel from '../components/Carousel/Carousel';
 import ContentRows from '../components/ContentRows/ContentRows';

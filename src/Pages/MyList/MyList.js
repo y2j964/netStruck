@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useNetStruckDataState } from '../../context';
+import { useNetStruckDataState } from '../../NetStruckDataContext';
 import EmptyList from './EmptyList';
 import TileChunks from '../../components/Tiles/TileChunks';
 import InfiniteScroller from '../../components/InfiniteScroller';

@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import TileChunks from '../../components/Tiles/TileChunks';
-import { useNetStruckDataState } from '../../context';
+import { useNetStruckDataState } from '../../NetStruckDataContext';
 import useResponsivePagination from '../../utilityFunctions/useResponsivePagination';
 import InfiniteScroller from '../../components/InfiniteScroller';
 

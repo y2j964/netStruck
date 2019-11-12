@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useNetStruckDataState } from '../../context';
+import { useNetStruckDataState } from '../../NetStruckDataContext';
 import useDebounce from '../../utilityFunctions/useDebounce';
 import SearchResultsRenderer from './SearchResultsRenderer';
 import SearchFilterInput from './SearchFilterInput';

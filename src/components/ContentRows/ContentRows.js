@@ -1,7 +1,7 @@
 import React from 'react';
 import ContentRow from './ContentRow';
 import InfiniteScroller from '../InfiniteScroller';
-import { useNetStruckDataState } from '../../context';
+import { useNetStruckDataState } from '../../NetStruckDataContext';
 import usePagination from '../../utilityFunctions/usePagination';
 
 // a post here represents a row

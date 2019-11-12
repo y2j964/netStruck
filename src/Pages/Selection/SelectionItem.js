@@ -5,7 +5,7 @@ import BtnPrimary from '../../components/BtnPrimary/BtnPrimary';
 import {
   useNetStruckDataState,
   useNetStruckDataDispatcher,
-} from '../../context';
+} from '../../NetStruckDataContext';
 
 export default function SelectionItem({ match }) {
   const { slug } = match.params;

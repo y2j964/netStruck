@@ -15,7 +15,8 @@ import Error404 from './Pages/Error404';
 import SearchFilter from './components/SearchFilter/SearchFilter';
 import Modal from './components/Modal/Modal';
 import ScrollToTop from './components/ScrollToTop';
-import { NetStruckDataProvider } from './context';
+import { NetStruckDataProvider } from './NetStruckDataContext';
+import { MediaBreakpointProvider } from './MediaBreakpointContext';
 
 function App({ location, history }) {
   const [collapsibleNavIsExpanded, setCollapsibleNavIsExpanded] = useState(
@@ -47,40 +48,42 @@ function App({ location, history }) {
             setCollapsibleNavIsExpanded(!collapsibleNavIsExpanded)
           }
         />
-        <div className='relative flex-auto flex flex-col'>
-          <TransitionGroup component={null}>
-            <CSSTransition
-              // prevent reanimation if active link is clicked by using pathname property
-              key={location.pathname}
-              timeout={{ enter: 300, exit: 150 }}
-              classNames='page-fade'
-              mountOnEnter
-              unmountOnExit
-            >
-              <Switch location={location}>
-                <Route exact path='/' component={Home} />
-                <Route exact path='/now-playing' component={NowPlaying} />
-                <Route
-                  exact
-                  path='/now-playing/:slug'
-                  component={SelectionItem}
-                />
-                <Route
-                  path='/now-playing/genre/:slug'
-                  component={SelectionGenre}
-                />
-                <Route path='/all-films' component={AllFilms} />
-                <Route path='/my-list' component={MyList} />
-                <Route path='/signup' component={SignUp} />
-                <Route component={Error404} />
-              </Switch>
-            </CSSTransition>
-          </TransitionGroup>
-          <Footer />
-        </div>
-        <Modal autoFocusCloseBtn={false}>
-          <SearchFilter />
-        </Modal>
+        <MediaBreakpointProvider>
+          <div className='relative flex-auto flex flex-col'>
+            <TransitionGroup component={null}>
+              <CSSTransition
+                // prevent reanimation if active link is clicked by using pathname property
+                key={location.pathname}
+                timeout={{ enter: 300, exit: 150 }}
+                classNames='page-fade'
+                mountOnEnter
+                unmountOnExit
+              >
+                <Switch location={location}>
+                  <Route exact path='/' component={Home} />
+                  <Route exact path='/now-playing' component={NowPlaying} />
+                  <Route
+                    exact
+                    path='/now-playing/:slug'
+                    component={SelectionItem}
+                  />
+                  <Route
+                    path='/now-playing/genre/:slug'
+                    component={SelectionGenre}
+                  />
+                  <Route path='/all-films' component={AllFilms} />
+                  <Route path='/my-list' component={MyList} />
+                  <Route path='/signup' component={SignUp} />
+                  <Route component={Error404} />
+                </Switch>
+              </CSSTransition>
+            </TransitionGroup>
+            <Footer />
+          </div>
+          <Modal autoFocusCloseBtn={false}>
+            <SearchFilter />
+          </Modal>
+        </MediaBreakpointProvider>
       </NetStruckDataProvider>
     </ScrollToTop>
   );

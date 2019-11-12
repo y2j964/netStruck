@@ -270,7 +270,7 @@ const filmDataReducer = (state, action) => {
       );
 
       return {
-        ...state,
+        transition: true,
         tilesPerPosition: action.id.updatedTilesPerPosition,
         visibleSlideIndexes: updatedVisibleSlideIndexes,
         xPosition: updatedXPosition,

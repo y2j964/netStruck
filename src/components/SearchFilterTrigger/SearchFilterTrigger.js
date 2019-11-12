@@ -1,5 +1,5 @@
 import React from 'react';
-import { useNetStruckDataDispatcher } from '../../context';
+import { useNetStruckDataDispatcher } from '../../NetStruckDataContext';
 import Plus from '../../icons/Plus';
 
 export default function SearchFilterTrigger() {

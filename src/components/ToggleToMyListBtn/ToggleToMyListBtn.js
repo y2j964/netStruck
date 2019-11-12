@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
 import PropTypes from 'prop-types';
-import { useNetStruckDataDispatcher } from '../../context';
+import { useNetStruckDataDispatcher } from '../../NetStruckDataContext';
 import Plus from '../../icons/Plus';
 import Minus from '../../icons/Minus';
 

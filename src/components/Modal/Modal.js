@@ -6,7 +6,7 @@ import { CSSTransition } from 'react-transition-group';
 import {
   useNetStruckDataState,
   useNetStruckDataDispatcher,
-} from '../../context';
+} from '../../NetStruckDataContext';
 import Close from '../../icons/Close';
 
 export default function Modal({ children, autoFocusCloseBtn }) {
@@ -17,7 +17,6 @@ export default function Modal({ children, autoFocusCloseBtn }) {
 
   useEffect(() => {
     if (modalIsOpen && autoFocusCloseBtn) {
-      console.log(autoFocusCloseBtn)
       closeRef.current.focus();
     }
   }, [modalIsOpen, autoFocusCloseBtn]);
