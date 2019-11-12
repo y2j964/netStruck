@@ -22,6 +22,8 @@ export default function SliderRow({ filmGroupData }) {
     visibleSlideIndexes: [],
   });
 
+  const transitionEnded = useRef(true);
+
   const moveSliderBackward = () =>
     dispatch({
       type: 'MOVE_SLIDER_BACKWARD',
@@ -43,6 +45,21 @@ export default function SliderRow({ filmGroupData }) {
     defaultSlidesPerPosition,
   );
 
+  useEffect(() => {
+    // the slider will jump if the user clicks right before the penultimate position's
+    // transition ends; this ensures that doesn't happen; also doesn't cause re-render
+    setTimeout(() => {
+      transitionEnded.current = true;
+    }, 750);
+  }, [state.xPosition]);
+
+  const handleClick = callback => {
+    if (transitionEnded.current) {
+      transitionEnded.current = false;
+      callback();
+    }
+  };
+
   // run getUpdatedTilesPerPosition when windowWidth changes
   useEffect(() => {
     const recalibrateSlider = updatedTilesPerPosition => {
@@ -61,7 +78,7 @@ export default function SliderRow({ filmGroupData }) {
     <div className='slider-row relative w-full h-full' ref={ref}>
       <div className='slider-row__content-preview slider-row__content-preview--left'>
         <PreviousSlideTrigger
-          handleClick={moveSliderBackward}
+          handleClick={() => handleClick(moveSliderBackward)}
           classes='slider-row__btn'
           ariaLabel='slide previous films into view'
         />
@@ -77,7 +94,7 @@ export default function SliderRow({ filmGroupData }) {
       )}
       <div className='slider-row__content-preview slider-row__content-preview--right'>
         <NextSlideTrigger
-          handleClick={moveSliderForward}
+          handleClick={() => handleClick(moveSliderForward)}
           classes='slider-row__btn'
           ariaLabel='slide next films into view'
         />
@@ -97,9 +114,13 @@ SliderRow.propTypes = {
 // import EmptyTileGroup from '../Tiles/EmptyTileGroup';
 // import NextSlideTrigger from '../NextSlideTrigger';
 // import PreviousSlideTrigger from '../PreviousSlideTrigger';
-// import useWindowWidth from '../../utilityFunctions/useWindowWidth';
+// import useMedia from '../../utilityFunctions/useMedia';
 // import useIsIntersecting from '../../utilityFunctions/useIsIntersecting';
-// import getUpdatedTilesPerPosition from '../../utilityFunctions/getUpdatedTilesPerPosition';
+// import {
+//   mediaQueries,
+//   slidesPerPosition,
+//   defaultSlidesPerPosition,
+// } from '../../mediaQueries';
 
 // export default function SliderRow({ filmGroupData }) {
 //   const [state, dispatch] = useReducer(sliderRowReducer, {
@@ -124,7 +145,11 @@ SliderRow.propTypes = {
 //   const wrapAround = () =>
 //     dispatch({ type: 'WRAP_AROUND', id: filmGroupData.length });
 
-//   const windowWidth = useWindowWidth();
+//   const updatedSlidesPerPosition = useMedia(
+//     mediaQueries,
+//     slidesPerPosition,
+//     defaultSlidesPerPosition,
+//   );
 
 //   // run getUpdatedTilesPerPosition when windowWidth changes
 //   useEffect(() => {
@@ -134,13 +159,8 @@ SliderRow.propTypes = {
 //         id: { updatedTilesPerPosition, genreLength: filmGroupData.length },
 //       });
 //     };
-//     getUpdatedTilesPerPosition(windowWidth, state.tilesPerPosition).then(
-//       res => {
-//         console.log(res);
-//         recalibrateSlider(res);
-//       },
-//     );
-//   }, [windowWidth, filmGroupData.length, state.tilesPerPosition]);
+//     recalibrateSlider(updatedSlidesPerPosition);
+//   }, [updatedSlidesPerPosition, filmGroupData.length, state.tilesPerPosition]);
 
 //   const ref = useRef();
 //   const isIntersecting = useIsIntersecting(ref);

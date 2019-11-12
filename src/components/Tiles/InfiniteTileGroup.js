@@ -73,7 +73,7 @@ function InfiniteTileGroup({
 
   const tileGroupStyle = {
     transform: `translateX(${xPosition}%)`,
-    transition: transition ? 'transform 550ms ease-in-out' : 'none',
+    transition: transition ? 'transform 750ms ease' : 'none',
   };
 
   const clonedFrontTileFrags = frontClones.map((film, index) => (

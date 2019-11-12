@@ -13,16 +13,10 @@ body {
   transition: background-color 200ms linear;
 }
 
-/* .bottom-56 {
-  bottom: 56px;
-} */
-
 /* main and root styles to ensure that footer doesn't creep up the page
 in the event that there isn't much content within main */
 main {
-  /* @apply absolute top-0 left-0 right-0; */
   flex: 1 1 auto;
-  /* @apply absolute top-0 left-0 right-0 bottom-56 */
 }
 
 code {
@@ -193,6 +187,7 @@ td{
   border: 0;
 }
 
+ /* nicked from https://css-tricks.com/easing-linear-gradients/ */
 .scrim {
   background-image: linear-gradient(
     to top,
