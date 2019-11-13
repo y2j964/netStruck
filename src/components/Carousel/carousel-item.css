@@ -16,6 +16,9 @@
     @media (--md) {
       padding-left: 57px;
     }
+    @media (--xl) {
+      margin-left: 6%;
+    }
   }
 
   &__mobile-text-block {

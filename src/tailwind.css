@@ -7581,10 +7581,24 @@ video {
       left: 0;
     }
 
+@media(min-width: 1400px) {
+
+.carousel-trigger-overlay--left {
+        margin-left: 5%
+    }
+      }
+
 .carousel-trigger-overlay--right {
       margin-right: 0.5rem;
       right: 0;
     }
+
+@media (min-width: 1400px) {
+
+.carousel-trigger-overlay--right {
+        margin-right: 5%
+    }
+      }
 
 .carousel__trigger {
     width: 100%;
@@ -7625,14 +7639,14 @@ video {
   }
     }
 
-@media(min-width: 1100px) {
+@media (min-width: 1100px) {
 
 .carousel__chevron {
       max-width: 27px
   }
     }
 
-@media(min-width: 1400px) {
+@media (min-width: 1400px) {
 
 .carousel__chevron {
       max-width: 32px
@@ -7676,6 +7690,13 @@ video {
 
 .carousel-item__text-block {
       padding-left: 57px
+  }
+    }
+
+@media (min-width: 1400px) {
+
+.carousel-item__text-block {
+      margin-left: 6%
   }
     }
 
@@ -8165,7 +8186,7 @@ video {
 
 .modal-exit-active {
     opacity: 0;
-    transition: opacity 300ms ease-out 0s;
+    transition: opacity 300ms ease-in 0s;
   }
 
 .collapsible-group {

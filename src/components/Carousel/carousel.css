@@ -18,10 +18,18 @@
 
     &--left {
       @apply ml-2 left-0;
+
+      @media(--xl) {
+        margin-left: 5%;
+      }
     }
 
     &--right {
       @apply mr-2 right-0;
+
+      @media (--xl) {
+        margin-right: 5%;
+      }
     }
   }
 
@@ -54,11 +62,11 @@
       max-width: 25px;
     }
 
-    @media(--lg) {
+    @media (--lg) {
       max-width: 27px;
     }
 
-    @media(--xl) {
+    @media (--xl) {
       max-width: 32px;
     }
   }

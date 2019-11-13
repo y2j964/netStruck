@@ -549,18 +549,20 @@ export default class Carousel extends Component {
 //         onKeyDown={this.triggerCarouselArrow}
 //       >
 //         <h2 className='sr-only'>Film Carousel Smorgasbord</h2>
-//         <div className='absolute top-0 bottom-0 left-0 flex items-center px-3 z-20'>
+//         <div className='carousel-trigger-overlay carousel-trigger-overlay--left'>
 //           <PreviousSlideTrigger
 //             handleClick={this.queuePrevSlide}
-//             classes='opacity-0 carousel__chevron'
+//             classes='carousel__trigger'
+//             svgClasses='carousel__chevron'
 //             ariaLabel='display previous slide'
 //           />
 //         </div>
 //         <CarouselItems featuredFilms={this.state.filmData} />
-//         <div className='absolute top-0 bottom-0 right-0 flex items-center px-3 z-20'>
+//         <div className='carousel-trigger-overlay carousel-trigger-overlay--right'>
 //           <NextSlideTrigger
 //             handleClick={this.queueNextSlide}
-//             classes='opacity-0 carousel__chevron'
+//             classes='carousel__trigger'
+//             svgClasses='carousel__chevron'
 //             ariaLabel='display next slide'
 //           />
 //         </div>

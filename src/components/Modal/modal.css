@@ -22,7 +22,7 @@
 
   &-exit-active {
     opacity: 0;
-    transition: opacity 300ms ease-out 0s;
+    transition: opacity 300ms ease-in 0s;
   }
 }
 
