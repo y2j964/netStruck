@@ -85,6 +85,10 @@ td{
   bottom: 10%;
 }
 
+.w-percent-sm {
+  width: 4%;
+}
+
 .max-w-80 {
   max-width: 80rem;
 }

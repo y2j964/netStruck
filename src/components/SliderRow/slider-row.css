@@ -14,11 +14,17 @@
     &--left {
       left: 0;
       z-index: 10;
+      padding-right: 2px;
     }
 
     &--right {
       right: 0;
+      padding-left: 2px;
     }
+  }
+
+  &__btn {
+    @apply w-full flex justify-center items-center;
   }
 
   &:hover .slider-row__btn {
@@ -26,12 +32,15 @@
   }
 
   &__chevron {
-    height: 18px;
-    width: 18px;
+    height: 100%;
+    width: 100%;
+    max-width: 25px;
 
-    @media(--sm) {
-      height: 25px;
-      width: 25px;
+    @media(--lg) {
+      max-width: 32px;
+    }
+    @media(--xl) {
+      max-width: 36px;
     }
   }
 }

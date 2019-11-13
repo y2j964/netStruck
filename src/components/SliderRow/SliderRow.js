@@ -71,6 +71,7 @@ export default function SliderRow({ filmGroupData }) {
         <PreviousSlideTrigger
           handleClick={() => handleClick(moveSliderBackward)}
           classes='slider-row__btn'
+          svgClasses='slider-row__chevron'
           ariaLabel='slide previous films into view'
         />
       </div>
@@ -87,6 +88,7 @@ export default function SliderRow({ filmGroupData }) {
         <NextSlideTrigger
           handleClick={() => handleClick(moveSliderForward)}
           classes='slider-row__btn'
+          svgClasses='slider-row__chevron'
           ariaLabel='slide next films into view'
         />
       </div>

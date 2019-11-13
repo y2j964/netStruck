@@ -41,7 +41,11 @@
   }
 
   &__title {
-    @apply text-white text-xl text-center;
+    @apply text-white text-center text-lg;
+
+    @media(--sm) {
+      @apply text-xl;
+    }
   }
 
   &__btn-group {

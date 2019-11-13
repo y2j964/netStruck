@@ -5,11 +5,12 @@ import ChevronLeft from '../icons/ChevronLeft';
 export default function PreviousSlideTrigger({
   handleClick,
   classes,
+  svgClasses,
   ariaLabel,
 }) {
   return (
     <button onClick={handleClick} className={classes} aria-label={ariaLabel}>
-      <ChevronLeft additionalClasses='slider-row__chevron'/>
+      <ChevronLeft additionalClasses={svgClasses}/>
     </button>
   );
 }
@@ -17,5 +18,6 @@ export default function PreviousSlideTrigger({
 PreviousSlideTrigger.propTypes = {
   handleClick: PropTypes.func.isRequired,
   classes: PropTypes.string,
+  svgClasses: PropTypes.string,
   ariaLabel: PropTypes.string.isRequired,
 };
