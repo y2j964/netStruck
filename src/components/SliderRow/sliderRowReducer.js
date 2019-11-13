@@ -5,14 +5,9 @@ const getActiveSlideIndexes = (
   slideWidth,
   tilesPerPosition,
 ) => {
-  const cloneOffsets = tilesPerPosition;
   const activeSlides = [];
   for (let i = 0; i < tilesPerPosition; i += 1) {
-    const slideIndex =
-      Math.floor(-updatedXPosition / slideWidth) -
-      tilesPerPosition +
-      cloneOffsets +
-      i;
+    const slideIndex = Math.floor(-updatedXPosition / slideWidth) + i;
     activeSlides.push(slideIndex);
   }
   return activeSlides;
@@ -30,16 +25,15 @@ const getLeftMostSlideIndex = (
     const adjustedLeftMostSlideIndex = leftMostSlideIndex - cloneAdjustment;
     return adjustedLeftMostSlideIndex;
   }
+  // if visibleSlideIndexes hasn't been calculated yet, just return updatedTilesPerPosition
   return updatedTilesPerPosition;
 };
 
 // 'natural' here is to be understood as slides that aren't cloned
 const getNaturalEndingSlideIndexes = (genreLength, updatedTilesPerPosition) => {
-  const cloneOffset = updatedTilesPerPosition;
-  const clonedEndingLeftMostIndex = genreLength + cloneOffset;
+  const clonedEndingLeftMostIndex = genreLength + updatedTilesPerPosition;
   // last position before cloned series
-  const naturalEndingLeftMostIndex =
-    genreLength + cloneOffset - updatedTilesPerPosition;
+  const naturalEndingLeftMostIndex = genreLength;
   const naturalEndingSlideIndexes = [];
   for (
     let i = naturalEndingLeftMostIndex;
@@ -74,9 +68,7 @@ const getResizedSlideIndexes = (
   visibleSlideIndexes,
   genreLength,
 ) => {
-  const cloneOffset = updatedTilesPerPosition;
-  const naturalEndingLeftMostIndex =
-    genreLength + cloneOffset - updatedTilesPerPosition;
+  const naturalEndingLeftMostIndex = genreLength;
   const leftMostSlideIndex = getLeftMostSlideIndex(
     prevTilesPerPosition,
     visibleSlideIndexes,
@@ -106,9 +98,7 @@ const getResizedXPosition = (
   genreLength,
 ) => {
   const slideWidth = step / updatedTilesPerPosition;
-  const cloneOffset = updatedTilesPerPosition;
-  const naturalEndingLeftMostIndex =
-    genreLength + cloneOffset - updatedTilesPerPosition;
+  const naturalEndingLeftMostIndex = genreLength;
   const leftMostSlideIndex = getLeftMostSlideIndex(
     prevTilesPerPosition,
     updatedVisibleSlideIndexes,
@@ -119,8 +109,7 @@ const getResizedXPosition = (
     return endPositionX;
   }
   // maintain position respective to previous leftMostSlide
-  const updatedXPosition =
-    (leftMostSlideIndex - updatedTilesPerPosition) * -slideWidth - 100;
+  const updatedXPosition = leftMostSlideIndex * -slideWidth;
   return updatedXPosition;
 };
 
@@ -133,10 +122,10 @@ const filmDataReducer = (state, action) => {
         // prevents slider from sliding off tracks; endPositionX - step is the clones at the end
         return state;
       }
-      // if prevState.xPosition % 100 isn't equal to zero, there is a remainder,
-      // indicating oddly displaced slides (remaining slides)
-      if (state.xPosition % 100 !== 0 && state.xPosition > -200) {
-        // put slider back on regular track at the first position;
+      if (state.xPosition > -step - 100 && state.xPosition % 100 !== 0) {
+        // if prevState.xPosition % 100 isn't equal to zero, there is a remainder,
+        // indicating oddly displaced slides; so put slider back on regular track
+        // at the first position (-step);
         const updatedXPosition = -step;
         const updatedSlideIndexes = getActiveSlideIndexes(
           updatedXPosition,
@@ -145,16 +134,16 @@ const filmDataReducer = (state, action) => {
         );
         return {
           ...state,
-          transition: true,
+          isWrapping: true,
           xPosition: updatedXPosition,
           visibleSlideIndexes: updatedSlideIndexes,
         };
       }
 
-      // if slider is at starting position, prepare for wrapAround
       if (state.xPosition === -step) {
+        // if slider is at starting position, prepare for wrapAround
         const updatedXPosition = state.xPosition + step;
-        return { ...state, transition: true, xPosition: updatedXPosition };
+        return { ...state, isWrapping: true, xPosition: updatedXPosition };
       }
 
       // normal slider movement
@@ -166,7 +155,7 @@ const filmDataReducer = (state, action) => {
       );
       return {
         ...state,
-        transition: true,
+        isWrapping: true,
         xPosition: updatedXPosition,
         visibleSlideIndexes: updatedSlideIndexes,
       };
@@ -181,11 +170,11 @@ const filmDataReducer = (state, action) => {
         return state;
       }
 
-      // if xPosition has less than a full movement toward the end, do partial movement to end
       if (
-        state.xPosition < naturalEndPositionX + step &&
-        state.xPosition > naturalEndPositionX
+        state.xPosition > naturalEndPositionX &&
+        state.xPosition < naturalEndPositionX + step
       ) {
+        // if xPosition has less than a full movement toward the end, do partial movement to end
         const updatedXPosition = naturalEndPositionX;
         const updatedSlideIndexes = getActiveSlideIndexes(
           updatedXPosition,
@@ -194,16 +183,16 @@ const filmDataReducer = (state, action) => {
         );
         return {
           ...state,
-          transition: true,
+          isWrapping: true,
           xPosition: updatedXPosition,
           visibleSlideIndexes: updatedSlideIndexes,
         };
       }
 
-      // if slider is at ending position, prepare for wrapAround
       if (state.xPosition === naturalEndPositionX) {
+        // if slider is at ending position, prepare for wrapAround
         const updatedXPosition = state.xPosition - step;
-        return { ...state, transition: true, xPosition: updatedXPosition };
+        return { ...state, isWrapping: true, xPosition: updatedXPosition };
       }
 
       // normal slider movement
@@ -215,7 +204,7 @@ const filmDataReducer = (state, action) => {
       );
       return {
         ...state,
-        transition: true,
+        isWrapping: true,
         xPosition: updatedXPosition,
         visibleSlideIndexes: updatedSlideIndexes,
       };
@@ -233,7 +222,7 @@ const filmDataReducer = (state, action) => {
         );
         return {
           ...state,
-          transition: false,
+          isWrapping: false,
           xPosition: naturalEndPositionX,
           visibleSlideIndexes: updatedSlideIndexes,
         };
@@ -247,7 +236,7 @@ const filmDataReducer = (state, action) => {
         );
         return {
           ...state,
-          transition: false,
+          isWrapping: false,
           xPosition: -step,
           visibleSlideIndexes: updatedSlideIndexes,
         };
@@ -270,7 +259,7 @@ const filmDataReducer = (state, action) => {
       );
 
       return {
-        transition: true,
+        isWrapping: true,
         tilesPerPosition: action.id.updatedTilesPerPosition,
         visibleSlideIndexes: updatedVisibleSlideIndexes,
         xPosition: updatedXPosition,

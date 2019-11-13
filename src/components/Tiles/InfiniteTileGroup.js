@@ -50,7 +50,7 @@ const createEndClones = (tilesPerPosition, filmGroupData) => {
 function InfiniteTileGroup({
   filmGroupData,
   xPosition,
-  transition,
+  isWrapping,
   wrapAround,
   tilesPerPosition,
   visibleSlideIndexes,
@@ -73,7 +73,7 @@ function InfiniteTileGroup({
 
   const tileGroupStyle = {
     transform: `translateX(${xPosition}%)`,
-    transition: transition ? 'transform 750ms ease' : 'none',
+    transition: isWrapping ? 'transform 750ms ease' : 'none',
   };
 
   const clonedFrontTileFrags = frontClones.map((film, index) => (
@@ -135,7 +135,7 @@ InfiniteTileGroup.propTypes = {
   tilesPerPosition: PropTypes.number.isRequired,
   visibleSlideIndexes: PropTypes.array.isRequired,
   xPosition: PropTypes.number.isRequired,
-  transition: PropTypes.bool.isRequired,
+  isWrapping: PropTypes.bool.isRequired,
 };
 
 export default InfiniteTileGroup;
