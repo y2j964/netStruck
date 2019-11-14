@@ -4,11 +4,4 @@
   &__text {
     @apply mb-4 text-white;
     }
-  /* &__text {
-    @apply mb-4 text-white text-sm;
-
-    @media (--sm) {
-      @apply text-base;
-    } */
-  /* } */
 }

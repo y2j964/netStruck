@@ -1,7 +1,7 @@
 import React, { memo } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import {imgType} from './types';
+import { imgType } from './types';
 import Play from '../../icons/Play';
 
 const getSlidingDirection = (enterFrom, exitTo) => {

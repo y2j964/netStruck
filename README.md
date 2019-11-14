@@ -88,6 +88,7 @@ Builds TailwindCSS and purges unused classes as per postcss.config.js.
   * [Focus-trap-react 6.0.0](https://www.npmjs.com/package/react-focus-trap) was used to trap the focus in my modal.
   * The film images and the individual film summaries are sourced from [The Movie Database](https://www.themoviedb.org).
   * All icons are from [Icomoon](https://icomoon.io/), except for PlayBox, which I made in Inkscape to match the PlayBox icon from Criterion Channel's homepage.
+  * The Spinner gif was generated with [loading.io]https://loading.io/.
   * The favicon was generated with [favicon.io](https://favicon.io/).
   * I used [Gulp-responsive](https://www.npmjs.com/package/gulp-responsive) (which incidentally uses [Sharp](https://github.com/lovell/sharp)) to generate responsive images.
   * [Google Fonts](https://fonts.google.com/) was used for additional fonts.

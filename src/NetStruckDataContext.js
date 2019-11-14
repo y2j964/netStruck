@@ -1,4 +1,3 @@
-/* eslint-disable no-param-reassign */
 import React, { useReducer, useEffect, useState, useContext } from 'react';
 import PropTypes from 'prop-types';
 import filmDataReducer from './filmDataReducer';

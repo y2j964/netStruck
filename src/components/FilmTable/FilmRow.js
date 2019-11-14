@@ -24,7 +24,6 @@ export default function FilmRow({
       </td>
       <td className='film-table__title'>
         {title}
-        {/* eslint-disable-next-line jsx-a11y/anchor-has-content */}
         <Link
           className='tr-overlay'
           to={`/now-playing/${slug}`}

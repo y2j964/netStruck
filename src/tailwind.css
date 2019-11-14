@@ -8772,13 +8772,6 @@ video {
   border-color: #fff;
   border-top-width: 1px;
   padding-top: 1.5rem;
-  /* &__text {
-    @apply mb-4 text-white text-sm;
-
-    @media (--sm) {
-      @apply text-base;
-    } */
-  /* } */
 }
 
 .subscription-details__text {

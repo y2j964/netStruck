@@ -1,10 +1,10 @@
-import React, { memo } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { useNetStruckDataDispatcher } from '../../NetStruckDataContext';
 import Plus from '../../icons/Plus';
 import Minus from '../../icons/Minus';
 
-function ToggleToMyListBtn({ isAddedToMyList, slug }) {
+export default function ToggleToMyListBtn({ isAddedToMyList, slug }) {
   const dispatch = useNetStruckDataDispatcher();
   const toggleFilmMyListState = () =>
     dispatch({ type: 'TOGGLE_FILM_MYLIST_STATE', id: slug });
@@ -24,8 +24,6 @@ function ToggleToMyListBtn({ isAddedToMyList, slug }) {
     </button>
   );
 }
-
-export default memo(ToggleToMyListBtn);
 
 ToggleToMyListBtn.propTypes = {
   isAddedToMyList: PropTypes.bool.isRequired,
