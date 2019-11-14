@@ -9347,18 +9347,6 @@ td{
   bottom: 10%;
 }
 
-.w-percent-sm {
-  width: 4%;
-}
-
-.max-w-80 {
-  max-width: 80rem;
-}
-
-.max-w-7xl {
-  max-width: 82.5em;
-}
-
 .text-shadow {
   text-shadow: 0 1px 10px #000;
 }
