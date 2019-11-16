@@ -1,6 +1,9 @@
 #root {
   @apply flex flex-col min-h-screen;
 }
+/* * {
+  outline: 1px solid red;
+ } */
 
 body {
   margin: 0;
@@ -24,44 +27,51 @@ code {
     monospace;
 }
 
-table, thead, tbody, tfoot, tr, td, th, caption {
+table,
+thead,
+tbody,
+tfoot,
+tr,
+td,
+th,
+caption {
   display: block;
 }
 
 table {
   @media (--md) {
-  display: table;
-  table-layout: fixed;
+    display: table;
+    table-layout: fixed;
   }
 }
 
 thead {
   @media (--md) {
-  display: table-header-group;
+    display: table-header-group;
   }
 }
 
 tbody {
   @media (--md) {
-  display: table-row-group;
+    display: table-row-group;
   }
 }
 
 tr {
   @media (--md) {
-  display: table-row;
+    display: table-row;
   }
 }
 
 th {
   @media (--md) {
-  display: table-cell;
+    display: table-cell;
   }
 }
 
-td{
+td {
   @media (--md) {
-  display: table-cell;
+    display: table-cell;
   }
 }
 
@@ -94,7 +104,7 @@ td{
 }
 
 .font-logo {
-  font-family: 'IBM Plex Mono', monospace;
+  font-family: "IBM Plex Mono", monospace;
 }
 
 .order-2 {
@@ -142,7 +152,7 @@ td{
 
   &--left-aligned {
     img {
-    margin: auto 0;
+      margin: auto 0;
     }
   }
 }
@@ -179,7 +189,7 @@ td{
   border: 0;
 }
 
- /* nicked from https://css-tricks.com/easing-linear-gradients/ */
+/* nicked from https://css-tricks.com/easing-linear-gradients/ */
 .scrim {
   background-image: linear-gradient(
     to top,
@@ -204,14 +214,44 @@ td{
   opacity: 0;
   background-color: rgba(0, 0, 0, 0.55);
   backface-visibility: hidden;
-  transform: scale(calc(1/1.5));
-  /* this counteracts the scaling of the tile-group__item which gets 1.5, that way we don't have blur */
+  transform: scale(calc(1 / 1.5));
   width: 150%;
   height: 150%;
   transition: opacity 400ms cubic-bezier(0, 0, 0.2, 1);
   transform-origin: top left;
   transition-delay: 400ms;
 }
+/*
+
+.exploder {
+  @apply absolute z-20;
+    visibility: visible;
+    width: 150%;
+    height: 150%;
+    top: -25%;
+    left: -25%;
+  background-color: rgba(0, 0, 0, 0.55);
+  backface-visibility: hidden;
+
+  &-enter {
+    transform: scale(1);
+  }
+
+  &-enter-active {
+    transform: scale(0.99999);
+    transition: transform 400ms cubic-bezier(0, 0, 0.2, 1);
+  transition-delay: 400ms;
+  }
+  &-exit {
+    transform: scale(1);
+  }
+
+  &-exit-active {
+    transform: scale(0.99999);
+    transition: transform 400ms cubic-bezier(0, 0, 0.2, 1);
+  transition-delay: 400ms;
+  }
+} */
 
 .tr-overlay {
   @apply absolute top-0 bottom-0 left-0 right-0;
@@ -220,23 +260,23 @@ td{
   margin-bottom: 1%;
   background-color: rgb(74, 71, 71);
   opacity: 0;
-  transition: opacity .3s ease;
+  transition: opacity 0.3s ease;
 
   &:hover,
   &:focus {
-    opacity: .2;
+    opacity: 0.2;
   }
 }
 
 .a-pseudo-wrap {
   &::after {
     @apply absolute top-0 bottom-0 right-0 left-0;
-    content: '';
+    content: "";
   }
   &--mb {
     &::after {
       @apply absolute top-0 bottom-0 right-0 left-0;
-      content: '';
+      content: "";
       margin-bottom: 40px;
     }
   }
@@ -249,11 +289,11 @@ td{
 .icon--positioned-right {
   position: absolute;
   right: 6%;
-  transition: fill .3s ease-in-out;
+  transition: fill 0.3s ease-in-out;
 }
 
 .mirror {
-  transition: transform .2s ease-in-out;
+  transition: transform 0.2s ease-in-out;
 
   &--is-active {
     transform: rotate(180deg);
@@ -265,7 +305,6 @@ td{
   border: none;
   outline: none;
   background: transparent;
-
 }
 
 .input--no-ring {
@@ -275,19 +314,19 @@ td{
 }
 
 .placeholder-color::-webkit-input-placeholder {
-	color: #9b9b9b;
+  color: #9b9b9b;
 }
 
 .placeholder-color::-moz-placeholder {
-	color: #9b9b9b;
+  color: #9b9b9b;
 }
 
 .placeholder-color::-ms-input-placeholder {
-	color: #9b9b9b;
+  color: #9b9b9b;
 }
 
 .placeholder-color:-moz-placeholder {
-	color: #9b9b9b;
+  color: #9b9b9b;
 }
 
 .page-fade {
@@ -311,6 +350,7 @@ td{
     /* hide overflow in the event that new page doesn't have a vertical scroll bar
     this way the page doesn't jump after the scroll bar is removed */
     overflow-y: hidden;
+    /* padding-right: 17px; */
   }
 
   &-exit-active {
@@ -326,8 +366,8 @@ td{
   25% {
     background-color: #333333;
   }
- 50% {
-  background-color: #1f1f1f;
+  50% {
+    background-color: #1f1f1f;
   }
   100% {
     background-color: #1f1f1f;

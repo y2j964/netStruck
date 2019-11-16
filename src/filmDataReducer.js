@@ -22,7 +22,7 @@ const getUpdatedMyList = (dataSource, film) => {
 
 const filmDataReducer = (state, action) => {
   switch (action.type) {
-    case 'TOGGLE_FILM_MYLIST_STATE': {
+    case "TOGGLE_FILM_MYLIST_STATE": {
       const updatedFilms = [...state.films];
       const targetedFilm = updatedFilms.find(film => film.slug === action.id);
 
@@ -37,21 +37,21 @@ const filmDataReducer = (state, action) => {
       return { ...state, films: updatedFilms, myList: updatedMyList };
     }
 
-    case 'TOGGLE_MODAL':
-      document.querySelector('html').classList.toggle('overflow-hidden');
+    case "TOGGLE_MODAL":
+      // document.querySelector("html").classList.toggle("overflow-hidden");
       return { ...state, modalIsOpen: !state.modalIsOpen };
 
-    case 'CLOSE_MODAL':
-      document.querySelector('html').classList.remove('overflow-hidden');
+    case "CLOSE_MODAL":
+      // document.querySelector("html").classList.remove("overflow-hidden");
       return { ...state, modalIsOpen: false };
 
-    case 'CONTENT_LOADED': {
+    case "CONTENT_LOADED": {
       const myListSlugs = state.myList.map(film => film.slug);
       const updatedFilms = getInitialFilmData(action.id, myListSlugs);
       return {
         ...state,
         films: updatedFilms,
-        isLoading: false,
+        isLoading: false
       };
     }
     default:

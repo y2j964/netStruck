@@ -1,21 +1,17 @@
 .tile {
-  @apply w-1/2 flex-none;
+  @apply w-1/2 flex-none relative;
   padding: 0 2px;
-
-  &--is-static {
-    @apply px-1 mb-8;
-  }
 
   &--is-empty {
     padding: 0;
-    background-color:#1f1f1f;
+    background-color: #1f1f1f;
     border-left: 2px solid #151515;
     border-right: 2px solid #151515;
   }
 
   &__underlay {
     @apply z-neg absolute top-0 bottom-0 left-0 right-0;
-    background-color:#1f1f1f;
+    background-color: #1f1f1f;
   }
 
   &:hover {
@@ -43,13 +39,12 @@
   &__title {
     @apply text-white text-center text-lg;
 
-    @media(--sm) {
+    @media (--sm) {
       @apply text-xl;
     }
   }
 
   &__btn-group {
     @apply absolute right-0 bottom-0 p-1;
-
   }
 }

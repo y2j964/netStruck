@@ -8161,9 +8161,9 @@ video {
   right: 0;
   z-index: 20;
   background: rgba(20, 20, 20, 0.95);
+  overflow-x: hidden;
+  overflow-y: scroll;
 }
-
-/* overflow-x: hidden; */
 
 .modal__header {
     display: flex;
@@ -8364,7 +8364,7 @@ video {
 
 .search-filter__results {
     margin-top: 1.25rem;
-    margin-bottom: 3rem;
+    padding-bottom: 3rem;
     margin-left: auto;
     margin-right: auto;
     width: 85%;
@@ -8805,18 +8805,13 @@ video {
 .tile {
   width: 50%;
   flex: none;
+  position: relative;
   padding: 0 2px;
 }
 
-.tile--is-static {
-    padding-left: 0.25rem;
-    padding-right: 0.25rem;
-    margin-bottom: 2rem;
-  }
-
 .tile--is-empty {
     padding: 0;
-    background-color:#1f1f1f;
+    background-color: #1f1f1f;
     border-left: 2px solid #151515;
     border-right: 2px solid #151515;
   }
@@ -8828,7 +8823,7 @@ video {
     bottom: 0;
     left: 0;
     right: 0;
-    background-color:#1f1f1f;
+    background-color: #1f1f1f;
   }
 
 .tile:hover .bg-overlay {
@@ -8869,7 +8864,7 @@ video {
     font-size: 1.125rem;
   }
 
-@media(min-width: 500px) {
+@media (min-width: 500px) {
 
 .tile__title {
       font-size: 1.25rem
@@ -8896,8 +8891,8 @@ video {
   }
 
 .tile-group__item {
+    backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
-            backface-visibility: hidden;
     transition: transform 400ms cubic-bezier(0, 0, 0.2, 1);
     transition-delay: 400ms;
   }
@@ -8941,6 +8936,52 @@ video {
       transition: transform 400ms cubic-bezier(0, 0, 0.2, 1);
       transition-delay: 400ms;
     }
+
+/*
+.tile-group {
+  @apply flex mb-8;
+
+  @media (--sm) {
+    @apply mb-10;
+  }
+
+  &__item {
+    backface-visibility: hidden;
+    transition: transform 400ms cubic-bezier(0, 0, 0.2, 1);
+    transition-delay: 400ms;
+
+    &--is-stationary {
+      transform: translate(0) translateZ(0px);
+    }
+    &--is-soft-left {
+      transform: translate(-25%) translateZ(0px);
+    }
+    &--is-hard-left {
+      transform: translate(-50%) translateZ(0px);
+    }
+    &--is-soft-right {
+      transform: translate(25%) translateZ(0px);
+    }
+    &--is-hard-right {
+      transform: translate(50%) translateZ(0px);
+    }
+
+    &--is-hovered {
+    }
+
+    &--is-left-edge {
+      transform-origin: left;
+      transition: transform 400ms cubic-bezier(0, 0, 0.2, 1);
+      transition-delay: 400ms;
+    }
+
+    &--is-right-edge {
+      transform-origin: right;
+      transition: transform 400ms cubic-bezier(0, 0, 0.2, 1);
+      transition-delay: 400ms;
+    }
+  }
+} */
 
 .toggle-to-MyList-btn {
   position: relative;
@@ -9256,6 +9297,10 @@ video {
   min-height: 100vh;
 }
 
+/* * {
+  outline: 1px solid red;
+ } */
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -9279,7 +9324,14 @@ code {
     monospace;
 }
 
-table, thead, tbody, tfoot, tr, td, th, caption {
+table,
+thead,
+tbody,
+tfoot,
+tr,
+td,
+th,
+caption {
   display: block;
 }
 
@@ -9322,7 +9374,7 @@ th {
 
 @media (min-width: 800px) {
 
-td{
+td {
     display: table-cell
 }
   }
@@ -9356,7 +9408,7 @@ td{
 }
 
 .font-logo {
-  font-family: 'IBM Plex Mono', monospace;
+  font-family: "IBM Plex Mono", monospace;
 }
 
 .order-2 {
@@ -9485,14 +9537,45 @@ td{
   background-color: rgba(0, 0, 0, 0.55);
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
-  transform: scale(calc(1/1.5));
-  /* this counteracts the scaling of the tile-group__item which gets 1.5, that way we don't have blur */
+  transform: scale(calc(1 / 1.5));
   width: 150%;
   height: 150%;
   transition: opacity 400ms cubic-bezier(0, 0, 0.2, 1);
   transform-origin: top left;
   transition-delay: 400ms;
 }
+
+/*
+
+.exploder {
+  @apply absolute z-20;
+    visibility: visible;
+    width: 150%;
+    height: 150%;
+    top: -25%;
+    left: -25%;
+  background-color: rgba(0, 0, 0, 0.55);
+  backface-visibility: hidden;
+
+  &-enter {
+    transform: scale(1);
+  }
+
+  &-enter-active {
+    transform: scale(0.99999);
+    transition: transform 400ms cubic-bezier(0, 0, 0.2, 1);
+  transition-delay: 400ms;
+  }
+  &-exit {
+    transform: scale(1);
+  }
+
+  &-exit-active {
+    transform: scale(0.99999);
+    transition: transform 400ms cubic-bezier(0, 0, 0.2, 1);
+  transition-delay: 400ms;
+  }
+} */
 
 .tr-overlay {
   position: absolute;
@@ -9505,12 +9588,12 @@ td{
   margin-bottom: 1%;
   background-color: rgb(74, 71, 71);
   opacity: 0;
-  transition: opacity .3s ease;
+  transition: opacity 0.3s ease;
 }
 
 .tr-overlay:hover,
   .tr-overlay:focus {
-    opacity: .2;
+    opacity: 0.2;
   }
 
 .a-pseudo-wrap::after {
@@ -9519,7 +9602,7 @@ td{
     bottom: 0;
     right: 0;
     left: 0;
-    content: '';
+    content: "";
   }
 
 .a-pseudo-wrap--mb::after {
@@ -9528,7 +9611,7 @@ td{
       bottom: 0;
       right: 0;
       left: 0;
-      content: '';
+      content: "";
       margin-bottom: 40px;
     }
 
@@ -9539,11 +9622,11 @@ td{
 .icon--positioned-right {
   position: absolute;
   right: 6%;
-  transition: fill .3s ease-in-out;
+  transition: fill 0.3s ease-in-out;
 }
 
 .mirror {
-  transition: transform .2s ease-in-out;
+  transition: transform 0.2s ease-in-out;
 }
 
 .mirror--is-active {
@@ -9597,6 +9680,7 @@ td{
     /* hide overflow in the event that new page doesn't have a vertical scroll bar
     this way the page doesn't jump after the scroll bar is removed */
     overflow-y: hidden;
+    /* padding-right: 17px; */
   }
 
 .page-fade-exit-active {
