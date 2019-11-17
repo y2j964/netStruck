@@ -29,13 +29,8 @@ export default function Modal({ children, autoFocusCloseBtn }) {
     };
   }, [modalIsOpen, autoFocusCloseBtn]);
 
-  useEffect(() => {
-    console.log("mode");
-    // enableBodyScroll(modalRef.current)
-  }, []);
-
-  const toggleSearchModal = () => {
-    dispatch({ type: "TOGGLE_MODAL" });
+  const closeSearchModal = () => {
+    dispatch({ type: "CLOSE_MODAL" });
   };
 
   const handleKeyDown = e => {
@@ -43,13 +38,13 @@ export default function Modal({ children, autoFocusCloseBtn }) {
     if (key !== "Escape") {
       return;
     }
-    toggleSearchModal();
+    closeSearchModal();
   };
 
   return ReactDOM.createPortal(
     <CSSTransition
       in={modalIsOpen}
-      timeout={1300}
+      timeout={300}
       unmountOnExit
       classNames="modal"
     >
@@ -62,7 +57,6 @@ export default function Modal({ children, autoFocusCloseBtn }) {
           onKeyDown={handleKeyDown}
           ref={modalRef}
         >
-          {/* <div className='overflow-x-hidden'> */}
           <div className="modal__header">
             <h2 className="sr-only" id="modalHeading">
               Search NetStruck Films
@@ -71,13 +65,12 @@ export default function Modal({ children, autoFocusCloseBtn }) {
               className="ml-auto"
               aria-label="close modal"
               ref={closeRef}
-              onClick={toggleSearchModal}
+              onClick={closeSearchModal}
             >
               <Close />
             </button>
           </div>
           {children}
-          {/* </div> */}
         </div>
       </FocusTrap>
     </CSSTransition>,

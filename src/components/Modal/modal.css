@@ -2,7 +2,6 @@
   @apply absolute top-0 bottom-0 left-0 right-0 z-20;
   background: rgba(20, 20, 20, 0.95);
   overflow-x: hidden;
-  overflow-y: scroll;
 
   &__header {
     @apply flex p-5;
@@ -14,15 +13,16 @@
 
   &-enter-active {
     opacity: 1;
-    transition: opacity 300ms ease-out 0s;
+    transition: opacity 300ms ease-out;
   }
   &-exit {
     opacity: 1;
-    overflow-y: hidden;
+    /* prevent new vertical scrollbar from kicking modal's scrollbar to the left */
+    width: 100vw;
   }
 
   &-exit-active {
     opacity: 0;
-    transition: opacity 300ms ease-in 0s;
+    transition: opacity 300ms ease-in;
   }
 }

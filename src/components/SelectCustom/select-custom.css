@@ -1,7 +1,8 @@
 .l-select-custom {
   @apply relative flex items-center w-1/2 text-white;
   height: 56px;
-  transition: background-color .3s cubic-bezier(0.45, 0.05, 0.55, 0.95), color .3s cubic-bezier(0.45, 0.05, 0.55, 0.95);
+  transition: background-color 0.3s cubic-bezier(0.45, 0.05, 0.55, 0.95),
+    color 0.3s cubic-bezier(0.45, 0.05, 0.55, 0.95);
 
   /* & option {
     background-color: #151515;
@@ -24,5 +25,8 @@
 .select-custom {
   @apply w-full h-full bg-transparent appearance-none cursor-pointer px-6 border-t-2 border-l-2 border-b-2 z-20 uppercase;
   border-color: #bebebb;
+
+  @media (--md) {
     min-width: 178px;
   }
+}

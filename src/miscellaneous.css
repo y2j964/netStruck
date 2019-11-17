@@ -331,6 +331,8 @@ td {
 
 .page-fade {
   &-enter {
+    overflow: hidden;
+    /* overflow hidden eases scrollbar transitions */
     opacity: 0;
   }
 
@@ -347,10 +349,9 @@ td {
     left: 0;
     right: 0;
     bottom: 0;
-    /* hide overflow in the event that new page doesn't have a vertical scroll bar
-    this way the page doesn't jump after the scroll bar is removed */
-    overflow-y: hidden;
-    /* padding-right: 17px; */
+    width: 100vw;
+    /* width here prevents content from jumping to left in the event that you are
+    transitioning from a page without a scrollbar to a page with a scrollbar */
   }
 
   &-exit-active {

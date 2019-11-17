@@ -37,12 +37,10 @@ const filmDataReducer = (state, action) => {
       return { ...state, films: updatedFilms, myList: updatedMyList };
     }
 
-    case "TOGGLE_MODAL":
-      // document.querySelector("html").classList.toggle("overflow-hidden");
-      return { ...state, modalIsOpen: !state.modalIsOpen };
+    case "OPEN_MODAL":
+      return { ...state, modalIsOpen: true };
 
     case "CLOSE_MODAL":
-      // document.querySelector("html").classList.remove("overflow-hidden");
       return { ...state, modalIsOpen: false };
 
     case "CONTENT_LOADED": {

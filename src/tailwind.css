@@ -8162,7 +8162,6 @@ video {
   z-index: 20;
   background: rgba(20, 20, 20, 0.95);
   overflow-x: hidden;
-  overflow-y: scroll;
 }
 
 .modal__header {
@@ -8176,17 +8175,18 @@ video {
 
 .modal-enter-active {
     opacity: 1;
-    transition: opacity 300ms ease-out 0s;
+    transition: opacity 300ms ease-out;
   }
 
 .modal-exit {
     opacity: 1;
-    overflow-y: hidden;
+    /* prevent new vertical scrollbar from kicking modal's scrollbar to the left */
+    width: 100vw;
   }
 
 .modal-exit-active {
     opacity: 0;
-    transition: opacity 300ms ease-in 0s;
+    transition: opacity 300ms ease-in;
   }
 
 .collapsible-group {
@@ -8416,7 +8416,8 @@ video {
   width: 50%;
   color: #fff;
   height: 56px;
-  transition: background-color .3s cubic-bezier(0.45, 0.05, 0.55, 0.95), color .3s cubic-bezier(0.45, 0.05, 0.55, 0.95);
+  transition: background-color 0.3s cubic-bezier(0.45, 0.05, 0.55, 0.95),
+    color 0.3s cubic-bezier(0.45, 0.05, 0.55, 0.95);
 }
 
 /* & option {
@@ -8456,8 +8457,14 @@ video {
   z-index: 20;
   text-transform: uppercase;
   border-color: #bebebb;
-  min-width: 178px;
 }
+
+@media (min-width: 800px) {
+
+.select-custom {
+    min-width: 178px
+}
+  }
 
 .tab {
   display: flex;
@@ -9661,6 +9668,8 @@ td {
 }
 
 .page-fade-enter {
+    overflow: hidden;
+    /* overflow hidden eases scrollbar transitions */
     opacity: 0;
   }
 
@@ -9677,10 +9686,9 @@ td {
     left: 0;
     right: 0;
     bottom: 0;
-    /* hide overflow in the event that new page doesn't have a vertical scroll bar
-    this way the page doesn't jump after the scroll bar is removed */
-    overflow-y: hidden;
-    /* padding-right: 17px; */
+    width: 100vw;
+    /* width here prevents content from jumping to left in the event that you are
+    transitioning from a page without a scrollbar to a page with a scrollbar */
   }
 
 .page-fade-exit-active {
