@@ -2,10 +2,10 @@
   @apply relative flex justify-center items-center px-6 border border-white z-10 cursor-pointer;
   height: 34px;
   border-radius: 18px;
-  transition: opacity 400ms cubic-bezier(0, 0, 0.2, 1);;
+  transition: opacity 400ms cubic-bezier(0, 0, 0.2, 1);
   transition-delay: 400ms;
 
-  @media(--sm) {
+  @media (--sm) {
     height: 36px;
   }
 
@@ -17,6 +17,6 @@
 
   &__text {
     @apply text-white;
-    padding-left: .35rem;
+    padding-left: 0.35rem;
   }
 }

@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-
 import { netStruckDataTypes } from '../../netStruckDataTypes';
 import Tile from './Tile';
+import ToggleToMyListBtn from '../ToggleToMyListBtn/ToggleToMyListBtn';
 
 const getPlacementInViewport = (index, tilesPerPosition) => {
   if (index % tilesPerPosition === 0) {
@@ -21,17 +21,25 @@ export default function TileGroup({ filmGroupData, tilesPerPosition }) {
   const tileFrags = filmGroupData.map((film, index) => (
     <Tile
       key={film.id}
-      {...film}
       index={index}
+      title={film.title}
+      year={film.year}
+      slug={film.slug}
+      img={film.img}
+      alt={film.alt}
       groupLength={filmGroupData.length}
       placementInViewport={getPlacementInViewport(index, tilesPerPosition)}
       hoveredItem={hoveredItem}
       setHoveredItem={setHoveredItem}
-      isMyList
-    />
+    >
+      <ToggleToMyListBtn
+        slug={film.slug}
+        isAddedToMyList={film.isAddedToMyList}
+      />
+    </Tile>
   ));
 
-  return <ul className='tile-group'>{tileFrags}</ul>;
+  return <ul className="tile-group">{tileFrags}</ul>;
 }
 
 TileGroup.propTypes = {

@@ -1,15 +1,11 @@
 #root {
   @apply flex flex-col min-h-screen;
 }
-/* * {
-  outline: 1px solid red;
- } */
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #151515;
@@ -23,7 +19,7 @@ main {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
 
@@ -104,7 +100,7 @@ td {
 }
 
 .font-logo {
-  font-family: "IBM Plex Mono", monospace;
+  font-family: 'IBM Plex Mono', monospace;
 }
 
 .order-2 {
@@ -209,7 +205,7 @@ td {
   );
 }
 
-.exploder {
+/* .exploder {
   @apply absolute top-0 bottom-0 left-0 right-0;
   opacity: 0;
   background-color: rgba(0, 0, 0, 0.55);
@@ -220,38 +216,57 @@ td {
   transition: opacity 400ms cubic-bezier(0, 0, 0.2, 1);
   transform-origin: top left;
   transition-delay: 400ms;
-}
-/*
+} */
 
 .exploder {
-  @apply absolute z-20;
-    visibility: visible;
-    width: 150%;
-    height: 150%;
-    top: -25%;
-    left: -25%;
-  background-color: rgba(0, 0, 0, 0.55);
+  @apply absolute z-10;
+  width: 150%;
+  height: 150%;
+  top: -25%;
+  left: -25%;
+  /* background-color: rgba(0, 0, 0, 0.55); */
   backface-visibility: hidden;
 
+  &--is-left-edge {
+    left: 0;
+    transform-origin: left;
+  }
+
+  &--is-right-edge {
+    left: -50%;
+    transform-origin: right;
+  }
+
   &-enter {
-    transform: scale(1);
+    transform: scale(calc(2 / 3));
+    visibility: hidden;
   }
 
   &-enter-active {
-    transform: scale(0.99999);
-    transition: transform 400ms cubic-bezier(0, 0, 0.2, 1);
-  transition-delay: 400ms;
+    transform: scale(1);
+    visibility: visible;
+    transition: transform 400ms cubic-bezier(0, 0, 0.2, 1),
+      visibility 0ms cubic-bezier(0, 0, 0.2, 1);
+    /* all we want for visibility here is to be delayed */
+    transition-delay: 400ms;
   }
   &-exit {
     transform: scale(1);
+    visibility: visible;
   }
 
   &-exit-active {
-    transform: scale(0.99999);
-    transition: transform 400ms cubic-bezier(0, 0, 0.2, 1);
-  transition-delay: 400ms;
+    transform: scale(calc(2 / 3));
+    visibility: hidden;
+    transition: transform 400ms cubic-bezier(0, 0, 0.2, 1),
+      visibility 400ms cubic-bezier(0, 0, 0.2, 1);
+    transition-delay: 400ms;
   }
-} */
+}
+
+.bgo {
+  background-color: rgba(0, 0, 0, 0.55);
+}
 
 .tr-overlay {
   @apply absolute top-0 bottom-0 left-0 right-0;
@@ -271,12 +286,12 @@ td {
 .a-pseudo-wrap {
   &::after {
     @apply absolute top-0 bottom-0 right-0 left-0;
-    content: "";
+    content: '';
   }
   &--mb {
     &::after {
       @apply absolute top-0 bottom-0 right-0 left-0;
-      content: "";
+      content: '';
       margin-bottom: 40px;
     }
   }
