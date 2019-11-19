@@ -33,10 +33,10 @@ export default function TabList({
     }
   };
   return (
-    <div className='sm:pt-4 border-b border-gray-700'>
+    <div className="sm:pt-4 border-b border-gray-700">
       <ol
-        className='flex justify-center'
-        role='tablist'
+        className="flex justify-center"
+        role="tablist"
         onKeyDown={handleKeyDown}
       >
         {tabListFrags}

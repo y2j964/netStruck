@@ -3,7 +3,7 @@ const step = 100;
 const getActiveSlideIndexes = (
   updatedXPosition,
   slideWidth,
-  tilesPerPosition,
+  tilesPerPosition
 ) => {
   const activeSlides = [];
   for (let i = 0; i < tilesPerPosition; i += 1) {
@@ -16,7 +16,7 @@ const getActiveSlideIndexes = (
 const getLeftMostSlideIndex = (
   prevTilesPerPosition,
   visibleSlideIndexes,
-  updatedTilesPerPosition,
+  updatedTilesPerPosition
 ) => {
   if (visibleSlideIndexes.length > 0) {
     const leftMostSlideIndex = visibleSlideIndexes[0];
@@ -48,7 +48,7 @@ const getNaturalEndingSlideIndexes = (genreLength, updatedTilesPerPosition) => {
 
 const getLeftAlignedSlideIndexes = (
   leftMostSlideIndex,
-  updatedSlidePerPosition,
+  updatedSlidePerPosition
 ) => {
   const leftAlignedSlideIndexes = [];
   for (
@@ -66,13 +66,13 @@ const getResizedSlideIndexes = (
   prevTilesPerPosition,
   updatedTilesPerPosition,
   visibleSlideIndexes,
-  genreLength,
+  genreLength
 ) => {
   const naturalEndingLeftMostIndex = genreLength;
   const leftMostSlideIndex = getLeftMostSlideIndex(
     prevTilesPerPosition,
     visibleSlideIndexes,
-    updatedTilesPerPosition,
+    updatedTilesPerPosition
   );
   // on resize, we want to maintain the left-most slide
   // if the left-most slide doesn't support a wider viewport (i.e. you end up wrapping
@@ -80,13 +80,13 @@ const getResizedSlideIndexes = (
   if (leftMostSlideIndex > naturalEndingLeftMostIndex) {
     const naturalEndingSlideIndexes = getNaturalEndingSlideIndexes(
       genreLength,
-      updatedTilesPerPosition,
+      updatedTilesPerPosition
     );
     return naturalEndingSlideIndexes;
   }
   const resizedSlideIndexes = getLeftAlignedSlideIndexes(
     leftMostSlideIndex,
-    updatedTilesPerPosition,
+    updatedTilesPerPosition
   );
   return resizedSlideIndexes;
 };
@@ -95,14 +95,14 @@ const getResizedXPosition = (
   prevTilesPerPosition,
   updatedTilesPerPosition,
   updatedVisibleSlideIndexes,
-  genreLength,
+  genreLength
 ) => {
   const slideWidth = step / updatedTilesPerPosition;
   const naturalEndingLeftMostIndex = genreLength;
   const leftMostSlideIndex = getLeftMostSlideIndex(
     prevTilesPerPosition,
     updatedVisibleSlideIndexes,
-    updatedTilesPerPosition,
+    updatedTilesPerPosition
   );
   if (leftMostSlideIndex > naturalEndingLeftMostIndex) {
     const endPositionX = -slideWidth * naturalEndingLeftMostIndex;
@@ -130,7 +130,7 @@ const filmDataReducer = (state, action) => {
         const updatedSlideIndexes = getActiveSlideIndexes(
           updatedXPosition,
           slideWidth,
-          state.tilesPerPosition,
+          state.tilesPerPosition
         );
         return {
           ...state,
@@ -151,7 +151,7 @@ const filmDataReducer = (state, action) => {
       const updatedSlideIndexes = getActiveSlideIndexes(
         updatedXPosition,
         slideWidth,
-        state.tilesPerPosition,
+        state.tilesPerPosition
       );
       return {
         ...state,
@@ -179,7 +179,7 @@ const filmDataReducer = (state, action) => {
         const updatedSlideIndexes = getActiveSlideIndexes(
           updatedXPosition,
           slideWidth,
-          state.tilesPerPosition,
+          state.tilesPerPosition
         );
         return {
           ...state,
@@ -200,7 +200,7 @@ const filmDataReducer = (state, action) => {
       const updatedSlideIndexes = getActiveSlideIndexes(
         updatedXPosition,
         slideWidth,
-        state.tilesPerPosition,
+        state.tilesPerPosition
       );
       return {
         ...state,
@@ -218,7 +218,7 @@ const filmDataReducer = (state, action) => {
         const updatedSlideIndexes = getActiveSlideIndexes(
           naturalEndPositionX,
           slideWidth,
-          state.tilesPerPosition,
+          state.tilesPerPosition
         );
         return {
           ...state,
@@ -232,7 +232,7 @@ const filmDataReducer = (state, action) => {
         const updatedSlideIndexes = getActiveSlideIndexes(
           -step,
           slideWidth,
-          state.tilesPerPosition,
+          state.tilesPerPosition
         );
         return {
           ...state,
@@ -249,13 +249,13 @@ const filmDataReducer = (state, action) => {
         state.tilesPerPosition,
         action.id.updatedTilesPerPosition,
         state.visibleSlideIndexes,
-        action.id.genreLength,
+        action.id.genreLength
       );
       const updatedXPosition = getResizedXPosition(
         state.tilesPerPosition,
         action.id.updatedTilesPerPosition,
         state.visibleSlideIndexes,
-        action.id.genreLength,
+        action.id.genreLength
       );
 
       return {

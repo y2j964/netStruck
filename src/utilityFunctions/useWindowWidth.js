@@ -3,7 +3,7 @@ import debounce from './debounce';
 
 const useWindowWidth = () => {
   const [windowWidth, setWindowWidth] = useState(
-    window.innerWidth || document.documentElement.clientWidth,
+    window.innerWidth || document.documentElement.clientWidth
   );
 
   useEffect(() => {
@@ -13,7 +13,7 @@ const useWindowWidth = () => {
     window.addEventListener('resize', debouncedHandleResize);
 
     return () => {
-      window.removeEventListener('resize', debouncedHandleResize)
+      window.removeEventListener('resize', debouncedHandleResize);
     };
   }, []);
 

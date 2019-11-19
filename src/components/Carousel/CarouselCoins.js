@@ -15,9 +15,9 @@ export default function CarouselCoins({ featuredFilms, jumpToSlide }) {
   ));
   return (
     <ol
-      className='carousel-coin-group'
-      role='group'
-      aria-label='Choose slide to display'
+      className="carousel-coin-group"
+      role="group"
+      aria-label="Choose slide to display"
     >
       {carouselCoinFrags}
     </ol>

@@ -11,16 +11,12 @@ export default function ContentRows() {
   const { featuredGenres } = useNetStruckDataState();
   const { currentPosts, loadMore } = usePagination(
     postsPerPage,
-    featuredGenres,
+    featuredGenres
   );
 
   const rowFrags = currentPosts.map(genre => (
     <ContentRow {...genre} key={genre.id} />
   ));
 
-  return (
-    <InfiniteScroller loadMore={loadMore}>
-      {rowFrags}
-    </InfiniteScroller>
-  );
+  return <InfiniteScroller loadMore={loadMore}>{rowFrags}</InfiniteScroller>;
 }

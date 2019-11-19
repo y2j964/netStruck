@@ -10,23 +10,23 @@ export default function FilmTableViewOptions({
   toggleSortDirection,
 }) {
   return (
-    <div className='all-films'>
-      <div className='all-films__intro'>
-        <h2 className='text-3xl text-white text-center md:text-left'>
+    <div className="all-films">
+      <div className="all-films__intro">
+        <h2 className="text-3xl text-white text-center md:text-left">
           All Films
         </h2>
-        <span className='hidden md:block text-white'>
+        <span className="hidden md:block text-white">
           {filmDataLength} Results
         </span>
       </div>
-      <div className='all-films__filter-options'>
+      <div className="all-films__filter-options">
         <SearchFilterTrigger />
         {selectCustom}
       </div>
-      <div className='all-films__sorting-direction'>
-        <span className='md:hidden text-white'>{filmDataLength} Results</span>
+      <div className="all-films__sorting-direction">
+        <span className="md:hidden text-white">{filmDataLength} Results</span>
         <SortDirectionToggle
-          controls='filmTable'
+          controls="filmTable"
           sortIsAscending={sortIsAscending}
           handleClick={toggleSortDirection}
         />

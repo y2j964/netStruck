@@ -38,9 +38,9 @@ export default function InfiniteScroller({
     <React.Fragment>
       {children}
       {!isTable ? (
-        <div aria-hidden='true' ref={ref}></div>
+        <div aria-hidden="true" ref={ref}></div>
       ) : (
-        <tr aria-hidden='true' ref={ref}></tr>
+        <tr aria-hidden="true" ref={ref}></tr>
       )}
     </React.Fragment>
   );

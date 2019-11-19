@@ -21,18 +21,18 @@ const Tab = ({ id, isActive, index, text, handleClick, children }) => {
   return (
     <li className={`l-tab ${isActive ? 'l-tab--is-active' : ''}`}>
       <button
-        className='w-full'
+        className="w-full"
         id={`tab-${index + 1}`}
         onClick={() => handleClick(id)}
         tabIndex={isActive ? '0' : '-1'}
-        role='tab'
+        role="tab"
         aria-selected={isActive}
         aria-controls={`tab-panel-${index + 1}`}
         ref={ref}
       >
         <div className={'tab'}>
           {children}
-          <span className='tab__text'>{text}</span>
+          <span className="tab__text">{text}</span>
         </div>
       </button>
     </li>

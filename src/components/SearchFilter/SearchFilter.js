@@ -52,13 +52,14 @@ export default function SearchFilter() {
 
   const debouncedInputValue = useDebounce(inputValue, 500, setIsLoading);
 
+  // when user stops typing for debounced timeout
   useEffect(() => {
     if (debouncedInputValue) {
       // mimic loading
       setTimeout(() => {
         const updatedFilteredFilms = getFilteredFilms(
           films,
-          debouncedInputValue,
+          debouncedInputValue
         );
         setFilteredFilms(updatedFilteredFilms);
         setIsLoading(false);
@@ -80,11 +81,11 @@ export default function SearchFilter() {
 
   return (
     <React.Fragment>
-      <form role='search' className='search-filter' onSubmit={handleSubmit}>
-        <span className='pr-4 pb-2 mr-5 border-r border-gray'>
-          <SearchGlass width='35' height='35' fill='#bebebb' />
+      <form role="search" className="search-filter" onSubmit={handleSubmit}>
+        <span className="pr-4 pb-2 mr-5 border-r border-gray">
+          <SearchGlass width="35" height="35" fill="#bebebb" />
         </span>
-        <label htmlFor='searchInput' className='sr-only'>
+        <label htmlFor="searchInput" className="sr-only">
           Enter search terms
         </label>
         <SearchFilterInput

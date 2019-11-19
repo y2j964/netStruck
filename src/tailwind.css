@@ -8419,7 +8419,7 @@ video {
       left: 0;
     }
 
-@media(min-width: 1400px) {
+@media (min-width: 1400px) {
 
 .carousel-trigger-overlay--left {
         margin-left: 5%
@@ -8466,7 +8466,7 @@ video {
     height: 19px;
   }
 
-@media(min-width: 500px) {
+@media (min-width: 500px) {
 
 .carousel__chevron {
       height: 100%;
@@ -8552,7 +8552,7 @@ video {
 
 /* margin-bottom: 50px; */
 
-@media(min-width: 500px) {
+@media (min-width: 500px) {
 
 .carousel-item__mobile-text-block {
       display: none
@@ -8885,8 +8885,8 @@ video {
 
 .hamburger-toggle {
   margin-left: auto;
-  opacity: .5;
-  transition: opacity .2s ease-in-out;
+  opacity: 0.5;
+  transition: opacity 200ms ease-in-out;
 }
 
 @media (min-width: 800px) {
@@ -8988,7 +8988,7 @@ video {
   }
 
 .animated-label--is-shrunk {
-    transform: translateY(-.925rem) translateX(1rem) scale(0.65);
+    transform: translateY(-0.925rem) translateX(1rem) scale(0.65);
   }
 
 .modal {
@@ -9034,7 +9034,7 @@ video {
   flex-direction: column;
   width: 100%;
   /* visibility is used so that it is removed from tab-index, but still works as transition */
-  transition: height .3s ease-in-out, visibility .3s ease-in-out;
+  transition: height 300ms ease-in-out, visibility 300ms ease-in-out;
 }
 
 .collapsible-group--is-expanded {
@@ -9137,7 +9137,7 @@ video {
   }
 
 .custom-radio--is-active::after {
-      content: "";
+      content: '';
       background-color: rgb(185, 188, 199);
       display: inline-block;
       height: 10px;
@@ -9149,7 +9149,7 @@ video {
     }
 
 .custom-radio:hover::after {
-    content: "";
+    content: '';
     background-color: rgb(185, 188, 199);
     display: inline-block;
     height: 10px;
@@ -9220,7 +9220,8 @@ video {
   height: 56px;
   width: 50%;
   border-color: #bebebb;
-  transition: background-color .3s cubic-bezier(0.45, 0.05, 0.55, 0.95), color .3s cubic-bezier(0.45, 0.05, 0.55, 0.95);
+  transition: background-color 300ms cubic-bezier(0.45, 0.05, 0.55, 0.95),
+    color 300ms cubic-bezier(0.45, 0.05, 0.55, 0.95);
 }
 
 .filter-btn:hover {
@@ -9564,14 +9565,14 @@ video {
     max-width: 25px;
   }
 
-@media(min-width: 1100px) {
+@media (min-width: 1100px) {
 
 .slider-row__chevron {
       max-width: 32px
   }
     }
 
-@media(min-width: 1400px) {
+@media (min-width: 1400px) {
 
 .slider-row__chevron {
       max-width: 36px
@@ -9587,7 +9588,8 @@ video {
   width: 44px;
   height: 44px;
   border-color: #bebebb;
-  transition: background-color .3s cubic-bezier(0.45, 0.05, 0.55, 0.95), color .3s cubic-bezier(0.45, 0.05, 0.55, 0.95);
+  transition: background-color 300ms cubic-bezier(0.45, 0.05, 0.55, 0.95),
+    color 300ms cubic-bezier(0.45, 0.05, 0.55, 0.95);
 }
 
 .sort-direction-toggle__svg {
@@ -9871,7 +9873,7 @@ video {
 }
 
 .tooltip:before {
-    content: "";
+    content: '';
     position: absolute;
     bottom: 95%;
     left: 50%;

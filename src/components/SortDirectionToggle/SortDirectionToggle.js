@@ -9,20 +9,20 @@ export default function SortDirectionToggle({
 }) {
   return (
     <button
-      className='sort-direction-toggle'
-      aria-label='toggle sort direction'
-      aria-describedby='sortDirDesc'
+      className="sort-direction-toggle"
+      aria-label="toggle sort direction"
+      aria-describedby="sortDirDesc"
       aria-controls={controls}
       onClick={handleClick}
     >
       <span
-        className='sr-only'
-        id='sortDirDesc'
-        aria-live='polite'
+        className="sr-only"
+        id="sortDirDesc"
+        aria-live="polite"
       >{`Sort direction is currently ${
         sortIsAscending ? 'ascending' : 'descending'
       }`}</span>
-      <SortingDirectionArrows additionalClasses='sort-direction-toggle__svg' />
+      <SortingDirectionArrows additionalClasses="sort-direction-toggle__svg" />
     </button>
   );
 }

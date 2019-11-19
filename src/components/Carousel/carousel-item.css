@@ -27,7 +27,7 @@
     margin-bottom: 32px;
     /* margin-bottom: 50px; */
 
-    @media(--sm) {
+    @media (--sm) {
       @apply hidden;
     }
 

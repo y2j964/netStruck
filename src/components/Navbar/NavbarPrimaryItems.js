@@ -35,7 +35,7 @@ export default function NavbarPrimaryItems({ collapsibleNavIsExpanded }) {
       className={`collapsible-group${
         collapsibleNavIsExpanded ? ' collapsible-group--is-expanded' : ''
       }`}
-      id='navbarCollapsibleGroup'
+      id="navbarCollapsibleGroup"
     >
       {navbarPrimaryItemsFrags}
     </ul>

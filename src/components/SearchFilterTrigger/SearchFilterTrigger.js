@@ -1,10 +1,10 @@
-import React from "react";
-import { useNetStruckDataDispatcher } from "../../NetStruckDataContext";
-import Plus from "../../icons/Plus";
+import React from 'react';
+import { useNetStruckDataDispatcher } from '../../NetStruckDataContext';
+import Plus from '../../icons/Plus';
 
 export default function SearchFilterTrigger() {
   const dispatch = useNetStruckDataDispatcher();
-  const openSearchModal = () => dispatch({ type: "OPEN_MODAL" });
+  const openSearchModal = () => dispatch({ type: 'OPEN_MODAL' });
 
   return (
     <button className="filter-btn" onClick={openSearchModal}>

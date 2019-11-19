@@ -5,27 +5,27 @@
   width: 20px;
   border-radius: 50%;
   background-color: rgb(255, 255, 255);
-    border-width: 1px;
-    border-style: solid;
-    border-color: rgb(102, 102, 102);
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgb(102, 102, 102);
 
   &--is-active {
     border-color: #babdc8;
     &::after {
-    content: "";
-    background-color: rgb(185, 188, 199);
-    display: inline-block;
-    height: 10px;
-    width: 10px;
-    position: absolute;
-    left: 4px;
-    top: 4px;
-    border-radius: 50%;
+      content: '';
+      background-color: rgb(185, 188, 199);
+      display: inline-block;
+      height: 10px;
+      width: 10px;
+      position: absolute;
+      left: 4px;
+      top: 4px;
+      border-radius: 50%;
     }
   }
 
   &:hover::after {
-    content: "";
+    content: '';
     background-color: rgb(185, 188, 199);
     display: inline-block;
     height: 10px;

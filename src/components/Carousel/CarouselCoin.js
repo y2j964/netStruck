@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 const CarouselCoin = ({ targetIsActive, targetId, index, jumpToSlide }) => {
   return (
-    <li className='mr-1'>
+    <li className="mr-1">
       <button
         className={`carousel-coin${
           targetIsActive ? ' carousel-coin--is-active' : ''

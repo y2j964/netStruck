@@ -15,7 +15,7 @@ function InputAnimated({
   handleBlur,
 }) {
   return (
-    <div className='user-info__form-group'>
+    <div className="user-info__form-group">
       <label
         htmlFor={id}
         className={`animated-label${
@@ -27,7 +27,7 @@ function InputAnimated({
       <input
         type={type}
         name={name}
-        className='user-info__input'
+        className="user-info__input"
         id={id}
         aria-required={isRequired}
         required={isRequired}
@@ -41,9 +41,15 @@ function InputAnimated({
   );
 }
 
-export const AnimatedTextInput = props => <InputAnimated {...props} type='text' />
-export const AnimatedEmailInput = props => <InputAnimated {...props} type='email' />
-export const AnimatedPasswordInput = props => <InputAnimated {...props} type='password'/>
+export const AnimatedTextInput = props => (
+  <InputAnimated {...props} type="text" />
+);
+export const AnimatedEmailInput = props => (
+  <InputAnimated {...props} type="email" />
+);
+export const AnimatedPasswordInput = props => (
+  <InputAnimated {...props} type="password" />
+);
 
 InputAnimated.propTypes = {
   labelText: PropTypes.string.isRequired,

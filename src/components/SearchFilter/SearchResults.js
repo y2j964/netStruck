@@ -1,16 +1,16 @@
-import React, { useState, useEffect } from "react";
-import PropTypes from "prop-types";
-import { netStruckDataTypes } from "../../netStruckDataTypes";
-import TileChunks from "../Tiles/TileChunks";
-import BtnPrimary from "../BtnPrimary/BtnPrimary";
-import ShowMoreButtonRenderer from "../ShowMoreButtonRenderer";
+import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
+import { netStruckDataTypes } from '../../netStruckDataTypes';
+import TileChunks from '../Tiles/TileChunks';
+import BtnPrimary from '../BtnPrimary/BtnPrimary';
+import ShowMoreButtonRenderer from '../ShowMoreButtonRenderer';
 
 export default function SearchResults({
   totalResults,
   filteredFilms,
   loadMore,
   hasMore,
-  tilesPerPosition
+  tilesPerPosition,
 }) {
   const [isLoadingMore, setIsLoadingMore] = useState(false);
 
@@ -25,7 +25,7 @@ export default function SearchResults({
     // wide enough to create an empty scrollbar (a scrollbar emerges but there is no scrollable
     // content). The latter condition occurs quite rarely, but this is why I've opted for
     // overflow-y: scroll. The style is initiated here to ease the modal transition.
-    document.querySelector(".modal").style.overflowY = "scroll";
+    document.querySelector('.modal').style.overflowY = 'scroll';
   }, []);
 
   const handleClick = () => {
@@ -58,5 +58,5 @@ SearchResults.propTypes = {
   filteredFilms: PropTypes.arrayOf(netStruckDataTypes),
   loadMore: PropTypes.func.isRequired,
   hasMore: PropTypes.bool.isRequired,
-  tilesPerPosition: PropTypes.number
+  tilesPerPosition: PropTypes.number,
 };

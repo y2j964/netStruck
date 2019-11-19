@@ -14,7 +14,7 @@ export default function SelectCustom({
   const optionFrags = options.map(option => (
     <option
       key={option.id}
-      className='text-black uppercase'
+      className="text-black uppercase"
       value={option.value}
       aria-selected={sortBy === option.value && 'true'}
     >
@@ -23,8 +23,8 @@ export default function SelectCustom({
   ));
 
   return (
-    <div className='l-select-custom'>
-      <label htmlFor='allFilmsSorter' className='sr-only'>
+    <div className="l-select-custom">
+      <label htmlFor="allFilmsSorter" className="sr-only">
         Select Sort Criterion
       </label>
       <select
@@ -32,12 +32,12 @@ export default function SelectCustom({
         id={id}
         aria-controls={controls}
         value={sortBy}
-        className='select-custom'
+        className="select-custom"
         onChange={handleChange}
       >
         {optionFrags}
       </select>
-      <ChevronDown additionalClasses='icon--positioned-right z-10' />
+      <ChevronDown additionalClasses="icon--positioned-right z-10" />
     </div>
   );
 }

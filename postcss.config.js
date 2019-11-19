@@ -1,7 +1,8 @@
+/* eslint-disable global-require */
 const purgecss = require('@fullhuman/postcss-purgecss')({
   content: ['index.html'],
   // ignore any --is- modifier class
-  whitelistPatterns: [/\-\-is\-/],
+  whitelistPatterns: [/--is-/],
 
   defaultExtractor: content => content.match(/[A-Za-z0-9-_:/]+/g) || [],
 });

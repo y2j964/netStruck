@@ -18,7 +18,7 @@ export default function TabPanelSlider({ tabListData }) {
   const tabPanelSliderPosition = tabListData.findIndex(tab => tab.isActive) + 1;
 
   return (
-    <div className='l-tab-panel-slider' ref={ref}>
+    <div className="l-tab-panel-slider" ref={ref}>
       <div
         className={`tab-panel-slider tab-panel-slider--position-${tabPanelSliderPosition}`}
       >

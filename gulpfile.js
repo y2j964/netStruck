@@ -156,8 +156,8 @@ gulp.task('responsiveImgs', () => {
           withMetadata: false,
           // Do not emit the error when image is enlarged.
           errorOnEnlargement: false,
-        },
-      ),
+        }
+      )
     )
     .pipe(gulp.dest('./src/images/responsive'));
 });

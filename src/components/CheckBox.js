@@ -9,17 +9,17 @@ export default function CheckBox({
   handleCheckChange,
 }) {
   return (
-    <div className='mb-6'>
+    <div className="mb-6">
       <input
-        type='checkbox'
+        type="checkbox"
         name={name}
-        className='mr-2'
+        className="mr-2"
         id={id}
         checked={isChecked}
         aria-checked={isChecked}
         onChange={handleCheckChange}
       />
-      <label className='text-sm' htmlFor={id}>
+      <label className="text-sm" htmlFor={id}>
         {children}
       </label>
     </div>

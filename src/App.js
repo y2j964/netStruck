@@ -20,21 +20,21 @@ import { MediaBreakpointProvider } from './MediaBreakpointContext';
 
 function App({ location, history }) {
   const [collapsibleNavIsExpanded, setCollapsibleNavIsExpanded] = useState(
-    false,
+    false
   );
 
   // set up listener and ensure collapsibleNav is collapsed on route change
   useEffect(() => {
     history.listen(() => {
       const navbarCollapsibleGroup = document.getElementById(
-        'navbarCollapsibleGroup',
+        'navbarCollapsibleGroup'
       );
       navbarCollapsibleGroup.style.transition = 'none';
       setCollapsibleNavIsExpanded(false);
 
       // remove transition: 'none' from inline style so it still works on toggle
       window.requestAnimationFrame(() =>
-        navbarCollapsibleGroup.removeAttribute('style'),
+        navbarCollapsibleGroup.removeAttribute('style')
       );
     });
   }, [history]);
@@ -49,31 +49,31 @@ function App({ location, history }) {
           }
         />
         <MediaBreakpointProvider>
-          <div className='relative flex-auto flex flex-col'>
+          <div className="relative flex-auto flex flex-col">
             <TransitionGroup component={null}>
               <CSSTransition
                 // prevent reanimation if active link is clicked by using pathname property
                 key={location.pathname}
                 timeout={{ enter: 300, exit: 150 }}
-                classNames='page-fade'
+                classNames="page-fade"
                 mountOnEnter
                 unmountOnExit
               >
                 <Switch location={location}>
-                  <Route exact path='/' component={Home} />
-                  <Route exact path='/now-playing' component={NowPlaying} />
+                  <Route exact path="/" component={Home} />
+                  <Route exact path="/now-playing" component={NowPlaying} />
                   <Route
                     exact
-                    path='/now-playing/:slug'
+                    path="/now-playing/:slug"
                     component={SelectionItem}
                   />
                   <Route
-                    path='/now-playing/genre/:slug'
+                    path="/now-playing/genre/:slug"
                     component={SelectionGenre}
                   />
-                  <Route path='/all-films' component={AllFilms} />
-                  <Route path='/my-list' component={MyList} />
-                  <Route path='/signup' component={SignUp} />
+                  <Route path="/all-films" component={AllFilms} />
+                  <Route path="/my-list" component={MyList} />
+                  <Route path="/signup" component={SignUp} />
                   <Route component={Error404} />
                 </Switch>
               </CSSTransition>

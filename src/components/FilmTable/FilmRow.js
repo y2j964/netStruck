@@ -12,27 +12,27 @@ export default function FilmRow({
   slug,
 }) {
   return (
-    <tr className='film-table__row'>
-      <td className='film-table__thumbnail'>
-        <div className='ratio-16-9 ratio-16-9--left-aligned'>
+    <tr className="film-table__row">
+      <td className="film-table__thumbnail">
+        <div className="ratio-16-9 ratio-16-9--left-aligned">
           <picture>
-            <source srcSet={img.webp400} type='image/webp' />
+            <source srcSet={img.webp400} type="image/webp" />
             <source srcSet={img.jpg400} />
-            <img src={img.jpg400} alt='' />
+            <img src={img.jpg400} alt="" />
           </picture>
         </div>
       </td>
-      <td className='film-table__title'>
+      <td className="film-table__title">
         {title}
         <Link
-          className='tr-overlay'
+          className="tr-overlay"
           to={`/now-playing/${slug}`}
           aria-label={`${title} info page`}
         ></Link>
       </td>
-      <td className='film-table__director'>{director}</td>
-      <td className='film-table__duration'>{duration}</td>
-      <td className='film-table__year'>{year}</td>
+      <td className="film-table__director">{director}</td>
+      <td className="film-table__duration">{duration}</td>
+      <td className="film-table__year">{year}</td>
     </tr>
   );
 }

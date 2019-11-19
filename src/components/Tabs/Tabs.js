@@ -20,9 +20,9 @@ export default class Tabs extends Component {
           text: 'The movies you want',
           icon: (
             <PlayBox
-              fill='#fff'
-              stroke='#fff'
-              additionalClasses='tab__PlayBox'
+              fill="#fff"
+              stroke="#fff"
+              additionalClasses="tab__PlayBox"
             />
           ),
         },
@@ -30,7 +30,7 @@ export default class Tabs extends Component {
           id: uuid.v4(),
           isActive: false,
           text: 'Thematically presented',
-          icon: <Eye additionalClasses='tab__Eye' />,
+          icon: <Eye additionalClasses="tab__Eye" />,
         },
         {
           id: uuid.v4(),

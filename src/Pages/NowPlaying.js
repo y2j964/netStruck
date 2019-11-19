@@ -13,12 +13,12 @@ export default function NowPlaying() {
   const { isLoading } = state;
 
   return (
-    <main className='pb-8 overflow-x-hidden'>
+    <main className="pb-8 overflow-x-hidden">
       {/* important to use pb instead of mb to get consistent results from InfiniteScroller */}
-      <h1 className='sr-only'>NetStruck Featured Content</h1>
+      <h1 className="sr-only">NetStruck Featured Content</h1>
       <Carousel />
       <section>
-        <h2 className='sr-only'>Organized Content</h2>
+        <h2 className="sr-only">Organized Content</h2>
         {isLoading ? <Spinner /> : <ContentRows />}
       </section>
     </main>

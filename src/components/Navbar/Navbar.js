@@ -11,10 +11,10 @@ export default function Navbar({
   toggleCollapsibleNav,
 }) {
   return (
-    <nav className='navbar'>
+    <nav className="navbar">
       <NavbarBrand />
       <HamburgerToggle
-        controls='navbarCollapsibleGroup'
+        controls="navbarCollapsibleGroup"
         collapsibleNavIsExpanded={collapsibleNavIsExpanded}
         handleClick={() => {
           document.getElementById('navbarCollapsibleGroup').style.transition =
@@ -23,7 +23,7 @@ export default function Navbar({
         }}
       />
       <NavbarPrimaryItems collapsibleNavIsExpanded={collapsibleNavIsExpanded} />
-      <div className='ml-auto hidden md:flex'>
+      <div className="ml-auto hidden md:flex">
         <SignUpTrigger />
         <ModalTrigger />
       </div>

@@ -66,13 +66,13 @@ export default function SliderRow({ filmGroupData }) {
   const isIntersecting = useIsIntersecting(ref);
 
   return (
-    <div className='slider-row relative w-full h-full' ref={ref}>
-      <div className='slider-row__content-preview slider-row__content-preview--left'>
+    <div className="slider-row relative w-full h-full" ref={ref}>
+      <div className="slider-row__content-preview slider-row__content-preview--left">
         <PreviousSlideTrigger
           handleClick={() => handleClick(moveSliderBackward)}
-          classes='slider-row__btn'
-          svgClasses='slider-row__chevron'
-          ariaLabel='slide previous films into view'
+          classes="slider-row__btn"
+          svgClasses="slider-row__chevron"
+          ariaLabel="slide previous films into view"
         />
       </div>
       {!isIntersecting ? (
@@ -84,12 +84,12 @@ export default function SliderRow({ filmGroupData }) {
           wrapAround={wrapAround}
         />
       )}
-      <div className='slider-row__content-preview slider-row__content-preview--right'>
+      <div className="slider-row__content-preview slider-row__content-preview--right">
         <NextSlideTrigger
           handleClick={() => handleClick(moveSliderForward)}
-          classes='slider-row__btn'
-          svgClasses='slider-row__chevron'
-          ariaLabel='slide next films into view'
+          classes="slider-row__btn"
+          svgClasses="slider-row__chevron"
+          ariaLabel="slide next films into view"
         />
       </div>
     </div>

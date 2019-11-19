@@ -9,9 +9,7 @@ export default function EmptyTileGroup({ numOfTiles }) {
     emptyTileFrags.push(<EmptyTile key={i} index={i} />);
   }
 
-  return (
-    <ul className='flex'>{emptyTileFrags}</ul>
-  );
+  return <ul className="flex">{emptyTileFrags}</ul>;
 }
 
 EmptyTileGroup.propTypes = {

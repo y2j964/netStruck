@@ -4,18 +4,18 @@
   width: 114px;
   height: 28px;
   display: none;
-    justify-content: center;
-    align-items: center;
+  justify-content: center;
+  align-items: center;
   top: 138%;
 
   &:before {
-    content: "";
-  position: absolute;
-  bottom: 95%;
-  left: 50%;
-  transform: translateX(-50%);
-  border-width: 5px;
-  border-style: solid;
-  border-color: transparent transparent white transparent;
+    content: '';
+    position: absolute;
+    bottom: 95%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent white transparent;
   }
 }

@@ -17,13 +17,13 @@ const compareStrings = (a, b) => (a > b) - (a < b);
 const sortByTitleAscending = (filmA, filmB) =>
   compareStrings(
     stripLeadingArticle(filmA.title),
-    stripLeadingArticle(filmB.title),
+    stripLeadingArticle(filmB.title)
   );
 
 const sortByTitleDescending = (filmA, filmB) =>
   compareStrings(
     stripLeadingArticle(filmB.title),
-    stripLeadingArticle(filmA.title),
+    stripLeadingArticle(filmA.title)
   );
 
 // accepts a name, and returns it with the last name in front
@@ -114,8 +114,8 @@ export default function AllFilms() {
   const filmDataLength = filmData.length;
 
   return (
-    <main className='md:px-12 my-16'>
-      <h1 className='sr-only'>NetStruck All Films</h1>
+    <main className="md:px-12 my-16">
+      <h1 className="sr-only">NetStruck All Films</h1>
       <FilmTableViewOptions
         sortIsAscending={sortIsAscending}
         filmDataLength={filmDataLength}
@@ -123,9 +123,9 @@ export default function AllFilms() {
         selectCustom={
           <SelectCustom
             options={options}
-            name='allFilmsSorter'
-            id='allFilmsSorter'
-            controls='filmTable'
+            name="allFilmsSorter"
+            id="allFilmsSorter"
+            controls="filmTable"
             sortBy={sortBy}
             handleChange={e => setSortBy(e.target.value)}
           />

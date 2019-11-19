@@ -16,16 +16,16 @@ export default function RadioInputCustom({
       }`}
     >
       <input
-        type='radio'
+        type="radio"
         name={name}
         value={value}
-        className='hidden-input'
+        className="hidden-input"
         id={id}
         checked={isChecked}
         aria-checked={isChecked}
         onChange={handleCheckChange}
       />
-      <span className='hidden-input__focus-mask'></span>
+      <span className="hidden-input__focus-mask"></span>
     </span>
   );
 }

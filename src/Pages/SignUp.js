@@ -25,19 +25,19 @@ function SignUp({ history }) {
   }, [history]);
 
   return (
-    <main className='max-w-lg lg:max-w-6xl lg:flex lg:flex-row lg:items-center lg:justify-center px-5 lg:px-10 mx-auto'>
-      <div className='lg:flex-1 mb-12 lg:mb-0 lg:mr-16'>
-        <header className='mb-10 mt-5'>
-          <h1 className='text-white text-4xl md:text-5xl font-bold'>
+    <main className="max-w-lg lg:max-w-6xl lg:flex lg:flex-row lg:items-center lg:justify-center px-5 lg:px-10 mx-auto">
+      <div className="lg:flex-1 mb-12 lg:mb-0 lg:mr-16">
+        <header className="mb-10 mt-5">
+          <h1 className="text-white text-4xl md:text-5xl font-bold">
             NetStruck Sign Up
           </h1>
         </header>
         <SubscriptionType
           radioOne={
             <RadioInputCustom
-              name='subscriptionFrequency'
-              id='annualSub'
-              value='annual'
+              name="subscriptionFrequency"
+              id="annualSub"
+              value="annual"
               isChecked={subscription === 'annual'}
               handleCheckChange={e => setSubscription(e.target.value)}
               subscription={subscription}
@@ -45,9 +45,9 @@ function SignUp({ history }) {
           }
           radioTwo={
             <RadioInputCustom
-              name='subscriptionFrequency'
-              id='monthlySub'
-              value='monthly'
+              name="subscriptionFrequency"
+              id="monthlySub"
+              value="monthly"
               isChecked={subscription === 'monthly'}
               handleCheckChange={e => setSubscription(e.target.value)}
               subscription={subscription}
@@ -56,7 +56,7 @@ function SignUp({ history }) {
         />
         <SubscriptionDetails />
       </div>
-      <div className='lg:flex-1 mb-12 w-full'>
+      <div className="lg:flex-1 mb-12 w-full">
         <UserInfo subscription={subscription} />
       </div>
     </main>

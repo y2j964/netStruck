@@ -36,10 +36,10 @@
     width: 100%;
     max-width: 25px;
 
-    @media(--lg) {
+    @media (--lg) {
       max-width: 32px;
     }
-    @media(--xl) {
+    @media (--xl) {
       max-width: 36px;
     }
   }

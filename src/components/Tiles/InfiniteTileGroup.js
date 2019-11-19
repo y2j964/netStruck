@@ -79,13 +79,13 @@ function InfiniteTileGroup({
 
   const clonedFrontTileFrags = frontClones.map((film, index) => (
     <Tile
-    key={film.id}
-    index={index + filmGroupData.length + tilesPerPosition}
-    title={film.title}
-    year={film.year}
-    slug={film.slug}
-    img={film.img}
-    alt={film.alt}
+      key={film.id}
+      index={index + filmGroupData.length + tilesPerPosition}
+      title={film.title}
+      year={film.year}
+      slug={film.slug}
+      img={film.img}
+      alt={film.alt}
       placementInViewport={index !== 0 ? 'offscreen' : 'rightPreview'}
       hoveredItem={hoveredItem}
       setHoveredItem={setHoveredItem}
@@ -94,13 +94,13 @@ function InfiniteTileGroup({
 
   const clonedEndTileFrags = endClones.map((film, index) => (
     <Tile
-    key={film.id}
-    index={index}
-    title={film.title}
-    year={film.year}
-    slug={film.slug}
-    img={film.img}
-    alt={film.alt}
+      key={film.id}
+      index={index}
+      title={film.title}
+      year={film.year}
+      slug={film.slug}
+      img={film.img}
+      alt={film.alt}
       placementInViewport={
         index + 1 !== tilesPerPosition ? 'offscreen' : 'leftPreview'
       }
@@ -111,8 +111,8 @@ function InfiniteTileGroup({
 
   const naturalTileFrags = filmGroupData.map((film, index) => (
     <Tile
-    key={film.id}
-    index={index + tilesPerPosition}
+      key={film.id}
+      index={index + tilesPerPosition}
       title={film.title}
       year={film.year}
       slug={film.slug}
@@ -120,7 +120,7 @@ function InfiniteTileGroup({
       alt={film.alt}
       placementInViewport={getPlacementInViewport(
         visibleSlideIndexes,
-        index + tilesPerPosition,
+        index + tilesPerPosition
       )}
       ariaLabel={`slide ${index + 1} of ${filmGroupData.length}`}
       // index value is accumulated to account for slides
@@ -131,12 +131,12 @@ function InfiniteTileGroup({
         slug={film.slug}
         isAddedToMyList={film.isAddedToMyList}
       />
-      </Tile>
+    </Tile>
   ));
 
   return (
     <ul
-      className='tile-group'
+      className="tile-group"
       style={tileGroupStyle}
       onTransitionEnd={wrapAround}
     >

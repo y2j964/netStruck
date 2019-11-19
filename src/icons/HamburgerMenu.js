@@ -9,14 +9,14 @@ export default function HamburgerToggle({
 }) {
   return (
     <svg
-      viewBox='0 0 20 20'
+      viewBox="0 0 20 20"
       width={width || '20'}
       height={height || '20'}
       fill={fill || 'white'}
-      aria-hidden='true'
+      aria-hidden="true"
       className={additionalClasses || ''}
     >
-      <path d='M0 3h20v2h-20v-2zM0 9h20v2h-20v-2zM0 15h20v2h-20v-2z'></path>
+      <path d="M0 3h20v2h-20v-2zM0 9h20v2h-20v-2zM0 15h20v2h-20v-2z"></path>
     </svg>
   );
 }

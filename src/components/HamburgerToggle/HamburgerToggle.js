@@ -9,9 +9,9 @@ export default function HamburgerToggle({
 }) {
   return (
     <button
-      className='hamburger-toggle'
+      className="hamburger-toggle"
       onClick={handleClick}
-      aria-label='toggle collapsible navigation menu'
+      aria-label="toggle collapsible navigation menu"
       aria-controls={controls}
       aria-expanded={collapsibleNavIsExpanded}
     >

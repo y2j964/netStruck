@@ -1,11 +1,11 @@
-import React, { useEffect } from "react";
-import { Link } from "react-router-dom";
-import PropTypes from "prop-types";
-import BtnPrimary from "../../components/BtnPrimary/BtnPrimary";
+import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import BtnPrimary from '../../components/BtnPrimary/BtnPrimary';
 import {
   useNetStruckDataState,
-  useNetStruckDataDispatcher
-} from "../../NetStruckDataContext";
+  useNetStruckDataDispatcher,
+} from '../../NetStruckDataContext';
 
 export default function SelectionItem({ match }) {
   const { slug } = match.params;
@@ -29,7 +29,7 @@ export default function SelectionItem({ match }) {
     img,
     description,
     genres,
-    isAddedToMyList
+    isAddedToMyList,
   } = selectedFilm;
 
   useEffect(() => {
@@ -39,12 +39,12 @@ export default function SelectionItem({ match }) {
   useEffect(() => {
     // When the search modal is open, you can navigate to films returned by SearchResults.
     // If the user does this, close the modal on navigation
-    dispatch({ type: "CLOSE_MODAL" });
+    dispatch({ type: 'CLOSE_MODAL' });
   }, [dispatch]);
 
   const genreLinks = genres.map((name, index) => (
     <React.Fragment key={index}>
-      {index > 0 && ", "}
+      {index > 0 && ', '}
       <Link
         className="underline"
         to={`/now-playing/genre/${getFeaturedGenreSlug(name)}`}
@@ -55,7 +55,7 @@ export default function SelectionItem({ match }) {
   ));
 
   const addToMyList = () => {
-    dispatch({ type: "TOGGLE_FILM_MYLIST_STATE", id: slug });
+    dispatch({ type: 'TOGGLE_FILM_MYLIST_STATE', id: slug });
   };
 
   return (
@@ -65,7 +65,7 @@ export default function SelectionItem({ match }) {
           <h2 className="selection__title">{title}</h2>
           <p className="selection__text mb-1">{`Directed by ${director} • ${year} • ${duration}`}</p>
           <p className="selection__text mb-1">{`Starring: ${actors.join(
-            ", "
+            ', '
           )}`}</p>
           <p className="selection__text mb-3">
             Genres: <React.Fragment>{genreLinks}</React.Fragment>
@@ -75,13 +75,12 @@ export default function SelectionItem({ match }) {
           </p>
           <div className="flex flex-wrap">
             <BtnPrimary additionalClasses="mr-4" handleClick={addToMyList}>
-              {isAddedToMyList ? "REMOVE FROM MYLIST" : "ADD TO MYLIST"}
+              {isAddedToMyList ? 'REMOVE FROM MYLIST' : 'ADD TO MYLIST'}
             </BtnPrimary>
           </div>
         </div>
         <div className="selection__poster">
           <div className="ratio-16-9">
-            {/* <img src={img} alt='' /> */}
             <picture>
               <source
                 sizes="(min-width: 800px) calc(50vw - 0.5rem), 100vw"
@@ -121,5 +120,5 @@ export default function SelectionItem({ match }) {
 }
 
 SelectionItem.propTypes = {
-  match: PropTypes.object.isRequired
+  match: PropTypes.object.isRequired,
 };

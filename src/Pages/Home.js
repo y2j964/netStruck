@@ -9,7 +9,7 @@ export default function Home() {
 
   return (
     <main>
-      <h1 className='sr-only'>NetStruck Home</h1>
+      <h1 className="sr-only">NetStruck Home</h1>
       <Hero />
       <Tabs />
     </main>

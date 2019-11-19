@@ -18,7 +18,7 @@ export default function useResponsivePagination(postsPerPageMinimum, dataSrc) {
   // break up filtered films into tranches via pagination
   const { currentPosts, loadMore, setCurrentPage } = usePagination(
     postsPerPage,
-    dataSrc,
+    dataSrc
   );
 
   return { currentPosts, setCurrentPage, loadMore, itemsPerPosition };

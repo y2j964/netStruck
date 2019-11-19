@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 
 export default function FooterItem({ href, text }) {
   return (
-    <li className='mr-5'>
-      <a href={href} className='text-light-gray text-xs'>
+    <li className="mr-5">
+      <a href={href} className="text-light-gray text-xs">
         {text}
       </a>
     </li>

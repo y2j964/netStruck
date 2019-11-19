@@ -11,16 +11,16 @@ export default function ToggleToMyListBtn({ isAddedToMyList, slug }) {
 
   return (
     <button
-      className='toggle-to-MyList-btn'
+      className="toggle-to-MyList-btn"
       onClick={toggleFilmMyListState}
       aria-label={isAddedToMyList ? 'Remove from My List' : 'Add to My List'}
     >
       {isAddedToMyList ? (
-        <Minus width='13' height='13' additionalClasses='rotate-transition' />
+        <Minus width="13" height="13" additionalClasses="rotate-transition" />
       ) : (
-        <Plus width='13' height='13' additionalClasses='rotate-transition' />
+        <Plus width="13" height="13" additionalClasses="rotate-transition" />
       )}
-      <span className='toggle-to-MyList-btn__text'>My List</span>
+      <span className="toggle-to-MyList-btn__text">My List</span>
     </button>
   );
 }

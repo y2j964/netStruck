@@ -254,30 +254,30 @@ export default class Carousel extends Component {
     return (
       // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
       <section
-        className='carousel'
-        aria-roledescription='carousel'
-        tabIndex='-1'
+        className="carousel"
+        aria-roledescription="carousel"
+        tabIndex="-1"
         onKeyDown={this.triggerCarouselArrow}
       >
-        <h2 className='sr-only'>Film Carousel Smorgasbord</h2>
-        <div className='carousel-trigger-overlay carousel-trigger-overlay--left'>
+        <h2 className="sr-only">Film Carousel Smorgasbord</h2>
+        <div className="carousel-trigger-overlay carousel-trigger-overlay--left">
           <PreviousSlideTrigger
             handleClick={this.queuePrevSlide}
-            classes='carousel__trigger'
-            svgClasses='carousel__chevron'
-            ariaLabel='display previous slide'
+            classes="carousel__trigger"
+            svgClasses="carousel__chevron"
+            ariaLabel="display previous slide"
           />
         </div>
         <CarouselItems featuredFilms={this.state.filmData} />
-        <div className='carousel-trigger-overlay carousel-trigger-overlay--right'>
+        <div className="carousel-trigger-overlay carousel-trigger-overlay--right">
           <NextSlideTrigger
             handleClick={this.queueNextSlide}
-            classes='carousel__trigger'
-            svgClasses='carousel__chevron'
-            ariaLabel='display next slide'
+            classes="carousel__trigger"
+            svgClasses="carousel__chevron"
+            ariaLabel="display next slide"
           />
         </div>
-        <div className='absolute left-0 bottom-0 w-full h-10 z-20'>
+        <div className="absolute left-0 bottom-0 w-full h-10 z-20">
           <CarouselCoins
             featuredFilms={this.state.filmData}
             jumpToSlide={this.jumpToSlide}

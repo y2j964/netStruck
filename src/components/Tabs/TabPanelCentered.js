@@ -12,41 +12,41 @@ export default function TabPanelCentered({
 }) {
   return (
     <div
-      className='tab-panel tab-panel--centered'
+      className="tab-panel tab-panel--centered"
       id={`tab-panel-${index + 1}`}
       aria-hidden={!isActive}
       aria-labelledby={`tab-${index + 1}`}
     >
-      <h2 className='sr-only'>{heading}</h2>
-      <div className='tab-panel--centered__img-group'>
-        <div className='ratio-2-1'>
+      <h2 className="sr-only">{heading}</h2>
+      <div className="tab-panel--centered__img-group">
+        <div className="ratio-2-1">
           <picture>
             <source
-              sizes='(min-width: 800px) calc(50vw - 1em), 100vw'
+              sizes="(min-width: 800px) calc(50vw - 1em), 100vw"
               srcSet={`${img.webp400} 400w,
                 ${img.webp640} 640w,
                 ${img.webp800} 800w,
                 ${img.webp1024} 1024w,
                 ${img.webp1200} 1200w,`}
-              type='image/webp'
+              type="image/webp"
             />
             <source
-              sizes='(min-width: 800px) calc(50vw - 1em), 100vw'
+              sizes="(min-width: 800px) calc(50vw - 1em), 100vw"
               srcSet={`${img.webp400} 400w,
                 ${img.jpg640} 640w,
                 ${img.jpg800} 800w,
                 ${img.jpg1024} 1024w,
                 ${img.jpg1200} 1200w,`}
             />
-            <img src={img.jpg800} alt='' className='object-cover' />
+            <img src={img.jpg800} alt="" className="object-cover" />
           </picture>
         </div>
       </div>
-      <div className='tab-panel--centered__text-group'>
-        <p className='tab-panel__text'>{text}</p>
+      <div className="tab-panel--centered__text-group">
+        <p className="tab-panel__text">{text}</p>
         <Link
           to={'/signup'}
-          className='btn-primary btn-primary--wider'
+          className="btn-primary btn-primary--wider"
           tabIndex={isActive ? '0' : '-1'}
         >
           SIGN UP
