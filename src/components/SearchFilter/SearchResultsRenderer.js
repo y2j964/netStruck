@@ -37,7 +37,7 @@ export default SearchResultsRenderer;
 
 SearchResultsRenderer.propTypes = {
   debouncedInputValue: PropTypes.string.isRequired,
-  children: PropTypes.node.isRequired,
+  children: PropTypes.element.isRequired,
   totalResults: PropTypes.number.isRequired,
   isLoading: PropTypes.bool.isRequired,
 };

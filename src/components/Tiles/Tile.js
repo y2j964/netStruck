@@ -197,7 +197,7 @@ Tile.propTypes = {
     index: PropTypes.number,
   }),
   setHoveredItem: PropTypes.func,
-  children: PropTypes.node,
+  children: PropTypes.element,
 };
 
 export default memo(Tile);

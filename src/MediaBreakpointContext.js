@@ -13,7 +13,7 @@ const MediaBreakpointProvider = props => {
   const updatedSlidesPerPosition = useMedia(
     mediaQueries,
     slidesPerPosition,
-    defaultSlidesPerPosition,
+    defaultSlidesPerPosition
   );
 
   return (
@@ -27,7 +27,7 @@ function useMediaBreakpointState() {
   const context = useContext(mediaBreakpointState);
   if (context === undefined) {
     throw new Error(
-      'useMediaBreakpointState must be used within a MediaBreakpointProvider',
+      'useMediaBreakpointState must be used within a MediaBreakpointProvider'
     );
   }
   return context;

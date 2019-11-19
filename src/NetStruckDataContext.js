@@ -29,12 +29,12 @@ const NetStruckDataProvider = props => {
 
   useEffect(
     () => localStorage.setItem('myList', JSON.stringify(state.myList)),
-    [state.myList],
+    [state.myList]
   );
 
   const getFilmsOfSameGenre = category => {
     const filmsOfSameGenre = state.films.filter(film =>
-      film.genres.includes(category),
+      film.genres.includes(category)
     );
     return filmsOfSameGenre;
   };
@@ -58,7 +58,7 @@ function useNetStruckDataState() {
   const context = useContext(NetStruckDataState);
   if (context === undefined) {
     throw new Error(
-      'useNetStruckDataState must be used within a NetStruckDataProvider',
+      'useNetStruckDataState must be used within a NetStruckDataProvider'
     );
   }
   return context;
@@ -67,7 +67,7 @@ function useNetStruckDataDispatcher() {
   const context = useContext(NetStruckDataDispatcher);
   if (context === undefined) {
     throw new Error(
-      'useNetStruckDataDispatcher must be used within a NetStruckDataProvider',
+      'useNetStruckDataDispatcher must be used within a NetStruckDataProvider'
     );
   }
   return context;
