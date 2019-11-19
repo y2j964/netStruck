@@ -8,6 +8,7 @@ function InputAnimated({
   id,
   isRequired,
   minLength,
+  autoComplete,
   value,
   handleValueChange,
   isFocused,
@@ -32,6 +33,7 @@ function InputAnimated({
         aria-required={isRequired}
         required={isRequired}
         minLength={minLength}
+        autoComplete={autoComplete}
         value={value}
         onChange={handleValueChange}
         onFocus={handleFocus}
@@ -42,13 +44,13 @@ function InputAnimated({
 }
 
 export const AnimatedTextInput = props => (
-  <InputAnimated {...props} type="text" />
+  <InputAnimated {...props} type="text" autoComplete="name" />
 );
 export const AnimatedEmailInput = props => (
-  <InputAnimated {...props} type="email" />
+  <InputAnimated {...props} type="email" autoComplete="email" />
 );
 export const AnimatedPasswordInput = props => (
-  <InputAnimated {...props} type="password" />
+  <InputAnimated {...props} type="password" autoComplete="current-password" />
 );
 
 InputAnimated.propTypes = {
@@ -58,6 +60,7 @@ InputAnimated.propTypes = {
   type: PropTypes.string.isRequired,
   minLength: PropTypes.string,
   isRequired: PropTypes.bool.isRequired,
+  autoComplete: PropTypes.string,
   value: PropTypes.string.isRequired,
   handleValueChange: PropTypes.func.isRequired,
   isFocused: PropTypes.bool.isRequired,
