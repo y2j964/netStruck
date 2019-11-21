@@ -14,7 +14,6 @@ import MyList from './Pages/MyList/MyList';
 import Error404 from './Pages/Error404';
 import SearchFilter from './components/SearchFilter/SearchFilter';
 import Modal from './components/Modal/Modal';
-import ScrollToTop from './components/ScrollToTop';
 import { NetStruckDataProvider } from './NetStruckDataContext';
 import { MediaBreakpointProvider } from './MediaBreakpointContext';
 
@@ -40,52 +39,56 @@ function App({ location, history }) {
   }, [history]);
 
   return (
-    <ScrollToTop>
-      <NetStruckDataProvider>
-        <Navbar
-          collapsibleNavIsExpanded={collapsibleNavIsExpanded}
-          toggleCollapsibleNav={() =>
-            setCollapsibleNavIsExpanded(!collapsibleNavIsExpanded)
-          }
-        />
-        <MediaBreakpointProvider>
-          <div className="relative flex-auto flex flex-col">
-            <TransitionGroup component={null}>
-              <CSSTransition
-                // prevent reanimation if active link is clicked by using pathname property
-                key={location.pathname}
-                timeout={{ enter: 300, exit: 150 }}
-                classNames="page-fade"
-                mountOnEnter
-                unmountOnExit
-              >
-                <Switch location={location}>
-                  <Route exact path="/" component={Home} />
-                  <Route exact path="/now-playing" component={NowPlaying} />
-                  <Route
-                    exact
-                    path="/now-playing/:slug"
-                    component={SelectionItem}
-                  />
-                  <Route
-                    path="/now-playing/genre/:slug"
-                    component={SelectionGenre}
-                  />
-                  <Route path="/all-films" component={AllFilms} />
-                  <Route path="/my-list" component={MyList} />
-                  <Route path="/signup" component={SignUp} />
-                  <Route component={Error404} />
-                </Switch>
-              </CSSTransition>
-            </TransitionGroup>
-            <Footer />
-          </div>
-          <Modal autoFocusCloseBtn={false}>
-            <SearchFilter />
-          </Modal>
-        </MediaBreakpointProvider>
-      </NetStruckDataProvider>
-    </ScrollToTop>
+    <NetStruckDataProvider>
+      <Navbar
+        collapsibleNavIsExpanded={collapsibleNavIsExpanded}
+        toggleCollapsibleNav={() =>
+          setCollapsibleNavIsExpanded(!collapsibleNavIsExpanded)
+        }
+      />
+      <MediaBreakpointProvider>
+        <div className="relative flex flex-col flex-auto">
+          <TransitionGroup component={null}>
+            <CSSTransition
+              // prevent reanimation if active link is clicked by using pathname property
+              key={location.pathname}
+              timeout={{ enter: 150, exit: 300 }}
+              classNames="page-fade"
+              onExit={node => {
+                // set the top of exiting item equal to its scroll position prior to prepend,
+                // so, if the content is scrolled down, it doesn't jump to the top of content
+                // eslint-disable-next-line no-param-reassign
+                node.style.top = `${-1 * window.scrollY}px`;
+              }}
+              mountOnEnter
+              unmountOnExit
+            >
+              <Switch location={location}>
+                <Route exact path="/" component={Home} />
+                <Route exact path="/now-playing" component={NowPlaying} />
+                <Route
+                  exact
+                  path="/now-playing/:slug"
+                  component={SelectionItem}
+                />
+                <Route
+                  path="/now-playing/genre/:slug"
+                  component={SelectionGenre}
+                />
+                <Route path="/all-films" component={AllFilms} />
+                <Route path="/my-list" component={MyList} />
+                <Route path="/signup" component={SignUp} />
+                <Route component={Error404} />
+              </Switch>
+            </CSSTransition>
+          </TransitionGroup>
+          <Footer />
+        </div>
+        <Modal autoFocusCloseBtn={false}>
+          <SearchFilter />
+        </Modal>
+      </MediaBreakpointProvider>
+    </NetStruckDataProvider>
   );
 }
 

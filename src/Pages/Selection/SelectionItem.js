@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import BtnPrimary from '../../components/BtnPrimary/BtnPrimary';
@@ -32,8 +32,11 @@ export default function SelectionItem({ match }) {
     isAddedToMyList,
   } = selectedFilm;
 
+  const ref = useRef();
   useEffect(() => {
     document.title = `${title} - NetStruck`;
+    // focus h1 on route change to let screen reader know we changed route
+    ref.current.focus();
   }, [title]);
 
   useEffect(() => {
@@ -62,7 +65,9 @@ export default function SelectionItem({ match }) {
     <main>
       <div className="selection">
         <div className="selection__info">
-          <h2 className="selection__title">{title}</h2>
+          <h1 className="selection__title" tabIndex="-1" ref={ref}>
+            {title}
+          </h1>
           <p className="selection__text mb-1">{`Directed by ${director} • ${year} • ${duration}`}</p>
           <p className="selection__text mb-1">{`Starring: ${actors.join(
             ', '

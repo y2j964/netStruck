@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import TileChunks from '../../components/Tiles/TileChunks';
@@ -20,55 +20,60 @@ export default function SelectionGenre({ match }) {
 
   const filmsOfSameGenre = getFilmsOfSameGenre(name);
 
+  const ref = useRef();
   useEffect(() => {
     document.title = `${name} - NetStruck`;
+    // focus h1 on route change to let screen reader know we changed route
+    ref.current.focus();
   }, [name]);
 
   const { currentPosts, loadMore, itemsPerPosition } = useResponsivePagination(
     postsPerPageMinimum,
-    filmsOfSameGenre,
+    filmsOfSameGenre
   );
 
   return (
     <main>
-      <div className='selection'>
-        <div className='selection__info'>
-          <h2 className='selection__title'>{name}</h2>
-          <p className='selection__text mb-6' id='selectionDescription'>
+      <div className="selection">
+        <div className="selection__info">
+          <h1 className="selection__title" tabIndex="-1" ref={ref}>
+            {name}
+          </h1>
+          <p className="selection__text mb-6" id="selectionDescription">
             {description}
           </p>
-          <div className='flex flex-wrap'>
-            <Link to={'/signup'} className='btn-primary btn-primary--wider'>
+          <div className="flex flex-wrap">
+            <Link to={'/signup'} className="btn-primary btn-primary--wider">
               SIGN UP
             </Link>
           </div>
         </div>
-        <div className='selection__poster'>
-          <div className='ratio-16-9'>
+        <div className="selection__poster">
+          <div className="ratio-16-9">
             <picture>
               <source
-                sizes='(min-width: 800px) calc(50vw - 0.5rem), 100vw'
+                sizes="(min-width: 800px) calc(50vw - 0.5rem), 100vw"
                 srcSet={`${poster.webp400} 400w,
                   ${poster.webp640} 640w,
                   ${poster.webp800} 800w,
                   ${poster.webp1024} 1024w,
                   ${poster.webp1200} 1200w,`}
-                type='image/webp'
+                type="image/webp"
               />
               <source
-                sizes='(min-width: 800px) calc(50vw - 0.5rem), 100vw'
+                sizes="(min-width: 800px) calc(50vw - 0.5rem), 100vw"
                 srcSet={`${poster.jpg400} 400w,
                   ${poster.jpg640} 640w,
                   ${poster.jpg800} 800w,
                   ${poster.jpg1024} 1024w,
                   ${poster.jpg1200} 1200w,`}
               />
-              <img src={poster.jpg800} alt='' />
+              <img src={poster.jpg800} alt="" />
             </picture>
           </div>
         </div>
       </div>
-      <div className='selection__content'>
+      <div className="selection__content">
         <InfiniteScroller loadMore={loadMore}>
           <TileChunks
             filmGroupData={currentPosts}

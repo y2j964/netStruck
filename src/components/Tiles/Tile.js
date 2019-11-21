@@ -88,6 +88,8 @@ const Tile = ({
     };
   }, [setHoveredItem]);
 
+  console.log('tile');
+
   return (
     <li
       className={`${getPositionalClasses(
@@ -149,7 +151,7 @@ const Tile = ({
             unmountOnExit
           >
             <div className={getExploderClass(placementInViewport)}>
-              <div className="bgo flex flex-col items-center justify-around w-full h-full relative">
+              <div className="bg-alpha flex flex-col items-center justify-around w-full h-full relative">
                 <h3 className="tile__title">{title}</h3>
                 <span className="tile__title">{year}</span>
                 {children}

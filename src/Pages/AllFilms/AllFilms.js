@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useNetStruckDataState } from '../../NetStruckDataContext';
 import usePagination from '../../utilityFunctions/usePagination';
 import FilmTable from '../../components/FilmTable/FilmTable';
@@ -96,9 +96,12 @@ const postsPerPage = 12;
 export default function AllFilms() {
   const [sortBy, setSortBy] = useState('title');
   const [sortIsAscending, setSortIsAscending] = useState(true);
+  const ref = useRef();
 
   useEffect(() => {
     document.title = 'All Films - NetStruck';
+    // focus h1 on route change to let screen reader know we changed route
+    ref.current.focus();
   }, []);
 
   const { state } = useNetStruckDataState();
@@ -115,7 +118,9 @@ export default function AllFilms() {
 
   return (
     <main className="md:px-12 my-16">
-      <h1 className="sr-only">NetStruck All Films</h1>
+      <h1 className="sr-only" tabIndex="-1" ref={ref}>
+        NetStruck All Films
+      </h1>
       <FilmTableViewOptions
         sortIsAscending={sortIsAscending}
         filmDataLength={filmDataLength}

@@ -8,8 +8,7 @@ body {
     Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #151515;
-  transition: background-color 200ms linear;
+  /* overflow-x: hidden; */
 }
 
 /* main and root styles to ensure that footer doesn't creep up the page
@@ -71,8 +70,14 @@ td {
   }
 }
 
+/* don't need focus outline when h1 is focused on route change */
+h1:focus {
+  outline: none;
+}
+
 .bg-main {
   background-color: #151515;
+  transition: background-color 300ms linear;
 }
 
 .bg-form {
@@ -205,19 +210,6 @@ td {
   );
 }
 
-/* .exploder {
-  @apply absolute top-0 bottom-0 left-0 right-0;
-  opacity: 0;
-  background-color: rgba(0, 0, 0, 0.55);
-  backface-visibility: hidden;
-  transform: scale(calc(1 / 1.5));
-  width: 150%;
-  height: 150%;
-  transition: opacity 400ms cubic-bezier(0, 0, 0.2, 1);
-  transform-origin: top left;
-  transition-delay: 400ms;
-} */
-
 .exploder {
   @apply absolute z-10;
   width: 150%;
@@ -264,7 +256,7 @@ td {
   }
 }
 
-.bgo {
+.bg-alpha {
   background-color: rgba(0, 0, 0, 0.55);
 }
 
@@ -346,9 +338,8 @@ td {
 
 .page-fade {
   &-enter {
-    overflow: hidden;
-    /* overflow hidden eases scrollbar transitions */
     opacity: 0;
+    /* overflow hidden eases scrollbar transitions */
   }
 
   &-enter-active {
@@ -364,7 +355,10 @@ td {
     left: 0;
     right: 0;
     bottom: 0;
-    width: 100vw;
+    /* width: 100vw; */
+    /* overflow: hidden; */
+    /* max-width: 100%; */
+    /* margin-right: calc(-100vw + 100%); */
     /* width here prevents content from jumping to left in the event that you are
     transitioning from a page without a scrollbar to a page with a scrollbar */
   }
