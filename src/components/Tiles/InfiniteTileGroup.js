@@ -52,7 +52,7 @@ function InfiniteTileGroup({
   filmGroupData,
   xPosition,
   isWrapping,
-  wrapAround,
+  handleTransitionEnd,
   tilesPerPosition,
   visibleSlideIndexes,
 }) {
@@ -138,7 +138,7 @@ function InfiniteTileGroup({
     <ul
       className="tile-group"
       style={tileGroupStyle}
-      onTransitionEnd={wrapAround}
+      onTransitionEnd={handleTransitionEnd}
     >
       {clonedEndTileFrags}
       {naturalTileFrags}
@@ -149,7 +149,7 @@ function InfiniteTileGroup({
 
 InfiniteTileGroup.propTypes = {
   filmGroupData: PropTypes.arrayOf(netStruckDataTypes).isRequired,
-  wrapAround: PropTypes.func.isRequired,
+  handleTransitionEnd: PropTypes.func.isRequired,
   tilesPerPosition: PropTypes.number.isRequired,
   visibleSlideIndexes: PropTypes.array.isRequired,
   xPosition: PropTypes.number.isRequired,

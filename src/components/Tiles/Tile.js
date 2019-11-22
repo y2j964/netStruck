@@ -88,8 +88,6 @@ const Tile = ({
     };
   }, [setHoveredItem]);
 
-  console.log('tile');
-
   return (
     <li
       className={`${getPositionalClasses(

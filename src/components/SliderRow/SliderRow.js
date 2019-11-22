@@ -14,6 +14,7 @@ export default function SliderRow({ filmGroupData }) {
     isWrapping: false,
     tilesPerPosition: 0,
     xPosition: 0,
+    naturalEndPositionX: NaN,
     visibleSlideIndexes: [],
   });
 
@@ -31,26 +32,32 @@ export default function SliderRow({ filmGroupData }) {
       id: filmGroupData.length,
     });
 
-  const wrapAround = () =>
-    dispatch({ type: 'WRAP_AROUND', id: filmGroupData.length });
-
-  const updatedSlidesPerPosition = useMediaBreakpointState();
+  const handleTransitionEnd = () => {
+    if (state.xPosition === 0) {
+      dispatch({ type: 'WRAP_BACKWARD', id: filmGroupData.length });
+    }
+    // 100 here represents the step
+    if (state.xPosition === state.naturalEndPositionX - 100) {
+      dispatch({ type: 'WRAP_FORWARD', id: filmGroupData.length });
+    }
+  };
 
   useEffect(() => {
-    // the slider will jump if the user clicks right before the penultimate position's
-    // transition ends; this ensures that doesn't happen; also doesn't cause re-render
     setTimeout(() => {
       transitionEnded.current = true;
     }, 750);
+    // 750 is duration of slider transition
   }, [state.xPosition]);
 
-  const handleClick = callback => {
+  // wait for previous slider transition to end before accepting new clicks
+  const bufferClick = callback => {
     if (transitionEnded.current) {
       transitionEnded.current = false;
       callback();
     }
   };
 
+  const updatedSlidesPerPosition = useMediaBreakpointState();
   // run getUpdatedTilesPerPosition when windowWidth changes
   useEffect(() => {
     const recalibrateSlider = updatedTilesPerPosition => {
@@ -69,7 +76,7 @@ export default function SliderRow({ filmGroupData }) {
     <div className="slider-row relative w-full h-full" ref={ref}>
       <div className="slider-row__content-preview slider-row__content-preview--left">
         <PreviousSlideTrigger
-          handleClick={() => handleClick(moveSliderBackward)}
+          handleClick={() => bufferClick(moveSliderBackward)}
           classes="slider-row__btn"
           svgClasses="slider-row__chevron"
           ariaLabel="slide previous films into view"
@@ -81,12 +88,12 @@ export default function SliderRow({ filmGroupData }) {
         <InfiniteTileGroup
           filmGroupData={filmGroupData}
           {...state}
-          wrapAround={wrapAround}
+          handleTransitionEnd={handleTransitionEnd}
         />
       )}
       <div className="slider-row__content-preview slider-row__content-preview--right">
         <NextSlideTrigger
-          handleClick={() => handleClick(moveSliderForward)}
+          handleClick={() => bufferClick(moveSliderForward)}
           classes="slider-row__btn"
           svgClasses="slider-row__chevron"
           ariaLabel="slide next films into view"

@@ -1,5 +1,7 @@
 const step = 100;
 
+const getSlideWidth = tilesPerPosition => step / tilesPerPosition;
+
 const getActiveSlideIndexes = (
   updatedXPosition,
   slideWidth,
@@ -62,64 +64,13 @@ const getLeftAlignedSlideIndexes = (
   return leftAlignedSlideIndexes;
 };
 
-const getResizedSlideIndexes = (
-  prevTilesPerPosition,
-  updatedTilesPerPosition,
-  visibleSlideIndexes,
-  genreLength
-) => {
-  const naturalEndingLeftMostIndex = genreLength;
-  const leftMostSlideIndex = getLeftMostSlideIndex(
-    prevTilesPerPosition,
-    visibleSlideIndexes,
-    updatedTilesPerPosition
-  );
-  // on resize, we want to maintain the left-most slide
-  // if the left-most slide doesn't support a wider viewport (i.e. you end up wrapping
-  // the ending and beginning slides), just use last position
-  if (leftMostSlideIndex > naturalEndingLeftMostIndex) {
-    const naturalEndingSlideIndexes = getNaturalEndingSlideIndexes(
-      genreLength,
-      updatedTilesPerPosition
-    );
-    return naturalEndingSlideIndexes;
-  }
-  const resizedSlideIndexes = getLeftAlignedSlideIndexes(
-    leftMostSlideIndex,
-    updatedTilesPerPosition
-  );
-  return resizedSlideIndexes;
-};
-
-const getResizedXPosition = (
-  prevTilesPerPosition,
-  updatedTilesPerPosition,
-  updatedVisibleSlideIndexes,
-  genreLength
-) => {
-  const slideWidth = step / updatedTilesPerPosition;
-  const naturalEndingLeftMostIndex = genreLength;
-  const leftMostSlideIndex = getLeftMostSlideIndex(
-    prevTilesPerPosition,
-    updatedVisibleSlideIndexes,
-    updatedTilesPerPosition
-  );
-  if (leftMostSlideIndex > naturalEndingLeftMostIndex) {
-    const endPositionX = -slideWidth * naturalEndingLeftMostIndex;
-    return endPositionX;
-  }
-  // maintain position respective to previous leftMostSlide
-  const updatedXPosition = leftMostSlideIndex * -slideWidth;
-  return updatedXPosition;
-};
-
 const filmDataReducer = (state, action) => {
   switch (action.type) {
     case 'MOVE_SLIDER_BACKWARD': {
-      const slideWidth = step / state.tilesPerPosition;
+      const slideWidth = getSlideWidth(state.tilesPerPosition);
 
       if (state.xPosition > -step) {
-        // prevents slider from sliding off tracks; endPositionX - step is the clones at the end
+        // prevents slider from sliding off tracks; -step is the first set of clones
         return state;
       }
       if (state.xPosition > -step - 100 && state.xPosition % 100 !== 0) {
@@ -162,20 +113,19 @@ const filmDataReducer = (state, action) => {
     }
 
     case 'MOVE_SLIDER_FORWARD': {
-      const slideWidth = step / state.tilesPerPosition;
-      const naturalEndPositionX = -slideWidth * action.id;
+      const slideWidth = getSlideWidth(state.tilesPerPosition);
 
-      if (state.xPosition === naturalEndPositionX - step) {
-        // prevents slider from sliding off tracks; naturalEndPositionX - step is the clones at the end
+      if (state.xPosition === state.naturalEndPositionX - step) {
+        // prevents slider from sliding off tracks; state.naturalEndPositionX - step is the clones at the end
         return state;
       }
 
       if (
-        state.xPosition > naturalEndPositionX &&
-        state.xPosition < naturalEndPositionX + step
+        state.xPosition > state.naturalEndPositionX &&
+        state.xPosition < state.naturalEndPositionX + step
       ) {
         // if xPosition has less than a full movement toward the end, do partial movement to end
-        const updatedXPosition = naturalEndPositionX;
+        const updatedXPosition = state.naturalEndPositionX;
         const updatedSlideIndexes = getActiveSlideIndexes(
           updatedXPosition,
           slideWidth,
@@ -189,7 +139,7 @@ const filmDataReducer = (state, action) => {
         };
       }
 
-      if (state.xPosition === naturalEndPositionX) {
+      if (state.xPosition === state.naturalEndPositionX) {
         // if slider is at ending position, prepare for wrapAround
         const updatedXPosition = state.xPosition - step;
         return { ...state, isWrapping: true, xPosition: updatedXPosition };
@@ -210,59 +160,72 @@ const filmDataReducer = (state, action) => {
       };
     }
 
-    case 'WRAP_AROUND': {
-      const slideWidth = step / state.tilesPerPosition;
-      const naturalEndPositionX = -slideWidth * action.id;
+    case 'WRAP_BACKWARD': {
+      const slideWidth = getSlideWidth(state.tilesPerPosition);
 
-      if (state.xPosition === 0) {
-        const updatedSlideIndexes = getActiveSlideIndexes(
-          naturalEndPositionX,
-          slideWidth,
-          state.tilesPerPosition
-        );
-        return {
-          ...state,
-          isWrapping: false,
-          xPosition: naturalEndPositionX,
-          visibleSlideIndexes: updatedSlideIndexes,
-        };
-      }
+      const updatedSlideIndexes = getActiveSlideIndexes(
+        state.naturalEndPositionX,
+        slideWidth,
+        state.tilesPerPosition
+      );
+      return {
+        ...state,
+        isWrapping: false,
+        xPosition: state.naturalEndPositionX,
+        visibleSlideIndexes: updatedSlideIndexes,
+      };
+    }
 
-      if (state.xPosition === naturalEndPositionX - step) {
-        const updatedSlideIndexes = getActiveSlideIndexes(
-          -step,
-          slideWidth,
-          state.tilesPerPosition
-        );
-        return {
-          ...state,
-          isWrapping: false,
-          xPosition: -step,
-          visibleSlideIndexes: updatedSlideIndexes,
-        };
-      }
-      return { ...state };
+    case 'WRAP_FORWARD': {
+      const slideWidth = getSlideWidth(state.tilesPerPosition);
+      const updatedSlideIndexes = getActiveSlideIndexes(
+        -step,
+        slideWidth,
+        state.tilesPerPosition
+      );
+      return {
+        ...state,
+        isWrapping: false,
+        xPosition: -step,
+        visibleSlideIndexes: updatedSlideIndexes,
+      };
     }
 
     case 'RECALIBRATE_SLIDER': {
-      const updatedVisibleSlideIndexes = getResizedSlideIndexes(
+      const resizedSlideWidth = getSlideWidth(action.id.updatedTilesPerPosition);
+      const resizedNaturalEndPositionX =
+        -resizedSlideWidth * action.id.genreLength;
+
+      const leftMostSlideIndex = getLeftMostSlideIndex(
         state.tilesPerPosition,
-        action.id.updatedTilesPerPosition,
         state.visibleSlideIndexes,
-        action.id.genreLength
+        action.id.updatedTilesPerPosition
       );
-      const updatedXPosition = getResizedXPosition(
-        state.tilesPerPosition,
-        action.id.updatedTilesPerPosition,
-        state.visibleSlideIndexes,
-        action.id.genreLength
-      );
+
+      // isOverflowed means that the slider would be partially showing the cloned set at
+      // the end along with non-cloned slides; in that case, just show last natural position
+      const isOverflowed = leftMostSlideIndex > action.id.genreLength;
+
+      const resizedVisibleSlideIndexes = isOverflowed
+        ? getNaturalEndingSlideIndexes(
+            action.id.genreLength,
+            action.id.updatedTilesPerPosition
+          )
+        : getLeftAlignedSlideIndexes(
+            leftMostSlideIndex,
+            action.id.updatedTilesPerPosition
+          );
+
+      const resizedXPosition = isOverflowed
+        ? resizedNaturalEndPositionX
+        : leftMostSlideIndex * -resizedSlideWidth;
 
       return {
         isWrapping: true,
         tilesPerPosition: action.id.updatedTilesPerPosition,
-        visibleSlideIndexes: updatedVisibleSlideIndexes,
-        xPosition: updatedXPosition,
+        visibleSlideIndexes: resizedVisibleSlideIndexes,
+        xPosition: resizedXPosition,
+        naturalEndPositionX: resizedNaturalEndPositionX,
       };
     }
 
