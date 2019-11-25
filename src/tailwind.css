@@ -9788,8 +9788,8 @@ video {
   }
 
 .tile-group__item {
+    backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
-            backface-visibility: hidden;
     transition: transform 400ms cubic-bezier(0, 0, 0.2, 1);
     transition-delay: 400ms;
   }
@@ -9815,13 +9815,11 @@ video {
     }
 
 .tile-group__item--is-left-edge {
-      transform-origin: left;
       transition: transform 400ms cubic-bezier(0, 0, 0.2, 1);
       transition-delay: 400ms;
     }
 
 .tile-group__item--is-right-edge {
-      transform-origin: right;
       transition: transform 400ms cubic-bezier(0, 0, 0.2, 1);
       transition-delay: 400ms;
     }
@@ -9836,12 +9834,12 @@ video {
   border-width: 1px;
   border-color: #fff;
   z-index: 10;
-  cursor: pointer;
   height: 34px;
   border-radius: 18px;
-  transition: opacity 400ms cubic-bezier(0, 0, 0.2, 1);
-  transition-delay: 400ms;
 }
+
+/* backface-visibility: hidden;
+  -webkit-backface-visibility: hidden; */
 
 @media (min-width: 500px) {
 
@@ -9849,6 +9847,9 @@ video {
     height: 36px
 }
   }
+
+/* transition: opacity 400ms cubic-bezier(0, 0, 0.2, 1);
+  transition-delay: 400ms; */
 
 .toggle-to-MyList-btn:hover .rotate-transition {
       transform: rotate(180deg);
@@ -10134,10 +10135,17 @@ video {
   }
     }
 
+html {
+  margin-right: calc(-100vw + 100%);
+  /* overlap scrollbar; will be offset by margin-right of equal value (but positive)
+  on body after calculation is taken from #scrollbarWidthGetter*/
+}
+
 #root {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  /* ensure that viewport height is full, at minimum */
 }
 
 body {
@@ -10146,14 +10154,14 @@ body {
     Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /* overflow-x: hidden; */
+  overflow-x: hidden;
+  /* overflow is hidden here to prevent horizontal scrollbar on page transition;
+  alternatively we could toggle this property in and out from the CSSTransition onExit func */
 }
-
-/* main and root styles to ensure that footer doesn't creep up the page
-in the event that there isn't much content within main */
 
 main {
   flex: 1 1 auto;
+  /* ensure that footer doesn't creep up the page if there isn't much content within main */
 }
 
 code {
@@ -10285,6 +10293,14 @@ h1:focus {
   object-fit: cover;
 }
 
+.absolutely-zeroed {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
 .ratio-16-9 {
   position: relative;
   overflow: hidden;
@@ -10378,10 +10394,11 @@ h1:focus {
   height: 150%;
   top: -25%;
   left: -25%;
-  /* background-color: rgba(0, 0, 0, 0.55); */
+  backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
-          backface-visibility: hidden;
 }
+
+/* margin: 0 2px; */
 
 .exploder--is-left-edge {
     left: 0;
@@ -10410,13 +10427,16 @@ h1:focus {
 .exploder-exit {
     transform: scale(1);
     visibility: visible;
+    /* opacity: 1; */
   }
 
 .exploder-exit-active {
     transform: scale(calc(2 / 3));
     visibility: hidden;
+    /* opacity: 0; */
     transition: transform 400ms cubic-bezier(0, 0, 0.2, 1),
       visibility 400ms cubic-bezier(0, 0, 0.2, 1);
+    /* opacity 400ms cubic-bezier(0, 0, 0.2, 1); */
     transition-delay: 400ms;
   }
 
@@ -10509,7 +10529,6 @@ h1:focus {
 
 .page-fade-enter {
     opacity: 0;
-    /* overflow hidden eases scrollbar transitions */
   }
 
 .page-fade-enter-active {
@@ -10519,23 +10538,35 @@ h1:focus {
 
 .page-fade-exit {
     opacity: 1;
-    /* have exiting page overlap via absolute positioning */
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    /* width: 100vw; */
-    /* overflow: hidden; */
-    /* max-width: 100%; */
-    /* margin-right: calc(-100vw + 100%); */
-    /* width here prevents content from jumping to left in the event that you are
-    transitioning from a page without a scrollbar to a page with a scrollbar */
+    width: 100%;
   }
 
 .page-fade-exit-active {
     opacity: 0;
     transition: opacity 150ms ease-in;
+  }
+
+.reveal {
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+}
+
+.reveal-appear {
+    opacity: 0;
+  }
+
+.reveal-appear-active {
+    opacity: 1;
+    transition: opacity 400ms ease-in-out 600ms;
+  }
+
+.reveal-exit {
+    opacity: 1;
+  }
+
+.reveal-exit-active {
+    opacity: 0;
+    transition: opacity 450ms ease-in-out 250ms;
   }
 
 @keyframes pulse {
@@ -10602,6 +10633,12 @@ h1:focus {
 
 .enter-from-right {
   animation: enterFromRight 800ms ease;
+}
+
+@keyframes getBorn {
+  100% {
+    opacity: 1;
+  }
 }
 
 @media (min-width: 500px) {

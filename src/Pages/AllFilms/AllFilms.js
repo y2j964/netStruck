@@ -117,7 +117,7 @@ export default function AllFilms() {
   const filmDataLength = filmData.length;
 
   return (
-    <main className="md:px-12 my-16">
+    <main className="md:px-12 py-16">
       <h1 className="sr-only" tabIndex="-1" ref={ref}>
         NetStruck All Films
       </h1>

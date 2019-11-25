@@ -23,7 +23,7 @@ export default function NowPlaying() {
         NetStruck Featured Content
       </h1>
       <Carousel />
-      <section className="overflow-x-hidden">
+      <section>
         <h2 className="sr-only">Organized Content</h2>
         {isLoading ? <Spinner /> : <ContentRows />}
       </section>

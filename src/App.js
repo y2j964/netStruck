@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 import React, { useState, useEffect } from 'react';
 import { withRouter, Route, Switch } from 'react-router-dom';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
@@ -21,6 +22,22 @@ function App({ location, history }) {
   const [collapsibleNavIsExpanded, setCollapsibleNavIsExpanded] = useState(
     false
   );
+
+  // eliminate scrollbar jump by figuring out scrollbarWidth on mount
+  useEffect(() => {
+    const body = document.querySelector('body');
+    const scrollbarWidthEl = document.getElementById('scrollbarWidthGetter');
+    const scrollbarWidth =
+      scrollbarWidthEl.offsetWidth - scrollbarWidthEl.clientWidth;
+
+    // apply value to body; html has this value as a negative. Consequently,
+    // the scrollbar can appear and disappear without having any effect on
+    // the spacing of anything on the page. Scrollbar jump will be nill.
+    body.style.marginRight = `${scrollbarWidth}px`;
+
+    // remove element from DOM; its work is done
+    scrollbarWidthEl.parentNode.removeChild(scrollbarWidthEl);
+  }, []);
 
   // set up listener and ensure collapsibleNav is collapsed on route change
   useEffect(() => {
@@ -47,18 +64,24 @@ function App({ location, history }) {
         }
       />
       <MediaBreakpointProvider>
-        <div className="relative flex flex-col flex-auto">
+        <div
+          className="absolute w-16 overflow-y-scroll z-neg invisible"
+          id="scrollbarWidthGetter"
+        ></div>
+        <div className="relative flex flex-col flex-auto" id="main-wrapper">
           <TransitionGroup component={null}>
             <CSSTransition
               // prevent reanimation if active link is clicked by using pathname property
               key={location.pathname}
-              timeout={{ enter: 150, exit: 300 }}
+              timeout={{ enter: 300, exit: 150 }}
               classNames="page-fade"
               onExit={node => {
-                // set the top of exiting item equal to its scroll position prior to prepend,
-                // so, if the content is scrolled down, it doesn't jump to the top of content
-                // eslint-disable-next-line no-param-reassign
-                node.style.top = `${-1 * window.scrollY}px`;
+                const { scrollY } = window;
+                // have exiting page overlap via absolute positioning, and set the top of
+                // exiting  item equal to its scroll position prior to prepend; so, if the
+                // content is scrolled down, it doesn't jump to the top of content
+                node.classList.add('absolutely-zeroed');
+                node.style.top = `${-1 * scrollY}px`;
               }}
               mountOnEnter
               unmountOnExit
@@ -82,8 +105,8 @@ function App({ location, history }) {
               </Switch>
             </CSSTransition>
           </TransitionGroup>
-          <Footer />
         </div>
+        <Footer />
         <Modal autoFocusCloseBtn={false}>
           <SearchFilter />
         </Modal>
