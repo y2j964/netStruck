@@ -1,9 +1,3 @@
-html {
-  margin-right: calc(-100vw + 100%);
-  /* overlap scrollbar; will be offset by margin-right of equal value (but positive)
-  on body after calculation is taken from #scrollbarWidthGetter*/
-}
-
 #root {
   @apply flex flex-col min-h-screen;
   /* ensure that viewport height is full, at minimum */

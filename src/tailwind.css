@@ -9000,7 +9000,16 @@ video {
   z-index: 20;
   background: rgba(20, 20, 20, 0.95);
   overflow-x: hidden;
+  overflow-y: scroll;
+  /* Tile hover state will cause scrollbar flicker in Chrome if (1) the body overflow is blocked,
+    (2) a position absolute is superimposed into view, and (3) the width of the viewport is just
+    wide enough to create an empty scrollbar (a scrollbar emerges but there is no scrollable
+    content). The latter condition occurs quite rarely, but this is why I've opted for
+    overflow-y: scroll. */
+  width: 100vw;
 }
+
+/* prevent scrollbars from stacking next to each other */
 
 .modal__header {
     display: flex;
@@ -9018,8 +9027,6 @@ video {
 
 .modal-exit {
     opacity: 1;
-    /* prevent new vertical scrollbar from kicking modal's scrollbar to the left */
-    width: 100vw;
   }
 
 .modal-exit-active {
@@ -10134,12 +10141,6 @@ video {
       padding-right: 2.5rem
   }
     }
-
-html {
-  margin-right: calc(-100vw + 100%);
-  /* overlap scrollbar; will be offset by margin-right of equal value (but positive)
-  on body after calculation is taken from #scrollbarWidthGetter*/
-}
 
 #root {
   display: flex;
