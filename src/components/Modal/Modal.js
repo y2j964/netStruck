@@ -1,14 +1,14 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
-import React, { useEffect, useRef } from "react";
-import ReactDOM from "react-dom";
-import FocusTrap from "focus-trap-react";
-import { CSSTransition } from "react-transition-group";
-import { disableBodyScroll, clearAllBodyScrollLocks } from "body-scroll-lock";
+import React, { useEffect, useRef } from 'react';
+import ReactDOM from 'react-dom';
+import FocusTrap from 'focus-trap-react';
+import { CSSTransition } from 'react-transition-group';
+import { disableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock';
 import {
   useNetStruckDataState,
-  useNetStruckDataDispatcher
-} from "../../NetStruckDataContext";
-import Close from "../../icons/Close";
+  useNetStruckDataDispatcher,
+} from '../../NetStruckDataContext';
+import Close from '../../icons/Close';
 
 export default function Modal({ children, autoFocusCloseBtn }) {
   const { state } = useNetStruckDataState();
@@ -30,12 +30,12 @@ export default function Modal({ children, autoFocusCloseBtn }) {
   }, [modalIsOpen, autoFocusCloseBtn]);
 
   const closeSearchModal = () => {
-    dispatch({ type: "CLOSE_MODAL" });
+    dispatch({ type: 'CLOSE_MODAL' });
   };
 
   const handleKeyDown = e => {
     const key = e.key || e.code;
-    if (key !== "Escape") {
+    if (key !== 'Escape') {
       return;
     }
     closeSearchModal();
@@ -74,6 +74,6 @@ export default function Modal({ children, autoFocusCloseBtn }) {
         </div>
       </FocusTrap>
     </CSSTransition>,
-    document.getElementById("modal-root")
+    document.getElementById('modal-root')
   );
 }

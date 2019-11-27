@@ -19,15 +19,6 @@ export default function SearchResults({
     setIsLoadingMore(false);
   }, [filteredFilms]);
 
-  useEffect(() => {
-    // Tile hover state will cause scrollbar flicker in Chrome if (1) the body overflow is blocked,
-    // (2) a position absolute is superimposed into view, and (3) the width of the viewport is just
-    // wide enough to create an empty scrollbar (a scrollbar emerges but there is no scrollable
-    // content). The latter condition occurs quite rarely, but this is why I've opted for
-    // overflow-y: scroll. The style is initiated here to ease the modal transition.
-    document.querySelector('.modal').style.overflowY = 'scroll';
-  }, []);
-
   const handleClick = () => {
     setIsLoadingMore(true);
     setTimeout(() => {
