@@ -21,30 +21,6 @@ export default function MyList() {
 
   const myListLength = myList.length;
 
-  // useEffect(() => {
-  //   const body = document.querySelector('body');
-  //   // if (myListLength) {
-  //   //   body.style.overflowY = 'scroll';
-  //   //   return () => {
-  //   //     body.style.removeProperty('overflow-y');
-  //   //   };
-  //   // }
-
-  //   // if empty, add marginRight so there is no scrollbar jump
-  //   // const documentWidth = document.documentElement.clientWidth;
-  //   // const windowWidth = window.innerWidth;
-  //   // const scrollBarWidth = windowWidth - documentWidth;
-  //   // console.log(documentWidth, windowWidth);
-
-  //   body.style.width = '100vw';
-  //   body.style.overflowX = 'hidden';
-  //   return () => {
-  //     body.style.removeProperty('width');
-  //     // body.style.removeProperty('padding-left');
-  //     body.style.removeProperty('overflow-x');
-  //   };
-  // }, [myListLength]);
-
   const { currentPosts, loadMore, itemsPerPosition } = useResponsivePagination(
     postsPerPageMinimum,
     myList
@@ -61,7 +37,7 @@ export default function MyList() {
         length={myListLength}
         Component={EmptyList}
         render={() => (
-          <div className="px-10 pt-8 md:pt-10 pb-4 overflow-x-hidden">
+          <div className="px-10 pt-8 md:pt-10 pb-4">
             <InfiniteScroller loadMore={loadMore}>
               <TileChunks
                 filmGroupData={currentPosts}

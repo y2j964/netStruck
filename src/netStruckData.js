@@ -1,5 +1,5 @@
+// data mostly pulled from https://www.themoviedb.org/
 import uuid from 'uuid';
-
 import runningOnEmptyWebp400 from './images/responsive/runningOnEmpty-400.webp';
 import runningOnEmptyWebp640 from './images/responsive/runningOnEmpty-640.webp';
 import runningOnEmptyWebp800 from './images/responsive/runningOnEmpty-800.webp';
