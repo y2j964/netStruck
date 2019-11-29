@@ -166,12 +166,6 @@ const Tile = ({
             unmountOnExit
           >
             <div className={getExploderClass(placementInViewport)}>
-              <Link
-                to={`/now-playing/${slug}`}
-                className="absolute top-0 bottom-0 left-0 right-0"
-                tabIndex="-1"
-                aria-label={title}
-              />
               <picture>
                 <source srcSet={img.webp400} type="image/webp" />
                 <source srcSet={img.jpg400} />
@@ -188,6 +182,12 @@ const Tile = ({
                 <h3 className="tile__title">{title}</h3>
                 <span className="tile__title">{year}</span>
                 {children}
+                <Link
+                  to={`/now-playing/${slug}`}
+                  className="absolute top-0 bottom-0 left-0 right-0"
+                  tabIndex="-1"
+                  aria-label={title}
+                />
               </div>
             </div>
           </CSSTransition>

@@ -9800,18 +9800,12 @@ video {
   border-radius: 18px;
 }
 
-/* backface-visibility: hidden;
-  -webkit-backface-visibility: hidden; */
-
 @media (min-width: 500px) {
 
 .toggle-to-MyList-btn {
     height: 36px
 }
   }
-
-/* transition: opacity 400ms cubic-bezier(0, 0, 0.2, 1);
-  transition-delay: 400ms; */
 
 .toggle-to-MyList-btn:hover .rotate-transition {
       transform: rotate(180deg);
