@@ -216,15 +216,27 @@ h1:focus {
   );
 }
 
+.jitterbug {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform-style: preserve-3d;
+  transform: translate3d(0, 0, 0);
+  /* perspective: 1px; */
+  /* will-change: transform; */
+  /* transform: rotate(-0.0000000001deg);
+    -webkit-transform: rotate(-0.0000000001deg); */
+}
+
 .exploder {
   @apply absolute z-10;
   width: 150%;
   height: 150%;
   top: -25%;
   left: -25%;
+  perspective: 1px;
+  transform: scale(calc(2 / 3)) translateZ(0);
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
-  /* margin: 0 2px; */
 
   &--is-left-edge {
     left: 0;
@@ -249,20 +261,25 @@ h1:focus {
     /* all we want for visibility here is to be delayed */
     transition-delay: 400ms;
   }
+  &-enter-done {
+    transform: scale(1);
+  }
+
   &-exit {
     transform: scale(1);
     visibility: visible;
-    /* opacity: 1; */
   }
 
   &-exit-active {
     transform: scale(calc(2 / 3));
     visibility: hidden;
-    /* opacity: 0; */
     transition: transform 400ms cubic-bezier(0, 0, 0.2, 1),
       visibility 400ms cubic-bezier(0, 0, 0.2, 1);
-    /* opacity 400ms cubic-bezier(0, 0, 0.2, 1); */
     transition-delay: 400ms;
+  }
+
+  &-exit-done {
+    transform: scale(calc(2 / 3));
   }
 }
 
@@ -286,6 +303,7 @@ h1:focus {
 }
 
 .a-pseudo-wrap {
+  /* wrap entire container in a screen-reader friendly way */
   &::after {
     @apply absolute top-0 bottom-0 right-0 left-0;
     content: '';
@@ -367,25 +385,6 @@ h1:focus {
   }
 }
 
-.reveal {
-  transform: translateZ(0);
-  -webkit-transform: translateZ(0);
-  &-appear {
-    opacity: 0;
-  }
-  &-appear-active {
-    opacity: 1;
-    transition: opacity 400ms ease-in-out 600ms;
-  }
-  &-exit {
-    opacity: 1;
-  }
-  &-exit-active {
-    opacity: 0;
-    transition: opacity 450ms ease-in-out 250ms;
-  }
-}
-
 @keyframes pulse {
   0% {
     background-color: #1f1f1f;
@@ -448,8 +447,14 @@ h1:focus {
   animation: enterFromRight 800ms ease;
 }
 
-@keyframes getBorn {
+@keyframes fadeIn {
   100% {
     opacity: 1;
+  }
+}
+
+@keyframes fadeAway {
+  100% {
+    opacity: 0;
   }
 }

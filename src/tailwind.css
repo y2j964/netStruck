@@ -9716,6 +9716,9 @@ video {
     color: #fff;
     text-align: center;
     font-size: 1.125rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
 @media (min-width: 500px) {
@@ -9732,59 +9735,11 @@ video {
     padding: 0.25rem;
   }
 
-/* .tile-group {
-  @apply flex mb-8;
-
-  @media (--sm) {
-    @apply mb-10;
-  }
-
-  &__item {
-    backface-visibility: hidden;
-    -webkit-backface-visibility: hidden;
-    transition: transform 400ms cubic-bezier(0, 0, 0.2, 1);
-    transition-delay: 400ms;
-
-    &--is-stationary {
-      transform: translate(0) translateZ(0px);
-    }
-    &--is-soft-left {
-      transform: translate(-25%) translateZ(0px);
-    }
-    &--is-hard-left {
-      transform: translate(-50%) translateZ(0px);
-    }
-    &--is-soft-right {
-      transform: translate(25%) translateZ(0px);
-    }
-    &--is-hard-right {
-      transform: translate(50%) translateZ(0px);
-    }
-
-    &--is-hovered {
-      transform: scale(1.49) translateZ(0px);
-      .exploder {
-        opacity: 1;
-      }
-    }
-
-    &--is-left-edge {
-      transform-origin: left;
-      transition: transform 400ms cubic-bezier(0, 0, 0.2, 1);
-      transition-delay: 400ms;
-    }
-
-    &--is-right-edge {
-      transform-origin: right;
-      transition: transform 400ms cubic-bezier(0, 0, 0.2, 1);
-      transition-delay: 400ms;
-    }
-  }
-} */
-
 .tile-group {
   display: flex;
   margin-bottom: 2rem;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 @media (min-width: 500px) {
@@ -9797,6 +9752,7 @@ video {
 .tile-group__item {
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
+    will-change: transform;
     transition: transform 400ms cubic-bezier(0, 0, 0.2, 1);
     transition-delay: 400ms;
   }
@@ -9832,7 +9788,6 @@ video {
     }
 
 .toggle-to-MyList-btn {
-  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -10388,6 +10343,17 @@ h1:focus {
   );
 }
 
+.jitterbug {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform-style: preserve-3d;
+  transform: translate3d(0, 0, 0);
+  /* perspective: 1px; */
+  /* will-change: transform; */
+  /* transform: rotate(-0.0000000001deg);
+    -webkit-transform: rotate(-0.0000000001deg); */
+}
+
 .exploder {
   position: absolute;
   z-index: 10;
@@ -10395,11 +10361,11 @@ h1:focus {
   height: 150%;
   top: -25%;
   left: -25%;
+  perspective: 1px;
+  transform: scale(calc(2 / 3)) translateZ(0);
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
 }
-
-/* margin: 0 2px; */
 
 .exploder--is-left-edge {
     left: 0;
@@ -10425,20 +10391,25 @@ h1:focus {
     transition-delay: 400ms;
   }
 
+.exploder-enter-done {
+    transform: scale(1);
+  }
+
 .exploder-exit {
     transform: scale(1);
     visibility: visible;
-    /* opacity: 1; */
   }
 
 .exploder-exit-active {
     transform: scale(calc(2 / 3));
     visibility: hidden;
-    /* opacity: 0; */
     transition: transform 400ms cubic-bezier(0, 0, 0.2, 1),
       visibility 400ms cubic-bezier(0, 0, 0.2, 1);
-    /* opacity 400ms cubic-bezier(0, 0, 0.2, 1); */
     transition-delay: 400ms;
+  }
+
+.exploder-exit-done {
+    transform: scale(calc(2 / 3));
   }
 
 .bg-alpha {
@@ -10463,6 +10434,8 @@ h1:focus {
   .tr-overlay:focus {
     opacity: 0.2;
   }
+
+/* wrap entire container in a screen-reader friendly way */
 
 .a-pseudo-wrap::after {
     position: absolute;
@@ -10547,29 +10520,6 @@ h1:focus {
     transition: opacity 150ms ease-in;
   }
 
-.reveal {
-  transform: translateZ(0);
-  -webkit-transform: translateZ(0);
-}
-
-.reveal-appear {
-    opacity: 0;
-  }
-
-.reveal-appear-active {
-    opacity: 1;
-    transition: opacity 400ms ease-in-out 600ms;
-  }
-
-.reveal-exit {
-    opacity: 1;
-  }
-
-.reveal-exit-active {
-    opacity: 0;
-    transition: opacity 450ms ease-in-out 250ms;
-  }
-
 @keyframes pulse {
   0% {
     background-color: #1f1f1f;
@@ -10636,9 +10586,15 @@ h1:focus {
   animation: enterFromRight 800ms ease;
 }
 
-@keyframes getBorn {
+@keyframes fadeIn {
   100% {
     opacity: 1;
+  }
+}
+
+@keyframes fadeAway {
+  100% {
+    opacity: 0;
   }
 }
 

@@ -72,6 +72,7 @@ const Tile = ({
   // track if exploder enter transition has ended so we can
   // smoothly cancel the transition
   const enterTransitionEnded = useRef(false);
+  const revealRef = useRef(false);
 
   const handleMouseEnter = () => {
     setHoveredItem({ position: placementInViewport, index });
@@ -132,15 +133,31 @@ const Tile = ({
             classNames={{
               enter: 'exploder-enter',
               enterActive: 'exploder-enter-active',
+              enterDone: 'exploder-enter-done',
               exit: enterTransitionEnded.current
                 ? 'exploder-exit'
                 : 'exploder-exit-active',
               // cancel animation if enter transition hasn't ended
               exitActive: 'exploder-exit-active',
+              exitDone: 'exploder-exit-done',
             }}
             timeout={800}
+            onEnter={() => {
+              // Setup reveal animation logic here. Originally, I was using
+              // a nested CSSTransition w/ the appear prop, but that produced a
+              // jump bug in Chrome; this approach sidesteps that bug.
+              //
+              revealRef.current.style.opacity = '0';
+              revealRef.current.style.animation =
+                'fadeIn 200ms ease-in 750ms forwards';
+            }}
             onEntered={() => {
               enterTransitionEnded.current = true;
+            }}
+            onExit={() => {
+              revealRef.current.style.opacity = '1';
+              revealRef.current.style.animation =
+                'fadeAway 450ms ease-in-out 250ms forwards';
             }}
             onExited={() => {
               enterTransitionEnded.current = false;
@@ -149,17 +166,12 @@ const Tile = ({
             unmountOnExit
           >
             <div className={getExploderClass(placementInViewport)}>
-              <div className="bg-alpha flex flex-col items-center justify-around w-full h-full relative">
-                <h3 className="tile__title">{title}</h3>
-                <span className="tile__title">{year}</span>
-                {children}
-                <Link
-                  to={`/now-playing/${slug}`}
-                  className="absolute top-0 bottom-0 left-0 right-0"
-                  tabIndex="-1"
-                  aria-label={title}
-                />
-              </div>
+              <Link
+                to={`/now-playing/${slug}`}
+                className="absolute top-0 bottom-0 left-0 right-0"
+                tabIndex="-1"
+                aria-label={title}
+              />
               <picture>
                 <source srcSet={img.webp400} type="image/webp" />
                 <source srcSet={img.jpg400} />
@@ -169,6 +181,14 @@ const Tile = ({
                   className="absolute top-0 left-0 right-0 bottom z-neg"
                 />
               </picture>
+              <div
+                className="bg-alpha flex flex-col items-center justify-around w-full h-full relative jitterbug"
+                ref={revealRef}
+              >
+                <h3 className="tile__title">{title}</h3>
+                <span className="tile__title">{year}</span>
+                {children}
+              </div>
             </div>
           </CSSTransition>
         </div>

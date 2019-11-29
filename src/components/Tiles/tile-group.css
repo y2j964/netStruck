@@ -1,5 +1,7 @@
-/* .tile-group {
+.tile-group {
   @apply flex mb-8;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 
   @media (--sm) {
     @apply mb-10;
@@ -8,55 +10,7 @@
   &__item {
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
-    transition: transform 400ms cubic-bezier(0, 0, 0.2, 1);
-    transition-delay: 400ms;
-
-    &--is-stationary {
-      transform: translate(0) translateZ(0px);
-    }
-    &--is-soft-left {
-      transform: translate(-25%) translateZ(0px);
-    }
-    &--is-hard-left {
-      transform: translate(-50%) translateZ(0px);
-    }
-    &--is-soft-right {
-      transform: translate(25%) translateZ(0px);
-    }
-    &--is-hard-right {
-      transform: translate(50%) translateZ(0px);
-    }
-
-    &--is-hovered {
-      transform: scale(1.49) translateZ(0px);
-      .exploder {
-        opacity: 1;
-      }
-    }
-
-    &--is-left-edge {
-      transform-origin: left;
-      transition: transform 400ms cubic-bezier(0, 0, 0.2, 1);
-      transition-delay: 400ms;
-    }
-
-    &--is-right-edge {
-      transform-origin: right;
-      transition: transform 400ms cubic-bezier(0, 0, 0.2, 1);
-      transition-delay: 400ms;
-    }
-  }
-} */
-
-.tile-group {
-  @apply flex mb-8;
-
-  @media (--sm) {
-    @apply mb-10;
-  }
-
-  &__item {
-    backface-visibility: hidden;
+    will-change: transform;
     transition: transform 400ms cubic-bezier(0, 0, 0.2, 1);
     transition-delay: 400ms;
 
@@ -81,13 +35,11 @@
     }
 
     &--is-left-edge {
-      transform-origin: left;
       transition: transform 400ms cubic-bezier(0, 0, 0.2, 1);
       transition-delay: 400ms;
     }
 
     &--is-right-edge {
-      transform-origin: right;
       transition: transform 400ms cubic-bezier(0, 0, 0.2, 1);
       transition-delay: 400ms;
     }

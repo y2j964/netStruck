@@ -37,7 +37,7 @@
   }
 
   &__title {
-    @apply text-white text-center text-lg;
+    @apply text-white text-center text-lg truncate;
 
     @media (--sm) {
       @apply text-xl;

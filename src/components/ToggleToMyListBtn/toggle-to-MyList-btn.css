@@ -1,9 +1,11 @@
 .toggle-to-MyList-btn {
-  @apply relative flex justify-center items-center px-6 border border-white z-10 cursor-pointer;
+  @apply flex justify-center items-center px-6 border border-white z-10;
   height: 34px;
   border-radius: 18px;
-  transition: opacity 400ms cubic-bezier(0, 0, 0.2, 1);
-  transition-delay: 400ms;
+  /* transition: opacity 400ms cubic-bezier(0, 0, 0.2, 1);
+  transition-delay: 400ms; */
+  /* backface-visibility: hidden;
+  -webkit-backface-visibility: hidden; */
 
   @media (--sm) {
     height: 36px;
