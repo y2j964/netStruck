@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import PropTypes from 'prop-types';
 import { netStruckDataTypes } from '../../netStruckDataTypes';
 import Tile from './Tile';
@@ -18,6 +18,14 @@ export default function TileGroup({ filmGroupData, tilesPerPosition }) {
   const [hoveredItem, setHoveredItem] = useState({ position: '', index: NaN });
   // // relevant position values are 'leftEdge', 'middle', 'rightEdge'
 
+  const handleMouseEnter = hoveredObj => setHoveredItem(hoveredObj);
+
+  // needs useCallback b/c it is used as dep in Tile useEffect
+  const handleMouseLeave = useCallback(
+    hoveredObj => setHoveredItem(hoveredObj),
+    []
+  );
+
   const tileFrags = filmGroupData.map((film, index) => (
     <Tile
       key={film.id}
@@ -30,7 +38,8 @@ export default function TileGroup({ filmGroupData, tilesPerPosition }) {
       groupLength={filmGroupData.length}
       placementInViewport={getPlacementInViewport(index, tilesPerPosition)}
       hoveredItem={hoveredItem}
-      setHoveredItem={setHoveredItem}
+      handleMouseEnter={handleMouseEnter}
+      handleMouseLeave={handleMouseLeave}
     >
       <ToggleToMyListBtn
         slug={film.slug}

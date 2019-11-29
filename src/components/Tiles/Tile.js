@@ -67,27 +67,21 @@ const Tile = ({
   ariaLabel,
   placementInViewport,
   hoveredItem,
-  setHoveredItem,
+  handleMouseEnter,
+  handleMouseLeave,
 }) => {
+  console.log('t');
   // track if exploder enter transition has ended so we can
   // smoothly cancel the transition
   const enterTransitionEnded = useRef(false);
   const revealRef = useRef(false);
 
-  const handleMouseEnter = () => {
-    setHoveredItem({ position: placementInViewport, index });
-  };
-
-  const handleMouseLeave = () => {
-    setHoveredItem({ position: '', index: NaN });
-  };
-
   useEffect(() => {
     // reset hoveredItem if Tile is removed from view
     return () => {
-      setHoveredItem({ position: '', index: NaN });
+      handleMouseLeave({ position: '', index: NaN });
     };
-  }, [setHoveredItem]);
+  }, [handleMouseLeave]);
 
   return (
     <li
@@ -96,8 +90,10 @@ const Tile = ({
         index,
         placementInViewport
       )} tile`}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
+      onMouseEnter={() => {
+        handleMouseEnter({ position: placementInViewport, index });
+      }}
+      onMouseLeave={() => handleMouseLeave({ position: '', index: NaN })}
       aria-hidden={
         placementInViewport !== 'middle' &&
         placementInViewport !== 'leftEdge' &&
@@ -216,8 +212,13 @@ Tile.propTypes = {
     ]).isRequired,
     index: PropTypes.number,
   }),
-  setHoveredItem: PropTypes.func,
+  handleMouseEnter: PropTypes.func,
+  handleMouseLeave: PropTypes.func,
   children: PropTypes.element,
 };
 
-export default memo(Tile);
+const areEqual = (prevProps, nextProps) =>
+  prevProps.placementInViewport === 'offscreen' &&
+  nextProps.placementInViewport === 'offscreen';
+
+export default memo(Tile, areEqual);

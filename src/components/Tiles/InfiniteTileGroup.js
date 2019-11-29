@@ -1,4 +1,4 @@
-import React, { useState, useLayoutEffect } from 'react';
+import React, { useState, useLayoutEffect, useCallback } from 'react';
 import PropTypes from 'prop-types';
 import uuid from 'uuid';
 import { netStruckDataTypes } from '../../netStruckDataTypes';
@@ -61,6 +61,13 @@ function InfiniteTileGroup({
   const [hoveredItem, setHoveredItem] = useState({ position: '', index: NaN });
   // relevant position values are 'rightEdge', 'leftEdge', 'middle'
 
+  const handleMouseEnter = hoveredObj => setHoveredItem(hoveredObj);
+  // needs useCallback b/c it is used as dep in Tile useEffect
+  const handleMouseLeave = useCallback(
+    hoveredObj => setHoveredItem(hoveredObj),
+    []
+  );
+
   useLayoutEffect(() => {
     const endClonesFrags = createEndClones(tilesPerPosition, filmGroupData);
     const frontClonesFrags = createFrontClones(tilesPerPosition, filmGroupData);
@@ -88,7 +95,8 @@ function InfiniteTileGroup({
       alt={film.alt}
       placementInViewport={index !== 0 ? 'offscreen' : 'rightPreview'}
       hoveredItem={hoveredItem}
-      setHoveredItem={setHoveredItem}
+      handleMouseEnter={handleMouseEnter}
+      handleMouseLeave={handleMouseLeave}
     />
   ));
 
@@ -105,7 +113,8 @@ function InfiniteTileGroup({
         index + 1 !== tilesPerPosition ? 'offscreen' : 'leftPreview'
       }
       hoveredItem={hoveredItem}
-      setHoveredItem={setHoveredItem}
+      handleMouseEnter={handleMouseEnter}
+      handleMouseLeave={handleMouseLeave}
     />
   ));
 
@@ -125,7 +134,8 @@ function InfiniteTileGroup({
       ariaLabel={`slide ${index + 1} of ${filmGroupData.length}`}
       // index value is accumulated to account for slides
       hoveredItem={hoveredItem}
-      setHoveredItem={setHoveredItem}
+      handleMouseEnter={handleMouseEnter}
+      handleMouseLeave={handleMouseLeave}
     >
       <ToggleToMyListBtn
         slug={film.slug}
