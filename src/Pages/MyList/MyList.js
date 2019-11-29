@@ -42,7 +42,6 @@ export default function MyList() {
               <TileChunks
                 filmGroupData={currentPosts}
                 tilesPerPosition={itemsPerPosition}
-                isUnmountable={true}
               />
             </InfiniteScroller>
           </div>
