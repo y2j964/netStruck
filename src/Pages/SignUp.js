@@ -31,7 +31,7 @@ function SignUp({ history }) {
   }, [history]);
 
   return (
-    <main className="max-w-lg lg:max-w-6xl lg:flex lg:flex-row lg:items-center lg:justify-center px-5 lg:px-10 mx-auto">
+    <main className="max-w-lg lg:max-w-6xl lg:flex lg:flex-row lg:py-10 xl:py-16 px-5 lg:px-10 mx-auto">
       <div className="lg:flex-1 mb-12 lg:mb-0 lg:mr-16">
         <header className="mb-10 mt-5">
           <h1

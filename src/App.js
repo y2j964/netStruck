@@ -71,9 +71,10 @@ function App({ location, history }) {
                 // have exiting page overlap via absolute positioning, and set the top of
                 // exiting  item equal to its scroll position prior to prepend; so, if the
                 // content is scrolled down, it doesn't jump to the top of content
-                node.classList.add('absolutely-zeroed');
                 node.style.top = `${-1 * scrollY}px`;
+                node.classList.add('absolutely-zeroed');
                 node.style.width = exitingWidth;
+                window.scrollTo(0, 0);
               }}
               mountOnEnter
               unmountOnExit
