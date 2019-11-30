@@ -70,7 +70,6 @@ const Tile = ({
   handleMouseEnter,
   handleMouseLeave,
 }) => {
-  console.log('t');
   // track if exploder enter transition has ended so we can
   // smoothly cancel the transition
   const enterTransitionEnded = useRef(false);
