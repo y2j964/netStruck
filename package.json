@@ -2,7 +2,7 @@
   "name": "netstruck",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://y2j964.github.io/NetStruck/",
+  "homepage": "https://y2j964.github.io/netStruck",
   "dependencies": {
     "@fullhuman/postcss-purgecss": "^1.3.0",
     "autoprefixer": "^9.7.1",
