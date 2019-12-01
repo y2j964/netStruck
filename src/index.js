@@ -5,7 +5,7 @@ import './tailwind.css';
 import App from './App';
 
 ReactDOM.render(
-  <Router>
+  <Router basename="/netStruck">
     <App />
   </Router>,
   document.getElementById('root')
