@@ -37,7 +37,7 @@
   }
 
   &__title {
-    @apply text-white text-center text-lg truncate;
+    @apply text-white text-center text-lg truncate max-w-full;
 
     @media (--sm) {
       @apply text-xl;
