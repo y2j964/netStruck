@@ -2,11 +2,13 @@
   "name": "netstruck",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://y2j964.github.io/NetStruck/",
   "dependencies": {
     "@fullhuman/postcss-purgecss": "^1.3.0",
     "autoprefixer": "^9.7.1",
     "body-scroll-lock": "^2.6.4",
     "focus-trap-react": "^6.0.0",
+    "gh-pages": "^2.1.1",
     "node-sass": "^4.12.0",
     "postcss-custom-media": "^7.0.8",
     "postcss-import": "^12.0.1",
@@ -24,6 +26,7 @@
   "scripts": {
     "start": "npm-run-all -p start:css start:js",
     "build": "npm-run-all build:css build:js",
+    "deploy": "gh-pages -d build",
     "start:js": "react-scripts start",
     "build:js": "react-scripts build",
     "start:css": "postcss src/tailwind.src.css -o src/tailwind.css -w",
