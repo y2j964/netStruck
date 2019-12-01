@@ -1,6 +1,9 @@
+/* purgecss start ignore */
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
+/* purgecss end ignore */
 @import 'tailwindcss/utilities';
+/* purgecss start ignore */
 @import 'components/BtnPrimary/btn-primary.css';
 @import 'components/Carousel/carousel.css';
 @import 'components/Carousel/carousel-item.css';
@@ -34,6 +37,7 @@
 @import 'Pages/AllFilms/all-films.css';
 @import 'Pages/Selection/selection.css';
 @import 'miscellaneous.css';
+/* purgecss end ignore */
 
 @custom-media --sm (min-width: 500px);
 @custom-media --md (min-width: 800px);
