@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "61cbb3e859feb710331663120ae16696",
+    "revision": "66837716a0f6f0a584d50f119f29bbe5",
     "url": "/netStruck/index.html"
   },
   {
-    "revision": "fa2bd6e7caa1defa9a1f",
+    "revision": "2eb7744febe4375623b7",
     "url": "/netStruck/static/css/main.960d584b.chunk.css"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/netStruck/static/js/2.8f5400e0.chunk.js"
   },
   {
-    "revision": "fa2bd6e7caa1defa9a1f",
-    "url": "/netStruck/static/js/main.7b4bc836.chunk.js"
+    "revision": "2eb7744febe4375623b7",
+    "url": "/netStruck/static/js/main.abd297d8.chunk.js"
   },
   {
     "revision": "67ec54927d1d40da9c37",
