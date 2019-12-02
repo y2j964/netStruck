@@ -1,5 +1,6 @@
 # NetStruck
 A ReactJS single-page application patterned after [Criterion Channel](https://www.criterionchannel.com) and [Netflix](https://www.netflix.com)
+
 ![NetStruck animated demo](demo/demo.gif)
 
 ## Table of contents
