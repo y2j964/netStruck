@@ -1,10 +1,11 @@
 /* eslint-disable global-require */
 const purgecss = require('@fullhuman/postcss-purgecss')({
-  content: ['index.html'],
+  content: ['./src/**/*.jsx', './src/**/*.js', './public/index.html'],
+  css: ['./src/tailwind.css'],
   // ignore any --is- modifier class
   whitelistPatterns: [/--is-/],
 
-  defaultExtractor: content => content.match(/[\w-/:]+(?<!:)/g) || [],
+  defaultExtractor: content => content.match(/[A-Za-z0-9-_:/]+/g) || [],
 });
 
 module.exports = {
