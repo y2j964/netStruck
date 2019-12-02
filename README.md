@@ -1,6 +1,6 @@
 # NetStruck
-![NetStruck animated demo](demo/demo.gif)
 A ReactJS single-page application patterned after [Criterion Channel](https://www.criterionchannel.com) and [Netflix](https://www.netflix.com)
+![NetStruck animated demo](demo/demo.gif)
 
 ## Table of contents
 * [Demo](#Demo)
@@ -11,9 +11,9 @@ A ReactJS single-page application patterned after [Criterion Channel](https://ww
 * [Acknowledgements](#acknowledgements)
 
 ## Demo
-Interact with demo [here](https://youtu.be/dW1DNrlSJug).
+[Watch video demo](https://youtu.be/dW1DNrlSJug).
 
-Watch video demo [here](https://youtu.be/dW1DNrlSJug).
+[Interact with demo](https://y2j964.github.io/netStruck/).
 
 ## General Info
 NetStruck emerged as a fun coding challenge I gave myself to create a unique ReactJS single-page application. Naturally, being the cineaste that I am, I sought to replicate the UI CriterionChannel.com. But as much as I love Criterion Channel's service, their UX is lacking in certain aspects. So I have sought to make the UX better. I don't set up expensive resize events to dynamically size the NowPlaying carousel when CSS can handle the job on its own; I use pagination and a custom InfiniteScroller (leveraging lazy loading and IntersectionObserver) instead of loading all of the films at once on the All Films page; and I used the Netflix approach for the SliderRow and for all the Tile hover states, instead of the rather pedestrian look of Criterion Channel's sliders and tiles.
