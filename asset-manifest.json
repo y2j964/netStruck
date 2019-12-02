@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/netStruck/static/css/main.54506d8b.chunk.css",
+    "main.css": "/netStruck/static/css/main.e51ba161.chunk.css",
     "main.js": "/netStruck/static/js/main.abd297d8.chunk.js",
     "main.js.map": "/netStruck/static/js/main.abd297d8.chunk.js.map",
     "runtime~main.js": "/netStruck/static/js/runtime~main.f2723cd3.js",
@@ -8,9 +8,9 @@
     "static/js/2.8f5400e0.chunk.js": "/netStruck/static/js/2.8f5400e0.chunk.js",
     "static/js/2.8f5400e0.chunk.js.map": "/netStruck/static/js/2.8f5400e0.chunk.js.map",
     "index.html": "/netStruck/index.html",
-    "precache-manifest.12b51bf24ea4dd4e63dedba96cec9533.js": "/netStruck/precache-manifest.12b51bf24ea4dd4e63dedba96cec9533.js",
+    "precache-manifest.c7a6fb07d0a8832dd5abf070ae245d54.js": "/netStruck/precache-manifest.c7a6fb07d0a8832dd5abf070ae245d54.js",
     "service-worker.js": "/netStruck/service-worker.js",
-    "static/css/main.54506d8b.chunk.css.map": "/netStruck/static/css/main.54506d8b.chunk.css.map",
+    "static/css/main.e51ba161.chunk.css.map": "/netStruck/static/css/main.e51ba161.chunk.css.map",
     "static/media/allThatJazz-1024.jpg": "/netStruck/static/media/allThatJazz-1024.21acce66.jpg",
     "static/media/allThatJazz-1024.webp": "/netStruck/static/media/allThatJazz-1024.da7ea2af.webp",
     "static/media/allThatJazz-1200.jpg": "/netStruck/static/media/allThatJazz-1200.c1e3803a.jpg",
