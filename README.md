@@ -81,6 +81,12 @@ Runs default CRA build.
 #### `npm run build:css`
 Builds TailwindCSS and purges unused classes as per postcss.config.js.
 
+### Deployment
+After running npm run build, you can deploy the app with this script:
+
+#### `npm run deploy`
+Deploys app to gh-pages.
+
 ## Acknowledgements
   * The name NetStruck is a portmanteau of **Net**flix and Criterion Channel's former outing, [Film**Struck**](https://www.filmstruck.com/), at which I was a beta user.
   * The NetStruck UI is based on the UI of CriterionChannel.com.
