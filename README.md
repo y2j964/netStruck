@@ -12,7 +12,7 @@ A ReactJS single-page application patterned after [Criterion Channel](https://ww
 * [Acknowledgements](#acknowledgements)
 
 ## Demo
-[Watch video demo](https://youtu.be/dW1DNrlSJug).
+[Watch silent video demo](https://youtu.be/dW1DNrlSJug).
 
 [Interact with demo](https://y2j964.github.io/netStruck/).
 
